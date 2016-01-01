@@ -1,0 +1,22 @@
+{
+  "name": "kwt-mis",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Loken Makwana <lokenmakwana@yahoo.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest"
+  },
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
