@@ -69,6 +69,17 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    /**
+     * Handle an authentication attempt.
+     *
+     * @return Response
+     */
+    public function authenticate()
+    {
+        if (Auth::attempt(['email' => $email, 'password' => $password],"active"=>1)) {
+            
+            return redirect()->intended('dashboard');
+        }
+    }
 
-    
 }

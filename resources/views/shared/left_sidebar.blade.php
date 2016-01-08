@@ -1,5 +1,4 @@
-<!-- BEGIN SIDEBPANEL-->
-    <nav class="page-sidebar" data-pages="sidebar">
+  <nav class="page-sidebar" data-pages="sidebar">
       <!-- BEGIN SIDEBAR MENU TOP TRAY CONTENT-->
       <div class="sidebar-overlay-slide from-top" id="appMenu">
         <div class="row">
@@ -26,7 +25,7 @@
       <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
       <!-- BEGIN SIDEBAR MENU HEADER-->
       <div class="sidebar-header">
-        <img src="img/logo_white.png" alt="logo" class="brand" data-src="img/logo_white.png" data-src-retina="img/logo_white_2x.png" width="78" height="22">
+        <img src="img/logo_white.png" alt="logo" class="brand" data-src="img/logo_white.png" data-src-retina="img/logo_white_2x.png" width="100" height="30">
         <div class="sidebar-header-controls">
           <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
           </button>
@@ -121,8 +120,7 @@
           <li class="">
             <a href="javascript:;">
               <span class="title">Forms</span>
-              <span class="arrow
-             "></span>
+              <span class="arrow"></span>
             </a>
             <span class="icon-thumbnail"><i class="pg-form"></i></span>
             <ul class="sub-menu">
@@ -254,5 +252,3 @@
       </div>
       <!-- END SIDEBAR MENU -->
     </nav>
-    <!-- END SIDEBAR -->
-    <!-- END SIDEBPANEL-->

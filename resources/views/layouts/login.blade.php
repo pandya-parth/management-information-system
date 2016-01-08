@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+      <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta charset="utf-8" />
     <title>Pages - Admin Dashboard UI Kit</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -17,8 +17,7 @@
     <meta content="" name="author" />
     <link rel="stylesheet" href="{{ elixir('css/vendor.css') }}">
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
-
-    <script type="text/javascript">
+     <script type="text/javascript">
     window.onload = function()
     {
       // fix for windows 8
@@ -26,17 +25,18 @@
         document.head.innerHTML += '<link rel="stylesheet" type="text/css" href="pages/css/windows.chrome.fix.css" />'
     }
     </script>
-  </head>
-  <body class="fixed-header   ">
-    
+ </head>
 
-    @yield('content')
-    
-   
-    <script src="{{ elixir('js/vendor.js') }}"></script>
-    <script src="{{ elixir('js/app.js') }}"></script>
-    <script src="assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-    <script>
+ <body class="fixed-header">
+
+    <div class="login-wrapper ">
+  	@yield ('content')
+  </div>
+  
+
+  <script src="{{ elixir('js/vendor.js') }}"></script>
+	<script src="{{ elixir('js/app.js') }}"></script>
+	<script type="text/javascript">
     $(function()
     {
       $('#form-login').validate()

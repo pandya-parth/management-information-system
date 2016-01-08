@@ -1,17 +1,17 @@
 @extends('layouts.login')
 
 @section('content')
-<!-- START PAGE-CONTAINER -->
-    <div class="login-wrapper ">
+     <!-- START PAGE-CONTAINER -->
+
       <!-- START Login Background Pic Wrapper-->
       <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg" data-src="img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg" data-src-retina="img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg" alt="" class="lazy">
+        <img src="{{ asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src="{{asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src-retina="{{ asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" alt="" class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
           <h2 class="semi-bold text-white">
-                    Pages make it easy to enjoy what matters the most in the life</h2>
+          Pages make it easy to enjoy what matters the most in the life</h2>
           <p class="small">
             images Displayed are solely for representation purposes only, All work copyright of respective owner, otherwise © 2013-2014 REVOX.
           </p>
@@ -22,7 +22,7 @@
       <!-- START Login Right Container-->
       <div class="login-container bg-white">
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
-          <img src="img/logo.png" alt="logo" data-src="img/logo.png" data-src-retina="img/logo_2x.png" width="78" height="22">
+          <img src="{{asset('img/logo.png')}}" alt="logo" data-src="{{asset('img/logo.png')}}" data-src-retina="{{ asset('img/logo_2x.png')}}" width="200" >
           <p class="p-t-35">Sign into your pages account</p>
           <!-- START Login Form -->
           <form id="form-login" class="p-t-15" role="form" action="index.html">
@@ -57,21 +57,10 @@
             <button class="btn btn-primary btn-cons m-t-10" type="submit">Sign in</button>
           </form>
           <!--END Login Form-->
-          <div class="pull-bottom sm-pull-bottom">
-            <div class="m-b-30 p-r-80 sm-m-t-20 sm-p-r-15 sm-p-b-20 clearfix">
-              <div class="col-sm-3 col-md-2 no-padding">
-                <img alt="" class="m-t-5" data-src="img/demo/pages_icon.png" data-src-retina="img/demo/pages_icon_2x.png" height="60" src="img/demo/pages_icon.png" width="60">
-              </div>
-              <div class="col-sm-9 no-padding m-t-10">
-                <p><small>
-                        Create a pages account. If you have a facebook account, log into it for this process. Sign in with <a href="#" class="text-info">Facebook</a> or <a href="#" class="text-info">Google</a></small>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+                 </div>
       </div>
       <!-- END Login Right Container-->
     </div>
     <!-- END PAGE CONTAINER -->
+
 @endsection
