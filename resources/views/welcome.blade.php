@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html ng-app="app">
-    <head>
-        <title>Laravel</title>
-        <link rel="stylesheet" href="{{ elixir('css/vendor.css') }}">
-        <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
-    </head>
-    <body ng-controller="BodyCtrl">
-        <div class="container">
-            <div class="content">
-                <div class="title">{% title %}</div>
+@extends('layouts.app')
+
+@section('content')
+ <div class="page-content-wrapper">
+        <!-- START PAGE CONTENT -->
+        <div class="content">
+
+<div class="container spark-screen">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">Welcome</div>
+
+                <div class="panel-body">
+                    Your Application's Landing Page.
+                </div>
             </div>
         </div>
+    </div>
+</div>
 
-        <script src="{{ elixir('js/vendor.js') }}"></script>
-        <script src="{{ elixir('js/app.js') }}"></script>
-    </body>
-</html>
+</div>
+</div>
+@endsection
+
