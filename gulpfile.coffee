@@ -37,6 +37,7 @@ elixir (mix)->
       bowerPath('bootstrap','dist','js','switchery.min.js')
       bowerPath('bootstrap','dist','js','pages.min.js')
       bowerPath('bootstrap','dist','js','scripts.js')
+      bowerPath('bootstrap','dist','js','jquery.validate.min.js')
       bowerPath('angular','angular.min.js')
     ], 'public/js/vendor.js'
 

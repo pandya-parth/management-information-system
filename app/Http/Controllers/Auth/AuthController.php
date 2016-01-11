@@ -7,6 +7,10 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Session\Middleware\StartSession;
+use Auth;
+
+
 
 class AuthController extends Controller
 {
@@ -69,6 +73,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
    
 
 }

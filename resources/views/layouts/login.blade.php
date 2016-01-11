@@ -29,9 +29,9 @@
 
  <body class="fixed-header">
 
-    <div class="login-wrapper ">
+  
   	@yield ('content')
-  </div>
+
   
 
   <script src="{{ elixir('js/vendor.js') }}"></script>
