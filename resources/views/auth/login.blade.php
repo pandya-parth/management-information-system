@@ -25,44 +25,41 @@
           <img src="{{asset('img/logo.png')}}" alt="logo" data-src="{{asset('img/logo.png')}}" data-src-retina="{{ asset('img/logo_2x.png')}}" width="200" >
           <p class="p-t-35">Sign into your pages account</p>
           <!-- START Login Form -->
-          {!! Former::open()->method('post')->action('/') !!}
-
-         
+          {!! Former::open()->method('post')->class('p-t-15')->role('form') !!}
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Login</label>
               <div class="controls">
-                {!! Former::text("email")->placeholder('Enter your email') !!}
-                <input type="text" name="username" placeholder="User Name" class="form-control" required>
-              </div>
+              {!! Former::email("username")->placeholder('User Name')->label(false)->class('form-control') !!}
+                </div>
             </div>
             <!-- END Form Control-->
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Password</label>
               <div class="controls">
-            {!! Former::password('password')->placeholder('password') !!}
-                
+                {!! Former::password('password')->placeholder('Credentials')->label(false)->class('form-control') !!}
               </div>
             </div>
             <!-- START Form Control-->
             <div class="row">
               <div class="col-md-6 no-padding">
                 <div class="checkbox ">
-                  <input type="checkbox" value="1" id="checkbox1">
+                  
+                  {!! Former::checkbox('remember')->token()->label(false) !!}
                   <label for="checkbox1">Keep Me Signed in</label>
                 </div>
               </div>
               <div class="col-md-6 text-right">
-
-                <a href="#" class="text-info small">*Forget Password?</a>
-
+                <a href="#" class="text-info small">Help? Contact Support</a>
               </div>
             </div>
             <!-- END Form Control-->
-            <button class="btn btn-primary btn-cons m-t-10" type="submit">Sign in</button>
+            {!! Former::submit('Sign in')->class('btn btn-primary btn-cons m-t-10') !!}
+            
             {!! Former::close() !!}
-          
+
+           
           <!--END Login Form-->
                  </div>
       </div>
