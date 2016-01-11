@@ -25,7 +25,7 @@
           <img src="{{asset('img/logo.png')}}" alt="logo" data-src="{{asset('img/logo.png')}}" data-src-retina="{{ asset('img/logo_2x.png')}}" width="200" >
           <p class="p-t-35">Sign into your pages account</p>
           <!-- START Login Form -->
-          {!! Former::open()->method('post')->class('p-t-15')->role('form') !!}
+          {!! Former::open()->method('post')->action(url('/home'))->class('p-t-15')->role('form') !!}
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Login</label>
