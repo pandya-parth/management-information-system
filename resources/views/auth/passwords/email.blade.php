@@ -36,9 +36,7 @@
             <!-- <form class="p-t-15" id="form-register" role="form" method="POST" action="{{ url('/password/email') }}">
                  {!! csrf_field() !!}
              --> 
-              
-            
-            
+
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@
       <!-- START Login Background Pic Wrapper-->
       <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="{{asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src="{{asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src-retina="{{ asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" alt="" class="lazy">
+        <img src="{!! asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')!!}" data-src="{!! asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')!!}" data-src-retina="{!! asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')!!}" alt="" class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
@@ -25,42 +25,43 @@
           <img src="{{asset('img/logo.png')}}" alt="logo" data-src="{{asset('img/logo.png')}}" data-src-retina="{{ asset('img/logo_2x.png')}}" width="200" >
           <p class="p-t-35">Sign into your pages account</p>
           <!-- START Login Form -->
-          {!! Former::open()->method('post')->action('/') !!}}
-          {!! csrf_field() !!}
-         
+          {!! Former::open()->method('post')->action( url('login'))->class('p-t-15')->role('form') !!}
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Login</label>
               <div class="controls">
-                {!! Former::text("email")->placeholder('Enter your email') !!}}
-                <input type="text" name="username" placeholder="User Name" class="form-control" required>
-              </div>
+              {!! Former::email("email")->placeholder('User Name')->label(false)->class('form-control required') !!}
+                </div>
             </div>
             <!-- END Form Control-->
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Password</label>
               <div class="controls">
-            {!! Former::password('password')->placeholder('password') !!}}
-                
+                {!! Former::password('password')->placeholder('Credentials')->label(false)->class('form-control required') !!}
               </div>
             </div>
             <!-- START Form Control-->
             <div class="row">
               <div class="col-md-6 no-padding">
                 <div class="checkbox ">
-                  <input type="checkbox" value="1" id="checkbox1">
+                  
+                  {!! Former::checkbox('remember')->token()->label(false) !!}
                   <label for="checkbox1">Keep Me Signed in</label>
                 </div>
               </div>
               <div class="col-md-6 text-right">
-                <a href="{{url('password/reset')}}" class="text-info small">*Forget Password?</a>
+
+                <a href="#" class="text-info small">Help? Contact Support</a>
+
               </div>
             </div>
             <!-- END Form Control-->
-            <button class="btn btn-primary btn-cons m-t-10" type="submit">Sign in</button>
-            {!! Former::close() !!}}
-          
+            {!! Former::submit('Sign in')->class('btn btn-primary btn-cons m-t-10') !!}
+            
+            {!! Former::close() !!}
+
+           
           <!--END Login Form-->
                  </div>
       </div>
@@ -69,3 +70,4 @@
     <!-- END PAGE CONTAINER -->
 
 @endsection
+
