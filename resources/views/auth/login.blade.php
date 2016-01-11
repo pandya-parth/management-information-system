@@ -25,12 +25,14 @@
           <img src="{{asset('img/logo.png')}}" alt="logo" data-src="{{asset('img/logo.png')}}" data-src-retina="{{ asset('img/logo_2x.png')}}" width="200" >
           <p class="p-t-35">Sign into your pages account</p>
           <!-- START Login Form -->
-          {!! Former::open()->method('post')->action(url('/home'))->class('p-t-15')->role('form') !!}
+
+          {!! Former::open()->method('post')->action( url('login'))->class('p-t-15')->role('form') !!}
+
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Login</label>
               <div class="controls">
-              {!! Former::email("username")->placeholder('User Name')->label(false)->class('form-control') !!}
+              {!! Former::email("email")->placeholder('User Name')->label(false)->class('form-control required') !!}
                 </div>
             </div>
             <!-- END Form Control-->
@@ -38,7 +40,7 @@
             <div class="form-group form-group-default">
               <label>Password</label>
               <div class="controls">
-                {!! Former::password('password')->placeholder('Credentials')->label(false)->class('form-control') !!}
+                {!! Former::password('password')->placeholder('Credentials')->label(false)->class('form-control required') !!}
               </div>
             </div>
             <!-- START Form Control-->
@@ -51,7 +53,9 @@
                 </div>
               </div>
               <div class="col-md-6 text-right">
+
                 <a href="#" class="text-info small">Help? Contact Support</a>
+
               </div>
             </div>
             <!-- END Form Control-->
