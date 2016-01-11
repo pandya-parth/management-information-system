@@ -17,6 +17,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                   
                 <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
@@ -24,22 +25,20 @@
                     {!!  Former::email('email','' )->class('form-control')->placeholder('We will send loging details to you')!!}
 
                     <!-- <input type="email" name="email" placeholder="We will send loging details to you" class="form-control" value="{{ old('email') }}" required> -->
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
+            
                   </div>
                 </div>
               </div>
+              {!!Former::submit('Send Password reset')->class('btn btn-primary btn-cons m-t-10')!!}
+                <!-- <button class="btn btn-primary btn-cons m-t-10" type="submit">Send Password Reset Link</button> -->
                 
             {!! Former::close()!!}
             <!-- <form class="p-t-15" id="form-register" role="form" method="POST" action="{{ url('/password/email') }}">
                  {!! csrf_field() !!}
              --> 
               
-              <button class="btn btn-primary btn-cons m-t-10" type="submit">Send Password Reset Link</button>
-            </form>
+            
+            
           </div>
         </div>
       </div>

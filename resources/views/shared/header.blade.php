@@ -24,7 +24,7 @@
         <div class=" pull-left sm-table">
           <div class="header-inner">
             <div class="brand inline">
-              <img src="img/logo.png" alt="logo" data-src="img/logo.png" data-src-retina="img/logo_2x.png" width="200" >
+              <img src="img/logo.png" alt="logo" data-src="img/logo.png" data-src-retina="img/logo_2x.png" width="150" >
             </div>
             </div>
         </div>
