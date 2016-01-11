@@ -22,14 +22,14 @@
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     {!!  Former::label('E-Mail Address')!!}
-                    {!!  Former::email('email','' )->class('form-control')->placeholder('We will send loging details to you')!!}
+                    {!!  Former::email('email',old )->class('form-control')->placeholder('We will send loging details to you')!!}
 
                     <!-- <input type="email" name="email" placeholder="We will send loging details to you" class="form-control" value="{{ old('email') }}" required> -->
             
                   </div>
                 </div>
               </div>
-              {!!Former::submit('Send Password reset')->class('btn btn-primary btn-cons m-t-10')!!}
+              {!!Former::submit('Send Password Reset')->class('btn btn-primary btn-cons m-t-10')!!}
                 <!-- <button class="btn btn-primary btn-cons m-t-10" type="submit">Send Password Reset Link</button> -->
                 
             {!! Former::close()!!}
