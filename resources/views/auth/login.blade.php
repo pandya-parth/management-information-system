@@ -54,7 +54,7 @@
                 </div>
               </div>
               <div class="col-md-6 text-right">
-                <a href="#" class="text-info small">Help? Contact Support</a>
+                <a href="{{route('password/reset')}}" class="text-info small">*Forget Password?</a>
               </div>
             </div>
             <!-- END Form Control-->

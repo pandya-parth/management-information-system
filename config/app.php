@@ -158,6 +158,9 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Former\FormerServiceProvider::class,
 
+        //custom added......
+        Former\FormerServiceProvider::class,
+
     ],
 
     /*
