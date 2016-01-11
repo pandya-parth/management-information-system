@@ -54,7 +54,7 @@
               </div>
               <div class="col-md-6 text-right">
 
-                <a href="#" class="text-info small">Help? Contact Support</a>
+                <a href="{!! url('password/reset')!!}" class="text-info small">Help? Contact Support</a>
 
               </div>
             </div>
