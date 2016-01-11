@@ -24,6 +24,7 @@
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
           <img src="{{asset('img/logo.png')}}" alt="logo" data-src="{{asset('img/logo.png')}}" data-src-retina="{{ asset('img/logo_2x.png')}}" width="200" >
           <p class="p-t-35">Sign into your pages account</p>
+
           <!-- START Login Form -->
 
           {!! Former::open()->method('post')->action( url('login'))->class('p-t-15')->role('form') !!}
@@ -33,6 +34,7 @@
               <label>Login</label>
               <div class="controls">
               {!! Former::email("email")->placeholder('User Name')->label(false)->class('form-control required') !!}
+
                 </div>
             </div>
             <!-- END Form Control-->
@@ -53,8 +55,11 @@
                 </div>
               </div>
               <div class="col-md-6 text-right">
-
-                <a href="{!! url('password/reset')!!}" class="text-info small">Help? Contact Support</a>
+              <a href="{!! url('password/reset')!!}" class="text-info small">Forget Password</a>
+              </div>
+              <div class="col-md-6 text-right">
+                  
+                <a href="#" class="text-info small">Help? Contact Support</a>
 
               </div>
             </div>
