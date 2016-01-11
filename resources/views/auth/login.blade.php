@@ -2,11 +2,11 @@
 
 @section('content')
      <!-- START PAGE-CONTAINER -->
-
+  <div class="login-wrapper ">
       <!-- START Login Background Pic Wrapper-->
       <div class="bg-pic">
         <!-- START Background Pic-->
-        <img src="{{ asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src="{{asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" data-src-retina="{{ asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')}}" alt="" class="lazy">
+        <img src="{!! asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')!!}" data-src="{!! asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')!!}" data-src-retina="{!! asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')!!}" alt="" class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
@@ -25,11 +25,14 @@
           <img src="{{asset('img/logo.png')}}" alt="logo" data-src="{{asset('img/logo.png')}}" data-src-retina="{{ asset('img/logo_2x.png')}}" width="200" >
           <p class="p-t-35">Sign into your pages account</p>
           <!-- START Login Form -->
-          <form id="form-login" class="p-t-15" role="form" action="index.html">
+          {!! Former::open()->method('post')->action('/') !!}
+
+         
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Login</label>
               <div class="controls">
+                {!! Former::text("email")->placeholder('Enter your email') !!}
                 <input type="text" name="username" placeholder="User Name" class="form-control" required>
               </div>
             </div>
@@ -38,7 +41,8 @@
             <div class="form-group form-group-default">
               <label>Password</label>
               <div class="controls">
-                <input type="password" class="form-control" name="password" placeholder="Credentials" required>
+            {!! Former::password('password')->placeholder('password') !!}
+                
               </div>
             </div>
             <!-- START Form Control-->
@@ -50,12 +54,15 @@
                 </div>
               </div>
               <div class="col-md-6 text-right">
-                
+
+                <a href="#" class="text-info small">*Forget Password?</a>
+
               </div>
             </div>
             <!-- END Form Control-->
             <button class="btn btn-primary btn-cons m-t-10" type="submit">Sign in</button>
-          </form>
+            {!! Former::close() !!}
+          
           <!--END Login Form-->
                  </div>
       </div>
