@@ -79,7 +79,28 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    public function updatePassword()
+    {
 
+      if(!$user = \Auth::user()) abort(503); //or return redirect()->route('login')
+        $rules = array(
+            'old_password' => 'required',
+            'password' => 'required|alphaNum|between:6,16|confirmed'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::route('change-password', $user->id)->withErrors($validator);
+        } else {
+            if (!Hash::check(Input::get('old_password'), $user->password)) {
+                return Redirect::route('change-password', $user->id)->withErrors('Your old password does not match');
+            } else {
+                $user->password = Input::get('password');
+                $user->save();
+                return Redirect::route('change-password', $user->id)->with("message", "Password have been changed");
+            }
+        }
+    }
    
 
 }
