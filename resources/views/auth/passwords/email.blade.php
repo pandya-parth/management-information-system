@@ -11,14 +11,7 @@
             <h3>Reset Password</h3>
 
             {!! Former::open()->action(url('password/email'))->class('p-t-15')->role('form')->id('form-register')!!}
-               <div class="row">
-                   @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-              </div>
+               @include('shared.session')
               
                    
                 <div class="row">
