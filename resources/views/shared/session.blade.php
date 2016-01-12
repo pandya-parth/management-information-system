@@ -1,15 +1,14 @@
 
+
 <div class="row">
 
 @if(Session::has('status'))
-<div class="alert alert-success ">
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   @if (session('status'))
       <div class="alert alert-success">
           {{ session('status') }}
       </div>
   @endif 
-</div>
 @endif
 
 

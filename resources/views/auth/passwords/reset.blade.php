@@ -1,5 +1,6 @@
-@extends('layouts.register')
 
+@extends('layouts.register')
+@section('title','Reset Password')
 @section('content')
 
 <div class="register-container full-height sm-p-t-30">
