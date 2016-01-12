@@ -33,7 +33,7 @@
        @include('shared.header')
         @yield('content')    
 
-@include('shared.footer')
+      @include('shared.footer')
     </div>
 <script src="{{ elixir('js/vendor.js') }}"></script>
 <script src="{{ elixir('js/app.js') }}"></script>

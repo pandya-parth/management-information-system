@@ -25,22 +25,9 @@
           <img src="{{asset('img/logo.png')}}" alt="logo" data-src="{{asset('img/logo.png')}}" data-src-retina="{{ asset('img/logo_2x.png')}}" width="200" >
           <p class="p-t-35">Sign into your pages account</p>
 
+          @include('shared.session')
 
-
-          @if(Session::has('error_msg'))
-              <div class="alert alert-danger"><em> {!! session('error_msg') !!}</em></div>
-          @endif
-
-
-
-
-          @if (count($errors) > 0)
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li style="color:#f55753" >{!! $error !!}</li>
-                @endforeach
-            </ul>
-          @endif  
+        
 
           <!-- START Login Form -->
           {!!Former::framework('Nude') !!}
