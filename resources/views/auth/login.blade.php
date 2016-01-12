@@ -55,7 +55,7 @@
                 </div>
               </div>
               <div class="col-md-6 text-right">
-              <a href="{!! url('password/reset')!!}" class="text-info small">Forget Password</a>
+                      <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
               </div>
               <div class="col-md-6 text-right">
                   

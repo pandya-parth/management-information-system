@@ -17,12 +17,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
+
+              </div>
                    
                 <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group form-group-default">
                     {!!  Former::label('E-Mail Address')!!}
-                    {!!  Former::email('email',old )->class('form-control')->placeholder('We will send loging details to you')!!}
+                    {!!  Former::email('email','' )->class('form-control')->placeholder('We will send loging details to you')!!}
 
                     <!-- <input type="email" name="email" placeholder="We will send loging details to you" class="form-control" value="{{ old('email') }}" required> -->
             
@@ -37,7 +39,6 @@
                  {!! csrf_field() !!}
              --> 
 
-          </div>
         </div>
       </div>
     </div>
