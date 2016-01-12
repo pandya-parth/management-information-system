@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Session\Middleware\StartSession;
 use Auth;
+use Session;
 
 
 
@@ -34,7 +35,9 @@ class AuthController extends Controller
      *
      * @var string
      */
+
     protected $redirectTo = '/home';
+
 
     /**
      * Create a new authentication controller instance.
@@ -53,6 +56,14 @@ class AuthController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|confirmed|min:6',
+        ]);
+    }
 
     /**
      * Create a new user instance after a valid registration.
