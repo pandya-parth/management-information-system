@@ -1,5 +1,5 @@
 
-  <div class="row">
+<div class="row">
 
 @if(Session::has('status'))
 <div class="alert alert-success ">
@@ -12,6 +12,15 @@
 </div>
 @endif
 
+ @if (count($errors) > 0)
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li style="color:#f55753" >{!! $error !!}</li>
+                @endforeach
+            </ul>
+          @endif 
+
+
 
 @if ($errors->has('email'))
 <div class="alert alert-danger ">
@@ -20,10 +29,6 @@
         </span>
 </div>
 @endif
-
-
-
-
 
 @if(Session::has('success'))
 <div class="alert alert-success ">

@@ -27,6 +27,10 @@
 
           @include('shared.session')
 
+
+
+
+
           <!-- START Login Form -->
           {!!Former::framework('Nude') !!}
           {!! Former::open()->method('post')->action( url('login'))->class('p-t-15')->role('form') !!}
