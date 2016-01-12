@@ -17,6 +17,8 @@ elixir (mix)->
       bowerPath('bootstrap','dist','css','windows.chrome.fix.css')
     ], 'public/css/vendor.css'
 
+    
+
     mix.sass 'app.scss'
 
     mix.scripts [
