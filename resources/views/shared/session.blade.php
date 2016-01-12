@@ -1,4 +1,7 @@
-  <div class="row">
+
+
+<div class="row">
+
 @if(Session::has('status'))
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   @if (session('status'))
@@ -8,13 +11,8 @@
   @endif 
 @endif
 
-@if ($errors->has('email'))
-<div class="alert alert-danger ">
-        <span class="alert-danger">
-               <strong>{{ $errors->first('email') }}</strong>
-        </span>
-</div>
-@endif
+
+
 
 
 
@@ -30,7 +28,6 @@
 </div>
 @endif
 
- 
 
 @if(Session::has('error'))
 <div class="alert alert-danger">
