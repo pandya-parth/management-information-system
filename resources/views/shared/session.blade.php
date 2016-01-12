@@ -12,23 +12,20 @@
 </div>
 @endif
 
- @if (count($errors) > 0)
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li style="color:#f55753" >{!! $error !!}</li>
-                @endforeach
-            </ul>
-          @endif 
-
-
-
-@if ($errors->has('email'))
-<div class="alert alert-danger ">
+@if (count($errors) > 0)
+  <ul>
+    @foreach ($errors->all() as $error)
+      <div class="alert alert-danger ">
         <span class="alert-danger">
-               <strong>{{ $errors->first('email') }}</strong>
+          <strong>{!! $error !!}</strong>
         </span>
-</div>
-@endif
+    @endforeach
+  </ul>
+@endif 
+
+
+
+
 
 @if(Session::has('success'))
 <div class="alert alert-success ">
