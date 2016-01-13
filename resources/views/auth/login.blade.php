@@ -56,23 +56,18 @@
                 </div>
               </div>
               <div class="col-md-6 text-right">
-<<<<<<< HEAD
+              <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
                 <a href="#" class="text-info small">Help? Contact Support</a>
               </div>
             </div>
             <!-- END Form Control-->
-           {!! Former::submit('Sign in')->class('btn btn-primary btn-cons m-t-10') !!}
+
             
-=======
-                      <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+
+                      
               </div>
               <div class="col-md-6 text-right">
-              <a href="#" class="text-info small">Help? Contact Support</a>
-              </div>
-            </div>
-            <!-- END Form Control-->
-            {!! Former::submit('Sign in')->class('btn btn-primary btn-cons m-t-10') !!}
->>>>>>> 2c8179c2699fc6cfedd73f5224eefbaaf917480d
+           {!! Former::submit('Sign in')->class('btn btn-primary btn-cons m-t-10') !!}             
             {!! Former::close() !!}
           <!--END Login Form-->
          
@@ -81,11 +76,6 @@
       <!-- END Login Right Container-->
     </div>
     <!-- END PAGE CONTAINER -->
-<<<<<<< HEAD
-    @endsection
-
-   
-=======
 @endsection
 
->>>>>>> 2c8179c2699fc6cfedd73f5224eefbaaf917480d
+

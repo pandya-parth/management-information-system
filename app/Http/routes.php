@@ -33,4 +33,6 @@ Route::group(['middleware' => ['web','auth']], function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
+    Route::post('change-password', 'UserController@updatePassword');
+	Route::get('change-password', 'UserController@changePassword');
 });
