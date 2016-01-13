@@ -1,6 +1,6 @@
 <?php
 
-namespace TMS\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

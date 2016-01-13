@@ -1,6 +1,6 @@
 <?php
 
-namespace TMS\Events;
+namespace App\Events;
 
 abstract class Event
 {
