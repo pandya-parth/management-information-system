@@ -1,18 +1,26 @@
-<!DOCTYPE html>
-<html ng-app="app">
-    <head>
-        <title>Laravel</title>
-        <link rel="stylesheet" href="{{ elixir('css/vendor.css') }}">
-        <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
-    </head>
-    <body ng-controller="BodyCtrl">
-        <div class="container">
-            <div class="content">
-                <div class="title">{% title %}</div>
-            </div>
-        </div>
+@extends('layouts.app')
+@section('title','Dashboard')
+@section('content')
+     <div class="page-content-wrapper">
+        <!-- START PAGE CONTENT -->
+        <div class="content">
+          <!-- START JUMBOTRON -->
+          <div class="jumbotron" data-pages="parallax">
+            <div class="container-fluid container-fixed-lg sm-p-l-20 sm-p-r-20">
+              <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                  <li>
+                    <a href="#">Extras</a>
+                  </li>
+                  <li><a href="#" class="active">Blank template</a>
+                  </li>
+                </ul>
+              </div>
 
-        <script src="{{ elixir('js/vendor.js') }}"></script>
-        <script src="{{ elixir('js/app.js') }}"></script>
-    </body>
-</html>
+            </div>
+          </div>
+        </div>
+    </div>
+@endsection()
+

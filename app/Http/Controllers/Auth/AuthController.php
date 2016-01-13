@@ -7,9 +7,16 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Session\Middleware\StartSession;
+use Auth;
+use Session;
+
+
+
 
 class AuthController extends Controller
 {
+    
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -28,7 +35,9 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+
+    protected $redirectTo = '/';
+
 
     /**
      * Create a new authentication controller instance.
@@ -46,6 +55,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -69,4 +79,28 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+    public function updatePassword()
+    {
+
+      if(!$user = \Auth::user()) abort(503); //or return redirect()->route('login')
+        $rules = array(
+            'old_password' => 'required',
+            'password' => 'required|alphaNum|between:6,16|confirmed'
+        );
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::route('change-password', $user->id)->withErrors($validator);
+        } else {
+            if (!Hash::check(Input::get('old_password'), $user->password)) {
+                return Redirect::route('change-password', $user->id)->withErrors('Your old password does not match');
+            } else {
+                $user->password = Input::get('password');
+                $user->save();
+                return Redirect::route('change-password', $user->id)->with("message", "Password have been changed");
+            }
+        }
+    }
+   
+
 }

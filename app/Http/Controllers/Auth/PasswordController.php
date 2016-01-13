@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -18,7 +19,10 @@ class PasswordController extends Controller
     |
     */
 
+
     use ResetsPasswords;
+    protected $redirectTo = 'login';
+  
 
     /**
      * Create a new password controller instance.
@@ -27,6 +31,8 @@ class PasswordController extends Controller
      */
     public function __construct()
     {
+        
+
         $this->middleware('guest');
     }
 }
