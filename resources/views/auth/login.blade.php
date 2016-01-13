@@ -1,5 +1,5 @@
 @extends('layouts.login')
-@section('title','Login')
+
 @section('content')
     <!-- START PAGE-CONTAINER -->
     <div class="login-wrapper ">
@@ -24,19 +24,22 @@
         <div class="p-l-50 m-l-20 p-r-50 m-r-20 p-t-50 m-t-30 sm-p-l-15 sm-p-r-15 sm-p-t-40">
           <img src="{{asset('img/logo.png')}}" alt="logo" data-src="{{asset('img/logo.png')}}" data-src-retina="{{ asset('img/logo_2x.png')}}" width="200" >
           <p class="p-t-35">Sign into your pages account</p>
-
           <!-- START Login Form -->
-
-
+          
           {!!Former::framework('Nude') !!}
           @include('shared.session')
-          
           {!! Former::open()->method('post')->action( url('login'))->class('p-t-15')->role('form') !!}
+
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Login</label>
               <div class="controls">
               {!! Former::email("email")->placeholder('User Name')->label(false)->class('form-control') !!}
+                    @if ($errors->has('email'))
+                                    <label class="error">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </label>
+                                @endif
               </div>
             </div>
             <!-- END Form Control-->
@@ -45,6 +48,11 @@
               <label>Password</label>
               <div class="controls">
                 {!! Former::password('password')->placeholder('Credentials')->label(false)->class('form-control') !!}
+                @if ($errors->has('password'))
+                                    <label class="error">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                     </label>
+                                @endif
               </div>
             </div>
             <!-- START Form Control-->
@@ -56,18 +64,14 @@
                 </div>
               </div>
               <div class="col-md-6 text-right">
-              <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
+                <a href="{!! url('password/reset') !!}" class="text-info small">Forgot Password?</a>
                 <a href="#" class="text-info small">Help? Contact Support</a>
+
               </div>
             </div>
             <!-- END Form Control-->
-
+           {!! Former::submit('Sign in')->class('btn btn-primary btn-cons m-t-10') !!}
             
-
-                      
-              </div>
-              <div class="col-md-6 text-right">
-           {!! Former::submit('Sign in')->class('btn btn-primary btn-cons m-t-10') !!}             
             {!! Former::close() !!}
           <!--END Login Form-->
          
@@ -77,5 +81,3 @@
     </div>
     <!-- END PAGE CONTAINER -->
 @endsection
-
-

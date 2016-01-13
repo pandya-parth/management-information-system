@@ -7,39 +7,39 @@ elixir (mix)->
     mix.styles [
       bowerPath('bootstrap','dist','css','bootstrap.min.css')
       bowerPath('bootstrap','dist','css','bootstrap-theme.min.css')
-      bowerPath('bootstrap','dist','css','pace-theme-flash.css')
-      bowerPath('bootstrap','dist','css','font-awesome.css')
-      bowerPath('bootstrap','dist','css','jquery.scrollbar.css')
-      bowerPath('bootstrap','dist','css','select2.css')
-      bowerPath('bootstrap','dist','css','switchery.min.css')
-      bowerPath('bootstrap','dist','css','pages-icons.css')
-      bowerPath('bootstrap','dist','css','pages.css')
-      bowerPath('bootstrap','dist','css','windows.chrome.fix.css')
+      'pace-theme-flash.css',
+      'font-awesome.css',
+      'jquery.scrollbar.css',
+      'select2.css',
+      'switchery.min.css',
+      'pages-icons.css',
+      'pages.css',
+      'windows.chrome.fix.css',
     ], 'public/css/vendor.css'
 
-    
+
 
     mix.sass 'app.scss'
 
     mix.scripts [
       bowerPath('jquery','dist', 'jquery.min.js')
       bowerPath('bootstrap','dist','js','bootstrap.min.js')
-      bowerPath('bootstrap','dist','js','pace.min.js')
-      bowerPath('bootstrap','dist','js','jquery-1.11.1.min.js')
-      bowerPath('bootstrap','dist','js','modernizr.custom.js')
-      bowerPath('bootstrap','dist','js','jquery-ui.min.js')
-      bowerPath('bootstrap','dist','js','jquery-easy.js')
-      bowerPath('bootstrap','dist','js','jquery.unveil.min.js')
-      bowerPath('bootstrap','dist','js','jquery.bez.min.js')
-      bowerPath('bootstrap','dist','js','jquery.ioslist.min.js')
-      bowerPath('bootstrap','dist','js','jquery.actual.min.js')
-      bowerPath('bootstrap','dist','js','jquery.scrollbar.min.js')
-      bowerPath('bootstrap','dist','js','select2.min.js')
-      bowerPath('bootstrap','dist','js','classie.js')
-      bowerPath('bootstrap','dist','js','switchery.min.js')
-      bowerPath('bootstrap','dist','js','pages.min.js')
-      bowerPath('bootstrap','dist','js','scripts.js')
-      bowerPath('angular','angular.min.js')
+      'pace.min.js',
+      'jquery-1.11.1.min.js',
+      'modernizr.custom.js',
+      'jquery-ui.min.js',
+      'jquery-easy.js',
+      'jquery.unveil.min.js',
+      'jquery.bez.min.js',
+      'jquery.ioslist.min.js',
+      'jquery.actual.min.js',
+      'jquery.scrollbar.min.js',
+      'select2.min.js',
+      'classie.js',
+      'switchery.min.js',
+      'pages.min.js',
+      'scripts.js',
+      'angular.min.js',
     ], 'public/js/vendor.js'
 
     mix.coffee [
