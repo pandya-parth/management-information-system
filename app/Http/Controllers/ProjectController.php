@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Project;
-use Input;
+use Illuminate\Support\Facades\Input;
 use Redirect;
 use Former\Facades\Former;
 use Validator;
