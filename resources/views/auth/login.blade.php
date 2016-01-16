@@ -78,6 +78,6 @@
       <!-- END Login Right Container-->
     </div>
     <!-- END PAGE CONTAINER -->
-    @endsection
+@endsection
 
    

@@ -25,7 +25,6 @@ elixir (mix)->
       bowerPath('jquery','dist', 'jquery.min.js')
       bowerPath('bootstrap','dist','js','bootstrap.min.js')
       'pace.min.js',
-      'jquery-1.11.1.min.js',
       'modernizr.custom.js',
       'jquery-ui.min.js',
       'jquery-easy.js',
@@ -40,6 +39,13 @@ elixir (mix)->
       'pages.min.js',
       'scripts.js',
       'angular.min.js',
+      'jquery.dataTables.min.js',
+      'dataTables.tableTools.min.js',
+      'jquery-datatable-bootstrap.js',
+      'datatables.responsive.js',
+      'lodash.min.js',
+      'pages.min.js',
+      'datatables.js',
     ], 'public/js/vendor.js'
 
     mix.coffee [
@@ -54,4 +60,3 @@ elixir (mix)->
       'js/vendor.js'
       'js/app.js'
     ]
-
