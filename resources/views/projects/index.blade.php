@@ -10,7 +10,7 @@
                 </div>
                 <div class="pull-right">
                   <div class="col-xs-12">
-                  
+                  {!! link_to("project/create","Add",array('class'=>'btn btn-primary btn-cons   pull-right')) !!}
                     <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add row</button>
                   </div>
                 </div>
