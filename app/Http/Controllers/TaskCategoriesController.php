@@ -18,7 +18,7 @@ class TaskCategoriesController extends Controller
     public function index()
     {
         $taskcategories=TaskCategory::all();
-        return view('taskcategories/index',compact('taskcategories'));
+        return view('task_categories/index',compact('taskcategories'));
     }
 
     /**
@@ -28,7 +28,9 @@ class TaskCategoriesController extends Controller
      */
     public function create()
     {
-        //
+        $id = false;
+        return view('task_categories/form', compact('id'));
+
     }
 
     /**
