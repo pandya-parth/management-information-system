@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\TaskCategory;
 
 class TaskCategoryController extends Controller
 {
@@ -16,7 +17,8 @@ class TaskCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $taskcategory=TaskCategory::all();
+        return view('taskcategory/index',compact('taskcategory'));
     }
 
     /**
