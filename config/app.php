@@ -160,8 +160,9 @@ return [
 
         //custom added......
         Former\FormerServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+      
 
     ],
 
@@ -212,6 +213,7 @@ return [
         'Former'    => Former\Facades\Former::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
         
     ],
 
