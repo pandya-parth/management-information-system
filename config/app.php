@@ -162,7 +162,6 @@ return [
         Former\FormerServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-      
 
     ],
 
