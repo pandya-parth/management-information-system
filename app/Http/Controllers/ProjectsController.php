@@ -14,7 +14,7 @@ use Former\Facades\Former;
 use Validator;
 use Image;
 
-class ProjectController extends Controller
+class ProjectsController extends Controller
 {
     /**
      * Display a listing of the resource.

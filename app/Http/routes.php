@@ -34,10 +34,11 @@ Route::group(['middleware' => ['web','auth']], function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-    Route::resource('/project','ProjectController');
-    Route::resource('/project_category','ProjectCategoriesController');
-    Route::resource('/task','TasksController');
-    Route::resource('/task_category','TaskCategoriesController');
+    Route::resource('/companies','CompaniesController');
+    Route::resource('/projects','ProjectsController');
+    Route::resource('/project_categories','ProjectCategoriesController');
+    Route::resource('/tasks','TasksController');
+    Route::resource('/task_categories','TaskCategoriesController');
     Route::post('change-password', 'UserController@updatePassword');
 	Route::get('change-password', 'UserController@changePassword');
 });

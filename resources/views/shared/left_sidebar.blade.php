@@ -39,7 +39,7 @@
         <!-- BEGIN SIDEBAR MENU ITEMS-->
         <ul class="menu-items">
           <li class="m-t-30 ">
-            <a href="index.html" class="detailed">
+            <a href="{!! url('/') !!}" class="detailed">
               <span class="title">Dashboard</span>
               <span class="details">12 New Updates</span>
             </a>
@@ -53,11 +53,11 @@
             <ul class="sub-menu">
 
               <li class="">
-                <a href="{!! url('project_category') !!}">Project Category</a>
+                <a href="{!! url('project_categories') !!}">Project Category</a>
                 <span class="icon-thumbnail">PC</span>
               </li>
               <li class="">
-                <a href="{!! url('project') !!}">Projects</a>
+                <a href="{!! url('projects') !!}">Projects</a>
                 <span class="icon-thumbnail">P</span>
               </li>
               
@@ -70,11 +70,11 @@
             <ul class="sub-menu">
 
               <li class="">
-                <a href="{!! url('task_category') !!}">Task Category</a>
+                <a href="{!! url('task_categories') !!}">Task Category</a>
                 <span class="icon-thumbnail">TC</span>
               </li>
               <li class="">
-                <a href="{!! url('task') !!}">Tasks</a>
+                <a href="{!! url('tasks') !!}">Tasks</a>
                 <span class="icon-thumbnail">T</span>
               </li>
               

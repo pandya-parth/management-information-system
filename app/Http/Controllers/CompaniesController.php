@@ -6,8 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Company;
+use Illuminate\Support\Facades\Input;
+use Redirect;
+use Former\Facades\Former;
+use Validator;
+use Image;
 
-class CompniesController extends Controller
+class CompaniesController extends Controller
 {
     /**
      * Display a listing of the resource.
