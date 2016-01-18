@@ -35,7 +35,9 @@ Route::group(['middleware' => ['web','auth']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::resource('/project','ProjectController');
-    Route::resource('/taskcategory','TaskCategoriesController');
+    Route::resource('/project_category','ProjectCategoriesController');
+    Route::resource('/task','TasksController');
+    Route::resource('/task_category','TaskCategoriesController');
     Route::post('change-password', 'UserController@updatePassword');
 	Route::get('change-password', 'UserController@changePassword');
 });

@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Task;
+use Redirect;
 
-class ProjectCategoryController extends Controller
+class TasksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,7 @@ class ProjectCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return "hello";
     }
 
     /**
