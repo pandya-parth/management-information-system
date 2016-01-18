@@ -1,81 +1,17 @@
 @extends('layouts.app')
-@section('title','Task Categories')
 @section('content')
-
- <div class="modal fade slide-up disable-scroll" id="my-modal" tabindex="-1" role="dialog" aria-hidden="false" >
-      <div class="modal-dialog ">
-        <div class="modal-content-wrapper">
-          <div class="modal-content">
-            <div class="modal-header clearfix text-left">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
-              </button>
-              <h5>Payment <span class="semi-bold">Information</span></h5>
-              <p class="p-b-10">We need payment information inorder to process your order</p>
-            </div>
-            <div class="modal-body">
-              <form role="form">
-                <div class="form-group-attached">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="form-group form-group-default">
-                        <label>Company Name</label>
-                        <input type="email" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <div class="form-group form-group-default">
-                        <label>Card Number</label>
-                        <input type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-sm-4">
-                      <div class="form-group form-group-default">
-                        <label>Card Holder</label>
-                        <input type="text" class="form-control">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </form>
-              <div class="row">
-                <div class="col-sm-8">
-                  <div class="p-t-20 clearfix p-l-10 p-r-10">
-                    <div class="pull-left">
-                      <p class="bold font-montserrat text-uppercase">TOTAL</p>
-                    </div>
-                    <div class="pull-right">
-                      <p class="bold font-montserrat text-uppercase">$20.00</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 m-t-10 sm-m-t-10">
-                  <button type="button" class="btn btn-primary btn-block m-t-5">Pay Now</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- /.modal-content -->
-      </div>
-    </div>
-
-
 <div class= "content">
-
 <!-- START CONTAINER FLUID -->
           <div class="container-fluid container-fixed-lg">
             <!-- START PANEL -->
             <div class="panel panel-transparent">
               <div class="panel-heading">
-                <div class="panel-title">Task Categories
+                <div class="panel-title">Task Category Listing
                 </div>
                 <div class="pull-right">
                   <div class="col-xs-12">
-                    
-                    <a class="btn" data-controls-modal="my-modal" keyboard=true data-backdrop="static">Launch Modal</a>
-                   <!-- <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add New</button -->
+                  <!-- {!! link_to("project/create","Add",array('class'=>'btn btn-primary btn-cons   pull-right')) !!}
+                   -->  <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add row</button>
                   </div>
                 </div>
                 <div class="clearfix"></div>
@@ -84,10 +20,9 @@
                 <table class="table table-hover demo-table-dynamic" id="tableWithDynamicRows">
                   <thead>
                     <tr>
-                      <th>#</th>
-                      <th>Category Name</th>
+                      <th>Name</th>
                       <th>Action</th>
-                    </tr>
+                       </tr>
                   </thead>
                   <tbody>
                     <tr>
@@ -97,10 +32,7 @@
                       <td class="v-align-middle">
                         <p>Description goes here</p>
                       </td>
-                      
-                      <td class="v-align-middle">
-                        <p>Description goes here</p>
-                      </td>
+                     
                     </tr>
                   </tbody>
                 </table>
@@ -109,9 +41,37 @@
             <!-- END PANEL -->
           </div>
           <!-- END CONTAINER FLUID -->
-
 </div>
-
-          
-
+<!-- MODAL STICK UP  -->
+        <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog" aria-labelledby="addNewAppModal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header clearfix ">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                </button>
+                <h4 class="p-b-5"><h4>Add New Task Category</h4></h4>
+              </div>
+              <div class="modal-body">
+                <p class="sall-text">Create a new category using this form, make sure you fill them all</p>
+               <div class="row">
+                <form role="form">
+                    <div class="col-sm-12">
+                      <div class="form-group form-group-default">
+                        <label>name</label>
+                        <input id="appName" type="text" class="form-control" placeholder="Name of Category">
+                      </div>
+                    </div>
+                </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
+                <button type="button" class="btn btn-cons">Close</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- END MODAL STICK UP  -->
 @endsection
