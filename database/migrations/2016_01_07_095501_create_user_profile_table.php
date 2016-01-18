@@ -33,7 +33,7 @@ class CreateUserProfileTable extends Migration
             $table->string('work_exp')->nullable();
             $table->string('education')->nullable();
             $table->dateTime('join_date')->nullable();
-            $table->file('attach')->nullable();
+            $table->string('attach')->nullable();
             $table->string('google')->nullable();
             $table->string('facebook')->nullable();
             $table->string('website')->nullable();
