@@ -87,16 +87,14 @@
                               <label>Description</label>
                               {!! Former::textarea("description")->label(false)->placeholder('Description of project') !!}
                             </div>
-                           
 
                             
+                            {!!Former::checkbox('billable')->class('checkbox check-success')!!}
+                              
                               
                             
-                              {!! Former::checkbox('billable')->class("checkbox check-success") !!}
-                              {!! Former::label('Billable')!!}
-                              
-                            
-                          </div>
+
+                             </div>
                         </div>
                     </div>
 
