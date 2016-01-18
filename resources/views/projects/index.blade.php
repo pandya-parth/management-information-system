@@ -17,7 +17,7 @@
                 <div class="clearfix"></div>
               </div>
               <div class="panel-body">
-                <table class="table table-hover demo-table-dynamic" id="tableWithDynamicRows">
+                <table class="table table-hover demo-table-dynamic">
                   <thead>
                     <tr>
                       <th>Project name</th>
@@ -27,20 +27,25 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td class="v-align-middle">
-                        <p>Hyperlapse</p>
+                    
+                      @forelse($projects as $project)
+                      <tr>
+                      <td class="v-align-middle" >
+                      <p>{{ $project->id }}</p>
                       </td>
-                      <td class="v-align-middle">
-                        <p>Description goes here</p>
+                      <td class="v-align-middle" >
+                      <p>{{ $project->name }}</p>
                       </td>
-                      <td class="v-align-middle">
-                        <p>FREE</p>
+                      </tr>
+                      
+                   @empty
+
+                      <tr>
+                      <td class="v-align-middle" >
+                      <p>No Project to display</p>
                       </td>
-                      <td class="v-align-middle">
-                        <p>Notes go here</p>
-                      </td>
-                    </tr>
+                      </tr>
+                    @endforelse
                   </tbody>
                 </table>
               </div>
