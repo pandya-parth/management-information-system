@@ -46,18 +46,21 @@
             <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
           </li>
           <li class="">
-            <a href="email.html" class="detailed">
-              <span class="title">Email</span>
-              <span class="details">234 New Emails</span>
+            <a href="{!! url('project') !!}" class="detailed">
+              <span class="title">Project</span>
             </a>
             <span class="icon-thumbnail "><i class="pg-mail"></i></span>
           </li>
           <li class="">
-            <a href="social.html"><span class="title">Social</span></a>
+            <a href="{!! url('project_category') !!}">
+            <span class="title">Project Category</span>
+            </a>
             <span class="icon-thumbnail "><i class="pg-social"></i></span>
           </li>
           <li class="">
-            <a href="calendar.html"><span class="title">Calendar</span></a>
+            <a href="{!! url('task_category') !!}">
+            <span class="title">Task Category</span>
+            </a>
             <span class="icon-thumbnail"><i class="pg-calender"></i></span>
           </li>
           <li class="">
