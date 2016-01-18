@@ -168,12 +168,4 @@
           
 
 @endsection
-@section('scripts')
-<script type="text/javascript">
-$(document).ready(function(){
-$( "#close_btn" ).click(function() {
-  $('#addNewAppModal').hide();
-});
-});
-</script>
-@endsection
+
