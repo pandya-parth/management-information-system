@@ -11,7 +11,8 @@
                 </div>
                 <div class="pull-right">
                   <div class="col-xs-12">
-                             <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add New</button>
+                    {!! link_to("project/create","Add",array('class'=>'btn btn-primary btn-cons   ')) !!}
+<!-- <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add New</button> -->
                   </div>
                 </div>
                 <div class="clearfix"></div>

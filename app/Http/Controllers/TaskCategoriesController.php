@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\TaskCategory;
 
-class TaskCategoryController extends Controller
+class TaskCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class TaskCategoryController extends Controller
      */
     public function index()
     {
-        $taskcategory=TaskCategory::all();
-        return view('taskcategory/index',compact('taskcategory'));
+        $taskcategories=TaskCategory::all();
+        return view('task_categories/index',compact('taskcategories'));
     }
 
     /**
@@ -28,7 +28,9 @@ class TaskCategoryController extends Controller
      */
     public function create()
     {
-        //
+        $id = false;
+        return view('task_categories/form', compact('id'));
+
     }
 
     /**

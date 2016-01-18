@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTaskcategoryTable extends Migration
+class CreateTaskCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateTaskcategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('taskcategory', function (Blueprint $table) {
+        Schema::create('task_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
@@ -27,6 +27,6 @@ class CreateTaskcategoryTable extends Migration
      */
     public function down()
     {
-        Schema::drop('taskcategory');
+        Schema::drop('task_categories');
     }
 }
