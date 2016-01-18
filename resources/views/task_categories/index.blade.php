@@ -52,8 +52,7 @@
                 <h4 class="p-b-5"><h4>Add New Task Category</h4></h4>
               </div>
               <div class="modal-body">
-                <p class="sall-text">Create a new category using this form, make sure you fill them all</p>
-               <div class="row">
+                <div class="row">
                 <form role="form">
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
