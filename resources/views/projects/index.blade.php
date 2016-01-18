@@ -136,15 +136,15 @@
                           <div class="col-sm-12">
                             <div class="form-group form-group-default">
                               <label>Start Date</label>
-                              {!! Former::date('start_date') !!}
+                              {!! Former::date('start_date')->label(false) !!}
                             </div>
                             <div class="form-group form-group-default">
                               <label>End Date</label>
-                              {!! Former::date('end_date') !!}
+                              {!! Former::date('end_date')->label(false) !!}
                             </div>
                             <div class="form-group form-group-default">
                               <label>Fix Hour</label>
-                              {!! Former::number('fix_hour') !!}
+                              {!! Former::text('fix_hour')->label(false) !!}
                             </div>
                           </div>
                         </div>
@@ -156,7 +156,7 @@
               </div>
               <div class="modal-footer">
                 <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
-                <button type="button" class="btn btn-cons">Close</button>
+                <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true">Close</button>
               </div>
             </div>
             <!-- /.modal-content -->
@@ -167,4 +167,13 @@
 
           
 
+@endsection
+@section('scripts')
+<script type="text/javascript">
+$(document).ready(function(){
+$( "#close_btn" ).click(function() {
+  $('#addNewAppModal').hide();
+});
+});
+</script>
 @endsection
