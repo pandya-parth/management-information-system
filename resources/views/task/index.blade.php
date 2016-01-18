@@ -69,9 +69,8 @@
 
                   <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Company</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Category</a></li>
-                    <li><a data-toggle="tab" href="#menu3">Features</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Project</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Assign To</a></li>
                     <li><a data-toggle="tab" href="#menu4">Dates</a></li>
                   </ul>
 
@@ -82,16 +81,21 @@
                           <div class="col-sm-12">
                             <div class="form-group form-group-default">
                               <label>Name</label>
-                              {!! Former::text("name")->label(false)->placeholder('Name of Project') !!}
+                              {!! Former::text("name")->label(false)->placeholder('Name of Task') !!}
                             </div>
                             <div class="form-group form-group-default">
                               <label>Description</label>
-                              {!! Former::text("description")->label(false)->placeholder('Description of project') !!}
+                              {!! Former::textarea("description")->label(false)->placeholder('Description of project') !!}
                             </div>
-                            <div class="form-group form-group-default">
-                              <label>Status</label>
-                              {!! Former::checkbox('status')->token()->label(false) !!}
-                            </div>
+                           
+
+                            
+                              
+                            
+                              {!! Former::checkbox('billable')->class("checkbox check-success") !!}
+                              {!! Former::label('Billable')!!}
+                              
+                            
                           </div>
                         </div>
                     </div>
