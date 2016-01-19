@@ -1,10 +1,16 @@
 @extends('layouts.app')
 @section('title','Task')
 @section('content')
+
+
 <div class= "content">
+
 <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg bg-white">
-               <div class="inner">
+
+          <div class="container-fluid container-fixed-lg">
+
+            <!-- START PANEL -->
+             <div class="inner">
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                   <li>
@@ -13,73 +19,106 @@
                   <li><a href="{!!url('tasks')!!}" class="active">Tasks</a>
                   </li>
                 </ul>
-              </div>
-            <!-- START PANEL -->
+
             <div class="panel panel-transparent">
+
               <div class="panel-heading">
-                <div class="panel-title">Tasks List
+
+                <div class="panel-title">
+
+                <h4>Tasks</h4>
+
                 </div>
-                <div class="export-options-container pull-right">
+
+                <div class="pull-right">
+
                   <div class="col-xs-12">
+
                       <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add task</button>
+
                   </div>
+
                 </div>
+
                 <div class="clearfix"></div>
+
               </div>
+
               <div class="panel-body">
-                <table class="table table-striped" id="tableWithExportOptions">
+
+                <table class="table table-hover demo-table-dynamic">
+
                   <thead>
+
                     <tr>
-                      <th>Rendering engine</th>
-                      <th>Browser</th>
-                      <th>Platform(s)</th>
-                      <th>Engine version</th>
-                      <th>CSS grade</th>
+
+                      <th>task name</th>
+
+                      <th>Project</th>
+
+                      <th>Task Category</th>
+
+                      <th>Duration</th>
+
                     </tr>
+
                   </thead>
+
                   <tbody>
-                    <tr class="odd gradeX">
-                      <td>Trident</td>
-                      <td>Internet Explorer 4.0</td>
-                      <td>Win 95+</td>
-                      <td class="center"> 4</td>
-                      <td class="center">X</td>
-                    </tr>
-                    <tr class="even gradeC">
-                      <td>Trident</td>
-                      <td>Internet Explorer 5.0</td>
-                      <td>Win 95+</td>
-                      <td class="center">5</td>
-                      <td class="center">C</td>
-                    </tr>
-                    <tr class="odd gradeA">
-                      <td>Trident</td>
-                      <td>Internet Explorer 7</td>
-                      <td>Win XP SP2+</td>
-                      <td class="center">7</td>
-                      <td class="center">A</td>
-                    </tr>
-                    <tr class="even gradeA">
-                      <td>Trident</td>
-                      <td>AOL browser (AOL desktop)</td>
-                      <td>Win XP</td>
-                      <td class="center">6</td>
-                      <td class="center">A</td>
-                    </tr>
-                    </tbody>
+
+                    
+
+                      @forelse($tasks as $task)
+
+                      <tr>
+
+                      <td class="v-align-middle" >
+
+                      <p>{{ $task->id }}</p>
+
+                      </td>
+
+                      <td class="v-align-middle" >
+
+                      <p>{{ $task->name }}</p>
+
+                      </td>
+
+                      </tr>
+
+                      
+
+                   @empty
+
+
+
+                      <tr>
+
+                      <td class="v-align-middle" >
+
+                      <p>No tasks to display</p>
+
+                      </td>
+
+                      </tr>
+
+                    @endforelse
+
+                  </tbody>
+
                 </table>
+
               </div>
+
             </div>
+
             <!-- END PANEL -->
+
           </div>
+
           <!-- END CONTAINER FLUID -->
 
 </div>
-
-
-
-
-
 <!-- MODAL STICK UP  -->
         <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog" aria-labelledby="addNewAppModal" aria-hidden="true">
           <div class="modal-dialog">
@@ -90,6 +129,7 @@
                 <h4 class="p-b-5"><h4>Add New Task</h4></h4>
               </div>
               <div class="modal-body">
+                {!! Former::open()->method('post')->action( url(''))->class('p-t-15')->role('form') !!}
                 <div class="panel panel-transparent ">
                       <!-- Nav tabs -->
                       <ul class="nav nav-tabs nav-tabs-fillup">
@@ -119,12 +159,23 @@
                               <label>Descripation</label>
                               <textarea id="appName" type="text" class="form-control" ></textarea>
                             </div>
+
+                            <div class="form-group form-group-default">                                                      
                             <div class="checkbox check-success  ">
                               <input type="checkbox"  value="1" id="checkbox2">
                               <label for="checkbox2">Billable</label>
                             </div> 
-                            
-                            
+                          </div>
+
+                            <div class="form-group form-group-default">
+                            <label>Status</label>
+                            <div class="radio radio-success">
+                               <input type="radio" checked="checked" value="yes" name="status" id="yes">
+                              <label for="yes">In Progress</label>
+                              <input type="radio"  value="no" name="status" id="no">
+                              <label for="no">Completed</label>
+                            </div>
+                            </div>
                             </div>
                           </div>
                         </div>
@@ -224,10 +275,11 @@
                     
               </div>
             </div>
+                 {!! Former::close() !!}
           </div>
               <div class="modal-footer">
                 <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
-                <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
               </div>
             </div>
           </div>

@@ -28,7 +28,7 @@
                 <div class="clearfix"></div>
               </div>
               <div class="panel-body">
-                <table class="table table-hover demo-table-dynamic" id="tableWithDynamicRows">
+                <table class="table table-hover demo-table-dynamic" >
                   <thead>
                     <tr>
                       <th>Name</th>
@@ -36,7 +36,7 @@
                        </tr>
                   </thead>
                   <tbody>
-                    <tr>addNewAppModal
+                    <tr>
                       <td class="v-align-middle">
                         <p>Hyperlapse</p>
                       </td>
@@ -62,16 +62,18 @@
                 </button>
                 <h4 class="p-b-5"><h4>Add New Task Category</h4></h4>
               </div>
+              {!! Former::open()->method('post')->action( url(''))->class('p-t-15')->role('form') !!}
               <div class="modal-body">
+
                 <div class="row">
-                <form role="form">
+                
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
                         <label>name</label>
                         <input id="appName" type="text" class="form-control" placeholder="Name of Category">
                       </div>
                     </div>
-                </form>
+                
                 </div>
               </div>
               <div class="modal-footer">
@@ -80,6 +82,7 @@
                 <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
 
               </div>
+              {!! Former::close()!!}
             </div>
             <!-- /.modal-content -->
           </div>
