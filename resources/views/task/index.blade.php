@@ -21,7 +21,7 @@
                 </div>
                 <div class="export-options-container pull-right">
                   <div class="col-xs-12">
-                      <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add row</button>
+                      <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add task</button>
                   </div>
                 </div>
                 <div class="clearfix"></div>
