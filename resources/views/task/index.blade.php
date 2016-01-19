@@ -4,10 +4,20 @@
 <div class= "content">
 <!-- START CONTAINER FLUID -->
           <div class="container-fluid container-fixed-lg bg-white">
+               <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                  <li>
+                    <a href="{!!url('/')!!}">Home</a>
+                  </li>
+                  <li><a href="{!!url('tasks')!!}" class="active">Tasks</a>
+                  </li>
+                </ul>
+              </div>
             <!-- START PANEL -->
             <div class="panel panel-transparent">
               <div class="panel-heading">
-                <div class="panel-title">Table with export options
+                <div class="panel-title">Tasks List
                 </div>
                 <div class="export-options-container pull-right">
                   <div class="col-xs-12">
@@ -56,28 +66,7 @@
                       <td class="center">6</td>
                       <td class="center">A</td>
                     </tr>
-                    <tr class="gradeA">
-                      <td>Gecko</td>
-                      <td>Firefox 1.0</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td class="center">1.7</td>
-                      <td class="center">A</td>
-                    </tr>
-                    <tr class="gradeC">
-                      <td>Misc</td>
-                      <td>PSP browser</td>
-                      <td>PSP</td>
-                      <td class="center">-</td>
-                      <td class="center">C</td>
-                    </tr>
-                    <tr class="gradeU">
-                      <td>Other browsers</td>
-                      <td>All others</td>
-                      <td>-</td>
-                      <td class="center">-</td>
-                      <td class="center">U</td>
-                    </tr>
-                  </tbody>
+                    </tbody>
                 </table>
               </div>
             </div>
@@ -85,7 +74,7 @@
           </div>
           <!-- END CONTAINER FLUID -->
 
-
+</div>
 
 
 
@@ -162,7 +151,7 @@
                           </div>
                           <div class="col-md-12">
                             <div class="form-group form-group-default form-group-default-select2">
-                              <label class="">Task List</label>
+                              <label class="">Task Category</label>
                               <div class="select2-container full-width" id="s2id_autogen3">
                               <select class="full-width select2-offscreen" data-placeholder="Select Country" data-init-plugin="select2" tabindex="-1" title="">
                                 <optgroup label="Alaskan/Hawaiian Time Zone">
@@ -179,57 +168,73 @@
                              </div>
                             </div>
                           </div>
-
                         </div>
                       </div>
                         <div class="tab-pane slide-left" id="slide3">
                           <div class="row">
-                            <div class="col-md-12">
-                            <div class="input-daterange input-group" id="datepicker-range">
-                                <input type="text" class="input-sm form-control" name="start" placeholder="start date">
-                                <span class="input-group-addon">to</span>
-                                <input type="text" class="input-sm form-control" name="end" placeholder="end date">
-                            </div>
-                            </div>
-
-                          </div>
-                          <br>
-                          <div class="row">
-                           <div class="col-sm-12">
-
-                              <div class="input-group bootstrap-timepicker">
-                              <input id="timepicker" type="text" class="form-control" placeholder='start time'>
-                              <span class="input-group-addon"><i class="pg-clock"></i></span>
-                              <span class="input-group-addon">to</span>
-                              <input id="timepicker" type="text" class="form-control" placeholder='end time'>
-                              <span class="input-group-addon"><i class="pg-clock"></i></span>
+                            <div class="col-md-6">
+                              <div class="form-group form-group-default input-group col-md-12">
+                              <label>Start Date</label>
+                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+                              <span class="input-group-addon">
+                                                          <i class="fa fa-calendar"></i>
+                                                        </span>
                             </div>
                           </div>
-                            
-                         
-                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group form-group-default input-group col-md-12">
+                              <label>End Date</label>
+                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+                              <span class="input-group-addon">
+                                                      <i class="fa fa-calendar"></i>
+                              </span>
+                            </div>
                         </div>
-                      
+                      </div>
+                    </div>
                       <div class="tab-pane slide-left" id="slide4">
                           <div class="row">
                             <div class="col-md-12">
-                            <div class="select2-container select2-container-multi full-width select2-dropdown-open" id="s2id_multi"><ul class="select2-choices">  <li class="select2-search-choice">    <div>Jim</div>    <a href="#" class="select2-search-choice-close" tabindex="-1"></a></li><li class="select2-search-choice">    <div>Lucy</div>    <a href="#" class="select2-search-choice-close" tabindex="-1"></a></li><li class="select2-search-choice">    <div>John</div>    <a href="#" class="select2-search-choice-close" tabindex="-1"></a></li><li class="select2-search-field">    <label for="s2id_autogen7" class="select2-offscreen"></label>    <input type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" class="select2-input" id="s2id_autogen7" placeholder="" style="width: 166px;" aria-activedescendant="select2-result-label-51">  </li></ul></div>
+                              <div class="form-group form-group-default input-group col-md-12">
+                             <label class="">Task Asign To</label>
+                              <div class="select2-container full-width" id="s2id_autogen3">
+                              <select class="full-width select2-offscreen" data-placeholder="Select Country" data-init-plugin="select2" tabindex="-1" title="">
+                                <optgroup label="Alaskan/Hawaiian Time Zone">
+                                  <option value="AK">Alaska</option>
+                                  <option value="HI">Hawaii</option>
+                                </optgroup>
+                                <optgroup label="Pacific Time Zone">
+                                  <option value="CA">California</option>
+                                  <option value="NV">Nevada</option>
+                                  <option value="OR">Oregon</option>
+                                  <option value="WA">Washington</option>
+                                </optgroup>
+                              </select>
+                             </div>
+                           </div>
+                           <div class="form-group form-group-default input-group col-sm-12">
+                            <label class="">Files </label>
+                            <button class="btn btn-success btn-cons m-b-10" type="button"><i class="fa fa-cloud-upload"></i> <span class="bold">Upload</span>
+                    </button>
+
+                           </div>
                           </div>
-                        
                       </div>
                     </div>
+                    
               </div>
+            </div>
+          </div>
               <div class="modal-footer">
                 <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
                 <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true">Close</button>
               </div>
             </div>
-            <!-- /.modal-content -->
           </div>
-          <!-- /.modal-dialog -->
         </div>
-        <!-- END MODAL STICK UP  -->
-    </div>
+    
+
+          
 
 @endsection
 
