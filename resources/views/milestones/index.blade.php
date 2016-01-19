@@ -16,7 +16,7 @@
 
                 <div class="panel-title">
 
-                <h4>Projects</h4>
+                <h4>Companies</h4>
 
                 </div>
 
@@ -44,11 +44,11 @@
 
                     <tr>
 
-                      <th>Project name</th>
+                      <th>Milestone Name</th>
 
                       <th>Description</th>
 
-                      <th>Price Type</th>
+                      <th>Due Date</th>
 
                       <th>Notes</th>
 
@@ -60,19 +60,19 @@
 
                     
 
-                      @forelse($projects as $project)
+                      @forelse($milestones as $milestone)
 
                       <tr>
 
                       <td class="v-align-middle" >
 
-                      <p>{{ $project->id }}</p>
+                      <p>{{ $milestone->id }}</p>
 
                       </td>
 
                       <td class="v-align-middle" >
 
-                      <p>{{ $project->name }}</p>
+                      <p>{{ $milestone->name }}</p>
 
                       </td>
 
@@ -88,7 +88,7 @@
 
                       <td class="v-align-middle" >
 
-                      <p>No Project to display</p>
+                      <p>No Milestone to display</p>
 
                       </td>
 
@@ -132,7 +132,7 @@
 
                 </button>
 
-                <h4 class="p-b-5"><h4>Add New Project</h4></h4>
+                <h4 class="p-b-5"><h4>Add New Company</h4></h4>
 
               </div>
 
@@ -148,13 +148,7 @@
 
                     <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
 
-                    <li><a data-toggle="tab" href="#menu1">Company</a></li>
-
-                    <li><a data-toggle="tab" href="#menu2">Category</a></li>
-
-                    <li><a data-toggle="tab" href="#menu3">Features</a></li>
-
-                    <li><a data-toggle="tab" href="#menu4">Dates</a></li>
+                    <li><a data-toggle="tab" href="#menu1">User</a></li>
 
                   </ul>
 
@@ -174,7 +168,7 @@
 
                               <label>Name</label>
 
-                              {!! Former::text("name")->label(false)->placeholder('Name of Project') !!}
+                              {!! Former::text("name")->label(false)->placeholder('Name of Milestone') !!}
 
                             </div>
 
@@ -182,13 +176,16 @@
 
                               <label>Description</label>
 
-                              {!! Former::text("description")->label(false)->placeholder('Description of project') !!}
+                              {!! Former::text("description")->label(false)->placeholder('Description of Milestone') !!}
 
                             </div>
 
-                            <div class="checkbox check-success ">
-                              <input type="checkbox" checked="checked" value="1" id="checkbox1">
-                              <label for="checkbox1">Status</label>
+                            <div class="form-group form-group-default input-group col-sm-10">
+                              <label>Due Date</label>
+                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+                              <span class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </span>
                             </div>
 
                           </div>
@@ -205,11 +202,9 @@
 
                           <div class="col-sm-12">
 
-                            
-
-                              <form class="m-t-10" role="form">
+                            <form class="m-t-10" role="form">
                                 <div class="form-group form-group-default form-group-default-select2">
-                                 <label>Client Name</label>
+                                 <label>Industry</label>
                                   <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                       <option value="AK">Alaska</option>
@@ -225,66 +220,22 @@
                                 </div>
                               </form>
 
-                          
-
-                            <div class="form-group form-group-default">
+                              <div class="form-group form-group-default">
 
                               <label>Notes</label>
 
-                              {!! Former::text("name")->label(false)->placeholder('Notes for project') !!}
+                              {!! Former::text("notes")->label(false)->placeholder('Notes of Milestone') !!}
 
                             </div>
 
-                          </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div id="menu2" class="tab-pane slide-left">
-
-                        <div class="row">
-
-                          <div class="col-sm-12">
-
-                            <form class="m-t-10" role="form">
-                                <div class="form-group form-group-default form-group-default-select2">
-                                 <label>Category Of Project</label>
-                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
-                                    <optgroup label="Alaskan/Hawaiian Time Zone">
-                                      <option value="AK">Alaska</option>
-                                      <option value="HI">Hawaii</option>
-                                    </optgroup>
-                                    <optgroup label="Pacific Time Zone">
-                                      <option value="CA">California</option>
-                                      <option value="NV">Nevada</option>
-                                      <option value="OR">Oregon</option>
-                                      <option value="WA">Washington</option>
-                                    </optgroup>
-                                  </select>
-                                </div>
-                              </form>
-
-                          </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div id="menu3" class="tab-pane slide-left">
-
-                        <div class="row">
-
-                          <div class="col-sm-12">
+                          
 
                             <div class="checkbox check-success ">
                               <input type="checkbox" checked="checked" value="1" id="checkbox1">
-                              <label for="checkbox1">Archive</label>
+                              <label for="checkbox1">Reminder</label>
                             </div>
+
+                            
 
                           </div>
 
@@ -292,43 +243,7 @@
 
                     </div>
 
-                  
 
-                    <div id="menu4" class="tab-pane slide-left">
-
-                        <div class="row">
-
-                          <div class="col-sm-12">
-
-                            <div class="form-group form-group-default input-group col-sm-10">
-                              <label>Start Date</label>
-                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
-                              <span class="input-group-addon">
-                                                          <i class="fa fa-calendar"></i>
-                                                        </span>
-                            </div>
-
-                            <div class="form-group form-group-default input-group col-sm-10">
-                              <label>End Date</label>
-                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
-                              <span class="input-group-addon">
-                                                          <i class="fa fa-calendar"></i>
-                                                        </span>
-                            </div>
-
-                            <div class="form-group form-group-default">
-
-                              <label>Fix Hour</label>
-
-                              {!! Former::text('fix_hour')->label(false) !!}
-
-                            </div>
-
-                          </div>
-
-                        </div>
-
-                    </div>
 
 
 

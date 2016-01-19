@@ -170,22 +170,29 @@
 
                               <label>Name</label>
 
-                              {!! Former::text("name")->label(false)->placeholder('Name of Project') !!}
+                              {!! Former::text("name")->label(false)->placeholder('Name of Company') !!}
 
                             </div>
 
                             <div class="form-group form-group-default">
 
-                              <label>Description</label>
+                              <label>Website</label>
 
-                              {!! Former::text("description")->label(false)->placeholder('Description of project') !!}
+                              {!! Former::text("website")->label(false)->placeholder('Website of Company') !!}
 
                             </div>
 
-                            <div class="checkbox check-success ">
-                              <input type="checkbox" checked="checked" value="1" id="checkbox1">
-                              <label for="checkbox1">Status</label>
+                            <div class="form-group form-group-default">
+
+                              <label>Email</label>
+
+                              {!! Former::text("email")->label(false)->placeholder('Email of Company') !!}
+
                             </div>
+
+                            <button class="btn btn-success btn-cons m-b-10" type="button"><i class="fa fa-cloud-upload"></i> <span class="bold">Upload</span>
+                            
+                            </button>
 
                           </div>
 
@@ -205,7 +212,7 @@
 
                               <form class="m-t-10" role="form">
                                 <div class="form-group form-group-default form-group-default-select2">
-                                 <label>Client Name</label>
+                                 <label>Industry</label>
                                   <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                       <option value="AK">Alaska</option>
@@ -225,9 +232,17 @@
 
                             <div class="form-group form-group-default">
 
-                              <label>Notes</label>
+                              <label>Phone</label>
 
-                              {!! Former::text("name")->label(false)->placeholder('Notes for project') !!}
+                              {!! Former::text("phone")->label(false)->placeholder('Phone of Company') !!}
+
+                            </div>
+
+                            <div class="form-group form-group-default">
+
+                              <label>Fax</label>
+
+                              {!! Former::text("fax")->label(false)->placeholder('Fax of Company') !!}
 
                             </div>
 
@@ -243,11 +258,21 @@
 
                         <div class="row">
 
-                          <div class="col-sm-12">
+                          <div class="col-sm-6">
+
+                          <div class="form-group form-group-default">
+
+                              <label>Address 1</label>
+
+                              {!! Former::text("adrs1")->label(false)->placeholder('Address 1') !!}
+
+                            </div>
+
+                                                
 
                             <form class="m-t-10" role="form">
                                 <div class="form-group form-group-default form-group-default-select2">
-                                 <label>Category Of Project</label>
+                                 <label>City</label>
                                   <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                       <option value="AK">Alaska</option>
@@ -263,7 +288,65 @@
                                 </div>
                               </form>
 
-                          </div>
+                              <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Country</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
+
+                            </div>
+
+                            <div class="col-sm-6">
+
+                            <div class="form-group form-group-default">
+
+                              <label>Address 2</label>
+
+                              {!! Former::text("adrs1")->label(false)->placeholder('Address 2') !!}
+
+                            </div>
+
+                            <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>State</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
+
+                              <div class="form-group form-group-default">
+
+                              <label>Zipcode</label>
+
+                              {!! Former::text("zipcode")->label(false)->placeholder('Zipcode') !!}
+
+                            </div>
+
+                            </div>
+
+
 
                         </div>
 
