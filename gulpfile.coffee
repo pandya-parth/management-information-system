@@ -15,6 +15,9 @@ elixir (mix)->
       'pages-icons.css',
       'pages.css',
       'windows.chrome.fix.css',
+      'datepicker3.css',
+      'daterangepicker-bs3.css',
+      'bootstrap-timepicker.min.css',
     ], 'public/css/vendor.css'
 
 
@@ -46,6 +49,9 @@ elixir (mix)->
       'lodash.min.js',
       'pages.min.js',
       'datatables.js',
+      'bootstrap-timepicker.min.js',
+      'daterangepicker.js',
+      'bootstrap-datepicker.js',
     ], 'public/js/vendor.js'
 
     mix.coffee [

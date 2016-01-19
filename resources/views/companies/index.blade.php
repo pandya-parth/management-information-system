@@ -1,155 +1,367 @@
 @extends('layouts.app')
+
 @section('content')
+
 <div class= "content">
+
 <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg bg-white">
+
+          <div class="container-fluid container-fixed-lg">
+
             <!-- START PANEL -->
+
             <div class="panel panel-transparent">
+
               <div class="panel-heading">
-                <div class="panel-title">Table with export options
+
+                <div class="panel-title">
+
+                <h4>Companies</h4>
+
                 </div>
-                <div class="export-options-container pull-right">
+
+                <div class="pull-right">
+
                   <div class="col-xs-12">
-                      <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add row</button>
+
+                  <!-- {!! link_to("project/create","Add",array('class'=>'btn btn-primary btn-cons   pull-right')) !!}
+
+                   -->  <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add row</button>
+
                   </div>
+
                 </div>
+
                 <div class="clearfix"></div>
+
               </div>
+
               <div class="panel-body">
-                <table class="table table-striped" id="tableWithExportOptions">
+
+                <table class="table table-hover demo-table-dynamic">
+
                   <thead>
+
                     <tr>
-                      <th>Rendering engine</th>
-                      <th>Browser</th>
-                      <th>Platform(s)</th>
-                      <th>Engine version</th>
-                      <th>CSS grade</th>
+
+                      <th>Company name</th>
+
+                      <th>Website</th>
+
+                      <th>Email</th>
+
+                      <th>Phone</th>
+
                     </tr>
+
                   </thead>
+
                   <tbody>
-                    <tr class="odd gradeX">
-                      <td>Trident</td>
-                      <td>Internet Explorer 4.0</td>
-                      <td>Win 95+</td>
-                      <td class="center"> 4</td>
-                      <td class="center">X</td>
-                    </tr>
-                    <tr class="even gradeC">
-                      <td>Trident</td>
-                      <td>Internet Explorer 5.0</td>
-                      <td>Win 95+</td>
-                      <td class="center">5</td>
-                      <td class="center">C</td>
-                    </tr>
-                    <tr class="odd gradeA">
-                      <td>Trident</td>
-                      <td>Internet Explorer 7</td>
-                      <td>Win XP SP2+</td>
-                      <td class="center">7</td>
-                      <td class="center">A</td>
-                    </tr>
-                    <tr class="even gradeA">
-                      <td>Trident</td>
-                      <td>AOL browser (AOL desktop)</td>
-                      <td>Win XP</td>
-                      <td class="center">6</td>
-                      <td class="center">A</td>
-                    </tr>
-                    <tr class="gradeA">
-                      <td>Gecko</td>
-                      <td>Firefox 1.0</td>
-                      <td>Win 98+ / OSX.2+</td>
-                      <td class="center">1.7</td>
-                      <td class="center">A</td>
-                    </tr>
-                    <tr class="gradeC">
-                      <td>Misc</td>
-                      <td>PSP browser</td>
-                      <td>PSP</td>
-                      <td class="center">-</td>
-                      <td class="center">C</td>
-                    </tr>
-                    <tr class="gradeU">
-                      <td>Other browsers</td>
-                      <td>All others</td>
-                      <td>-</td>
-                      <td class="center">-</td>
-                      <td class="center">U</td>
-                    </tr>
+
+                    
+
+                      @forelse($companies as $company)
+
+                      <tr>
+
+                      <td class="v-align-middle" >
+
+                      <p>{{ $company->id }}</p>
+
+                      </td>
+
+                      <td class="v-align-middle" >
+
+                      <p>{{ $company->name }}</p>
+
+                      </td>
+
+                      </tr>
+
+                      
+
+                   @empty
+
+
+
+                      <tr>
+
+                      <td class="v-align-middle" >
+
+                      <p>No Company to display</p>
+
+                      </td>
+
+                      </tr>
+
+                    @endforelse
+
                   </tbody>
+
                 </table>
+
               </div>
+
             </div>
+
             <!-- END PANEL -->
+
           </div>
+
           <!-- END CONTAINER FLUID -->
+
+
+
 </div>
 
-                     
+
+
 
 
 <!-- MODAL STICK UP  -->
+
         <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog" aria-labelledby="addNewAppModal" aria-hidden="true">
+
           <div class="modal-dialog">
+
             <div class="modal-content">
+
               <div class="modal-header clearfix ">
+
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+
                 </button>
-                <h4 class="p-b-5"><span class="semi-bold">New</span> App</h4>
+
+                <h4 class="p-b-5"><h4>Add New Company</h4></h4>
+
               </div>
+
               <div class="modal-body">
-              <ul class="nav nav-tabs nav-tabs-fillup">
-                        <li class="active">
-                          <a data-toggle="tab" href="#slide1"><span>Home</span></a>
-                        </li>
-                        <li>
-                          <a data-toggle="tab" href="#slide2"><span>Profile</span></a>
-                        </li>
-                        <li>
-                          <a data-toggle="tab" href="#slide3"><span>Messages</span></a>
-                        </li>
-              </ul>
-                <form role="form">
-                      <!-- Tab panes -->
-                      <div class="tab-content">
-                        <div class="tab-pane slide-left active" id="slide1">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="form-group form-group-default">
+
+                
+
+                {!! Former::open()->method('post')->action( url(''))->class('p-t-15')->role('form') !!}
+
+
+
+                  <ul class="nav nav-tabs nav-tabs-fillup">
+
+                    <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+
+                    <li><a data-toggle="tab" href="#menu1">Industry</a></li>
+
+                    <li><a data-toggle="tab" href="#menu2">Address</a></li>
+
+                  </ul>
+
+
+
+                  <div class="tab-content">
+
+
+
+                    <div id="home" class="tab-pane slide-left active">
+
+                        <div class="row">
+
+                          <div class="col-sm-12">
+
+                            <div class="form-group form-group-default">
+
                               <label>Name</label>
+
                               {!! Former::text("name")->label(false)->placeholder('Name of Project') !!}
+
                             </div>
+
+                            <div class="form-group form-group-default">
+
+                              <label>Description</label>
+
+                              {!! Former::text("description")->label(false)->placeholder('Description of project') !!}
+
                             </div>
+
+                            <div class="checkbox check-success ">
+                              <input type="checkbox" checked="checked" value="1" id="checkbox1">
+                              <label for="checkbox1">Status</label>
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div id="menu1" class="tab-pane slide-left">
+
+                        <div class="row">
+
+                          <div class="col-sm-12">
+
                             
-                          </div>
-                        </div>
-                        <div class="tab-pane slide-left" id="slide2">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <span class="semi-bold">Sometimes</span>
+
+                              <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Client Name</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
+
+                          
+
+                            <div class="form-group form-group-default">
+
+                              <label>Notes</label>
+
+                              {!! Former::text("name")->label(false)->placeholder('Notes for project') !!}
+
                             </div>
+
                           </div>
+
                         </div>
-                        <div class="tab-pane slide-left" id="slide3">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <h3>Follow us &amp; get updated!</h3>
-                              <p>Instantly connect to what's most important to you. Follow your friends, experts, favorite celebrities, and breaking news.</p>
-                              <br>
+
+                    </div>
+
+
+
+                    <div id="menu2" class="tab-pane slide-left">
+
+                        <div class="row">
+
+                          <div class="col-sm-12">
+
+                            <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Category Of Project</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
+
+                          </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div id="menu3" class="tab-pane slide-left">
+
+                        <div class="row">
+
+                          <div class="col-sm-12">
+
+                            <div class="checkbox check-success ">
+                              <input type="checkbox" checked="checked" value="1" id="checkbox1">
+                              <label for="checkbox1">Archive</label>
                             </div>
+
                           </div>
+
                         </div>
-                      </div>
-                      </form>
+
+                    </div>
+
+                  
+
+                    <div id="menu4" class="tab-pane slide-left">
+
+                        <div class="row">
+
+                          <div class="col-sm-12">
+
+                            <div class="form-group form-group-default input-group col-sm-10">
+                              <label>Check In</label>
+                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+                              <span class="input-group-addon">
+                                                          <i class="fa fa-calendar"></i>
+                                                        </span>
+                            </div>
+
+                            <div class="form-group form-group-default input-group col-sm-10">
+                              <label>Check In</label>
+                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+                              <span class="input-group-addon">
+                                                          <i class="fa fa-calendar"></i>
+                                                        </span>
+                            </div>
+
+                            <div class="form-group form-group-default">
+
+                              <label>Fix Hour</label>
+
+                              {!! Former::text('fix_hour')->label(false) !!}
+
+                            </div>
+
+                          </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+                                 
+
+                {!! Former::close() !!}
+
               </div>
+
               <div class="modal-footer">
+
                 <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
-                <button type="button" class="btn btn-cons">Close</button>
+
+                <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
               </div>
+
             </div>
+
             <!-- /.modal-content -->
+
           </div>
+
           <!-- /.modal-dialog -->
+
         </div>
+
         <!-- END MODAL STICK UP  -->
+
+
+
+          
+
+
+
 @endsection
+
+

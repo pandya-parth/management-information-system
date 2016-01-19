@@ -22,7 +22,7 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-      $compnies=Company::all();
+      $companies=Company::all();
         return view('companies/index',compact('companies'));
     }
 

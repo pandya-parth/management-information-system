@@ -140,7 +140,7 @@
 
                 
 
-                {!! Former::open()->method('post')->action( url('login'))->class('p-t-15')->role('form') !!}
+                {!! Former::open()->method('post')->action( url(''))->class('p-t-15')->role('form') !!}
 
 
 
@@ -186,12 +186,9 @@
 
                             </div>
 
-                            <div class="form-group form-group-default">
-
-                              <label>Status</label>
-
-                              {!! Former::checkbox('status')->token()->label(false) !!}
-
+                            <div class="checkbox check-success ">
+                              <input type="checkbox" checked="checked" value="1" id="checkbox1">
+                              <label for="checkbox1">Status</label>
                             </div>
 
                           </div>
@@ -208,13 +205,27 @@
 
                           <div class="col-sm-12">
 
-                            <div class="form-group form-group-default">
+                            
 
-                              <label>Client Name</label>
+                              <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Client Name</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
 
-                              <input id="appName" type="text" class="form-control" placeholder="Name of your app">
-
-                            </div>
+                          
 
                             <div class="form-group form-group-default">
 
@@ -238,13 +249,23 @@
 
                           <div class="col-sm-12">
 
-                            <div class="form-group form-group-default">
-
-                              <label>Category</label>
-
-                              <input id="appName" type="text" class="form-control" placeholder="Name of your app">
-
-                            </div>
+                            <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Category Of Project</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
 
                           </div>
 
@@ -260,12 +281,9 @@
 
                           <div class="col-sm-12">
 
-                            <div class="form-group form-group-default">
-
-                              <label>Archive</label>
-
-                              {!! Former::checkbox('archive')->token()->label(false) !!}
-
+                            <div class="checkbox check-success ">
+                              <input type="checkbox" checked="checked" value="1" id="checkbox1">
+                              <label for="checkbox1">Archive</label>
                             </div>
 
                           </div>
@@ -282,20 +300,20 @@
 
                           <div class="col-sm-12">
 
-                            <div class="form-group form-group-default">
-
-                              <label>Start Date</label>
-
-                              {!! Former::date('start_date')->label(false) !!}
-
+                            <div class="form-group form-group-default input-group col-sm-10">
+                              <label>Check In</label>
+                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+                              <span class="input-group-addon">
+                                                          <i class="fa fa-calendar"></i>
+                                                        </span>
                             </div>
 
-                            <div class="form-group form-group-default">
-
-                              <label>End Date</label>
-
-                              {!! Former::date('end_date')->label(false) !!}
-
+                            <div class="form-group form-group-default input-group col-sm-10">
+                              <label>Check In</label>
+                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+                              <span class="input-group-addon">
+                                                          <i class="fa fa-calendar"></i>
+                                                        </span>
                             </div>
 
                             <div class="form-group form-group-default">
