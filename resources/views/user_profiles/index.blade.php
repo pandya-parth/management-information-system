@@ -146,11 +146,16 @@
 
                   <ul class="nav nav-tabs nav-tabs-fillup">
 
-                    <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+                    <li class="active"><a data-toggle="tab" href="#home">Personal Details</a></li>
 
-                    <li><a data-toggle="tab" href="#menu1">Industry</a></li>
-
+                    <li><a data-toggle="tab" href="#menu1">OtherDetails</a></li>
                     <li><a data-toggle="tab" href="#menu2">Address</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Employment</a></li>
+                    <li><a data-toggle="tab" href="#menu4">Work Experience</a></li>
+                    <li><a data-toggle="tab" href="#menu5">Qualification</a></li>
+                    <li><a data-toggle="tab" href="#menu6">Documents</a></li>
+                    <li><a data-toggle="tab" href="#menu7">Social</a></li>
+
 
                   </ul>
 
@@ -165,13 +170,13 @@
                         <div class="row">
 
                           <div class="col-sm-12">
+ 
+                             <div class="form-group form-group-default input-group col-sm-12">
+                                <label class="">Files </label>
+                                <button class="btn btn-success btn-cons m-b-10" type="button"><i class="fa fa-cloud-upload"></i> <span class="bold">Upload</span>
+                            </button>
 
-                            <div class="form-group form-group-default">
-
-                              <label>Name</label>
-
-                              {!! Former::text("name")->label(false)->placeholder('Name of Company') !!}
-
+                           
                             </div>
 
                             <div class="form-group form-group-default">
