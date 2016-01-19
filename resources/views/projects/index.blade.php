@@ -71,7 +71,7 @@
                 
                 {!! Former::open()->method('post')->action( url('login'))->class('p-t-15')->role('form') !!}
 
-                  <ul class="nav nav-tabs">
+                  <ul class="nav nav-tabs nav-tabs-fillup">
                     <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
                     <li><a data-toggle="tab" href="#menu1">Company</a></li>
                     <li><a data-toggle="tab" href="#menu2">Category</a></li>
