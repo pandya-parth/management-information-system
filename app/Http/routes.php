@@ -40,6 +40,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/milestones','MilestonesController');
     Route::resource('/tasks','TasksController');
     Route::resource('/task_categories','TaskCategoriesController');
+    Route::resource('/user_profiles','UserProfilesController');
+
     Route::post('change-password', 'UserController@updatePassword');
 	Route::get('change-password', 'UserController@changePassword');
 });
