@@ -63,6 +63,7 @@
               
             </ul>
           </li>
+
           <li class="">
             <a href="javascript:;"><span class="title">Task</span>
             <span class=" arrow"></span></a>
@@ -79,6 +80,11 @@
               </li>
               
             </ul>
+          </li>
+
+          <li class="">
+            <a href="{!! url('companies') !!}"><span class="title">Company</span></a>
+            <span class="icon-thumbnail ">C</span>
           </li>
           
           
