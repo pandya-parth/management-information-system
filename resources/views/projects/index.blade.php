@@ -10,7 +10,10 @@
               <div class="panel-heading">
                 <div class="panel-title">Table with export options
                 </div>
-                <div class="export-options-container pull-right"></div>
+                <div class="export-options-container pull-right">
+                  <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add row</button>
+                </div>
+
                 <div class="clearfix"></div>
               </div>
               <div class="panel-body">
@@ -63,40 +66,66 @@
           <!-- END CONTAINER FLUID -->
 </div>
 
-<div class="col-sm-6">
-                    <h5>Fill In Tabs</h5> Add the class
-                    <code>nav-tabs-fillup</code> to the main wrapper of the tabs
-                    <br>
-                    <br>
-                    <div class="panel panel-transparent ">
-                      <!-- Nav tabs -->
-                      <ul class="nav nav-tabs nav-tabs-fillup">
+
+<!-- MODAL STICK UP  -->
+
+        <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog" aria-labelledby="addNewAppModal" aria-hidden="true">
+
+          <div class="modal-dialog">
+
+            <div class="modal-content">
+
+              <div class="modal-header clearfix ">
+
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+
+                </button>
+
+                <h4 class="p-b-5"><h4>Add New Project</h4></h4>
+
+              </div>
+
+              <div class="modal-body">
+
+                
+
+                {!! Former::open()->method('post')->action( url('login'))->class('p-t-15')->role('form') !!}
+
+
+
+                  <ul class="nav nav-tabs nav-tabs-fillup">
                         <li class="active">
-                          <a data-toggle="tab" href="#tab-fillup1"><span>Home</span></a>
+                          <a data-toggle="tab" href="#slide1"><span>Home</span></a>
                         </li>
                         <li>
-                          <a data-toggle="tab" href="#tab-fillup2"><span>Profile</span></a>
+                          <a data-toggle="tab" href="#slide2"><span>Profile</span></a>
                         </li>
                         <li>
-                          <a data-toggle="tab" href="#tab-fillup3"><span>Messages</span></a>
+                          <a data-toggle="tab" href="#slide3"><span>Messages</span></a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#slide4"><span>Profile</span></a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#slide5"><span>Messages</span></a>
                         </li>
                       </ul>
-                      <!-- Tab panes -->
-                      <div class="tab-content">
-                        <div class="tab-pane active" id="tab-fillup1">
+
+
+
+                  <div class="tab-content">
+
+                   <div class="tab-pane slide-left active" id="slide1">
                           <div class="row column-seperation">
-                            <div class="col-md-6">
-                              <h3>
-                                                <span class="semi-bold">Sometimes</span> Small things in life means the most
-                                            </h3>
+                            <div class="col-md-12">
+                              <label>Name</label>
+
+                              {!! Former::text("name")->label(false)->placeholder('Name of Project') !!}
                             </div>
-                            <div class="col-md-6">
-                              <h3 class="semi-bold">great tabs</h3>
-                              <p>Native boostrap tabs customized to Pages look and feel, simply changing class name you can change color as well as its animations</p>
-                            </div>
+                            
                           </div>
                         </div>
-                        <div class="tab-pane" id="tab-fillup2">
+                        <div class="tab-pane slide-left" id="slide2">
                           <div class="row">
                             <div class="col-md-12">
                               <h3>“ Nothing is
@@ -111,7 +140,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="tab-pane" id="tab-fillup3">
+                        <div class="tab-pane slide-left" id="slide3">
                           <div class="row">
                             <div class="col-md-12">
                               <h3>Follow us &amp; get updated!</h3>
@@ -120,7 +149,56 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                        <div class="tab-pane slide-left" id="slide4">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h3>“ Nothing is
+                                                <span class="semi-bold">impossible</span>, the word itself says 'I'm
+                                                <span class="semi-bold">possible</span>'! ”</h3>
+                              <p>A style represents visual customizations on top of a layout. By editing a style, you can use Squarespace's visual interface to customize your...</p>
+                              <br>
+                              <p class="pull-right">
+                                <button type="button" class="btn btn-default btn-cons">White</button>
+                                <button type="button" class="btn btn-success btn-cons">Success</button>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane slide-left" id="slide5">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h3>Follow us &amp; get updated!</h3>
+                              <p>Instantly connect to what's most important to you. Follow your friends, experts, favorite celebrities, and breaking news.</p>
+                              <br>
+                            </div>
+                          </div>
+                        </div>
+
+                </div>
+
+                                 
+
+                {!! Former::close() !!}
+
+              </div>
+
+              <div class="modal-footer">
+
+                <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
+
+                <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true">Close</button>
+
+              </div>
+
+            </div>
+
+            <!-- /.modal-content -->
+
+          </div>
+
+          <!-- /.modal-dialog -->
+
+        </div>
+
+        <!-- END MODAL STICK UP  -->
 @endsection
