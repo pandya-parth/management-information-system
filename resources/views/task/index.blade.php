@@ -84,7 +84,7 @@
             <!-- END PANEL -->
           </div>
           <!-- END CONTAINER FLUID -->
-</div>
+
 
 
 
@@ -229,8 +229,7 @@
           <!-- /.modal-dialog -->
         </div>
         <!-- END MODAL STICK UP  -->
-
-          
+    </div>
 
 @endsection
 

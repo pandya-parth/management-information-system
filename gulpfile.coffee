@@ -12,12 +12,8 @@ elixir (mix)->
       'jquery.scrollbar.css',
       'select2.css',
       'switchery.min.css',
-      'datepicker3.css',
-      'daterangepicker-bs3.css',
-    
       'pages-icons.css',
       'pages.css',
-      'bootstrap-timepicker.min.css',
       'windows.chrome.fix.css',
     ], 'public/css/vendor.css'
 
@@ -40,9 +36,6 @@ elixir (mix)->
       'select2.min.js',
       'classie.js',
       'switchery.min.js',
-      'bootstrap-timepicker.min.js',
-      'daterangepicker.js',
-      'bootstrap-datepicker.js',
       'pages.min.js',
       'scripts.js',
       'angular.min.js',
