@@ -7,6 +7,16 @@
 <!-- START CONTAINER FLUID -->
 
           <div class="container-fluid container-fixed-lg">
+          <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                  <li>
+                    <a href="{!!url('/')!!}">Home</a>
+                  </li>
+                  <li><a href="{!!url('projects')!!}" class="active">Projects</a>
+                  </li>
+                </ul>
+              </div>
 
             <!-- START PANEL -->
 

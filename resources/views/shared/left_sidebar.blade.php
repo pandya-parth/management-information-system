@@ -41,7 +41,6 @@
           <li class="m-t-30 ">
             <a href="{!! url('/') !!}" class="detailed">
               <span class="title">Dashboard</span>
-              <span class="details">12 New Updates</span>
             </a>
             <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
           </li>
@@ -60,7 +59,10 @@
                 <a href="{!! url('projects') !!}">Projects</a>
                 <span class="icon-thumbnail">P</span>
               </li>
-              
+              <li class="">
+                <a href="{!! url('milestones') !!}">Milestones</a>
+                <span class="icon-thumbnail ">M</span>
+              </li>
             </ul>
           </li>
 
@@ -87,10 +89,7 @@
             <span class="icon-thumbnail ">C</span>
           </li>
 
-          <li class="">
-            <a href="{!! url('milestones') !!}"><span class="title">Milestones</span></a>
-            <span class="icon-thumbnail ">M</span>
-          </li>
+          
           
           
           
