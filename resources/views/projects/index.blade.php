@@ -301,7 +301,7 @@
                           <div class="col-sm-12">
 
                             <div class="form-group form-group-default input-group col-sm-10">
-                              <label>Check In</label>
+                              <label>Start Date</label>
                               <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
@@ -309,7 +309,7 @@
                             </div>
 
                             <div class="form-group form-group-default input-group col-sm-10">
-                              <label>Check In</label>
+                              <label>End Date</label>
                               <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>

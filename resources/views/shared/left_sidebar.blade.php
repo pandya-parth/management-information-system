@@ -86,6 +86,11 @@
             <a href="{!! url('companies') !!}"><span class="title">Company</span></a>
             <span class="icon-thumbnail ">C</span>
           </li>
+
+          <li class="">
+            <a href="{!! url('milestones') !!}"><span class="title">Milestones</span></a>
+            <span class="icon-thumbnail ">M</span>
+          </li>
           
           
           
