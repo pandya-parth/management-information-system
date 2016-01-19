@@ -11,7 +11,7 @@
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                   <li>
-                    <a href="#">Extras</a>
+                    <a href="{!! url('/')!!}">Home</a>
                   </li>
                   <li><a href="#" class="active">Blank template</a>
                   </li>
