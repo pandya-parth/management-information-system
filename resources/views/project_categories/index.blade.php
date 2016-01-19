@@ -3,10 +3,21 @@
 <div class= "content">
 <!-- START CONTAINER FLUID -->
           <div class="container-fluid container-fixed-lg">
+          <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                  <li>
+                    <a href="{!!url('/')!!}">Home</a>
+                  </li>
+                  <li><a href="{!!url('project_categories')!!}" class="active">Project Categories</a>
+                  </li>
+                </ul>
+              </div>
             <!-- START PANEL -->
             <div class="panel panel-transparent">
               <div class="panel-heading">
-                <div class="panel-title">Project Category Listing
+                <div class="panel-title">
+                <h4>Project Category Listing</h4>
                 </div>
                 <div class="pull-right">
                   <div class="col-xs-12">
