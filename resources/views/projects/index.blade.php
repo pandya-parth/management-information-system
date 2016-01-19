@@ -1,52 +1,59 @@
 @extends('layouts.app')
+
 @section('content')
+
 <div class= "content">
 <!-- START CONTAINER FLUID -->
-          <div class="container-fluid container-fixed-lg">
+          <div class="container-fluid container-fixed-lg bg-white">
             <!-- START PANEL -->
             <div class="panel panel-transparent">
               <div class="panel-heading">
-                <div class="panel-title">
-                <h4>Projects</h4>
+                <div class="panel-title">Table with export options
                 </div>
-                <div class="pull-right">
-                  <div class="col-xs-12">
-                  <!-- {!! link_to("project/create","Add",array('class'=>'btn btn-primary btn-cons   pull-right')) !!}
-                   -->  <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add row</button>
-                  </div>
-                </div>
+                <div class="export-options-container pull-right"></div>
                 <div class="clearfix"></div>
               </div>
               <div class="panel-body">
-                <table class="table table-hover demo-table-dynamic">
+                <table class="table table-striped" id="tableWithExportOptions">
                   <thead>
                     <tr>
-                      <th>Project name</th>
-                      <th>Description</th>
-                      <th>Price Type</th>
-                      <th>Notes</th>
+                      <th>Rendering engine</th>
+                      <th>Browser</th>
+                      <th>Platform(s)</th>
+                      <th>Engine version</th>
+                      <th>CSS grade</th>
                     </tr>
                   </thead>
                   <tbody>
+                    <tr class="odd gradeX">
+                      <td>Trident</td>
+                      <td>Internet Explorer 4.0</td>
+                      <td>Win 95+</td>
+                      <td class="center"> 4</td>
+                      <td class="center">X</td>
+                    </tr>
+                    <tr class="even gradeC">
+                      <td>Trident</td>
+                      <td>Internet Explorer 5.0</td>
+                      <td>Win 95+</td>
+                      <td class="center">5</td>
+                      <td class="center">C</td>
+                    </tr>
+                    <tr class="odd gradeA">
+                      <td>Trident</td>
+                      <td>Internet Explorer 5.5</td>
+                      <td>Win 95+</td>
+                      <td class="center">5.5</td>
+                      <td class="center">A</td>
+                    </tr>
+                    <tr class="even gradeA">
+                      <td>Trident</td>
+                      <td>Internet Explorer 6</td>
+                      <td>Win 98+</td>
+                      <td class="center">6</td>
+                      <td class="center">A</td>
+                    </tr>
                     
-                      @forelse($projects as $project)
-                      <tr>
-                      <td class="v-align-middle" >
-                      <p>{{ $project->id }}</p>
-                      </td>
-                      <td class="v-align-middle" >
-                      <p>{{ $project->name }}</p>
-                      </td>
-                      </tr>
-                      
-                   @empty
-
-                      <tr>
-                      <td class="v-align-middle" >
-                      <p>No Project to display</p>
-                      </td>
-                      </tr>
-                    @endforelse
                   </tbody>
                 </table>
               </div>
@@ -54,124 +61,66 @@
             <!-- END PANEL -->
           </div>
           <!-- END CONTAINER FLUID -->
-
 </div>
 
-
-<!-- MODAL STICK UP  -->
-        <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog" aria-labelledby="addNewAppModal" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header clearfix ">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
-                </button>
-                <h4 class="p-b-5"><h4>Add New Project</h4></h4>
-              </div>
-              <div class="modal-body">
-                
-                {!! Former::open()->method('post')->action( url('login'))->class('p-t-15')->role('form') !!}
-
-                  <ul class="nav nav-tabs nav-tabs-fillup">
-                    <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
-                    <li><a data-toggle="tab" href="#menu1">Company</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Category</a></li>
-                    <li><a data-toggle="tab" href="#menu3">Features</a></li>
-                    <li><a data-toggle="tab" href="#menu4">Dates</a></li>
-                  </ul>
-
-                  <div class="tab-content">
-
-                    <div id="home" class="tab-pane fade in active">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                              <label>Name</label>
-                              {!! Former::text("name")->label(false)->placeholder('Name of Project') !!}
+<div class="col-sm-6">
+                    <h5>Fill In Tabs</h5> Add the class
+                    <code>nav-tabs-fillup</code> to the main wrapper of the tabs
+                    <br>
+                    <br>
+                    <div class="panel panel-transparent ">
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs nav-tabs-fillup">
+                        <li class="active">
+                          <a data-toggle="tab" href="#tab-fillup1"><span>Home</span></a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#tab-fillup2"><span>Profile</span></a>
+                        </li>
+                        <li>
+                          <a data-toggle="tab" href="#tab-fillup3"><span>Messages</span></a>
+                        </li>
+                      </ul>
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="tab-fillup1">
+                          <div class="row column-seperation">
+                            <div class="col-md-6">
+                              <h3>
+                                                <span class="semi-bold">Sometimes</span> Small things in life means the most
+                                            </h3>
                             </div>
-                            <div class="form-group form-group-default">
-                              <label>Description</label>
-                              {!! Former::text("description")->label(false)->placeholder('Description of project') !!}
-                            </div>
-                            <div class="form-group form-group-default">
-                              <label>Status</label>
-                              {!! Former::checkbox('status')->token()->label(false) !!}
+                            <div class="col-md-6">
+                              <h3 class="semi-bold">great tabs</h3>
+                              <p>Native boostrap tabs customized to Pages look and feel, simply changing class name you can change color as well as its animations</p>
                             </div>
                           </div>
                         </div>
-                    </div>
-
-                    <div id="menu1" class="tab-pane fade">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                              <label>Client Name</label>
-                              <input id="appName" type="text" class="form-control" placeholder="Name of your app">
-                            </div>
-                            <div class="form-group form-group-default">
-                              <label>Notes</label>
-                              {!! Former::text("name")->label(false)->placeholder('Notes for project') !!}
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-
-                    <div id="menu2" class="tab-pane fade">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                              <label>Category</label>
-                              <input id="appName" type="text" class="form-control" placeholder="Name of your app">
+                        <div class="tab-pane" id="tab-fillup2">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h3>“ Nothing is
+                                                <span class="semi-bold">impossible</span>, the word itself says 'I'm
+                                                <span class="semi-bold">possible</span>'! ”</h3>
+                              <p>A style represents visual customizations on top of a layout. By editing a style, you can use Squarespace's visual interface to customize your...</p>
+                              <br>
+                              <p class="pull-right">
+                                <button type="button" class="btn btn-default btn-cons">White</button>
+                                <button type="button" class="btn btn-success btn-cons">Success</button>
+                              </p>
                             </div>
                           </div>
                         </div>
-                    </div>
-
-                    <div id="menu3" class="tab-pane fade">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                              <label>Archive</label>
-                              {!! Former::checkbox('archive')->token()->label(false) !!}
+                        <div class="tab-pane" id="tab-fillup3">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <h3>Follow us &amp; get updated!</h3>
+                              <p>Instantly connect to what's most important to you. Follow your friends, experts, favorite celebrities, and breaking news.</p>
+                              <br>
                             </div>
                           </div>
                         </div>
+                      </div>
                     </div>
-                  
-                    <div id="menu4" class="tab-pane fade">
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <div class="form-group form-group-default">
-                              <label>Start Date</label>
-                              {!! Former::date('start_date')->label(false) !!}
-                            </div>
-                            <div class="form-group form-group-default">
-                              <label>End Date</label>
-                              {!! Former::date('end_date')->label(false) !!}
-                            </div>
-                            <div class="form-group form-group-default">
-                              <label>Fix Hour</label>
-                              {!! Former::text('fix_hour')->label(false) !!}
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-
-                </div>
-                                 
-                {!! Former::close() !!}
-              </div>
-              <div class="modal-footer">
-                <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
-                <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true">Close</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- END MODAL STICK UP  -->
-
-          
-
+                  </div>
 @endsection
-

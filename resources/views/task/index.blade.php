@@ -4,20 +4,10 @@
 <div class= "content">
 <!-- START CONTAINER FLUID -->
           <div class="container-fluid container-fixed-lg bg-white">
-               <div class="inner">
-                <!-- START BREADCRUMB -->
-                <ul class="breadcrumb">
-                  <li>
-                    <a href="{!!url('/')!!}">Home</a>
-                  </li>
-                  <li><a href="{!!url('tasks')!!}" class="active">Tasks</a>
-                  </li>
-                </ul>
-              </div>
             <!-- START PANEL -->
             <div class="panel panel-transparent">
               <div class="panel-heading">
-                <div class="panel-title">Tasks List
+                <div class="panel-title">Table with export options
                 </div>
                 <div class="export-options-container pull-right">
                   <div class="col-xs-12">
@@ -27,7 +17,7 @@
                 <div class="clearfix"></div>
               </div>
               <div class="panel-body">
-                <table class="table table-striped">
+                <table class="table table-striped" id="tableWithExportOptions">
                   <thead>
                     <tr>
                       <th>Rendering engine</th>
@@ -66,7 +56,28 @@
                       <td class="center">6</td>
                       <td class="center">A</td>
                     </tr>
-                    </tbody>
+                    <tr class="gradeA">
+                      <td>Gecko</td>
+                      <td>Firefox 1.0</td>
+                      <td>Win 98+ / OSX.2+</td>
+                      <td class="center">1.7</td>
+                      <td class="center">A</td>
+                    </tr>
+                    <tr class="gradeC">
+                      <td>Misc</td>
+                      <td>PSP browser</td>
+                      <td>PSP</td>
+                      <td class="center">-</td>
+                      <td class="center">C</td>
+                    </tr>
+                    <tr class="gradeU">
+                      <td>Other browsers</td>
+                      <td>All others</td>
+                      <td>-</td>
+                      <td class="center">-</td>
+                      <td class="center">U</td>
+                    </tr>
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -151,7 +162,7 @@
                           </div>
                           <div class="col-md-12">
                             <div class="form-group form-group-default form-group-default-select2">
-                              <label class="">Task Category</label>
+                              <label class="">Task List</label>
                               <div class="select2-container full-width" id="s2id_autogen3">
                               <select class="full-width select2-offscreen" data-placeholder="Select Country" data-init-plugin="select2" tabindex="-1" title="">
                                 <optgroup label="Alaskan/Hawaiian Time Zone">
