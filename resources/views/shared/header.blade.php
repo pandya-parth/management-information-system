@@ -45,7 +45,7 @@
 
                 </li>
                 
-                <li><a href="{!! url('/password/reset')!!}"><i class="fa-key"></i> Change Password</a>
+                <li><a href="{!! url('/change-password')!!}"><i class="fa-key"></i> Change Password</a>
                 </li>
                 <li><a href="#"><i class="pg-signals"></i> Help</a>
                 </li>

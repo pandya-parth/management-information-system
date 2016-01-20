@@ -6,6 +6,11 @@
         // Initializes search overlay plugin.
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
+
+        $( "#close_btn" ).click(function() {
+            $('#addNewAppModal').hide();
+        });
+
         $(".list-view-wrapper").scrollbar();
 
         $('[data-pages="search"]').search({

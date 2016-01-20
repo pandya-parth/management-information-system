@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProjectsTable extends Migration
+class CreateProjectCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,11 @@ class CreateProjectsTable extends Migration
      */
     public function up()
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('project_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('client_id')->unsigned();
             $table->string('name');
-            $table->string('type');
-            $table->string('time_duration');
+            $table->string('slug');
             $table->timestamps();
-            $table->foreign('client_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,6 +27,6 @@ class CreateProjectsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('projects');
+        Schema::drop('project_categories');
     }
 }

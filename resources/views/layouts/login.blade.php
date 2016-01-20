@@ -17,7 +17,7 @@
     <meta content="" name="author" />
     <link rel="stylesheet" href="{{ elixir('css/vendor.css') }}">
     <link rel="stylesheet" href="{{ elixir('css/app.css') }}">
-     <script type="text/javascript">
+    <script type="text/javascript">
     window.onload = function()
     {
       // fix for windows 8

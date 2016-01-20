@@ -26,11 +26,23 @@
 
 Route::group(['middleware' => ['web','auth']], function () {
     Route::get('/home', 'HomeController@index');
-    Route::get('/', function () {
+     Route::get('/', function () {
     return view('welcome');
-});
+
+ });
 });
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
+    Route::resource('/companies','CompaniesController');
+    Route::resource('/people','PeoplesController');
+    Route::resource('/projects','ProjectsController');
+    Route::resource('/project_categories','ProjectCategoriesController');
+    Route::resource('/milestones','MilestonesController');
+    Route::resource('/tasks','TasksController');
+    Route::resource('/task_categories','TaskCategoriesController');
+    
+
+    Route::post('change-password', 'UserController@updatePassword');
+	Route::get('change-password', 'UserController@changePassword');
 });
