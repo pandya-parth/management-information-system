@@ -88,6 +88,10 @@
             <a href="{!! url('companies') !!}"><span class="title">Company</span></a>
             <span class="icon-thumbnail ">C</span>
           </li>
+          <li class="">
+            <a href="{!! url('people') !!}"><span class="title">People</span></a>
+            <span class="icon-thumbnail ">P</span>
+          </li>
 
           
           
