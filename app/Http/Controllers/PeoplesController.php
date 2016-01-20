@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\UserProfile;
-class UserProfilesController extends Controller
+use App\People;
+class PeoplesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class UserProfilesController extends Controller
      */
     public function index()
     {
-           $users=UserProfile::all();
-        return view('user_profiles/index',compact('users'));
+           $peoples=People::all();
+        return view('peoples/index',compact('peoples'));
     }
 
     /**

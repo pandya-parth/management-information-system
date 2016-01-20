@@ -26,7 +26,7 @@
 
                   <!-- {!! link_to("project/create","Add",array('class'=>'btn btn-primary btn-cons   pull-right')) !!}
 
-                   -->  <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add row</button>
+                   -->  <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add people</button>
 
                   </div>
 
@@ -60,19 +60,19 @@
 
                     
 
-                      @forelse($users as $user)
+                      @forelse($peoples as $people)
 
                       <tr>
 
                       <td class="v-align-middle" >
 
-                      <p>{{ $user->id }}</p>
+                      <p>{{ $people->id }}</p>
 
                       </td>
 
                       <td class="v-align-middle" >
 
-                      <p>{{ $user->name }}</p>
+                      <p>{{ $people->name }}</p>
 
                       </td>
 
