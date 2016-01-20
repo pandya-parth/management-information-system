@@ -155,66 +155,78 @@
                     <li><a data-toggle="tab" href="#menu5">Qualification</a></li>
                     <li><a data-toggle="tab" href="#menu6">Documents</a></li>
                     <li><a data-toggle="tab" href="#menu7">Social</a></li>
-
-
                   </ul>
-
-
-
-                  <div class="tab-content">
-
-
-
-                    <div id="home" class="tab-pane slide-left active">
-
-                        <div class="row">
-
-                          <div class="col-sm-12">
- 
-                             <div class="form-group form-group-default input-group col-sm-12">
-                                <label class="">Files </label>
-                                <button class="btn btn-success btn-cons m-b-10" type="button"><i class="fa fa-cloud-upload"></i> <span class="bold">Upload</span>
-                            </button>
-
+               <div class="tab-content">
+               <div id="home" class="tab-pane slide-left active">
+                 <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group form-group-default">
+                        <label>Photo</label>
+                        <button class="btn btn-success btn-cons m-b-10" type="button"><i class="fa fa-cloud-upload"></i> <span class="bold">Upload</span>
+                        </button>
+                      </div>
+                   </div>
+                   <div class="col-md-6">
+                      <div class="form-group form-group-default">
+                        <label>Preview</label>
+                        <div ></div>
+                        </button>
+                      </div>
+                   </div>
+                 </div>
+                 <div class="row">
+                 <div class="col-md-6">
+                        <div class="form-group form-group-default">
                            
-                            </div>
-
+                             {!! Former::text("first_name")->label(false)->placeholder('First Name') !!}
+                           </div>
+                        </div>
+                          <div class="col-md-6">
                             <div class="form-group form-group-default">
-
-                              <label>Website</label>
-
-                              {!! Former::text("website")->label(false)->placeholder('Website of Company') !!}
-
+                             
+                              {!! Former::text("last_name")->label(false)->placeholder('Last Name') !!}
                             </div>
-
-                            <div class="form-group form-group-default">
-
-                              <label>Email</label>
-
-                              {!! Former::text("email")->label(false)->placeholder('Email of Company') !!}
-
-                            </div>
-
-                            <button class="btn btn-success btn-cons m-b-10" type="button"><i class="fa fa-cloud-upload"></i> <span class="bold">Upload</span>
-                            
-                            </button>
-
                           </div>
-
+                        </div>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                              
+                              {!! Former::text("email")->label(false)->placeholder('Email') !!}
+                            </div>
+                          </div>
+                    
+                 
                         </div>
 
-                    </div>
-
-
-
-                    <div id="menu1" class="tab-pane slide-left">
-
                         <div class="row">
-
+                          <div class="col-md-6">
+                            <div class="form-group form-group-default">
+                              
+                              {!! Former::text("mobile")->label(false)->placeholder('Mobile Number') !!}
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group form-group-default">
+                              
+                              {!! Former::text("phone")->label(false)->placeholder('Phone Number') !!}
+                            </div>
+                          </div>
+                        </div>
+                            <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group form-group-default input-group col-md-12">
+                              
+                              <input type="email" class="form-control" placeholder="Date of Birth" id="datepicker-component2">
+                              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                          </div>
+               
+                    </div>
+                  </div>
+                    <div id="menu1" class="tab-pane slide-left">
+                        <div class="row">
                           <div class="col-sm-12">
-
-                            
-
                               <form class="m-t-10" role="form">
                                 <div class="form-group form-group-default form-group-default-select2">
                                  <label>Industry</label>
