@@ -137,21 +137,13 @@
               </div>
 
               <div class="modal-body">
-
-                
-
-                {!! Former::open()->method('post')->action( url(''))->class('p-t-15')->role('form') !!}
-
-
-
-                  <ul class="nav nav-tabs nav-tabs-fillup">
-
+                  {!! Former::open()->method('post')->action( url(''))->class('p-t-15')->role('form') !!}
+                <ul class="nav nav-tabs nav-tabs-fillup">
                     <li class="active"><a data-toggle="tab" href="#home">Personal Details</a></li>
-
-                    <li><a data-toggle="tab" href="#menu1">OtherDetails</a></li>
-                    <li><a data-toggle="tab" href="#menu2">Address</a></li>
-                    <li><a data-toggle="tab" href="#menu3">Employment</a></li>
-                    <li><a data-toggle="tab" href="#menu4">Work Experience</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Address</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Employment</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Work Experience</a></li>
+                    <li><a data-toggle="tab" href="#menu4">OtherDetails</a></li>
                     <li><a data-toggle="tab" href="#menu5">Qualification</a></li>
                     <li><a data-toggle="tab" href="#menu6">Documents</a></li>
                     <li><a data-toggle="tab" href="#menu7">Social</a></li>
@@ -244,53 +236,8 @@
                    </div>
                   </div>
                   </div>
+                    
                     <div id="menu1" class="tab-pane slide-left">
-                        <div class="row">
-                          <div class="col-sm-12">
-                              <form class="m-t-10" role="form">
-                                <div class="form-group form-group-default form-group-default-select2">
-                                 <label>Industry</label>
-                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
-                                    <optgroup label="Alaskan/Hawaiian Time Zone">
-                                      <option value="AK">Alaska</option>
-                                      <option value="HI">Hawaii</option>
-                                    </optgroup>
-                                    <optgroup label="Pacific Time Zone">
-                                      <option value="CA">California</option>
-                                      <option value="NV">Nevada</option>
-                                      <option value="OR">Oregon</option>
-                                      <option value="WA">Washington</option>
-                                    </optgroup>
-                                  </select>
-                                </div>
-                              </form>
-                      
-
-                            <div class="form-group form-group-default">
-
-                              <label>Phone</label>
-
-                              {!! Former::text("phone")->label(false)->placeholder('Phone of Company') !!}
-
-                            </div>
-
-                            <div class="form-group form-group-default">
-
-                              <label>Fax</label>
-
-                              {!! Former::text("fax")->label(false)->placeholder('Fax of Company') !!}
-
-                            </div>
-
-                          </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div id="menu2" class="tab-pane slide-left">
 
                         <div class="row">
 
@@ -377,28 +324,111 @@
                               <label>Zipcode</label>
 
                               {!! Former::text("zipcode")->label(false)->placeholder('Zipcode') !!}
-
                             </div>
-
                             </div>
-
-
-
                         </div>
+                  </div>
+                  <div id="menu2" class="tab-pane slide-left">
+                       <div class="row">
+                         <div class="col-sm-12">
+                             <div class="form-group form-group-default">
+                              <label>PAN Number</label>
+                              {!! Former::text("pan_number")->label(false)->placeholder('PAN Number') !!}
+                           </div>
+                            <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Department</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
 
+                               <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Designation/Job Title</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
+                               <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Management Level</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
+                      
+                      
+                      
+                          </div>
+                        </div>
                     </div>
-
-
-
-                    <div id="menu3" class="tab-pane slide-left">
-
+                     <div id="menu3" class="tab-pane slide-left">
                         <div class="row">
-
                           <div class="col-sm-12">
+                              <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Industry</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                              </form>
+                      
 
-                            <div class="checkbox check-success ">
-                              <input type="checkbox" checked="checked" value="1" id="checkbox1">
-                              <label for="checkbox1">Archive</label>
+                            <div class="form-group form-group-default">
+
+                              <label>Phone</label>
+
+                              {!! Former::text("phone")->label(false)->placeholder('Phone of Company') !!}
+
+                            </div>
+
+                            <div class="form-group form-group-default">
+
+                              <label>Fax</label>
+
+                              {!! Former::text("fax")->label(false)->placeholder('Fax of Company') !!}
+
                             </div>
 
                           </div>
@@ -406,8 +436,6 @@
                         </div>
 
                     </div>
-
-                  
 
                     <div id="menu4" class="tab-pane slide-left">
 
