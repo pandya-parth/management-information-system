@@ -94,21 +94,17 @@
 
 
 
-                      <tr>
-
-                      <td class="v-align-middle" >
-
-                      <p>No Project to display</p>
-
-                      </td>
-
-                      </tr>
-
-                    @endforelse
+                     
 
                   </tbody>
 
                 </table>
+
+
+                      <p>No Project to display</p>
+
+
+                    @endforelse
 
               </div>
 
@@ -291,6 +287,24 @@
 
                           <div class="col-sm-12">
 
+                            <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Price Type</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                            </form>
+
                             <div class="checkbox check-success ">
                               <input type="checkbox" checked="checked" value="1" id="checkbox1">
                               <label for="checkbox1">Archive</label>
@@ -311,7 +325,7 @@
                           <div class="col-sm-12">
 
                             <div class="form-group form-group-default input-group col-sm-10">
-                              <label>Start Date</label>
+                              
                               <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
@@ -319,7 +333,7 @@
                             </div>
 
                             <div class="form-group form-group-default input-group col-sm-10">
-                              <label>End Date</label>
+                              
                               <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
@@ -353,9 +367,9 @@
               <div class="modal-footer">
 
                 <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
+                <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
 
-                <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true">Close</button>
-
+                
               </div>
 
             </div>

@@ -96,21 +96,19 @@
 
 
 
-                      <tr>
+                      
 
-                      <td class="v-align-middle" >
-
-                      <p>No Company to display</p>
-
-                      </td>
-
-                      </tr>
-
-                    @endforelse
+                     
 
                   </tbody>
 
                 </table>
+                
+                 <p>No Company to display</p>
+
+                     
+
+                    @endforelse
 
               </div>
 
@@ -435,8 +433,9 @@
 
                 <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
 
-                <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
 
+                
               </div>
 
             </div>

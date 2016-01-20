@@ -22,8 +22,8 @@ class ProjectCategoriesController extends Controller
      */
     public function index()
     {
-        $project_cat=ProjectCategory::all();
-        return view('project_categories/index',compact('project_cat'));
+        $categories=ProjectCategory::all();
+        return view('project_categories/index',compact('categories'));
     }
 
     /**
