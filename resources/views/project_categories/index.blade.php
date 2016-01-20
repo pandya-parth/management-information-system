@@ -67,7 +67,7 @@
                 <form role="form">
                     <div class="col-sm-12">
                       <div class="form-group form-group-default">
-                        <label>name</label>
+                        
                         <input id="appName" type="text" class="form-control" placeholder="Name of Category">
                       </div>
                     </div>

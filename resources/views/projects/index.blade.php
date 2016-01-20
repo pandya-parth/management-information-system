@@ -182,7 +182,7 @@
 
                             <div class="form-group form-group-default">
 
-                              <label>Name</label>
+                              
 
                               {!! Former::text("name")->label(false)->placeholder('Name of Project') !!}
 
@@ -190,7 +190,7 @@
 
                             <div class="form-group form-group-default">
 
-                              <label>Description</label>
+                              
 
                               {!! Former::text("description")->label(false)->placeholder('Description of project') !!}
 
@@ -239,7 +239,7 @@
 
                             <div class="form-group form-group-default">
 
-                              <label>Notes</label>
+                              
 
                               {!! Former::text("name")->label(false)->placeholder('Notes for project') !!}
 
@@ -291,6 +291,24 @@
 
                           <div class="col-sm-12">
 
+                            <form class="m-t-10" role="form">
+                                <div class="form-group form-group-default form-group-default-select2">
+                                 <label>Price Type</label>
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                    <optgroup label="Alaskan/Hawaiian Time Zone">
+                                      <option value="AK">Alaska</option>
+                                      <option value="HI">Hawaii</option>
+                                    </optgroup>
+                                    <optgroup label="Pacific Time Zone">
+                                      <option value="CA">California</option>
+                                      <option value="NV">Nevada</option>
+                                      <option value="OR">Oregon</option>
+                                      <option value="WA">Washington</option>
+                                    </optgroup>
+                                  </select>
+                                </div>
+                            </form>
+
                             <div class="checkbox check-success ">
                               <input type="checkbox" checked="checked" value="1" id="checkbox1">
                               <label for="checkbox1">Archive</label>
@@ -311,7 +329,7 @@
                           <div class="col-sm-12">
 
                             <div class="form-group form-group-default input-group col-sm-10">
-                              <label>Start Date</label>
+                              
                               <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
@@ -319,7 +337,7 @@
                             </div>
 
                             <div class="form-group form-group-default input-group col-sm-10">
-                              <label>End Date</label>
+                              
                               <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
