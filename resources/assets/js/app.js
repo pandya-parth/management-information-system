@@ -5,6 +5,7 @@ app.controller('BodyCtrl',['$scope', function($scope){
 }]);
 
 app.controller('CompanyCtrl',['$scope','$http', function($scope,$http){
+
 	$scope.name = '';
 
 	$scope.name= {};
@@ -13,5 +14,13 @@ app.controller('CompanyCtrl',['$scope','$http', function($scope,$http){
 
 	};
 	
+}]);
+app.controller('TaskCategoryCtrl',['$scope','$http',function($scope,$http){
+		$scope.submit = function(form){
+		$scope.submitted = true;
+		if (form.$invalid) {
+       	 return;
+      	}
+		};
 }]);
 
