@@ -94,21 +94,17 @@
 
 
 
-                      <tr>
-
-                      <td class="v-align-middle" >
-
-                      <p>No Project to display</p>
-
-                      </td>
-
-                      </tr>
-
-                    @endforelse
+                     
 
                   </tbody>
 
                 </table>
+
+
+                      <p>No Project to display</p>
+
+
+                    @endforelse
 
               </div>
 
@@ -182,7 +178,7 @@
 
                             <div class="form-group form-group-default">
 
-                              
+                              <label>Name</label>
 
                               {!! Former::text("name")->label(false)->placeholder('Name of Project') !!}
 
@@ -190,7 +186,7 @@
 
                             <div class="form-group form-group-default">
 
-                              
+                              <label>Description</label>
 
                               {!! Former::text("description")->label(false)->placeholder('Description of project') !!}
 
@@ -239,7 +235,7 @@
 
                             <div class="form-group form-group-default">
 
-                              
+                              <label>Notes</label>
 
                               {!! Former::text("name")->label(false)->placeholder('Notes for project') !!}
 
