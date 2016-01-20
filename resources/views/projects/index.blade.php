@@ -371,9 +371,9 @@
               <div class="modal-footer">
 
                 <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
+                <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
 
-                <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true">Close</button>
-
+                
               </div>
 
             </div>
