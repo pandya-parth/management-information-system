@@ -16,9 +16,9 @@
                   
                 </ul>
               </div>
-
             </div>
           </div>
+          <p>@{{demo}}</p>
         </div>
     </div>
 @endsection()
