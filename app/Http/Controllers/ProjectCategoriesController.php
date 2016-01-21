@@ -33,10 +33,10 @@ class ProjectCategoriesController extends Controller
      */
     public function create()
     {
-        $project_cats = new ProjectCategory(Input::old());
+        $categories = new ProjectCategory(Input::old());
         $id=false;
-        Former::populate($project_cats);
-        return view('project_categories/index',compact('id','project_cats'));
+        Former::populate($categories);
+        return view('project_categories/index',compact('id','categories'));
     }
 
     /**
@@ -56,9 +56,9 @@ class ProjectCategoriesController extends Controller
                         ->withInput();
         }  
               $input= Input::all();
-             $project_cats=ProjectCategory::create($input);
-             $project_cats->save();
-             return Redirect::route('project_categories.index')->with("success","Record Save");
+             $categories=ProjectCategory::create($input);
+             $categories->save();
+             return Redirect::route('project-categories.index')->with("success","Record Save");
     }
 
     /**
@@ -80,9 +80,9 @@ class ProjectCategoriesController extends Controller
      */
     public function edit($id)
     {
-        $project_cats=ProjectCategory::findOrFail($id);
-        Former::populate($project_cats);
-        return view('project_categories.form',compact('project_cats'));
+        $categories=ProjectCategory::findOrFail($id);
+        Former::populate($categories);
+        return view('project_categories.form',compact('categories'));
     }
 
     /**
@@ -103,10 +103,10 @@ class ProjectCategoriesController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         }  
-             $project_cats = ProjectCategory::find($id);
-             $project_cats->fill( Input::all() );   
+             $categories = ProjectCategory::find($id);
+             $categories->fill( Input::all() );   
              
-             $project_cats->save();
+             $categories->save();
              return Redirect::route('project_categories.index');
     }
 
