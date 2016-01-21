@@ -45,7 +45,6 @@ app.controller('ProjectCtrl',['$scope','$http',function($scope, $http){
 		}
 	};
 }]);
-
 app.controller('TaskCategoryCtrl',['$scope','$http',function($scope,$http){
 		$scope.submit = function(form){
 		$scope.submitted = true;
