@@ -47,20 +47,23 @@ class ProjectCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:30'
-            ]);
-        if ($validator->fails()) {
-            return Redirect::route('project-categories.create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }  
-              $input= $request->all();
+        $input=$request->all();
+        $categories=ProjectCategory::create($input);
+        $categories->save();
 
-             $categories=ProjectCategory::create($input);
-              dd($categories);
-             $categories->save();
-             return Redirect::route('project-categories.index')->with("success","Record Save");
+
+        // $validator = Validator::make($request->all(), [
+        //     'name' => 'required|max:30'
+        //     ]);
+        // if ($validator->fails()) {
+        //     return redirect('project_categories/create')
+        //                 ->withErrors($validator)
+        //                 ->withInput();
+        // }  
+        //       $input= Input::all();
+        //      $categories=ProjectCategory::create($input);
+        //      $categories->save();
+        //      return Redirect::route('project-categories.index')->with("success","Record Save");
     }
 
     /**

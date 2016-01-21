@@ -68,10 +68,10 @@ app.controller('ProjectCategoryCtrl',['$scope','$http',function($scope,$http){
         $http({
           method: "post",
           url: '/project-categories', 
-          data, 
+          data:data, 
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
         .success(function(data){
-          console.log(data);
+          
           $scope.submitted = false;
           $scope.name = '';
           
