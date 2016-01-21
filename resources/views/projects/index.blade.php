@@ -311,33 +311,32 @@
                         </div>
 
                     </div>
-
-                  
-
-                    <div id="menu4" class="tab-pane slide-left">
-
+                     <div id="menu4" class="tab-pane slide-left">
                         <div class="row">
-
                           <div class="col-sm-12">
-
                             <div class="form-group form-group-default input-group col-sm-10">
+
+                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+
                               
                               <input class="form-control" placeholder="Pick a date" id="datepicker-component2" id="start_date" ng-model='project.start_date'>
+
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
                                                         </span>
                             </div>
-
                             <div class="form-group form-group-default input-group col-sm-10">
+
+                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+
                               
                               <input class="form-control" placeholder="Pick a date" id="datepicker-component2" id="end_date" ng-model='project.end_date'>
+
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
                                                         </span>
                             </div>
-
                             <div class="form-group form-group-default">
-
                               <label>Fix Hour</label>
                               <input type="text" name="fix_hour" class="form-control" id="fix_hour" placeholder="Fix Hour of Project" ng-model='project.fix_hour' required>
 
