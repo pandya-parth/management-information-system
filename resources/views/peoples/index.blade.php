@@ -1,4 +1,4 @@
-@extends('layouts.app')
+0@extends('layouts.app')
 @section('content')
     <div class="content">
         <!-- START CONTAINER FLUID -->
@@ -74,7 +74,7 @@
                         <li><a data-toggle="tab" href="#menu2">Employment</a></li>
                         <li><a data-toggle="tab" href="#menu3">Experience<span>Qualification</span></a></li>
                         <li><a data-toggle="tab" href="#menu4">Social</a></li>
-                     
+
                     </ul>
                     <div class="tab-content">
                         <div id="home" class="tab-pane slide-left active">
@@ -392,26 +392,42 @@
                         </div>
                         <div id="menu4" class="tab-pane slide-left">
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default input-group col-sm-10">
-                                        <label>Check In</label>
-                                        <input type="email" class="form-control" placeholder="Pick a date"
-                                               id="datepicker-component2">
-                                          <span class="input-group-addon">
-                                              <i class="fa fa-calendar"></i>
-                                          </span>
-                                    </div>
-                                    <div class="form-group form-group-default input-group col-sm-10">
-                                        <label>Check In</label>
-                                        <input type="email" class="form-control" placeholder="Pick a date"
-                                               id="datepicker-component2">
-                                            <span class="input-group-addon">
-                                              <i class="fa fa-calendar"></i>
-                                            </span>
-                                    </div>
+                                <div class="col-md-12">
                                     <div class="form-group form-group-default">
-                                        <label>Fix Hour</label>
-                                        {!! Former::text('fix_hour')->label(false) !!}
+                                        <label>Google</label>
+                                        {!! Former::text("google")->label(false)->placeholder('Google') !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-group-default">
+                                        <label>Facebook</label>
+                                        {!! Former::text("facebook")->label(false)->placeholder('Facebook') !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-group-default">
+                                        <label>Web Site</label>
+                                        {!! Former::text("skype")->label(false)->placeholder('Skype') !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-group-default">
+                                        <label>Linkedin</label>
+                                        {!! Former::text("linkedin")->label(false)->placeholder('LinkedIn') !!}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group form-group-default">
+                                        <label>Twitter</label>
+                                        {!! Former::text("twitter")->label(false)->placeholder('Twitter') !!}
                                     </div>
                                 </div>
                             </div>
