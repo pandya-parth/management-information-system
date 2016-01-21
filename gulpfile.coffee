@@ -42,6 +42,7 @@ elixir (mix)->
       'pages.min.js',
       'scripts.js',
       'angular.min.js',
+      'app.js',
       'jquery.dataTables.min.js',
       'dataTables.tableTools.min.js',
       'jquery-datatable-bootstrap.js',
