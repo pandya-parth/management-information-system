@@ -36,7 +36,7 @@ class ProjectCategoriesController extends Controller
         $project_cats = new ProjectCategory(Input::old());
         $id=false;
         Former::populate($project_cats);
-        return view('project_categories/form',compact('id','project_cats'));
+        return view('project_categories/index',compact('id','project_cats'));
     }
 
     /**
