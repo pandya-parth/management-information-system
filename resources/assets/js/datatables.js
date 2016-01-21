@@ -62,16 +62,6 @@
             $('#addNewAppModal').modal('show');
         });
 
-        $('#add-app').click(function() {
-            table.dataTable().fnAddData([
-                $("#appName").val(),
-                $("#appDescription").val(),
-                $("#appPrice").val(),
-                $("#appNotes").val()
-            ]);
-            $('#addNewAppModal').modal('hide');
-
-        });
     }
 
     // Initialize datatable showing export options
