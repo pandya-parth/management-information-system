@@ -315,33 +315,22 @@
                         </div>
 
                     </div>
-
-                  
-
-                    <div id="menu4" class="tab-pane slide-left">
-
+                     <div id="menu4" class="tab-pane slide-left">
                         <div class="row">
-
                           <div class="col-sm-12">
-
                             <div class="form-group form-group-default input-group col-sm-10">
-                              
                               <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
                                                         </span>
                             </div>
-
                             <div class="form-group form-group-default input-group col-sm-10">
-                              
                               <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
                                                         </span>
                             </div>
-
                             <div class="form-group form-group-default">
-
                               <label>Fix Hour</label>
 
                               {!! Former::text('fix_hour')->label(false) !!}
