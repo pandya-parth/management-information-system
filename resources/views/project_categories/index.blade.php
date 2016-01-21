@@ -10,7 +10,7 @@
                     <li>
                         <a href="{!!url('/')!!}">Home</a>
                     </li>
-                    <li><a href="{!!url('project_categories')!!}" class="active">Project Categories</a>
+                    <li><a href="{!!url('project-categories')!!}" class="active">Project Categories</a>
                     </li>
                 </ul>
             </div>

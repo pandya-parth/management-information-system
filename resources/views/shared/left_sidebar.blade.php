@@ -52,7 +52,7 @@
             <ul class="sub-menu">
 
               <li class="">
-                <a href="{!! url('project_categories') !!}">Project Category</a>
+                <a href="{!! url('project-categories') !!}">Project Category</a>
                 <span class="icon-thumbnail">PC</span>
               </li>
               <li class="">
@@ -73,7 +73,7 @@
             <ul class="sub-menu">
 
               <li class="">
-                <a href="{!! url('task_categories') !!}">Task Category</a>
+                <a href="{!! url('task-categories') !!}">Task Category</a>
                 <span class="icon-thumbnail">TC</span>
               </li>
               <li class="">
