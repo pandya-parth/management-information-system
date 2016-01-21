@@ -75,7 +75,7 @@
               <h4 class="p-b-5"><h4>Add New Category</h4></h4>
               </div>
 
-              <form name='projectcategoryForm' class='p-t-15' role='form' ng-controller='ProjectCategoryCtrl' novalidate>
+              <form name='projectcategoryForm' class='p-t-15' role='form' ng-controller='ProjectCategoryCtrl' ng-submit='processForm()' novalidate>
                 <div class="modal-body">
                   <div class="success"></div>
                 
@@ -88,7 +88,7 @@
                                     <div class="col-sm-12">
                                         <div class="form-group form-group-default">
                                             <label>Name</label>
-                                            <input type="text" class="form-control" id="name" placeholder="Name of Category" ng-model='project_category.name' required>
+                                            <input type="text" class="form-control" id="name" placeholder="Name of Category" ng-model='formData.name' required>
                                             <div class="error" ng-show="submitted && projectcategoryForm.$error.required">* Please enter category name.</div>
                                         </div>
                                     </div>
