@@ -17,25 +17,7 @@ app.controller('CompanyCtrl',['$scope','$http', function($scope,$http){
 }]);
 
 
-app.controller('ProjectCategoryCtrl',['$scope','$http',function($scope, $http){
-	$scope.submit = function(form){
-		$scope.submitted = true;
 
-		if(form.$invalid){
-			return;
-		}
-		var data = $.param({
-                name: $scope.name
-            });
-
-      	$http({method: "post", url: '/project_categories', data, headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).success(function(data){
-      		$scope.submitted = false;
-      		$scope.name = '';
-      		angular.element('.success').html('Thank you.');
-      		
-      	});
-	};
-}]);
 
 app.controller('ProjectCtrl',['$scope','$http',function($scope, $http){
 	$scope.submit = function(form){
@@ -70,6 +52,33 @@ app.controller('TaskCategoryCtrl',['$scope','$http',function($scope,$http){
       		
       	});
 		};
+
+}]);
+
+app.controller('ProjectCategoryCtrl',['$scope','$http',function($scope,$http){
+    $scope.submit = function(form){
+    $scope.submitted = true;
+    if (form.$invalid) {
+         return;
+        }
+        var data = $.param({
+                name: $scope.project_category
+            });
+
+        $http({
+          method: "post",
+          url: '/project_categories', 
+          data, 
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+        .success(function(data){
+          console.log(data);
+          $scope.submitted = false;
+          $scope.name = '';
+          
+          //angular.element('.subsuccess').html('Thank you.');
+          
+        });
+    };
 
 }]);
 
