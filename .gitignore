@@ -1,10 +1,5 @@
 /vendor
-/node_modules
-/bower_components
 storage
 Homestead.yaml
 Homestead.json
 .env
-public/build
-public/js
-public/css
