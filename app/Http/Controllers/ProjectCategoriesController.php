@@ -51,12 +51,14 @@ class ProjectCategoriesController extends Controller
             'name' => 'required|max:30'
             ]);
         if ($validator->fails()) {
-            return redirect('project_categories/create')
+            return Redirect::route('project-categories.create')
                         ->withErrors($validator)
                         ->withInput();
         }  
-              $input= Input::all();
+              $input= $request->all();
+
              $categories=ProjectCategory::create($input);
+              dd($categories);
              $categories->save();
              return Redirect::route('project-categories.index')->with("success","Record Save");
     }

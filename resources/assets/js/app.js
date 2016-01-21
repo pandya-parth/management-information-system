@@ -67,7 +67,7 @@ app.controller('ProjectCategoryCtrl',['$scope','$http',function($scope,$http){
 
         $http({
           method: "post",
-          url: '/project_categories', 
+          url: '/project-categories', 
           data, 
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
         .success(function(data){
