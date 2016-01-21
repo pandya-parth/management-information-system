@@ -61,7 +61,6 @@
         $('#show-modal').click(function() {
             $('#addNewAppModal').modal('show');
         });
-
     }
 
     // Initialize datatable showing export options

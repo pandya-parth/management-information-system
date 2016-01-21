@@ -144,10 +144,7 @@
 
               <div class="modal-body">
 
-                
-
-                {!! Former::open()->method('post')->action( url(''))->class('p-t-15')->role('form') !!}
-
+               <form role="form">
 
 
                   <ul class="nav nav-tabs nav-tabs-fillup">
@@ -179,21 +176,21 @@
                             <div class="form-group form-group-default">
 
                               <label>Name</label>
+                              <input type="text" class="form-control" id="name" placeholder="Name of Project" ng-model='project.name' required>
 
-                              {!! Former::text("name")->label(false)->placeholder('Name of Project') !!}
-
+                              
                             </div>
 
                             <div class="form-group form-group-default">
 
                               <label>Description</label>
+                              <input type="text" class="form-control" id="description" placeholder="Description of Project" ng-model='project.description' required>
 
-                              {!! Former::text("description")->label(false)->placeholder('Description of project') !!}
-
+                             
                             </div>
 
                             <div class="checkbox check-success ">
-                              <input type="checkbox" checked="checked" value="1" id="checkbox1">
+                              <input type="checkbox" checked="checked" value="1" id="checkbox1" ng-model='checkbox1'>
                               <label for="checkbox1">Status</label>
                             </div>
 
@@ -216,7 +213,7 @@
                               <form class="m-t-10" role="form">
                                 <div class="form-group form-group-default form-group-default-select2">
                                  <label>Client Name</label>
-                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2" id="client" ng-model='project.client' >
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                       <option value="AK">Alaska</option>
                                       <option value="HI">Hawaii</option>
@@ -236,8 +233,7 @@
                             <div class="form-group form-group-default">
 
                               <label>Notes</label>
-
-                              {!! Former::text("name")->label(false)->placeholder('Notes for project') !!}
+                              <input type="text" class="form-control" id="notes" placeholder="Notes of Project" ng-model='project.notes' required>
 
                             </div>
 
@@ -258,7 +254,7 @@
                             <form class="m-t-10" role="form">
                                 <div class="form-group form-group-default form-group-default-select2">
                                  <label>Category Of Project</label>
-                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2" id="category" ng-model='project_category.name'>
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                       <option value="AK">Alaska</option>
                                       <option value="HI">Hawaii</option>
@@ -290,7 +286,7 @@
                             <form class="m-t-10" role="form">
                                 <div class="form-group form-group-default form-group-default-select2">
                                  <label>Price Type</label>
-                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                  <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2" id="price_type" ng-model='project.price_type'>
                                     <optgroup label="Alaskan/Hawaiian Time Zone">
                                       <option value="AK">Alaska</option>
                                       <option value="HI">Hawaii</option>
@@ -306,7 +302,7 @@
                             </form>
 
                             <div class="checkbox check-success ">
-                              <input type="checkbox" checked="checked" value="1" id="checkbox1">
+                              <input type="checkbox" checked="checked" value="1" id="archive" ng-model='project.archive'>
                               <label for="checkbox1">Archive</label>
                             </div>
 
@@ -326,7 +322,7 @@
 
                             <div class="form-group form-group-default input-group col-sm-10">
                               
-                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+                              <input class="form-control" placeholder="Pick a date" id="datepicker-component2" id="start_date" ng-model='project.start_date'>
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
                                                         </span>
@@ -334,7 +330,7 @@
 
                             <div class="form-group form-group-default input-group col-sm-10">
                               
-                              <input type="email" class="form-control" placeholder="Pick a date" id="datepicker-component2">
+                              <input class="form-control" placeholder="Pick a date" id="datepicker-component2" id="end_date" ng-model='project.end_date'>
                               <span class="input-group-addon">
                                                           <i class="fa fa-calendar"></i>
                                                         </span>
@@ -343,8 +339,9 @@
                             <div class="form-group form-group-default">
 
                               <label>Fix Hour</label>
+                              <input type="text" name="fix_hour" class="form-control" id="fix_hour" placeholder="Fix Hour of Project" ng-model='project.fix_hour' required>
 
-                              {!! Former::text('fix_hour')->label(false) !!}
+
 
                             </div>
 
@@ -358,19 +355,19 @@
 
                 </div>
 
-                                 
-
-                {!! Former::close() !!}
-
-              </div>
-
-              <div class="modal-footer">
+                   <div class="modal-footer">
 
                 <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
                 <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
 
                 
+              </div>              
+
+                </form>
+
               </div>
+
+              
 
             </div>
 
