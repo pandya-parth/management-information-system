@@ -75,7 +75,7 @@
               <h4 class="p-b-5"><h4>Add New Category</h4></h4>
               </div>
 
-              <form name='categoryForm' class='p-t-15' role='form' ng-controller='CategoryCtrl' novalidate>
+              <form name='projectcategoryForm' class='p-t-15' role='form' ng-controller='ProjectCategoryCtrl' novalidate>
                 <div class="modal-body">
                   <div class="success"></div>
                 
@@ -89,7 +89,7 @@
                                         <div class="form-group form-group-default">
                                             <label>Name</label>
                                             <input type="text" class="form-control" id="name" placeholder="Name of Category" ng-model='project_category.name' required>
-                                            <div class="errors" ng-show="submitted && categoryForm.$error.required">Please enter category name</div>
+                                            <div class="error" ng-show="submitted && projectcategoryForm.$error.required">* Please enter category name.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(categoryForm)">Add</button>
+                    <button type="submit" id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(projectcategoryForm)">Add</button>
                     <!-- 
                     <input type="submit" name="send" id='send' value="" class="off-20-submit" ng-click="submit(offerForm)">
                      -->

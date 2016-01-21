@@ -15,6 +15,27 @@ app.controller('CompanyCtrl',['$scope','$http', function($scope,$http){
 	};
 	
 }]);
+
+app.controller('ProjectCategoryCtrl',['$scope','$http',function($scope, $http){
+	$scope.submit = function(form){
+		$scope.submitted = true;
+
+		if(form.$invalid){
+			return;
+		}
+	};
+}]);
+
+app.controller('ProjectCtrl',['$scope','$http',function($scope, $http){
+	$scope.submit = function(form){
+		$scope.submitted = true;
+
+		if(form.$invalid){
+			return;
+		}
+	};
+}]);
+
 app.controller('TaskCategoryCtrl',['$scope','$http',function($scope,$http){
 		$scope.submit = function(form){
 		$scope.submitted = true;
@@ -24,14 +45,6 @@ app.controller('TaskCategoryCtrl',['$scope','$http',function($scope,$http){
 		};
 }]);
 
-app.controller('CategoryCtrl',['$scope','$http',function($scope, $http){
-	$scope.submit = function(form){
-		$scope.submitted = true;
 
-		if(form.$invalid){
-			return;
-		}
-	};
-}]);
 
 
