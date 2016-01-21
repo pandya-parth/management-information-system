@@ -62,7 +62,7 @@
             $('#addNewAppModal').modal('show');
         });
 
-       
+
     }
 
     // Initialize datatable showing export options
