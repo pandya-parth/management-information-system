@@ -15,3 +15,14 @@ app.controller('CompanyCtrl',['$scope','$http', function($scope,$http){
 	
 }]);
 
+app.controller('CategoryCtrl',['$scope','$http',function($scope, $http){
+	$scope.submit = function(form){
+		$scope.submitted = true;
+
+		if(form.$invalid){
+			return;
+		}
+	};
+}]);
+
+

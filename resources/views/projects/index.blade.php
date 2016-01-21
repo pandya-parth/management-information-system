@@ -144,10 +144,7 @@
 
               <div class="modal-body">
 
-                
-
-                {!! Former::open()->method('post')->action( url(''))->class('p-t-15')->role('form') !!}
-
+               <form role="form">
 
 
                   <ul class="nav nav-tabs nav-tabs-fillup">
@@ -360,7 +357,7 @@
 
                                  
 
-                {!! Former::close() !!}
+                </form>
 
               </div>
 
