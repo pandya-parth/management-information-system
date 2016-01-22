@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
          "anahkiasen/former": "4.0.*@dev",
          "laravelcollective/html": "5.2.*",
-         "barryvdh/laravel-debugbar": "^2.1"
+         "barryvdh/laravel-debugbar": "^2.1",
+        "cviebrock/eloquent-sluggable": "^3.1"
 
          
         
