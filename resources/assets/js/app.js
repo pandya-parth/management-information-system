@@ -30,28 +30,27 @@ app.controller('ProjectCtrl',['$scope','$http',function($scope, $http){
 }]);
 app.controller('TaskCategoryCtrl',['$scope','$http',function($scope,$http){
 		$scope.submit = function(form){
-		$scope.submitted = true;
-		if (form.$invalid) {
-       	 return;
-      	}
-      	var data = $.param({
+    $scope.submitted = true;
+    if (form.$invalid) {
+         return;
+        }
+        var data = $.param({
                 name: $scope.task_category
             });
 
-      	$http({
-      		method: "post",
-      	 	url: '/task_categories', 
-      	 	data, 
-      	 	headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
-      	.success(function(data){
-      		console.log(data);
-      		$scope.submitted = false;
-      		$scope.name = '';
-      		
-      		//angular.element('.subsuccess').html('Thank you.');
-      		
-      	});
-		};
+        $http({
+          method: "post",
+          url: '/task-categories', 
+          data:data, 
+          headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
+        .success(function(data){
+          $scope.submitted = false;
+          $scope.name = '';
+          
+          angular.element('').html('Thank you.');
+          
+        });
+    };
 
 }]);
 
@@ -71,7 +70,7 @@ app.controller('ProjectCategoryCtrl',['$scope','$http',function($scope,$http){
           data:data, 
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
         .success(function(data){
-          
+
           $scope.submitted = false;
           $scope.name = '';
           
