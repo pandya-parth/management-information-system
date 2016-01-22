@@ -50,7 +50,7 @@ class ProjectCategoriesController extends Controller
         $input=$request->all();
         $categories=ProjectCategory::create($input);
         $categories->save();
-
+      
 
         // $validator = Validator::make($request->all(), [
         //     'name' => 'required|max:30'
