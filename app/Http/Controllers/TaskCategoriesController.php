@@ -41,7 +41,9 @@ class TaskCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input=$request->all();
+        $categories=TaskCategory::create($input);
+        $categories->save();
     }
 
     /**
