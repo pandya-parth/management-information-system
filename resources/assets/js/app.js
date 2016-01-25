@@ -73,8 +73,14 @@ app.controller('ProjectCategoryCtrl',['$scope','$http',function($scope,$http){
 
           $scope.submitted = false;
           $scope.name = '';
-          
-          //angular.element('.subsuccess').html('Thank you.');
+          angular.element('.pgn-wrapper').show();
+          angular.element('#addNewAppModal').hide();
+          angular.element('#addNewAppModal').modal('hide');
+          angular.element('#addNewAppModal').modal('data-dismiss');
+          angular.element('.modal-backdrop').hide();
+          angular.element('.pgn-wrapper').show();
+
+      
           
         });
     };

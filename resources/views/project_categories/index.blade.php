@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('title','Project Category')
+
 @section('content')
+
     <div class= "content">
         <!-- START CONTAINER FLUID -->
         <div class="container-fluid container-fixed-lg">
@@ -84,4 +86,7 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- END MODAL STICK UP  -->
+
 @endsection
+<div class="pgn-wrapper" style="display:none" data-position="top-right"><div class="pgn pgn-flip"><div class="alert alert-success"><button type="button" id="close" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><span>Data added successfully..!!</span></div></div></div>
+
