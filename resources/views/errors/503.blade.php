@@ -5,8 +5,8 @@
       <div class="row-xs-height">
         <div class="col-xs-height col-middle">
           <div class="error-container text-center">
-            <h1 class="error-number">503</h1>
-            <h2 class="semi-bold">Our site is in maintanance mode.</h2>
+            <img src="{!! asset('img/503.png') !!}" width="500px" height="500px">
+            
             <p>We will right back to you very soon.</p>
           </div>
         </div>
