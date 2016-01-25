@@ -7,7 +7,7 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $( "#close_btn" ).click(function() {
+        $( "#close" ).click(function() {
             $('#addNewAppModal').hide();
         });
 

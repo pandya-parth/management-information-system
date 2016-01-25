@@ -2,7 +2,7 @@
 @section('title','Project Category')
 
 @section('content')
-
+<div ng-controller="ProjectCategoryCtrl">
     <div class= "content">
         <!-- START CONTAINER FLUID -->
         <div class="container-fluid container-fixed-lg">
@@ -63,7 +63,7 @@
                     </button>
                     <h4 class="p-b-5"><h4>Add New Project Category</h4></h4>
                 </div>
-                <FORM name='projectCategory' class='p-t-15' role='form'  ng-controller="ProjectCategoryCtrl" novalidate>
+                <FORM name='projectCategory' class='p-t-15' role='form'   novalidate>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-sm-12">
@@ -87,6 +87,8 @@
     </div>
     <!-- END MODAL STICK UP  -->
 
-@endsection
 <div class="pgn-wrapper" style="display:none" data-position="top-right"><div class="pgn pgn-flip"><div class="alert alert-success"><button type="button" id="close" class="close" data-dismiss="alert"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button><span>Data added successfully..!!</span></div></div></div>
+
+</div>
+@endsection
 

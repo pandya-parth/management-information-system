@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<div ng-controller="ProjectCtrl" >
 <div class= "content">
 
 <!-- START CONTAINER FLUID -->
@@ -385,7 +385,7 @@
           
 
 
-
+</div>
 @endsection
 
 
