@@ -23,7 +23,7 @@
         <!-- END MOBILE CONTROLS -->
         <div class=" pull-left sm-table">
           <div class="header-inner">
-            <div class="brand inline">
+            <div class="brand inline" style="padding-left:25px;">
               <img src="img/logo.png" alt="logo" data-src="img/logo.png" data-src-retina="img/logo_2x.png" width="150" >
             </div>
             </div>

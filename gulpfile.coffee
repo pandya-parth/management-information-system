@@ -42,7 +42,6 @@ elixir (mix)->
       'pages.min.js',
       'scripts.js',
       'angular.min.js',
-      'app.js',
       'jquery.dataTables.min.js',
       'dataTables.tableTools.min.js',
       'jquery-datatable-bootstrap.js',
@@ -56,9 +55,10 @@ elixir (mix)->
     ], 'public/js/vendor.js'
 
     mix.coffee [
-      'app.coffee'
+      '*.coffee'
       'config/*.coffee'
       'controllers/*.coffee'
+      'services/*.coffee'
     ]
 
     mix.version [
