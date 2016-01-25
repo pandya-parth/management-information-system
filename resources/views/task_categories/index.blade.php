@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','Task Category')
 @section('content')
+<div ng-controller="TaskCategoryCtrl">
     <div class= "content">
         <!-- START CONTAINER FLUID -->
         <div class="container-fluid container-fixed-lg">
@@ -61,7 +62,7 @@
                     </button>
                     <h4 class="p-b-5"><h4>Add New Task Category</h4></h4>
                 </div>
-                <FORM name='taskCategory' class='p-t-15' role='form'  ng-controller="TaskCategoryCtrl" novalidate>
+                <FORM name='taskCategory' class='p-t-15' role='form'   novalidate>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-sm-12">
@@ -74,7 +75,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(taskCategory)">Add</button>
+                        <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(taskCategory)" >Add</button>
                         <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
                     </div>
                 </FORM>
@@ -84,4 +85,6 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- END MODAL STICK UP  -->
+<div class="pgn-wrapper" ng-hide='hide' data-position="top-right" aria-hidden=true  ><div class="pgn pgn-flip"><div class="alert alert-success"><button type="button" class="close" id="close" ng-click='hideme()' data-dismiss='alert' ><span aria-hidden="true" >×</span><span class="sr-only">Close</span></button><span>Record save successfully.</span></div></div></div>
+</div>
 @endsection

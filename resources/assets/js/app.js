@@ -28,16 +28,22 @@ app.controller('ProjectCtrl',['$scope','$http',function($scope, $http){
 		}
 	};
 }]);
+// angular.element('.pgn-wrapper').css('display:none');
 app.controller('TaskCategoryCtrl',['$scope','$http',function($scope,$http){
-		$scope.submit = function(form){
-    $scope.submitted = true;
+    $scope.hide = true;
+    $scope.hideme = function()
+    {
+      $scope.hide = true;
+    };
+    
+    $scope.submit = function(form){
+     $scope.submitted = true;
     if (form.$invalid) {
          return;
         }
         var data = $.param({
                 name: $scope.task_category
             });
-
         $http({
           method: "post",
           url: '/task-categories', 
@@ -45,16 +51,17 @@ app.controller('TaskCategoryCtrl',['$scope','$http',function($scope,$http){
           headers: {'Content-Type': 'application/x-www-form-urlencoded'}})
         .success(function(data){
           $scope.submitted = false;
-          $scope.name = '';
-          
-          angular.element('').html('Thank you.');
-          
+          $scope.task_category = '';
+           $scope.hide = false;
+          angular.element('.pgn-wrapper').show();
+          angular.element('#addNewAppModal').modal('hide');
+          angular.element('.modal-backdrop').fadeOut();
         });
     };
-
+  
 }]);
 
-app.controller('ProjectCategoryCtrl',['$scope','$http',function($scope,$http){
+app.controller('ProjectCategoryCtrl',['$scope','$http',' $timeout',function($scope,$http){
     $scope.submit = function(form){
     $scope.submitted = true;
     if (form.$invalid) {

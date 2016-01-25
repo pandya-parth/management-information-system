@@ -1,6 +1,5 @@
 elixir = require 'laravel-elixir'
 
-
 bowerPath = (parts...)-> ['.','bower_components'].concat(parts).join('/')
 
 elixir (mix)->
@@ -68,5 +67,3 @@ elixir (mix)->
       'js/vendor.js'
       'js/app.js'
     ]
-
-    

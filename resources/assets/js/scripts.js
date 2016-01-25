@@ -6,10 +6,13 @@
         // Initializes search overlay plugin.
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
-
+        
         $( "#close_btn" ).click(function() {
             $('#addNewAppModal').hide();
         });
+        $('pgn-warpper').css('display:none');
+        
+
 
         $(".list-view-wrapper").scrollbar();
 

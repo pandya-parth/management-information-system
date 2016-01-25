@@ -34,8 +34,10 @@
        <div class="page-content-wrapper">
           
         @yield('content')    
+
         
         </div>
+        
       @include('shared.footer')
     </div>
 <script src="{{ elixir('js/vendor.js') }}"></script>
