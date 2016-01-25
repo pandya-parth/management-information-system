@@ -87,12 +87,6 @@ app.controller('ProjectCategoryCtrl',['$scope','$http',function($scope,$http){
 
 }]);
 
-app.controller('ProjectCtrl',['$scope','$http',fuction($scope,$http){
-
-
-
-}]);
-
 
 
 
