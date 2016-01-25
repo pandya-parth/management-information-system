@@ -1,6 +1,8 @@
 @extends('layouts.app')
 @section('title','Project Category')
+
 @section('content')
+<div ng-controller="ProjectCategoryCtrl">
     <div class= "content">
         <!-- START CONTAINER FLUID -->
         <div class="container-fluid container-fixed-lg">
@@ -28,24 +30,37 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-hover demo-table-dynamic" >
-                        <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="v-align-middle">
-                                <p>Hyperlapse</p>
-                            </td>
-                            <td class="v-align-middle">
-                                <p>Description goes here</p>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+                    <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
+                        <table class="table table-hover demo-table-dynamic">
+                            <thead>
+                            <tr>
+                                <th>#Id</th>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-if="categories.length != 0" ng-repeat="category in categories">
+                                <td class="v-align-middle">
+                                    <p>{% category.id %}</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <p>{% category.name ? category.name : '-' %}</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <p>
+                                        <a href="#">Edit</a>
+                                        <a href="javascript:;" ng-click="deleteCategory(category.id)">Delete</a>
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr ng-if="categories.length == 0">
+                                <td>No record found.</td>
+                                <td> &nbsp; </td>
+                                <td> &nbsp; </td>
+                            </tr>
+                            </tbody>
+                        </table>
                 </div>
             </div>
             <!-- END PANEL -->
@@ -61,7 +76,8 @@
                     </button>
                     <h4 class="p-b-5"><h4>Add New Project Category</h4></h4>
                 </div>
-                <FORM name='projectCategory' class='p-t-15' role='form'  ng-controller="ProjectCategoryCtrl" novalidate>
+
+                <form name='projectCategory' class='p-t-15' role='form' novalidate>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-sm-12">
@@ -75,9 +91,9 @@
                     </div>
                     <div class="modal-footer">
                         <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(projectCategory)">Add</button>
-                        <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-cons" id="close">Close</button>
                     </div>
-                </FORM>
+                </form>
             </div>
             <!-- /.modal-content -->
         </div>
@@ -85,3 +101,4 @@
     </div>
     <!-- END MODAL STICK UP  -->
 @endsection
+

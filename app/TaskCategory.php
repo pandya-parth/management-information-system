@@ -7,7 +7,6 @@ use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 class TaskCategory extends Model implements SluggableInterface
 {
-    protected $table='task_categories';
  	protected $fillable=['name'];
  	use SluggableTrait;
 
