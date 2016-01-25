@@ -8,6 +8,7 @@ use Cviebrock\EloquentSluggable\SluggableTrait;
 
 class ProjectCategory extends Model implements SluggableInterface
 {
+
    use SluggableTrait;
 
    	public $timestamps = true;

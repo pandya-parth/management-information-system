@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Response;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -52,6 +53,7 @@ class ProjectCategoriesController extends Controller
      */
     public function store(Request $request)
     {
+
             $input= Input::all();
             $categories=ProjectCategory::create($input);
             $categories->save();

@@ -10,7 +10,11 @@
          "anahkiasen/former": "4.0.*@dev",
          "laravelcollective/html": "5.2.*",
          "barryvdh/laravel-debugbar": "^2.1",
+<<<<<<< HEAD
         "cviebrock/eloquent-sluggable": "^3.1"
+=======
+         "cviebrock/eloquent-sluggable": "^3.1"
+>>>>>>> 8dd2565debffa29bc8ec3c32a3680907ffa2eacd
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

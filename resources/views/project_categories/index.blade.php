@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('title','Project Category')
+
 @section('content')
 <div ng-controller="ProjectCategoryCtrl">
     <div class= "content">
@@ -75,13 +76,14 @@
                     </button>
                     <h4 class="p-b-5"><h4>Add New Project Category</h4></h4>
                 </div>
+
                 <form name='projectCategory' class='p-t-15' role='form' novalidate>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>name</label>
-                                    <input id="appName" type="text" class="form-control" placeholder="Name of Category" ng-model='project_category.name' required>
+                                    <input id="appName" type="text" class="form-control" placeholder="Name of Category" ng-model='project_category' required>
                                     <span class="error" ng-show="submitted && projectCategory.$error.required">* Please enter project category</span>
                                 </div>
                             </div>
@@ -98,5 +100,5 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- END MODAL STICK UP  -->
-</div>
 @endsection
+
