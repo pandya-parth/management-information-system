@@ -8,7 +8,7 @@
         // your logic to perform a search and display results
 
         $( "#close" ).click(function() {
-            $('#addNewAppModal').hide();
+            $('#addNewAppModal').modal('hide');
         });
 
         $(".list-view-wrapper").scrollbar();

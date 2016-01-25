@@ -23,8 +23,13 @@ class ProjectCategoriesController extends Controller
      */
     public function index()
     {
-        $categories=ProjectCategory::all();
-        return view('project_categories/index',compact('categories'));
+        return view('project_categories.index',compact('categories'));   
+    }
+
+    public function getProjectCategories()
+    {
+       $categories = ProjectCategory::get();
+       return response()->json($categories);
     }
 
     /**
@@ -48,23 +53,12 @@ class ProjectCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $input=$request->all();
-        $categories=ProjectCategory::create($input);
-        $categories->save();
-    
 
-        // $validator = Validator::make($request->all(), [
-        //     'name' => 'required|max:30'
-        //     ]);
-        // if ($validator->fails()) {
-        //     return redirect('project_categories/create')
-        //                 ->withErrors($validator)
-        //                 ->withInput();
-        // }  
-        //       $input= Input::all();
-        //      $categories=ProjectCategory::create($input);
-        //      $categories->save();
-        //      return Redirect::route('project-categories.index')->with("success","Record Save");
+            $input= Input::all();
+            $categories=ProjectCategory::create($input);
+            $categories->save();
+            // return Redirect::route('project-categories.index')->with("success","Record Save");
+            return response()->json(['success'=>true]);
     }
 
     /**
@@ -124,8 +118,9 @@ class ProjectCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $affectedRows  = ProjectCategory::where('id', '=', $id)->delete();
+        $project_category = ProjectCategory::find($id);
+        $project_category->delete();    
 
-        return $affectedRows;
+        return response()->json(['success'=>true]);
     }
 }

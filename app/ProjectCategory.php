@@ -8,12 +8,17 @@ use Cviebrock\EloquentSluggable\SluggableTrait;
 
 class ProjectCategory extends Model implements SluggableInterface
 {
- 	protected $table='project_categories';
- 	protected $fillable=['name'];
- 	use SluggableTrait;
+
+   use SluggableTrait;
+
+   	public $timestamps = true;
 
     protected $sluggable = [
         'build_from' => 'name',
         'save_to'    => 'slug',
-    ];
+        'separator'  => '-',
+        'on_update'  => true,
+    ]; 
+
+    protected $fillable = ['name'];
 }

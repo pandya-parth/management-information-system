@@ -5,9 +5,10 @@
       <div class="row-xs-height">
         <div class="col-xs-height col-middle">
           <div class="error-container text-center">
-            <img src="{!! asset('img/404.jpg') !!}" width="500px" height="500px">
-            
-            <p><a href="{!! url('/') !!}">Back to HOME page.</a></p>
+            <h1 class="error-number">404</h1>
+            <h2 class="semi-bold">Sorry but we couldnt find this page</h2>
+            <p>This page you are looking for does not exsist <a href="{!! url('/') !!}">Back</a>
+            </p>
           </div>
         </div>
       </div>
