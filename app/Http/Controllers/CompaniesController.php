@@ -8,29 +8,33 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Company;
 use Illuminate\Support\Facades\Input;
-use Redirect;
-use Former\Facades\Former;
-use Validator;
-use Image;
+// use Former\Facades\Former;
+
 
 class CompaniesController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-      $companies=Company::all();
-        return view('companies/index',compact('companies'));
+        return view('companies.index',compact('companies'));   
     }
-
+    
+    public function getCompanies()
+    {
+       $companies = Company::get();
+       
+       return response()->json($companies);
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
         //
@@ -44,7 +48,11 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input= Input::all();
+        $companies=Company::create($input);
+        $companies->save();
+        return response()->json(['success'=>true]);
+
     }
 
     /**
@@ -89,6 +97,8 @@ class CompaniesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $company = Company::find($id);
+        $company->delete();    
+        return response()->json(['success'=>true]);
     }
 }
