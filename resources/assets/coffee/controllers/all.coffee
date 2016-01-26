@@ -15,6 +15,11 @@ angular.module 'mis'
       $scope.categories = data
       $scope.loading = false
 
+    $scope.clearAll = ->
+      $scope.submitted = false
+      angular.element('#addNewAppModal').modal('hide')
+       
+
     $scope.deleteCategory = (id)-> 
       $scope.loading = true
       projectCategory.destroy(id).success (data)->

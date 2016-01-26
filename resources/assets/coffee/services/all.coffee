@@ -12,6 +12,9 @@ angular.module 'mis'
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
+			edit: (id)->
+				$http.get('/project-categories/' + id +'/edit')
+
 			destroy: (id)->
 				$http.delete('/project-categories/' + id)
 		}

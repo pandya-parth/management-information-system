@@ -91,7 +91,7 @@
                     </div>
                     <div class="modal-footer">
                         <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(projectCategory)">Add</button>
-                        <button type="button" class="btn btn-cons" id="close">Close</button>
+                        <button type="button" class="btn btn-cons" id="close" ng-click="clearAll()">Close</button>
                     </div>
                 </form>
             </div>
