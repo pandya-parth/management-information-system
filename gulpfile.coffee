@@ -13,15 +13,14 @@ elixir (mix)->
       'jquery.scrollbar.css',
       'select2.css',
       'switchery.min.css',
-      'datatables.responsive.css',
-      'dataTables.fixedColumns.min.css',
-      'jquery.dataTables.css',
       'pages-icons.css',
       'pages.css',
       'windows.chrome.fix.css',
       'datepicker3.css',
       'daterangepicker-bs3.css',
       'bootstrap-timepicker.min.css',
+      'style.css',
+      'jquery.dataTables.css',
     ], 'public/css/vendor.css'
 
 
@@ -44,7 +43,6 @@ elixir (mix)->
       'classie.js',
       'switchery.min.js',
       'pages.min.js',
-      'scripts.js',
       'angular.min.js',
       'jquery.dataTables.min.js',
       'dataTables.tableTools.min.js',
@@ -53,9 +51,11 @@ elixir (mix)->
       'lodash.min.js',
       'pages.min.js',
       'datatables.js',
+      'bootstrap-datepicker.js',
+      'form_elements.js',
       'bootstrap-timepicker.min.js',
       'daterangepicker.js',
-      'bootstrap-datepicker.js',
+      'scripts.js',
     ], 'public/js/vendor.js'
 
     mix.coffee [
@@ -71,5 +71,3 @@ elixir (mix)->
       'js/vendor.js'
       'js/app.js'
     ]
-
-    

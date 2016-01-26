@@ -7,11 +7,8 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $( "#close" ).click(function() {
-            $('#addNewAppModal').modal('hide');
-        });
+
         $('pgn-warpper').css('display:none');
-        
 
 
         $(".list-view-wrapper").scrollbar();

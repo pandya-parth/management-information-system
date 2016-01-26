@@ -32,11 +32,11 @@
                     </div>
                     <div class="panel-body">
                         <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}"/></p>
-                        <table class="table table-hover demo-table-dynamic"  id="tableWithDynamicRows"  >
+                        <table class="table table-hover demo-table-dynamic" >
                             <thead>
                             <tr role='row'>
-                                <th class='sorting_asc'>#Id</th>
-                                <th class='sorting'>Name</th>
+                                <th class="sorting">#Id</th>
+                                <th class="sorting">Name</th>
                                 <th>Action</th>
                             </tr>
                             </thead>

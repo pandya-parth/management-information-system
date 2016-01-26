@@ -157,7 +157,6 @@
                                     <div class="form-group form-group-default">
                                         <label>Preview</label>
                                         <div></div>
-                                        </button>
                                     </div>
                                 </div>
                             </div>

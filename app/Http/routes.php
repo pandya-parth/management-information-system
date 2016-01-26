@@ -23,12 +23,10 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-
 Route::group(['middleware' => ['web','auth']], function () {
     Route::get('/home', 'HomeController@index');
-     Route::get('/', function () {
+    Route::get('/', function () {
     return view('welcome');
-
  });
 });
 
@@ -43,8 +41,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/milestones','MilestonesController');
     Route::resource('/tasks','TasksController');
     Route::resource('/task-categories','TaskCategoriesController');
-    
-
     Route::post('change-password', 'UserController@updatePassword');
 	Route::get('change-password', 'UserController@changePassword');
 });

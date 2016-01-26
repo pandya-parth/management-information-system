@@ -31,9 +31,9 @@ angular.module 'mis'
         taskCategory.get().success (getData)->
           $scope.task_categories = getData
           $scope.loading = false;
-      $scope.clearAll = ->
+    $scope.clearAll = ->
         $scope.submitted = false
-        angular.element('$addNewAppModal').modal('hide')
+        angular.element('#addNewAppModal').modal('hide')
 
     $scope.deleteCategory = (id)-> 
       $scope.loading = true
@@ -55,6 +55,11 @@ angular.module 'mis'
     projectCategory.get().success (data)->
       $scope.categories = data
       $scope.loading = false
+
+    $scope.clearAll = ->
+      $scope.submitted = false
+      angular.element('#addNewAppModal').modal('hide')
+       
 
     $scope.deleteCategory = (id)-> 
       $scope.loading = true
