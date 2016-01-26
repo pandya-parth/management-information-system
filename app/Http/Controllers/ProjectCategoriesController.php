@@ -39,10 +39,7 @@ class ProjectCategoriesController extends Controller
      */
     public function create()
     {
-        $categories = new ProjectCategory(Input::old());
-        $id=false;
-        Former::populate($categories);
-        return view('project_categories/index',compact('id','categories'));
+       
     }
 
     /**

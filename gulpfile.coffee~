@@ -1,6 +1,5 @@
 elixir = require 'laravel-elixir'
 
-
 bowerPath = (parts...)-> ['.','bower_components'].concat(parts).join('/')
 
 elixir (mix)->
@@ -43,6 +42,7 @@ elixir (mix)->
       'pages.min.js',
       'scripts.js',
       'angular.min.js',
+      'app.js',
       'jquery.dataTables.min.js',
       'dataTables.tableTools.min.js',
       'jquery-datatable-bootstrap.js',
@@ -56,10 +56,9 @@ elixir (mix)->
     ], 'public/js/vendor.js'
 
     mix.coffee [
-      '*.coffee'
+      'app.coffee'
       'config/*.coffee'
       'controllers/*.coffee'
-      'services/*.coffee'
     ]
 
     mix.version [
@@ -68,5 +67,3 @@ elixir (mix)->
       'js/vendor.js'
       'js/app.js'
     ]
-
-    

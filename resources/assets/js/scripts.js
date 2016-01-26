@@ -7,6 +7,8 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
+        $('pgn-warpper').css('display:none');
+
         $(".list-view-wrapper").scrollbar();
 
         $('[data-pages="search"]').search({
