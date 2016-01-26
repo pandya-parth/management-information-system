@@ -117,20 +117,7 @@
                                                 <label>Industry</label>
                                                 <input id="appName" type="text" class="form-control" placeholder="Industry" ng-model='company.industryType'  required>
                                             </div>
-                                            <!-- <div class="form-group form-group-default form-group-default-select2">
-                                                    <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
-                                                        <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                            <option value="AK">Alaska</option>
-                                                            <option value="HI">Hawaii</option>
-                                                        </optgroup>
-                                                        <optgroup label="Pacific Time Zone">
-                                                            <option value="CA">California</option>
-                                                            <option value="NV">Nevada</option>
-                                                            <option value="OR">Oregon</option>
-                                                            <option value="WA">Washington</option>
-                                                        </optgroup>
-                                                    </select>
-                                                </div>-->
+                                           
                                              <div class="form-group form-group-default">
                                                 <label>Phone</label>
                                                 <input id="appName" type="text" class="form-control" placeholder="Phone" ng-model='company.phone'  required>
@@ -167,21 +154,7 @@
                                                 <label>City</label>
                                                 <input id="appName" type="text" class="form-control" placeholder="city" ng-model='company.city'  required>
                                             </div>
-                                            <!-- <div class="form-group form-group-default form-group-default-select2">
-                                                <label>City</label>
-                                                <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
-                                                    <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                        <option value="AK">Alaska</option>
-                                                        <option value="HI">Hawaii</option>
-                                                    </optgroup>
-                                                    <optgroup label="Pacific Time Zone">
-                                                        <option value="CA">California</option>
-                                                        <option value="NV">Nevada</option>
-                                                        <option value="OR">Oregon</option>
-                                                        <option value="WA">Washington</option>
-                                                    </optgroup>
-                                                </select>
-                                            </div> -->
+                                           
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-default">
@@ -197,28 +170,14 @@
                                                 <label>State</label>
                                                 <input id="appName" type="text" class="form-control" placeholder="State" ng-model='company.state'  required>
                                             </div>
-                                            
+                                           
                                         </div> 
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-default">
                                                 <label>Country</label>
                                                 <input id="appName" type="text" class="form-control" placeholder="Country" ng-model='company.country'  required>
                                             </div>
-                                            <!-- <div class="form-group form-group-default form-group-default-select2">
-                                                <label>Country</label>
-                                                <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
-                                                    <optgroup label="Alaskan/Hawaiian Time Zone">
-                                                        <option value="AK">Alaska</option>
-                                                      <option value="HI">Hawaii</option>
-                                                    </optgroup>
-                                                    <optgroup label="Pacific Time Zone">
-                                                        <option value="CA">California</option>
-                                                        <option value="NV">Nevada</option>
-                                                        <option value="OR">Oregon</option>
-                                                        <option value="WA">Washington</option>
-                                                    </optgroup>
-                                                </select>
-                                            </div> -->
+                                            
                                         </div>
                                      </div>
                                 </div>
