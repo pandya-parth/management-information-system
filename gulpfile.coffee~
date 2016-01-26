@@ -1,6 +1,5 @@
 elixir = require 'laravel-elixir'
 
-
 bowerPath = (parts...)-> ['.','bower_components'].concat(parts).join('/')
 
 elixir (mix)->
@@ -19,8 +18,6 @@ elixir (mix)->
       'datepicker3.css',
       'daterangepicker-bs3.css',
       'bootstrap-timepicker.min.css',
-      'style.css',
-      'jquery.dataTables.css',
     ], 'public/css/vendor.css'
 
 
@@ -43,7 +40,9 @@ elixir (mix)->
       'classie.js',
       'switchery.min.js',
       'pages.min.js',
+      'scripts.js',
       'angular.min.js',
+      'app.js',
       'jquery.dataTables.min.js',
       'dataTables.tableTools.min.js',
       'jquery-datatable-bootstrap.js',
@@ -51,18 +50,15 @@ elixir (mix)->
       'lodash.min.js',
       'pages.min.js',
       'datatables.js',
-      'bootstrap-datepicker.js',
-      'form_elements.js',
       'bootstrap-timepicker.min.js',
       'daterangepicker.js',
-      'scripts.js',
+      'bootstrap-datepicker.js',
     ], 'public/js/vendor.js'
 
     mix.coffee [
-      '*.coffee'
+      'app.coffee'
       'config/*.coffee'
       'controllers/*.coffee'
-      'services/*.coffee'
     ]
 
     mix.version [
@@ -71,5 +67,3 @@ elixir (mix)->
       'js/vendor.js'
       'js/app.js'
     ]
-
-    

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\TaskCategory;
+use Illuminate\Support\Facades\Input;
+
 
 class TaskCategoriesController extends Controller
 {
@@ -17,20 +19,24 @@ class TaskCategoriesController extends Controller
      */
     public function index()
     {
-        $taskcategories=TaskCategory::all();
-        return view('task_categories/index',compact('taskcategories'));
+        return view('task_categories.index',compact('categories'));   
     }
-
+    
+    public function getTaskCategories()
+    {
+       $categories = TaskCategory::get();
+       
+       return response()->json($categories);
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        $id = false;
-        return view('task_categories/form', compact('id'));
-
+        //
     }
 
     /**
@@ -41,9 +47,11 @@ class TaskCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $input=$request->all();
+        $input= Input::all();
         $categories=TaskCategory::create($input);
         $categories->save();
+        return response()->json(['success'=>true]);
+
     }
 
     /**
@@ -88,6 +96,8 @@ class TaskCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project_category = TaskCategory::find($id);
+        $project_category->delete();    
+        return response()->json(['success'=>true]);
     }
 }
