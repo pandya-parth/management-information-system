@@ -8,17 +8,18 @@ elixir (mix)->
     mix.styles [
       bowerPath('bootstrap','dist','css','bootstrap.min.css')
       bowerPath('bootstrap','dist','css','bootstrap-theme.min.css')
-      'pace-theme-flash.css'
-      'font-awesome.css'
-      'jquery.scrollbar.css'
-      'select2.css'
-      'switchery.min.css'
-      'pages-icons.css'
-      'pages.css'
-      'windows.chrome.fix.css'
-      'datepicker3.css'
-      'bootstrap-timepicker.min.css'
-      'styles.css'
+      'pace-theme-flash.css',
+      'font-awesome.css',
+      'jquery.scrollbar.css',
+      'select2.css',
+      'switchery.min.css',
+      'pages-icons.css',
+      'pages.css',
+      'windows.chrome.fix.css',
+      'datepicker3.css',
+      'bootstrap-timepicker.min.css',
+      'style.css',
+
     ], 'public/css/vendor.css'
 
 
@@ -66,5 +67,3 @@ elixir (mix)->
       'js/vendor.js'
       'js/app.js'
     ]
-
-    

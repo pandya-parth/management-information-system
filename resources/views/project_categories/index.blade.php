@@ -104,5 +104,6 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- END MODAL STICK UP  -->
+</div>
 @endsection
 
