@@ -46,7 +46,7 @@ class PeoplesController extends Controller
     public function store(Request $request)
     {
         $input= Input::all();
-        
+        dd($input);
         $peoples=People::create($input);
         $peoples->save();
         return response()->json(['success'=>true]);
