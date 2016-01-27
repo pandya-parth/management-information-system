@@ -42,7 +42,7 @@
                             </tr>
                             </thead>
                             <tbody ng-cloak>
-                            <tr dir-paginate="category in categories | filter:q | itemsPerPage: 5" current-page="currentPage" ng-show="categories.length != 0">
+                            <tr dir-paginate="category in categories | filter:q | itemsPerPage: pageSize" current-page="currentPage" ng-show="categories.length != 0">
                                 <td class="v-align-middle">
                                     <p ng-cloak>{% category.id %}</p>
                                 </td>
