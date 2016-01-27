@@ -3,7 +3,7 @@ angular.module 'mis'
 	.factory 'taskCategory', ($http)->
 		return{
 			get:->
-				$http.get '/taskCategories'
+				$http.get '/api/task-categories'
 
 			save: (formData)->
 				$http

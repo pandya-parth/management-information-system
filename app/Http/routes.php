@@ -23,15 +23,17 @@
 | kernel and includes session state, CSRF protection, and more.
 |
 */
-Route::group(['middleware' => ['web','auth']], function () {
-    Route::get('/home', 'HomeController@index');
-    Route::get('/', function () {
-    return view('welcome');
- });
-});
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
+});
+
+
+Route::group(['middleware' => ['web','auth']], function () {
+    Route::get('/home', 'HomeController@index');
+    Route::get('/', function () {
+        return view('welcome');
+    });
     Route::resource('/companies','CompaniesController');
 
     Route::resource('/people','PeoplesController');
@@ -43,13 +45,12 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/milestones','MilestonesController');
 
     Route::post('change-password', 'UserController@updatePassword');
-	Route::get('change-password', 'UserController@changePassword');
-    
-    /* For getting json data */
-    Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
-    Route::get('projectCategories', 'ProjectCategoriesController@getProjectCategories');
-    Route::get('People', 'PeoplesController@getPeoples');
-    Route::get('projectCategory/{id}','ProjectCategoriesController@getCategory');
-    Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
-    Route::get('People', 'PeoplesController@getProjects');
+    Route::get('change-password', 'UserController@changePassword');
+});
+
+Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
+    Route::get('task-categories', 'TaskCategoriesController@getTaskCategories');
+    Route::get('project-categories', 'ProjectCategoriesController@getProjectCategories');
+    Route::get('people', 'PeoplesController@getPeoples');
+    Route::get('project-category/{id}','ProjectCategoriesController@getCategory');
 });
