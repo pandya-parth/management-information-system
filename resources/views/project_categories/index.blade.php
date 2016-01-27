@@ -51,8 +51,8 @@
                                 </td>
                                 <td class="v-align-middle">
                                     <p>
-                                        <a href="#">Edit</a>
-                                        <a href="javascript:;" ng-click="deleteCategory(category.id)">Delete</a>
+                                        <a ng-click="editCategory(category.id)">Edit</a>
+                                        <a ng-click="deleteCategory(category.id)">Delete</a>
                                     </p>
                                 </td>
                             </tr>
@@ -76,9 +76,11 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header clearfix ">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="clearAll()"><i class="pg-close fs-14"></i>
                     </button>
-                    <h4 class="p-b-5"><h4>Add New Project Category</h4></h4>
+                    <h4 class="p-b-5">
+                        <h4 ng-bind="edit==false ? 'Add New Project Category' : 'Edit Project Category'"></h4>
+                    </h4>
                 </div>
 
                 <form name='projectCategory' class='p-t-15' role='form' novalidate>
@@ -94,7 +96,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(projectCategory)">Add</button>
+                        <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(projectCategory)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
                         <button type="button" class="btn btn-cons" id="close" ng-click="clearAll()">Close</button>
                     </div>
                 </form>
