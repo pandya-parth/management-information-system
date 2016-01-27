@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title','Companies')
 @section('content')
 <div ng-controller="company">
         <div class="content">
@@ -39,15 +40,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-if="categories.length != 0" ng-repeat="category in categories">
-                                <td class="v-align-middle">
-                                    <p>{% category.id %}</p>
+                            <tr ng-if="categories.length != 0" ng-repeat="category in categories" ng-cloak>
+                                <td class="v-align-middle" >
+                                    <p >{% category.id %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p>{% category.name ? category.name : '-' %}</p>
+                                    <p >{% category.name ? category.name : '-' %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p>
+                                    <p >
                                         <a href="#">Edit</a>
                                         <a href="javascript:;" ng-click="deleteCategory(category.id)">Delete</a>
                                     </p>
@@ -104,7 +105,8 @@
                                                     <input id="appName" type="text" class="form-control" placeholder="Email" ng-model='company.email'  required>
                                                     <span class="error" ng-show="submitted && company.$error.required">* Please enter email</span>
                                             </div>
-                                            <button class="btn btn-success btn-cons m-b-10" type="button"><i class="fa fa-cloud-upload"></i> <span class="bold">Upload</span>
+                                                    <input id="appName" type="text" class="form-control" placeholder="Email" ng-model='company.logo'  required>
+                                                    <span class="error" ng-show="submitted && company.$error.required">* Please enter logo</span>
                                             </button>
                                         </div>
                                     </div>
@@ -133,7 +135,7 @@
                                 </div>
                                 <div id="menu2" class="tab-pane slide-left">
                                     <div class="row">
-                    <div class="col-sm-6">
+                                    <div class="col-sm-6">
                                             <div class="form-group form-group-default">
                                            <label>Address 1</label>
                                                 <textarea id="appName" type="text" class="form-control" placeholder="Address 1" ng-model='company.address1'  required> </textarea> 
@@ -184,8 +186,10 @@
                           </div>
                     </div>
                     <div class="modal-footer">
-                        <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
-                        <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
+                            <button id="add-app" type="button" class="btn btn-primary  btn-cons"
+                                    ng-click="submit(taskCategory)">Add
+                            </button>
+                            <button type="button" class="btn btn-cons" id="close" ng-click='clearAll()'>Close</button>
                     </div>
                     </form>
                 </div>

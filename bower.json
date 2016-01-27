@@ -30,7 +30,8 @@
   ],
   "dependencies": {
     "jquery": "1.9.1 - 2",
-    "bootstrap":"latest"
+    "bootstrap":"latest",
+    "angular-utils-pagination":"latest"
   },
   "version": "3.3.6",
   "_release": "3.3.6",
