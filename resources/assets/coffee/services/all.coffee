@@ -39,20 +39,20 @@ angular.module 'mis'
 	.factory 'PEOPLE', ($http)->
 		return{
 			get: ->
-				$http.get '/projectCategories'
+				$http.get '/People'
 
 			save: (formData)->
 				$http
 					method: 'POST'
-					url: '/project-categories'
+					url: '/people'
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
 			edit: (id)->
-				$http.get('/project-categories/' + id +'/edit')
+				$http.get('/people/' + id +'/edit')
 
 			destroy: (id)->
-				$http.delete('/project-categories/' + id)
+				$http.delete('/people/' + id)
 		}
 
 	.factory 'company', ($http)->

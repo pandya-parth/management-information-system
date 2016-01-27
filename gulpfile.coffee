@@ -17,10 +17,9 @@ elixir (mix)->
       'pages.css',
       'windows.chrome.fix.css',
       'datepicker3.css',
-      'daterangepicker-bs3.css',
       'bootstrap-timepicker.min.css',
       'style.css',
-      'jquery.dataTables.css',
+
     ], 'public/css/vendor.css'
 
 
@@ -28,34 +27,31 @@ elixir (mix)->
     mix.sass 'app.scss'
 
     mix.scripts [
+      'pace.min.js'
       bowerPath('jquery','dist', 'jquery.min.js')
+      bowerPath('angular', 'angular.min.js')
+      'modernizr.custom.js'
+      'jquery-ui.min.js'
       bowerPath('bootstrap','dist','js','bootstrap.min.js')
-      'pace.min.js',
-      'modernizr.custom.js',
-      'jquery-ui.min.js',
-      'jquery-easy.js',
-      'jquery.unveil.min.js',
-      'jquery.bez.min.js',
-      'jquery.ioslist.min.js',
-      'jquery.actual.min.js',
-      'jquery.scrollbar.min.js',
-      'select2.min.js',
-      'classie.js',
-      'switchery.min.js',
-      'pages.min.js',
-      'angular.min.js',
-      'jquery.dataTables.min.js',
-      'dataTables.tableTools.min.js',
-      'jquery-datatable-bootstrap.js',
-      'datatables.responsive.js',
-      'lodash.min.js',
-      'pages.min.js',
-      'datatables.js',
-      'bootstrap-datepicker.js',
-      'form_elements.js',
-      'bootstrap-timepicker.min.js',
-      'daterangepicker.js',
-      'scripts.js',
+      'jquery.unveil.min.js'
+      'jquery.bez.min.js'
+      'jquery.ioslist.min.js'
+      'jquery.actual.min.js'
+      'jquery.scrollbar.min.js'
+      'select2.min.js'
+      'classie.js'
+      'switchery.min.js'
+      'jquery.dataTables.min.js'
+      'dataTables.tableTools.min.js'
+      'jquery-datatable-bootstrap.js'
+      'datatables.responsive.js'
+      'lodash.min.js'
+      'pages.min.js'
+      'datatables.js'
+      'bootstrap-timepicker.min.js'
+      'bootstrap-datepicker.js'
+      bowerPath('angular-utils-pagination', 'dirPagination.js')
+      'scripts.js'
     ], 'public/js/vendor.js'
 
     mix.coffee [

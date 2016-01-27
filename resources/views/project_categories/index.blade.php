@@ -22,8 +22,10 @@
                     <div class="panel-title">Project Category Listing
                     </div>
                     <div class="pull-right">
-                        <div class="col-xs-12">
-                            <!-- {!! link_to("project/create","Add",array('class'=>'btn btn-primary btn-cons   pull-right')) !!}-->
+                        <div class="col-xs-6">
+                            <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                        </div>
+                        <div class="col-xs-6">
                             <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add project category</button>
                         </div>
                     </div>
@@ -39,13 +41,13 @@
                                 <th>Action</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr ng-if="categories.length != 0" ng-repeat="category in categories">
+                            <tbody ng-cloak>
+                            <tr dir-paginate="category in categories | filter:q | itemsPerPage: 5" current-page="currentPage" ng-show="categories.length != 0">
                                 <td class="v-align-middle">
-                                    <p>{% category.id %}</p>
+                                    <p ng-cloak>{% category.id %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p>{% category.name ? category.name : '-' %}</p>
+                                    <p ng-cloak>{% category.name ? category.name : '-' %}</p>
                                 </td>
                                 <td class="v-align-middle">
                                     <p>
@@ -62,6 +64,8 @@
                             </tbody>
                         </table>
                 </div>
+
+                <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
             </div>
             <!-- END PANEL -->
         </div>
