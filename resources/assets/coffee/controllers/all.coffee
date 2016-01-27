@@ -107,6 +107,7 @@ angular.module 'mis'
     $scope.loading = true
     PEOPLE.get().success (data)->
       $scope.people_datas = data
+     
       $scope.loading = false
 
     $scope.submit = (form)->
