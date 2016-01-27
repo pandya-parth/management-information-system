@@ -19,7 +19,6 @@ elixir (mix)->
       'datepicker3.css',
       'bootstrap-timepicker.min.css',
       'style.css',
-
     ], 'public/css/vendor.css'
 
 
@@ -29,7 +28,6 @@ elixir (mix)->
     mix.scripts [
       'pace.min.js'
       bowerPath('jquery','dist', 'jquery.min.js')
-      bowerPath('angular', 'angular.min.js')
       'modernizr.custom.js'
       'jquery-ui.min.js'
       bowerPath('bootstrap','dist','js','bootstrap.min.js')
@@ -50,6 +48,7 @@ elixir (mix)->
       'datatables.js'
       'bootstrap-timepicker.min.js'
       'bootstrap-datepicker.js'
+      bowerPath('angular', 'angular.min.js')
       bowerPath('angular-utils-pagination', 'dirPagination.js')
       'scripts.js'
     ], 'public/js/vendor.js'
