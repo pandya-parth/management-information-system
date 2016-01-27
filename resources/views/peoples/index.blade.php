@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div ng-controller="ProjectCtrl">
+<div ng-controller="PeopleCtrl">
     <div class="content">
         <!-- START CONTAINER FLUID -->
         <div class="container-fluid container-fixed-lg">
@@ -12,8 +12,6 @@
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-12">
-                            <!-- {!! link_to("project/create","Add",array('class'=>'btn btn-primary btn-cons   pull-right')) !!}
-                                    -->
                             <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add
                                 people
                             </button>
@@ -71,7 +69,7 @@
                     </button>
                     <h4 class="p-b-5"><h4>Add New People</h4></h4>
                 </div>
-                <form name='project' class='p-t-15' role='form' novalidate>
+                <form name='people' class='p-t-15' role='form' novalidate>
                 <div class="modal-body">
                     <ul class="nav nav-tabs nav-tabs-fillup">
                         <li class="active"><a data-toggle="tab" href="#home">Personal</a></li>

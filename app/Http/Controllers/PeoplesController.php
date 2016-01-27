@@ -20,6 +20,12 @@ class PeoplesController extends Controller
         return view('peoples/index',compact('peoples'));
     }
 
+    public function getPeoples()
+    {
+       $peoples = People::get();
+       return response()->json($peoples);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +44,11 @@ class PeoplesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input= Input::all();
+            $peoples=People::create($input);
+            $peoples->save();
+            // return Redirect::route('people.index')->with("success","Record Save");
+            return response()->json(['success'=>true]);
     }
 
     /**
@@ -60,7 +70,9 @@ class PeoplesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $peoples=People::findOrFail($id);
+        Former::populate($peoples);
+        return view('peoples.form',compact('peoples'));
     }
 
     /**
@@ -72,7 +84,20 @@ class PeoplesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:3|max:30'
+           
+        ]);
+        if ($validator->fails()) {
+            return redirect('people/create')
+                        ->withErrors($validator)
+                        ->withInput();
+        }  
+             $peoples = People::find($id);
+             $peoples->fill( Input::all() );   
+             
+             $peoples->save();
+             return Redirect::route('people.index');
     }
 
     /**
@@ -83,6 +108,9 @@ class PeoplesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $people = People::find($id);
+        $people->delete();    
+
+        return response()->json(['success'=>true]);
     }
 }

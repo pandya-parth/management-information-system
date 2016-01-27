@@ -38,7 +38,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/project-categories','ProjectCategoriesController');
     Route::get('projectCategories', 'ProjectCategoriesController@getProjectCategories');
     Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
-    Route::get('Projects', 'ProjectsController@getProjects');
+    Route::get('People', 'PeoplesController@getProjects');
     Route::resource('/milestones','MilestonesController');
     Route::resource('/tasks','TasksController');
     Route::resource('/task-categories','TaskCategoriesController');
