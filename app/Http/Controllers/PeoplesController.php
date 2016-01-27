@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\People;
+use Illuminate\Support\Facades\Input;
 class PeoplesController extends Controller
 {
     /**
@@ -45,10 +46,10 @@ class PeoplesController extends Controller
     public function store(Request $request)
     {
         $input= Input::all();
-            $peoples=People::create($input);
-            $peoples->save();
-            // return Redirect::route('people.index')->with("success","Record Save");
-            return response()->json(['success'=>true]);
+        
+        $peoples=People::create($input);
+        $peoples->save();
+        return response()->json(['success'=>true]);
     }
 
     /**

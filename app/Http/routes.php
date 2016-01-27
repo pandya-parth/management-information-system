@@ -33,15 +33,21 @@ Route::group(['middleware' => ['web','auth']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::resource('/companies','CompaniesController');
+
+    Route::get('People', 'PeoplesController@getPeoples');
     Route::resource('/people','PeoplesController');
+
     Route::resource('/projects','ProjectsController');
     Route::resource('/project-categories','ProjectCategoriesController');
+
     Route::get('projectCategories', 'ProjectCategoriesController@getProjectCategories');
-    Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
-    Route::get('People', 'PeoplesController@getProjects');
-    Route::resource('/milestones','MilestonesController');
+
     Route::resource('/tasks','TasksController');
+    Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
     Route::resource('/task-categories','TaskCategoriesController');
+    
+    Route::resource('/milestones','MilestonesController');
+
     Route::post('change-password', 'UserController@updatePassword');
 	Route::get('change-password', 'UserController@changePassword');
 });
