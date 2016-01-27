@@ -49,6 +49,8 @@ angular.module 'mis'
    
   .controller 'ProjectCategoryCtrl', ($scope, projectCategory)->
     $scope.loading = true
+    $scope.currentPage = 1;
+    $scope.pageSize = 1;
     projectCategory.get().success (data)->
       $scope.categories = data
       $scope.loading = false
@@ -56,6 +58,7 @@ angular.module 'mis'
     $scope.clearAll = ->
       $scope.submitted = false
       angular.element('#addNewAppModal').modal('hide')
+      return
        
 
     $scope.deleteCategory = (id)-> 
