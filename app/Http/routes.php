@@ -33,15 +33,22 @@ Route::group(['middleware' => ['web','auth']], function () {
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::resource('/companies','CompaniesController');
+
     Route::resource('/people','PeoplesController');
     Route::resource('/projects','ProjectsController');
     Route::resource('/project-categories','ProjectCategoriesController');
     Route::resource('/milestones','MilestonesController');
     Route::resource('/tasks','TasksController');
-    Route::resource('/task-categories','TaskCategoriesController');
+    Route::resource('/task-categories','TaskCategoriesController');    
+    Route::resource('/milestones','MilestonesController');
+
     Route::post('change-password', 'UserController@updatePassword');
 	Route::get('change-password', 'UserController@changePassword');
+    
+    /* For getting json data */
+    Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
     Route::get('projectCategories', 'ProjectCategoriesController@getProjectCategories');
+    Route::get('People', 'PeoplesController@getPeoples');
     Route::get('projectCategory/{id}','ProjectCategoriesController@getCategory');
     Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
     Route::get('People', 'PeoplesController@getProjects');
