@@ -99,7 +99,7 @@
                                     ng-click="submit(taskCategory)">Add
                             </button>
                             <button type="button" class="btn btn-cons" id="close" ng-click='clearAll()'>Close</button>
-                        </div>
+                </div>
                 </div>
                 <!-- /.modal-content -->
             </div>

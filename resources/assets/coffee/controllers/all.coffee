@@ -186,7 +186,7 @@ angular.module 'mis'
       $scope.loading = true
       company.destroy(id).success (data)->
         company.get().success (getData)->
-          $scope.task_companies = getData
+          $scope.companies = getData
           $scope.loading = false
           angular.element('body').pgNotification(
             style: 'flip'
