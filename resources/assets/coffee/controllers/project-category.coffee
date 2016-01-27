@@ -45,6 +45,7 @@ angular.module 'mis'
 			else
 				projectCategory.update($scope.project_category).success (data)->
 					$scope.submitted = false
+					$scope.edit = false
 					$scope.project_category = {}
 					angular.element('#addNewAppModal').modal('hide')
 					$timeout (->
