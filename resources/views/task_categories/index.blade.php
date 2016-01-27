@@ -92,7 +92,18 @@
                         <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(taskCategory)">Add</button>
                         <button type="button" class="btn btn-cons" id="close">Close</button>
                     </div>
+
+
+
+
+
+
+
             </div>
+
+
+
+            
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->

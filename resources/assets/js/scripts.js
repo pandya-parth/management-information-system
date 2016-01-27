@@ -10,6 +10,7 @@
 
         $('pgn-warpper').css('display:none');
 
+       
 
         $(".list-view-wrapper").scrollbar();
 

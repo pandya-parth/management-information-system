@@ -27,6 +27,12 @@ class ProjectsController extends Controller
         return view('projects/index',compact('projects'));
     }
 
+    public function getProjects()
+    {
+       $project_datas = ProjectCategory::get();
+       return response()->json($project_datas);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
