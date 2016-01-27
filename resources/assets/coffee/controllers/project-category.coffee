@@ -58,7 +58,7 @@ angular.module 'mis'
 						projectCategory.get().success (getData)->
 							$scope.categories = getData
 							$scope.loading = false
-					), 1000
+					), 500
 					
 
 
