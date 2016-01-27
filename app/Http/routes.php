@@ -51,5 +51,4 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('People', 'PeoplesController@getPeoples');
     Route::get('projectCategory/{id}','ProjectCategoriesController@getCategory');
     Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
-    Route::get('People', 'PeoplesController@getProjects');
 });

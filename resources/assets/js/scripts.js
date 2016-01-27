@@ -7,6 +7,8 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
+        $('#datepicker-component2').datepicker();
+
 
         $('pgn-warpper').css('display:none');
 
