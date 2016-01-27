@@ -3,7 +3,7 @@ angular.module 'mis'
 	.factory 'PEOPLE', ($http)->
 		return{
 			get: ->
-				$http.get '/People'
+				$http.get '/api/people'
 
 			save: (formData)->
 				$http
