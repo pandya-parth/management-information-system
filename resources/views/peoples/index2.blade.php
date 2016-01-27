@@ -170,7 +170,7 @@
 
                                         <label>First Name</label>
 
-                                        <input id="appName1" type="text" class="form-control" placeholder="First Name" ng-model='people_array.fname' required>
+                                        <input id="appName1" type="text" class="form-control" placeholder="First Name" ng-model='people_array.first_name' required>
 
                                         <span class="error" ng-show="submitted && people.$error.required">* Please enter First Name</span>
 
@@ -184,7 +184,7 @@
 
                                         <label>Last Name</label>
 
-                                        <input id="appName2" type="text" class="form-control" placeholder="Last Name" ng-model='people_array.lname' required>
+                                        <input id="appName2" type="text" class="form-control" placeholder="Last Name" ng-model='people_array.last_name' required>
 
                                         <span class="error" ng-show="submitted && people.$error.required">* Please enter Last Name </span>
 
