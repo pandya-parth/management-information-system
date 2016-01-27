@@ -3,7 +3,7 @@ angular.module 'mis'
 	.factory 'projectCategory', ($http)->
 		return{
 			get: ->
-				$http.get '/projectCategories'
+				$http.get '/api/project-categories'
 
 			save: (formData)->
 				$http
@@ -13,7 +13,7 @@ angular.module 'mis'
 					data: $.param(formData)
 
 			edit: (id)->
-				$http.get '/projectCategory/'+id
+				$http.get '/api/project-category/'+id
 
 			update: (formData)->
 				$http
