@@ -56,7 +56,7 @@
             $("#ssn").mask("999-99-9999");
         });
         //Autonumeric plug-in - automatic addition of dollar signs,etc controlled by tag attributes
-        $('.autonumeric').autoNumeric('init');
+//        $('.autonumeric').autoNumeric('init');
 
         //Drag n Drop up-loader
         $("div#myId").dropzone({

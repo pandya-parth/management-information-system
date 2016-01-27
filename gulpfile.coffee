@@ -71,5 +71,3 @@ elixir (mix)->
       'js/vendor.js'
       'js/app.js'
     ]
-
-    
