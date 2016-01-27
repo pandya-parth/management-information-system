@@ -36,12 +36,13 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('/people','PeoplesController');
     Route::resource('/projects','ProjectsController');
     Route::resource('/project-categories','ProjectCategoriesController');
-    Route::get('projectCategories', 'ProjectCategoriesController@getProjectCategories');
-    Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
-    Route::get('People', 'PeoplesController@getProjects');
     Route::resource('/milestones','MilestonesController');
     Route::resource('/tasks','TasksController');
     Route::resource('/task-categories','TaskCategoriesController');
     Route::post('change-password', 'UserController@updatePassword');
 	Route::get('change-password', 'UserController@changePassword');
+    Route::get('projectCategories', 'ProjectCategoriesController@getProjectCategories');
+    Route::get('projectCategory/{id}','ProjectCategoriesController@getCategory');
+    Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
+    Route::get('People', 'PeoplesController@getProjects');
 });

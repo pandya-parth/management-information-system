@@ -77,9 +77,13 @@ class ProjectCategoriesController extends Controller
      */
     public function edit($id)
     {
-        $categories=ProjectCategory::findOrFail($id);
-        Former::populate($categories);
-        return view('project_categories.form',compact('categories'));
+        
+    }
+
+    public function getCategory($id)
+    {
+        $category = ProjectCategory::findOrFail($id);
+        return response()->json($category);
     }
 
     /**
@@ -91,20 +95,10 @@ class ProjectCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3|max:30',
-           'description'=>'required'
-        ]);
-        if ($validator->fails()) {
-            return redirect('project_categories/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }  
-             $categories = ProjectCategory::find($id);
-             $categories->fill( Input::all() );   
-             
-             $categories->save();
-             return Redirect::route('project_categories.index');
+         $category = ProjectCategory::find($id);
+         $category->name = Input::get('name');
+         $category->save();  
+         return response()->json(['success'=>true]);      
     }
 
     /**
