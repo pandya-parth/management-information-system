@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Task Category')
 @section('content')
-    <div ng-controller="TaskCategoryCtrl">
+    <div ng-controller="TaskCategoryCtrl" ng-cloak>
         <div class="content">
             <!-- START CONTAINER FLUID -->
             <div class="container-fluid container-fixed-lg">
@@ -43,10 +43,10 @@
                             <tbody>
                             <tr ng-if="task_categories.length != 0" ng-repeat="category in task_categories">
                                 <td class="v-align-middle">
-                                    <p>{% category.id %}</p>
+                                    <p  ng-cloak>{% category.id %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p>{% category.name ? category.name : '-' %}</p>
+                                    <p ng-cloak>{% category.name ? category.name : '-' %}</p>
                                 </td>
                                 <td class="v-align-middle">
                                     <p>
@@ -93,27 +93,8 @@
                                 </div>
                             </div>
                         </div>
-<<<<<<< HEAD
-                    </div>
-                    <div class="modal-footer">
-                        <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(taskCategory)">Add</button>
-                        <button type="button" class="btn btn-cons" id="close">Close</button>
-                    </div>
-
-
-
-
-
-
-
-            </div>
-
-
-
-            
-            <!-- /.modal-content -->
-=======
-                        <div class="modal-footer">
+                        <!-- /.modal-content -->
+                <div class="modal-footer">
                             <button id="add-app" type="button" class="btn btn-primary  btn-cons"
                                     ng-click="submit(taskCategory)">Add
                             </button>
@@ -123,7 +104,6 @@
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
->>>>>>> 758828da8a493ec5ee9e773263a49c87135dedb6
         </div>
         <!-- END MODAL STICK UP  -->
     </div>

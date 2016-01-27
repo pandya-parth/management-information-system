@@ -1,5 +1,6 @@
 angular.module 'mis'
 
+
   .controller 'BodyCtrl', ($scope)->
     $scope.title = "MIS"
 
@@ -145,3 +146,52 @@ angular.module 'mis'
         PEOPLE.get().success (getData)->
           $scope.people_datas = getData
           $scope.loading = false;
+
+  .controller 'companyCtrl', ($scope, company)->
+    $scope.loading = true
+    company.get().success (data)->
+      $scope.companies = data
+      $scope.loading = false
+
+    $scope.submit = (form)->
+      $scope.loading = true
+      $scope.submitted = true
+      if form.$invalid
+        $scope.loading = false
+        return
+      else
+        $scope.loading = true
+      company.save($scope.company).success (data)->
+        $scope.submitted = false
+        $scope.company = {}
+        angular.element('#addNewAppModal').modal('hide')
+        angular.element('body').pgNotification(
+          style: 'flip'
+          message: 'Record saved successfully.'
+          position: 'top-right'
+          timeout: 2000
+          type: 'success').show()
+        company.get().success (getData)->
+          $scope.task_categories = getData
+          $scope.loading = false;
+
+    $scope.clearAll = ->
+        $scope.submitted = false
+        angular.element('#addNewAppModal').modal('hide')
+
+    $scope.deleteCompany = (id)-> 
+      $scope.loading = true
+      company.destroy(id).success (data)->
+        company.get().success (getData)->
+          $scope.task_companies = getData
+          $scope.loading = false
+          angular.element('body').pgNotification(
+            style: 'flip'
+            message: 'Record deleted successfully.'
+            position: 'top-right'
+            timeout: 2000
+            type: 'success').show()
+
+
+
+
