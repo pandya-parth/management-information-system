@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Companies')
 @section('content')
-<div ng-controller="company">
+<div ng-controller="companyCtrl">
         <div class="content">
             <!-- START CONTAINER FLUID -->
             <div class="container-fluid container-fixed-lg">
@@ -92,22 +92,24 @@
                                         <div class="col-sm-12">
                                                 <div class="form-group form-group-default">
                                                     <label>name</label>
-                                                    <input id="appName" type="text" class="form-control" placeholder="Name of Company" ng-model='company.name'  required>
+                                                    <input id="appName" type="text" class="form-control" placeholder="Name of Company" ng-model='company_data.name'  >
                                                     <span class="error" ng-show="submitted && company.$error.required">* Please enter company name</span>
                                                 </div>
                                                 <div class="form-group form-group-default">
                                                     <label>Website</label>
-                                                    <input id="appName" type="text" class="form-control" placeholder="Website of Company" ng-model='company.name'  required>
+                                                    <input id="appName" type="text" class="form-control" placeholder="Website of Company" ng-model='company_data.website'  required>
                                                     <span class="error" ng-show="submitted && company.$error.required">* Please enter website</span>
                                                 </div>
                                             <div class="form-group form-group-default">
                                                     <label>Email</label>
-                                                    <input id="appName" type="text" class="form-control" placeholder="Email" ng-model='company.email'  required>
+                                                    <input id="appName" type="text" class="form-control" placeholder="Email" ng-model='company_data.email'  >
                                                     <span class="error" ng-show="submitted && company.$error.required">* Please enter email</span>
                                             </div>
-                                                    <input id="appName" type="text" class="form-control" placeholder="Email" ng-model='company.logo'  required>
+                                            <div class="form-group form-group-default">
+                                                  <label>Company Logo</label>
+                                                    <input id="appName" type="text" class="form-control" placeholder="logo" ng-model='company_data.logo' >
                                                     <span class="error" ng-show="submitted && company.$error.required">* Please enter logo</span>
-                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -117,17 +119,17 @@
                                             
                                             <div class="form-group form-group-default">
                                                 <label>Industry</label>
-                                                <input id="appName" type="text" class="form-control" placeholder="Industry" ng-model='company.industryType'  required>
+                                                <input id="appName" type="text" class="form-control" placeholder="Industry" ng-model='company_data.industry'  >
                                             </div>
                                            
                                              <div class="form-group form-group-default">
                                                 <label>Phone</label>
-                                                <input id="appName" type="text" class="form-control" placeholder="Phone" ng-model='company.phone'  required>
+                                                <input id="appName" type="text" class="form-control" placeholder="Phone" ng-model='company_data.phone'>
                                                 <!-- <span class="error" ng-show="submitted && company.$error.required">* Please enter phone number</span> -->
                                             </div>
                                             <div class="form-group form-group-default">
                                                 <label>Fax</label>
-                                                <input id="appName" type="text" class="form-control" placeholder="Fax" ng-model='company.fax'  required>
+                                                <input id="appName" type="text" class="form-control" placeholder="Fax" ng-model='company_data.fax'  >
                                                 <!-- <span class="error" ng-show="submitted && company.$error.required">* Please enter fax</span> -->
                                             </div>
                                         </div>
@@ -138,14 +140,14 @@
                                     <div class="col-sm-6">
                                             <div class="form-group form-group-default">
                                            <label>Address 1</label>
-                                                <textarea id="appName" type="text" class="form-control" placeholder="Address 1" ng-model='company.address1'  required> </textarea> 
+                                                <textarea id="appName" type="text" class="form-control" placeholder="Address 1" ng-model='company_data.adrs1' > </textarea> 
                                                 <!-- <span class="error" ng-show="submitted && company.$error.required">* Please enter address 2</span> -->
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-default">
                                                 <label>Address 2</label>
-                                                <textarea id="appName" type="text" class="form-control" placeholder="Address 2" ng-model='company.address 2'  required> </textarea> 
+                                                <textarea id="appName" type="text" class="form-control" placeholder="Address 2" ng-model='company_data.adrs2'> </textarea> 
                                                 <!-- <span class="error" ng-show="submitted && company.$error.required">* Please enter address 2</span> -->
                                             </div>
                                         </div>
@@ -154,14 +156,14 @@
                                         <div class="col-sm-6">
                                              <div class="form-group form-group-default">
                                                 <label>City</label>
-                                                <input id="appName" type="text" class="form-control" placeholder="city" ng-model='company.city'  required>
+                                                <input id="appName" type="text" class="form-control" placeholder="city" ng-model='company_data.city' >
                                             </div>
                                            
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-default">
                                                 <label>Zipcode</label>
-                                                <input id="appName" type="text" class="form-control" placeholder="Zipcode" ng-model='company.zipcode'  required>
+                                                <input id="appName" type="text" class="form-control" placeholder="Zipcode" ng-model='company_data.zipcode'  required>
                                                 
                                             </div>
                                         </div>
@@ -170,14 +172,14 @@
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-default">
                                                 <label>State</label>
-                                                <input id="appName" type="text" class="form-control" placeholder="State" ng-model='company.state'  required>
+                                                <input id="appName" type="text" class="form-control" placeholder="State" ng-model='company_data.state'  required>
                                             </div>
                                            
                                         </div> 
                                         <div class="col-sm-6">
                                             <div class="form-group form-group-default">
                                                 <label>Country</label>
-                                                <input id="appName" type="text" class="form-control" placeholder="Country" ng-model='company.country'  required>
+                                                <input id="appName" type="text" class="form-control" placeholder="Country" ng-model='company_data.country'  required>
                                             </div>
                                             
                                         </div>
@@ -187,7 +189,7 @@
                     </div>
                     <div class="modal-footer">
                             <button id="add-app" type="button" class="btn btn-primary  btn-cons"
-                                    ng-click="submit(taskCategory)">Add
+                                    ng-click="submit(company)">Add
                             </button>
                             <button type="button" class="btn btn-cons" id="close" ng-click='clearAll()'>Close</button>
                     </div>
@@ -199,4 +201,5 @@
         </div>
         <!-- END MODAL STICK UP  -->
     </div>
+</div>
 @endsection

@@ -157,7 +157,7 @@ angular.module 'mis'
           timeout: 2000
           type: 'success').show()
         company.get().success (getData)->
-          $scope.task_categories = getData
+          $scope.companies = getData  
           $scope.loading = false;
 
     $scope.clearAll = ->
