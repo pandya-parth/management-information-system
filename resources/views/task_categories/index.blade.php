@@ -41,7 +41,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-if="task_categories.length != 0" ng-repeat="category in task_categories">
+                            <tr dir-paginate="category in task_categories| orderBy:'-id' | filter:q | itemsPerPage: pageSize" current-page="currentPage" ng-show="task_categories.length != 0" >
                                 <td class="v-align-middle">
                                     <p  ng-cloak>{% category.id %}</p>
                                 </td>
@@ -50,8 +50,8 @@
                                 </td>
                                 <td class="v-align-middle">
                                     <p>
-                                        <a href="#">Edit</a>
-                                        <a href="javascript:;" ng-click="deleteCategory(category.id)">Delete</a>
+                                        <a  ng-click="editCategory(category.id)">Edit</a>
+                                        <a  ng-click="deleteCategory(category.id)">Delete</a>
                                     </p>
                                 </td>
                             </tr>
@@ -63,6 +63,7 @@
                             </tbody>
                         </table>
                     </div>
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
                 </div>
                 <!-- END PANEL -->
             </div>
@@ -77,7 +78,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
                                     class="pg-close fs-14"></i>
                         </button>
-                        <h4 class="p-b-5"><h4>Add New Task Category</h4></h4>
+                        <h4 class="p-b-5" ng-bind="edit==false ? 'Add New Task Category' : 'Edit New Task Category'"></h4>
                     </div>
                     <form name='taskCategory' class='p-t-15' role='form' novalidate>
                         <div class="modal-body">
@@ -96,8 +97,7 @@
                         <!-- /.modal-content -->
                 <div class="modal-footer">
                             <button id="add-app" type="button" class="btn btn-primary  btn-cons"
-                                    ng-click="submit(taskCategory)">Add
-                            </button>
+                                    ng-click="submit(taskCategory)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
                             <button type="button" class="btn btn-cons" id="close" ng-click='clearAll()'>Close</button>
                 </div>
                 </div>

@@ -1,5 +1,6 @@
-<?php
 
+
+<?php
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -10,8 +11,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +26,6 @@
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 });
-
 
 Route::group(['middleware' => ['web','auth']], function () {
     Route::get('/home', 'HomeController@index');
@@ -49,7 +47,10 @@ Route::group(['middleware' => ['web','auth']], function () {
 });
 
 Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
+    Route::get('companies', 'CompaniesController@getCompanies');
+    Route::get('company/{id}','CompaniesController@getCompany');
     Route::get('task-categories', 'TaskCategoriesController@getTaskCategories');
+    Route::get('task-category/{id}','TaskCategoriesController@getCategory');
     Route::get('project-categories', 'ProjectCategoriesController@getProjectCategories');
     Route::get('people', 'PeoplesController@getPeoples');
     Route::get('project-category/{id}','ProjectCategoriesController@getCategory');

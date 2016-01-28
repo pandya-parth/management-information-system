@@ -1,27 +1,27 @@
 angular.module 'mis'
 
-	.factory 'taskCategory', ($http)->
+	.factory 'company', ($http)->
 		return{
-			get:->
-				$http.get '/api/task-categories'
+			get: ->
+				$http.get '/api/companies'
 
 			save: (formData)->
 				$http
 					method: 'POST'
-					url: '/task-categories'
+					url: '/companies'
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
 			edit: (id)->
-				$http.get '/api/task-category/'+id
+				$http.get '/api//companies/'+id
 
 			update: (formData)->
 				$http
 					method: 'PUT'
-					url: '/task-categories/'+formData.id
+					url: '/companies/'+formData.id
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
 			destroy: (id)->
-				$http.delete('/task-categories/' + id)
+				$http.delete('/companies/' + id)
 		}

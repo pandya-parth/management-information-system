@@ -76,6 +76,12 @@ class TaskCategoriesController extends Controller
         //
     }
 
+    public function getCategory($id)
+    {
+        $category = TaskCategory::findOrFail($id);
+        return response()->json($category);
+    }
+        
     /**
      * Update the specified resource in storage.
      *
@@ -85,7 +91,10 @@ class TaskCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $category = TaskCategory::find($id);
+         $category->name = Input::get('name');
+         $category->save();  
+         return response()->json(['success'=>true]);      
     }
 
     /**
@@ -96,8 +105,8 @@ class TaskCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $project_category = TaskCategory::find($id);
-        $project_category->delete();    
+        $task_category = TaskCategory::find($id);
+        $task_category->delete();    
         return response()->json(['success'=>true]);
     }
 }
