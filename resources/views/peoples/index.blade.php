@@ -21,7 +21,7 @@
                     <div class="panel-title">People Listing
                     </div>
                     <div class="pull-right">
-                        <div class="col-xs-6" ng-if="peoples.length>0">
+                        <div class="col-xs-6" ng-show="peoples.length>0">
                             <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                         </div>
                         <div class="col-xs-6">
@@ -95,23 +95,23 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
-                                        <label>First Name {% edit %}</label>
-                                        <input type="text" class="form-control" placeholder="First Name" ng-model='people_array.fname' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter First Name</span>
+                                        <label>First Name</label>
+                                        <input type="text" name="fname" class="form-control" placeholder="First Name" ng-model='people_array.fname' required>
+                                        <span class="error" ng-show="submitted && people.fname.$error.required">* Please enter First Name</span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name" ng-model='people_array.lname' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter Last Name </span>
+                                        <input type="text" name="lname" class="form-control" placeholder="Last Name" ng-model='people_array.lname' required>
+                                        <span class="error" ng-show="submitted && people.lname.$error.required">* Please enter Last Name </span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
                                         <label>Email</label>
-                                        <input type="text" class="form-control" placeholder="Email" ng-model='people_array.email' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter Email </span>
+                                        <input type="text" name="email" class="form-control" placeholder="Email" ng-model='people_array.email' required>
+                                        <span class="error" ng-show="submitted && people.email.$error.required">* Please enter Email </span>
                                     </div>
                                 </div>
                             </div>
@@ -119,15 +119,15 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-group-default">
                                         <label>Mobile</label>
-                                        <input type="text" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter Mobile Number </span>
+                                        <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required>
+                                        <span class="error" ng-show="submitted && people.mobile.$error.required">* Please enter Mobile Number </span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-group-default">
                                         <label>Phone</label>
-                                        <input type="text" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter Phone Number </span>
+                                        <input type="text" name="phone" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required>
+                                        <span class="error" ng-show="submitted && people.phone.$error.required">* Please enter Phone Number </span>
                                     </div>
                                 </div>
                             </div>
@@ -135,7 +135,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default input-group col-md-12">
                                         <label>Date of Birth</label>
-                                        <input type="text" class="form-control" placeholder="Pick a date" id="datepicker-component2" ng-model='people_array.dob' required>
+                                        <input type="text" class="form-control" placeholder="Pick a date" id="datepicker-component2" ng-model='people_array.dob'>
                                         <span class="input-group-addon">
                                             <i class="fa fa-calendar"></i>
                                         </span>

@@ -22,7 +22,7 @@
                     <div class="panel-title">Project Category Listing
                     </div>
                     <div class="pull-right">
-                        <div class="col-xs-6" ng-if="categories.length>0">
+                        <div class="col-xs-6" ng-show="categories.length>0">
                             <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                         </div>
                         <div class="col-xs-6">
@@ -89,8 +89,8 @@
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>name</label>
-                                    <input id="appName" type="text" class="form-control" placeholder="Name of Category" ng-model='project_category.name' required>
-                                    <span class="error" ng-show="submitted && projectCategory.$error.required">* Please enter project category</span>
+                                    <input id="appName" type="text" name="name" class="form-control" placeholder="Name of Category" ng-model='project_category.name' required>
+                                    <span class="error" ng-show="submitted && projectCategory.name.$error.required">* Please enter project category</span>
                                 </div>
                             </div>
                         </div>
