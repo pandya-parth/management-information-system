@@ -58,7 +58,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <div class="col-md-12 sm-p-t-15" ng-if="categories.length==0">
+                        <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="categories.length==0">
                             <div class="alert alert-warning" role="alert">
                                 No record found.
                             </div>
