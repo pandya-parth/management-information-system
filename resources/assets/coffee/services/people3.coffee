@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-	.factory 'People', ($http)->
+	.factory 'PEOPLE', ($http)->
 		return{
 			get: ->
 				$http.get '/api/people'
@@ -13,14 +13,7 @@ angular.module 'mis'
 					data: $.param(formData)
 
 			edit: (id)->
-				$http.get '/api/people/'+id
-
-			update: (formData)->
-				$http
-					method: 'PUT'
-					url: '/people/'+formData.id
-					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
-					data: $.param(formData)
+				$http.get('/people/' + id +'/edit')
 
 			destroy: (id)->
 				$http.delete('/people/' + id)
