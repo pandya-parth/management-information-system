@@ -40,17 +40,17 @@
                             </tr>
                             </thead>
                             <tbody ng-cloak>
-                            <tr ng-if="people_datas.length != 0" ng-repeat="people_data in people_datas">
+                            <tr ng-if="peoples.length != 0" ng-repeat="people in peoples">
                                 <td class="v-align-middle">
-                                    <p ng-cloak>{% people_data.id %}</p>
+                                    <p ng-cloak>{% people.id %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p ng-cloak>{% people_data.fname %}</p>
+                                    <p ng-cloak>{% people.fname %}</p>
                                 </td>
                                 <td class="v-align-middle">
                                     <p>
-                                        <a ng-click="editPeople(people_data.id)">Edit</a>
-                                        <a ng-click="deletePeople(people_data.id)">Delete</a>
+                                        <a ng-click="editPeople(people.id)">Edit</a>
+                                        <a ng-click="deletePeople(people.id)">Delete</a>
                                     </p>
                                 </td>
                             </tr>

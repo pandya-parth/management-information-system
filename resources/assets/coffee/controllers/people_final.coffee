@@ -56,12 +56,3 @@ angular.module 'mis'
 										position: 'top-right'
 										timeout: 2000
 										type: 'success').show()
-
-				$scope.editCategory = (id)->
-						PEOPLE.edit(id).success (data)->
-							$scope.edit = true
-							$scope.people_array = {
-								id: data.id
-								name: data.fname
-						}
-						angular.element('#addNewAppModal').modal('show')
