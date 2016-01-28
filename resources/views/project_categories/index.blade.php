@@ -33,7 +33,7 @@
                 </div>
                 <div class="panel-body">
                     <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
-                        <table class="table table-hover demo-table-dynamic">
+                        <table class="table table-hover demo-table-dynamic" ng-show="categories.length != 0">
                             <thead>
                             <tr>
                                 <th>#Id</th>
@@ -42,7 +42,7 @@
                             </tr>
                             </thead>
                             <tbody ng-cloak>
-                            <tr dir-paginate="category in categories | filter:q | itemsPerPage: pageSize" current-page="currentPage" ng-show="categories.length != 0">
+                            <tr dir-paginate="category in categories | filter:q | itemsPerPage: pageSize" current-page="currentPage">
                                 <td class="v-align-middle">
                                     <p ng-cloak>{% category.id %}</p>
                                 </td>
@@ -56,13 +56,13 @@
                                     </p>
                                 </td>
                             </tr>
-                            <tr ng-if="categories.length == 0">
-                                <td>No record found.</td>
-                                <td> &nbsp; </td>
-                                <td> &nbsp; </td>
-                            </tr>
                             </tbody>
                         </table>
+                        <div class="col-md-12 sm-p-t-15" ng-if="categories.length==0">
+                            <div class="alert alert-warning" role="alert">
+                                No record found.
+                            </div>
+                        </div>
                 </div>
 
                 <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
