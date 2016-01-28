@@ -13,7 +13,7 @@ angular.module 'mis'
 					data: $.param(formData)
 
 			edit: (id)->
-				$http.get '/api/project-category/'+id
+				$http.get '/api/people/'+id
 
 			update: (formData)->
 				$http
