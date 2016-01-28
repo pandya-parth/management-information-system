@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -36,30 +35,26 @@ Route::group(['middleware' => ['web','auth']], function () {
     });
     Route::resource('/companies','CompaniesController');
 
-    Route::resource('/people','PeoplesController');
+    
     Route::resource('/projects','ProjectsController');
     Route::resource('/project-categories','ProjectCategoriesController');
+    Route::resource('/people','PeoplesController');
     Route::resource('/milestones','MilestonesController');
     Route::resource('/tasks','TasksController');
     Route::resource('/task-categories','TaskCategoriesController');    
     Route::resource('/milestones','MilestonesController');
 
     Route::post('change-password', 'UserController@updatePassword');
-	Route::get('change-password', 'UserController@changePassword');
-    
-    /* For getting json data */
-    Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
-    Route::get('projectCategories', 'ProjectCategoriesController@getProjectCategories');
-    Route::get('People', 'PeoplesController@getPeoples');
-    Route::get('projectCategory/{id}','ProjectCategoriesController@getCategory');
-    Route::get('taskCategories', 'TaskCategoriesController@getTaskCategories');
-    
+    Route::get('change-password', 'UserController@changePassword');
 });
 
 Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
+    Route::get('companies', 'CompaniesController@getCompanies');
+    Route::get('company/{id}','CompaniesController@getCompany');
     Route::get('task-categories', 'TaskCategoriesController@getTaskCategories');
+    Route::get('task-category/{id}','TaskCategoriesController@getCategory');
     Route::get('project-categories', 'ProjectCategoriesController@getProjectCategories');
     Route::get('people', 'PeoplesController@getPeoples');
     Route::get('project-category/{id}','ProjectCategoriesController@getCategory');
-
+    Route::get('people/{id}','PeoplesController@getPeople');
 });

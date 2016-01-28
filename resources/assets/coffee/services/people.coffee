@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-	.factory 'People', ($http)->
+	.factory 'PEOPLE', ($http)->
 		return{
 			get: ->
 				$http.get '/api/people'
@@ -13,7 +13,7 @@ angular.module 'mis'
 					data: $.param(formData)
 
 			edit: (id)->
-				$http.get '/api/people/'+id
+				$http.get '/api/project-category/'+id
 
 			update: (formData)->
 				$http

@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Response;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\People;
 use Illuminate\Support\Facades\Input;
+use Redirect;
+use Former\Facades\Former;
+use Validator;
+use Image;
+
 class PeoplesController extends Controller
 {
     /**
@@ -17,8 +23,7 @@ class PeoplesController extends Controller
      */
     public function index()
     {
-           $peoples=People::all();
-        return view('peoples/index',compact('peoples'));
+        return view('peoples.index',compact('peoples'));   
     }
 
     public function getPeoples()
@@ -34,7 +39,7 @@ class PeoplesController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -45,10 +50,12 @@ class PeoplesController extends Controller
      */
     public function store(Request $request)
     {
-        $input= Input::all();
-        $peoples=People::create($input);
-        $peoples->save();
-        return response()->json(['success'=>true]);
+
+            $input= Input::all();
+            $peoples=People::create($input);
+            $peoples->save();
+            // return Redirect::route('peoples.index')->with("success","Record Save");
+            return response()->json(['success'=>true]);
     }
 
     /**
@@ -70,9 +77,13 @@ class PeoplesController extends Controller
      */
     public function edit($id)
     {
-        $peoples=People::findOrFail($id);
-        Former::populate($peoples);
-        return view('peoples.form',compact('peoples'));
+        
+    }
+
+    public function getPeople($id)
+    {
+        $people = People::findOrFail($id);
+        return response()->json($people);
     }
 
     /**
@@ -84,20 +95,10 @@ class PeoplesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3|max:30'
-           
-        ]);
-        if ($validator->fails()) {
-            return redirect('people/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }  
-             $peoples = People::find($id);
-             $peoples->fill( Input::all() );   
-             
-             $peoples->save();
-             return Redirect::route('people.index');
+         $people = People::find($id);
+         $people->name = Input::get('fname');
+         $people->save();  
+         return response()->json(['success'=>true]);      
     }
 
     /**
