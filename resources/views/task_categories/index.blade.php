@@ -21,8 +21,10 @@
                         <div class="panel-title">Task Category Listing
                         </div>
                         <div class="pull-right">
-                            <div class="col-xs-12">
-                                <!-- {!! link_to("project/create","Add",array('class'=>'btn btn-primary btn-cons   pull-right')) !!}-->
+                             <div class="col-xs-6">
+                                 <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                            </div>
+                            <div class="col-xs-6">
                                 <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add
                                     Task Category
                                 </button>
@@ -95,11 +97,10 @@
                             </div>
                         </div>
                         <!-- /.modal-content -->
-                <div class="modal-footer">
-                            <button id="add-app" type="button" class="btn btn-primary  btn-cons"
-                                    ng-click="submit(taskCategory)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-                            <button type="button" class="btn btn-cons" id="close" ng-click='clearAll()'>Close</button>
-                </div>
+                    <div class="modal-footer">
+                        <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(taskCategory)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
+                        <button type="button" class="btn btn-cons" id="close" ng-click='clearAll()'>Close</button>
+                    </div>
                 </div>
                 <!-- /.modal-content -->
             </div>

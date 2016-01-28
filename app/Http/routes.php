@@ -49,7 +49,7 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('companies', 'CompaniesController@getCompanies');
     Route::get('company/{id}','CompaniesController@getCompany');
     Route::get('task-categories', 'TaskCategoriesController@getTaskCategories');
-    Route::get('task-category/{id}','TaskCategoriesController@getCategory');
+    Route::get('task-category/{id}','TaskCategoriesController@getTaskCategory');
     Route::get('project-categories', 'ProjectCategoriesController@getProjectCategories');
     Route::get('people', 'PeoplesController@getPeoples');
     Route::get('project-category/{id}','ProjectCategoriesController@getCategory');

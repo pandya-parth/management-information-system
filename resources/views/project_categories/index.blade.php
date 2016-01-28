@@ -22,8 +22,8 @@
                     <div class="panel-title">Project Category Listing
                     </div>
                     <div class="pull-right">
-                        <div class="col-xs-6">
-                            <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                        <div class="col-xs-6" ng-if="categories.length>0">
+                            <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                         </div>
                         <div class="col-xs-6">
                             <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add project category</button>
@@ -33,16 +33,16 @@
                 </div>
                 <div class="panel-body">
                     <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
-                        <table class="table table-hover demo-table-dynamic">
+                        <table class="table table-hover demo-table-dynamic" ng-show="categories.length != 0" ng-cloak>
                             <thead>
-                            <tr>
+                            <tr ng-cloak>
                                 <th>#Id</th>
                                 <th>Name</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
-                            <tbody ng-cloak>
-                            <tr dir-paginate="category in categories | filter:q | itemsPerPage: pageSize" current-page="currentPage" ng-show="categories.length != 0">
+                            <tbody >
+                            <tr dir-paginate="category in categories | filter:q | itemsPerPage: pageSize" current-page="currentPage">
                                 <td class="v-align-middle">
                                     <p ng-cloak>{% category.id %}</p>
                                 </td>
@@ -56,13 +56,13 @@
                                     </p>
                                 </td>
                             </tr>
-                            <tr ng-if="categories.length == 0">
-                                <td>No record found.</td>
-                                <td> &nbsp; </td>
-                                <td> &nbsp; </td>
-                            </tr>
                             </tbody>
                         </table>
+                        <div class="col-md-12 sm-p-t-15" ng-if="categories.length==0">
+                            <div class="alert alert-warning" role="alert">
+                                No record found.
+                            </div>
+                        </div>
                 </div>
 
                 <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>

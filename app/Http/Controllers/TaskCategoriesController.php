@@ -76,12 +76,12 @@ class TaskCategoriesController extends Controller
         //
     }
 
-    public function getCategory($id)
+    public function getTaskCategory($id)
     {
-        $category = TaskCategory::findOrFail($id);
-        return response()->json($category);
+        $task_category = TaskCategory::findOrFail($id);
+        return response()->json($task_category);
     }
-        
+       
     /**
      * Update the specified resource in storage.
      *
