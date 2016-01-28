@@ -37,16 +37,24 @@
                                 <tr ng-cloak>
                                     <th>#Id</th>
                                     <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                            <tr dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'id'" current-page="currentPage">
                                 <td class="v-align-middle">
                                     <p ng-cloak>{% people.id %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p ng-cloak>{% people.fname %}</p>
+                                    <p ng-cloak>{% people.fname %} {% people.lname %}</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <p ng-cloak>{% people.email %}</p>
+                                </td>
+                                <td class="v-align-middle">
+                                    <p ng-cloak>{% people.phone %}</p>
                                 </td>
                                 <td class="v-align-middle">
                                     <p>
