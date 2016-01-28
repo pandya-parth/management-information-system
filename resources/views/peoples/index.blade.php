@@ -139,6 +139,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group form-group-default input-group col-md-12">
+                                        <label>Date Of Birth</label>
+                                        <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob'>
+                                        
+                              <span class="input-group-addon">
+                              <i class="fa fa-calendar"></i>
+                              </span>
+                                    </div>
+                                </div>
+                            </div>
                            
                         </div>
                         <div id="menu1" class="tab-pane slide-left">
@@ -207,7 +219,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-default input-group col-md-12">
                                         <label>Joining Date</label>
-                                        <input type="text" class="form-control" placeholder="Pick a date" id="datepicker-component2" ng-model='people_array.join_date'>
+                                        <input type="text" name="join_date" class="form-control" placeholder="Pick a date" id="joining-date" ng-model='people_array.join_date'>
                                         
                               <span class="input-group-addon">
                               <i class="fa fa-calendar"></i>
