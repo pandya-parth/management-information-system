@@ -21,7 +21,7 @@
                     <div class="panel-title">People Listing
                     </div>
                     <div class="pull-right">
-                        <div class="col-xs-6" ng-if="peoples.length>0">
+                        <div class="col-xs-6" ng-show="peoples.length>0">
                             <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                         </div>
                         <div class="col-xs-6">
@@ -95,23 +95,23 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
-                                        <label>First Name {% edit %}</label>
-                                        <input type="text" class="form-control" placeholder="First Name" ng-model='people_array.fname' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter First Name</span>
+                                        <label>First Name </label>
+                                        <input type="text" name="fname" class="form-control" placeholder="First Name" ng-model='people_array.fname' required>
+                                        <span class="error" ng-show="submitted && people.fname.$error.required">* Please enter First Name</span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
                                         <label>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name" ng-model='people_array.lname' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter Last Name </span>
+                                        <input type="text" name="lname" class="form-control" placeholder="Last Name" ng-model='people_array.lname' required>
+                                        <span class="error" ng-show="submitted && people.lname.$error.required">* Please enter Last Name </span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
                                         <label>Email</label>
-                                        <input type="text" class="form-control" placeholder="Email" ng-model='people_array.email' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter Email </span>
+                                        <input type="text" name="email" class="form-control" placeholder="Email" ng-model='people_array.email' required>
+                                        <span class="error" ng-show="submitted && people.email.$error.required">* Please enter Email </span>
                                     </div>
                                 </div>
                             </div>
@@ -119,82 +119,51 @@
                                 <div class="col-md-6">
                                     <div class="form-group form-group-default">
                                         <label>Mobile</label>
-                                        <input type="text" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter Mobile Number </span>
+                                        <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required>
+                                        <span class="error" ng-show="submitted && people.mobile.$error.required">* Please enter Mobile Number </span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-group-default">
                                         <label>Phone</label>
-                                        <input type="text" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required>
-                                        <span class="error" ng-show="submitted && people.$error.required">* Please enter Phone Number </span>
+                                        <input type="text" name="phone" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required>
+                                        <span class="error" ng-show="submitted && people.phone.$error.required">* Please enter Phone Number </span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group form-group-default input-group col-md-12">
-                                        <label>Date of Birth</label>
-                                        <input type="text" class="form-control" placeholder="Pick a date" id="datepicker-component2" ng-model='people_array.dob' required>
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label>Gender</label>
-                                    <div class="radio radio-success">
-                                        <input type="radio" checked="checked" value="male"  name="gender" id="yes">
-                                        <label for="yes">Male</label>
-                                        <input type="radio" value="female" name="gender" id="no">
-                                        <label for="no">Female</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group form-group-default form-group-default-select2">
-                                        <label>Marital Status</label>
-                                        <select class="full-width" data-placeholder="Select Country"
-                                                data-init-plugin="select2">
-                                            <option value="1">Single</option>
-                                            <option value="2">Married</option>
-                                            <option value="3">Others</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                            </div>
+                           
                         </div>
                         <div id="menu1" class="tab-pane slide-left">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group form-group-default">
                                         <label>Address 1</label>
-                                        <input type="text" class="form-control" placeholder="Address 1" ng-model='people_array.adrs1' >
+                                        <input type="text" name="adrs1" class="form-control" placeholder="Address 1" ng-model='people_array.adrs1' >
                                        
                                     </div>
                                     <div class="form-group form-group-default">
                                         <label>City</label>
-                                        <input type="text" class="form-control" placeholder="City" ng-model='people_array.city' >
+                                        <input type="text" name="city" class="form-control" placeholder="City" ng-model='people_array.city' >
                                         
                                     </div>
                                     <div class="form-group form-group-default">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" placeholder="Country" ng-model='people_array.country' >
+                                        <input type="text" name="country" class="form-control" placeholder="Country" ng-model='people_array.country' >
                                        
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group form-group-default">
                                         <label>Address 2</label>
-                                        <input type="text" class="form-control" placeholder="Address 2" ng-model='people_array.adrs2' >
+                                        <input type="text" name="adrs2" class="form-control" placeholder="Address 2" ng-model='people_array.adrs2' >
                                                                          </div>
                                     <div class="form-group form-group-default">
                                         <label>State</label>
-                                        <input type="text" class="form-control" placeholder="State" ng-model='people_array.state' >
+                                        <input type="text" name="state" class="form-control" placeholder="State" ng-model='people_array.state' >
                                                                        </div>
                                     <div class="form-group form-group-default">
                                         <label>Zipcode</label>
-                                        <input type="text" class="form-control" placeholder="Zipcode" ng-model='people_array.zipcode' >
+                                        <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" ng-model='people_array.zipcode' >
                                                                          </div>
                                 </div>
                             </div>
@@ -204,19 +173,19 @@
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default">
                                         <label>PAN Number</label>
-                                        <input type="text" class="form-control" placeholder="Pan Number" ng-model='people_array.pan_number' >
+                                        <input type="text" name="pan_number" class="form-control" placeholder="Pan Number" ng-model='people_array.pan_number' >
                                                                             </div>
                                     <div class="form-group form-group-default">
                                         <label>Education</label>
-                                        <input type="text" class="form-control" placeholder="Education" ng-model='people_array.education' >
+                                        <input type="text" name="education" class="form-control" placeholder="Education" ng-model='people_array.education' >
                                                                             </div>
                                     <div class="form-group form-group-default">
                                         <label>Departmentr</label>
-                                        <input type="text" class="form-control" placeholder="Department" ng-model='people_array.department' >
+                                        <input type="text" name="department" class="form-control" placeholder="Department" ng-model='people_array.department' >
                                                                             </div>
                                     <div class="form-group form-group-default">
                                         <label>Designation/Job Title</label>
-                                        <input type="text" class="form-control" placeholder="Designation" ng-model='people_array.designation' >
+                                        <input type="text" name="designation" class="form-control" placeholder="Designation" ng-model='people_array.designation' >
                                         
                                     </div>
                                     <div class="form-group form-group-default">
@@ -245,7 +214,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-default">
                                         <label>Google</label>
-                                        <input type="text" class="form-control" placeholder="Google" ng-model='people_array.google' >
+                                        <input type="text" name="google" class="form-control" placeholder="Google" ng-model='people_array.google' >
                                                                            </div>
                                 </div>
                             </div>
@@ -253,7 +222,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-default">
                                         <label>Facebook</label>
-                                        <input type="text" class="form-control" placeholder="Facebook" ng-model='people_array.facebook' >
+                                        <input type="text" name="facebook" class="form-control" placeholder="Facebook" ng-model='people_array.facebook' >
                                         
                                     </div>
                                 </div>
@@ -262,7 +231,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-default">
                                         <label>Web Site</label>
-                                        <input type="text" class="form-control" placeholder="Web Site" ng-model='people_array.website' >
+                                        <input type="text" name="website" class="form-control" placeholder="Web Site" ng-model='people_array.website' >
                                                                          </div>
                                 </div>
                             </div>
@@ -270,7 +239,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-default">
                                         <label>Linkedin</label>
-                                        <input type="text" class="form-control" placeholder="Linkedin" ng-model='people_array.linkedin' >
+                                        <input type="text" name="linkedin" class="form-control" placeholder="Linkedin" ng-model='people_array.linkedin' >
                                                                            </div>
                                 </div>
                             </div>
@@ -278,7 +247,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-default">
                                         <label>Skype</label>
-                                        <input type="text" class="form-control" placeholder="Skype" ng-model='people_array.skype' >
+                                        <input type="text" name="skype" class="form-control" placeholder="Skype" ng-model='people_array.skype' >
                                                                            </div>
                                 </div>
                             </div>
@@ -286,7 +255,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-default">
                                         <label>Twitter</label>
-                                        <input type="text" class="form-control" placeholder="Twitterl" ng-model='people_array.twitter' >
+                                        <input type="text" name="twitter" class="form-control" placeholder="Twitterl" ng-model='people_array.twitter' >
                                                                          </div>
                                 </div>
                             </div>

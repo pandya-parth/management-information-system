@@ -76,11 +76,7 @@ angular.module 'mis'
 						type: 'success').show()
 
 		$scope.editPeople = (id)->
-			alert "hello"
 			PEOPLE.edit(id).success (data)->
 				$scope.edit = true
-				$scope.people_array = {
-					id: data.id
-					name: data.fname
-				}
+				$scope.people_array = data
 				angular.element('#addNewAppModal').modal('show')
