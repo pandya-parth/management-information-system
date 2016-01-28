@@ -17,6 +17,7 @@ angular.module 'mis'
 			$scope.task_category = {}
 			), 1000
 		return
+
 	$scope.submit = (form)->
 			$scope.loading = true
 			$scope.submitted = true
@@ -37,7 +38,6 @@ angular.module 'mis'
 						position: 'top-right'
 						timeout: 2000
 						type: 'success').show()
-
 					taskCategory.get().success (getData)->
 						$scope.task_categories = getData
 						$scope.loading = false
@@ -54,7 +54,6 @@ angular.module 'mis'
 							position: 'top-right'
 							timeout: 2000
 							type: 'success').show()
-
 						taskCategory.get().success (getData)->
 							$scope.task_categories = getData
 							$scope.loading = false
@@ -80,5 +79,5 @@ angular.module 'mis'
 				id: data.id
 				name: data.name
 			}
-		angular.element('#addNewAppModal').modal('show')
+			angular.element('#addNewAppModal').modal('show')
 			
