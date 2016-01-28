@@ -95,7 +95,7 @@ class PeoplesController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $people = People::find($id);   
+         $people = People::find($id);
          $people->update(Input::all());  
          return response()->json(['success'=>true]);      
     }
