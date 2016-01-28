@@ -26,7 +26,6 @@ class CompaniesController extends Controller
     public function getCompanies()
     {
        $companies = Company::get();
-       
        return response()->json($companies);
     }
     /**

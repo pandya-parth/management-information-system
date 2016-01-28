@@ -10,8 +10,6 @@
 |
 */
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -26,7 +24,6 @@
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 });
-
 
 Route::group(['middleware' => ['web','auth']], function () {
     Route::get('/home', 'HomeController@index');
