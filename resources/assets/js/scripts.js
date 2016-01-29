@@ -7,7 +7,9 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $('#datepicker-component2').datepicker();
+        $('#birth-date, #joining-date').datepicker({
+            autoclose: true
+        });
 
 
         $('pgn-warpper').css('display:none');
