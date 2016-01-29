@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Project;
 use App\ProjectCategory;
+use App\User;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Former\Facades\Former;
@@ -25,7 +26,8 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = ProjectCategory::all();
-        return view('projects.index',compact('projects'));   
+        $users = User::all();
+        return view('projects.index',compact('projects','users'));   
     }
 
     public function getProjects()
@@ -54,7 +56,7 @@ class ProjectsController extends Controller
     {
 
             $input= Input::all();
-           
+
             $projects=Project::create($input);
             $projects->save();
             // return Redirect::route('projects.index')->with("success","Record Save");

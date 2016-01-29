@@ -142,19 +142,15 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default input-group col-md-12">
-<<<<<<< HEAD
+
                                         <label>Date Of Birth</label>
                                         <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob'>
                                         
                               <span class="input-group-addon">
                               <i class="fa fa-calendar"></i>
                               </span>
-=======
-                                        <label>Date of Birth</label>
-                                        <input type="text" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob'>
-                                        <span class="input-group-addon">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
+
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -175,7 +171,7 @@
                                             <option value="2">Married</option>
                                             <option value="3">Others</option>
                                         </select>
->>>>>>> 6c20f3b13db8a4d50fa45e738af1348052b85c4f
+
                                     </div>
                                 </div>
                             </div>
@@ -247,11 +243,9 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-default input-group col-md-12">
                                         <label>Joining Date</label>
-<<<<<<< HEAD
+
                                         <input type="text" name="join_date" class="form-control" placeholder="Pick a date" id="joining-date" ng-model='people_array.join_date'>
-=======
-                                        <input type="text" class="form-control" placeholder="Pick a date" id="joining-date" ng-model='people_array.join_date'>
->>>>>>> 6c20f3b13db8a4d50fa45e738af1348052b85c4f
+
                                         
                               <span class="input-group-addon">
                               <i class="fa fa-calendar"></i>

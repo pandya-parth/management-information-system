@@ -26,4 +26,9 @@ class Project extends Model  implements SluggableInterface
 		return $this->belongsTo('ProjectCategory','category_id');
 	}
 
+    public function users()
+    {
+        return $this->hasMany('User','user_id');
+    }
+
 }

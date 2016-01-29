@@ -18,8 +18,16 @@
             <!-- START PANEL -->
             <div class="panel panel-transparent">
                 <div class="panel-heading">
+                <!-- <?php
+                    $price_types = array('On Hold'=>'On Hold',
+            'Fix'=>'Fix',
+            'Hiring'=>'Hiring'
+            
+            );
+                ?> -->
                     <div class="panel-title">Project Listing
                     <!-- {!! $projects !!} -->
+                    <!-- {!! $users !!} -->
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-6" ng-if="projects.length>0">
@@ -83,39 +91,124 @@
                 </div>
                 <form name='project' class='p-t-15' role='form' novalidate>
                     <div class="modal-body">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group form-group-default">
-                                    <label>name</label>
-                                    <input id="name" name="name" type="text" class="form-control" placeholder="Name of Project" ng-model='project_array.name' required>
-                                    <span class="error" ng-show="submitted && project.name.$error.required">* Please enter project</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group form-group-default">
-                                    <select name="category_id" class="form-control cs-select cs-skin-slide" id="select1">
-                                        <option selected="selected">Choose one</option>
-                                            @foreach($projects as $project)
-                                                <option value="{!! $project->id !!}">{!! $project->name !!}</option>
-                                            @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                
-                                    <select class="form-control cs-select cs-skin-slide" data-init-plugin="cs-select">
-                                      <option value="sightseeing">Web-safe</option>
-                                      <option value="business">Helvetica</option>
-                                      <option value="honeymoon">SegeoUI</option>
-                                    </select>
-                               
-                            </div>
-                        </div>
+                    <ul class="nav nav-tabs nav-tabs-fillup">
+                        <li class="active"><a data-toggle="tab" href="#home">Company</a></li>
+                        <li><a data-toggle="tab" href="#menu1">Category</a></li>
+                        <li><a data-toggle="tab" href="#menu2">Features</a></li>
+                        <li><a data-toggle="tab" href="#menu3">Dates</a></li>
+                    </ul>
+                    <div class="tab-content">
+                                        <div id="home" class="tab-pane slide-left active">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>name</label>
+                                                    <input id="name" name="name" type="text" class="form-control" placeholder="Name of Project" ng-model='project_array.name' required>
+                                                    <span class="error" ng-show="submitted && project.name.$error.required">* Please enter project name</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Description</label>
+                                                    <textarea id="description" name="description" type="text" class="form-control" placeholder="Description of Project" ng-model='project_array.description' required></textarea>
+                                                    <span class="error" ng-show="submitted && project.description.$error.required">* Please enter description</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                          <div class="row">
+                                            <div class="col-sm-12">
+                                                
+                                                    <div class="form-group form-group-default form-group-default-select2">
+                                                        <label class="">Client</label>
+                                                        <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                                          <option selected="selected">-- Select One --</option>
+                                                            @foreach($projects as $project)
+                                                                <option value="{!! $project->id !!}">{!! $project->name !!}</option>
+                                                            @endforeach
+                                                         
+                                                        </select>
+                                                      </div>
+                                               
+                                            </div>
+                                        </div>
+                                        
+                                        </div> 
+                                        <div id="menu1" class="tab-pane slide-left">                                                               
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                
+                                                    <div class="form-group form-group-default form-group-default-select2">
+                                                        <label class="">Project Category</label>
+                                                        <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                                          <option selected="selected">-- Select One --</option>
+                                                            @foreach($projects as $project)
+                                                                <option value="{!! $project->id !!}">{!! $project->name !!}</option>
+                                                            @endforeach
+                                                         
+                                                        </select>
+                                                      </div>
+                                               
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group form-group-default">
+                                                    <label>Notes</label>
+                                                    <textarea id="notes" name="notes" type="text" class="form-control" placeholder="Notes of Project" ng-model='project_array.notes'></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <div id="menu2" class="tab-pane slide-left">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <label>Status</label>
+                                                            <div class="checkbox check-success  ">
+                                                              <input type="checkbox" name="status[]" value="1" id="onhold">
+                                                              <label for="onhold">On Hold</label>
+                                                              <input type="checkbox" name="status[]" value="1" id="active">
+                                                              <label for="active">Active</label>
+                                                              <input type="checkbox" name="status[]" value="1" id="completed">
+                                                              <label for="completed">Completed</label>
+                                                              <input type="checkbox" name="status[]" value="1" id="archived">
+                                                              <label for="archived">Archived</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                        </div>
+                                        <div id="menu3" class="tab-pane slide-left">
+                                            <div class="row">
+                                                        <div class="col-md-12">
+                                                                    <div class="form-group form-group-default input-group col-md-12">
+                                                                        <label>Start Date</label>
+
+                                                                        <input type="text" name="start_date" class="form-control" placeholder="Pick a date" id="start-date" ng-model='people_array.start_date'>
+
+                                                                        
+                                                              <span class="input-group-addon">
+                                                              <i class="fa fa-calendar"></i>
+                                                              </span>
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                                <div class="row">
+                                                            <div class="col-md-12">
+                                                                        <div class="form-group form-group-default input-group col-md-12">
+                                                                            <label>End Date</label>
+
+                                                                            <input type="text" name="end_date" class="form-control" placeholder="Pick a date" id="end-date" ng-model='people_array.end_date'>
+
+                                                                            
+                                                                  <span class="input-group-addon">
+                                                                  <i class="fa fa-calendar"></i>
+                                                                  </span>
+                                                                        </div>
+                                                            </div>
+                                            </div>
+                                        </div>
+                    </div>
                     </div>
                     <div class="modal-footer">
                         <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(project)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
