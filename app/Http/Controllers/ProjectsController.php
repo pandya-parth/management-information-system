@@ -8,6 +8,7 @@ use Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Project;
+use App\ProjectCategory;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Former\Facades\Former;
@@ -23,6 +24,7 @@ class ProjectsController extends Controller
      */
     public function index()
     {
+        $projects = ProjectCategory::all();
         return view('projects.index',compact('projects'));   
     }
 
@@ -52,6 +54,7 @@ class ProjectsController extends Controller
     {
 
             $input= Input::all();
+           
             $projects=Project::create($input);
             $projects->save();
             // return Redirect::route('projects.index')->with("success","Record Save");
@@ -96,8 +99,7 @@ class ProjectsController extends Controller
     public function update(Request $request, $id)
     {
          $project = Project::find($id);
-         $project->name = Input::get('name');
-         $project->save();  
+         $project->update(Input::all());  
          return response()->json(['success'=>true]);      
     }
 

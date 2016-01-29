@@ -20,6 +20,7 @@
             <div class="panel panel-transparent">
                 <div class="panel-heading">
                     <div class="panel-title">Project Listing
+                    {!! $projects !!}
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-6" ng-if="projects.length>0">
@@ -89,9 +90,21 @@
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
                                     <label>name</label>
-                                    <input id="appName" name="name" type="text" class="form-control" placeholder="Name of Project" ng-model='project_array.name' required>
+                                    <input id="name" name="name" type="text" class="form-control" placeholder="Name of Project" ng-model='project_array.name' required>
                                     <span class="error" ng-show="submitted && project.name.$error.required">* Please enter project</span>
                                 </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group form-group-default">
+                            <select name="category_id" id="per1">
+                              <option selected="selected">Choose one</option>
+                              
+                                @foreach($projects as $project) { ?>
+                                  <option value="{!! $project->id !!}">{!! $project->name !!}</option>
+                              
+                                @endforeach
+                            </select>
+                            </div>
                             </div>
                         </div>
                     </div>

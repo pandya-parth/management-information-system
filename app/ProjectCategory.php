@@ -21,4 +21,10 @@ class ProjectCategory extends Model implements SluggableInterface
     ]; 
 
     protected $fillable = ['name'];
+
+    public function projects()
+	{
+		return $this->hasMany('Project','category_id');
+	}
+
 }
