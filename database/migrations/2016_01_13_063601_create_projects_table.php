@@ -14,17 +14,16 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id')->unsigned();
-            $table->integer('client_id')->unsigned();
-            $table->string('name');
-            $table->string('slug');
-            $table->text('description');
-            $table->enum('price_types', ['fix', 'per_hour'])->default('fix');
-            $table->text('notes');
-            $table->boolean('active');
-            $table->boolean('archive');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->integer('category_id')->unsigned()->nullable();
+            $table->integer('client_id')->unsigned()->nullable();
+            $table->string('name')->nullable();
+            $table->string('slug')->nullable();
+            $table->text('description')->nullable();
+            $table->enum('price_types', ['fix', 'per_hour','hiring'])->default('per_hour')->nullable();
+            $table->text('notes')->nullable();
+            $table->string('status')->nullable();
+            $table->dateTime('start_date')->nullable();
+            $table->dateTime('end_date')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('project_categories')->onDelete('cascade');
             $table->foreign('client_id')->references('id')->on('users')->onDelete('cascade');
