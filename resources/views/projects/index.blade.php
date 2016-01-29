@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('title','Project')
-
 @section('content')
 <div ng-controller="ProjectCtrl">
     <div class= "content">
@@ -20,7 +19,7 @@
             <div class="panel panel-transparent">
                 <div class="panel-heading">
                     <div class="panel-title">Project Listing
-                    {!! $projects !!}
+                    <!-- {!! $projects !!} -->
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-6" ng-if="projects.length>0">
@@ -65,7 +64,6 @@
                             </div>
                         </div>
                 </div>
-
                 <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
             </div>
             <!-- END PANEL -->
@@ -83,7 +81,6 @@
                         <h4 ng-bind="edit==false ? 'Add New Project' : 'Edit Project'"></h4>
                     </h4>
                 </div>
-
                 <form name='project' class='p-t-15' role='form' novalidate>
                     <div class="modal-body">
                         <div class="row">
@@ -94,17 +91,29 @@
                                     <span class="error" ng-show="submitted && project.name.$error.required">* Please enter project</span>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
-                            <select name="category_id" id="per1">
-                              <option selected="selected">Choose one</option>
-                              
-                                @foreach($projects as $project) { ?>
-                                  <option value="{!! $project->id !!}">{!! $project->name !!}</option>
-                              
-                                @endforeach
-                            </select>
+                                    <select name="category_id" class="form-control cs-select cs-skin-slide" id="select1">
+                                        <option selected="selected">Choose one</option>
+                                            @foreach($projects as $project)
+                                                <option value="{!! $project->id !!}">{!! $project->name !!}</option>
+                                            @endforeach
+                                    </select>
+                                </div>
                             </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                
+                                    <select class="form-control cs-select cs-skin-slide" data-init-plugin="cs-select">
+                                      <option value="sightseeing">Web-safe</option>
+                                      <option value="business">Helvetica</option>
+                                      <option value="honeymoon">SegeoUI</option>
+                                    </select>
+                               
                             </div>
                         </div>
                     </div>
@@ -121,4 +130,3 @@
     <!-- END MODAL STICK UP  -->
 </div>
 @endsection
-

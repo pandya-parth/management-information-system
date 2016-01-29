@@ -13,13 +13,13 @@ class CreateProjectsTable extends Migration
     public function up()
     {
         Schema::create('projects', function (Blueprint $table) {
-            $table->increments('id')->nullable();
+            $table->increments('id');
             $table->integer('category_id')->unsigned()->nullable();
             $table->integer('client_id')->unsigned()->nullable();
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
-            $table->enum('price_types', ['fix', 'per_hour'])->default('fix')->nullable();
+            $table->enum('price_types', ['fix', 'per_hour','hiring'])->default('fix')->nullable();
             $table->text('notes')->nullable();
             $table->boolean('active')->nullable();
             $table->boolean('archive')->nullable();
