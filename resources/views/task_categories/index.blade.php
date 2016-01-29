@@ -18,10 +18,10 @@
                 <!-- START PANEL -->
                 <div class="panel panel-transparent">
                     <div class="panel-heading">
-                        <div class="panel-title">Task Category Listing
+                        <div class="panel-title">Task Categories
                         </div>
                         <div class="pull-right">
-                             <div class="col-xs-6">
+                             <div class="col-xs-6" ng-show="task_categories.length > 0">
                                  <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
                             <div class="col-xs-6">
@@ -34,7 +34,7 @@
                     </div>
                     <div class="panel-body">
                         <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}"/></p>
-                        <table class="table table-hover demo-table-dynamic" >
+                        <table class="table table-hover demo-table-dynamic" ng-show="task_categories.length != 0" ng-cloak>
                             <thead>
                             <tr role='row'>
                                 <th class="sorting">#Id</th>
@@ -43,27 +43,27 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr dir-paginate="category in task_categories| orderBy:'-id' | filter:q | itemsPerPage: pageSize" current-page="currentPage" ng-show="task_categories.length != 0" >
-                                <td class="v-align-middle">
-                                    <p  ng-cloak>{% category.id %}</p>
-                                </td>
-                                <td class="v-align-middle">
-                                    <p ng-cloak>{% category.name ? category.name : '-' %}</p>
-                                </td>
-                                <td class="v-align-middle">
-                                    <p>
-                                        <a  ng-click="editCategory(category.id)">Edit</a>
-                                        <a  ng-click="deleteCategory(category.id)">Delete</a>
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr ng-if="task_categories.length == 0">
-                                <td>No record found.</td>
-                                <td> &nbsp; </td>
-                                <td> &nbsp; </td>
-                            </tr>
+                                    <tr dir-paginate="category in task_categories| orderBy:'-id' | filter:q | itemsPerPage: pageSize    " current-page="currentPage" ng-show="task_categories.length != 0" >
+                                        <td class="v-align-middle">
+                                            <p  ng-cloak>{% category.id %}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p ng-cloak>{% category.name ? category.name : '-' %}</p>
+                                        </td>
+                                        <td class="v-align-middle">
+                                            <p>
+                                                <a  ng-click="editCategory(category.id)">Edit</a>
+                                                <a  ng-click="deleteCategory(category.id)">Delete</a>
+                                            </p>
+                                        </td>
+                                    </tr>
                             </tbody>
-                        </table>
+                          </table>
+                        <div class="col-md-12 sm-p-t-15" ng-if="task_categories.length==0" ng-cloak>
+                            <div class="alert alert-warning" role="alert">
+                                No record found.
+                            </div>
+                        </div>
                     </div>
                     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
                 </div>
