@@ -11,6 +11,10 @@
             autoclose: true
         });
 
+        $('#task_startdate, #task_enddate').datepicker({
+            autoclose: true
+        });
+
 
         $('pgn-warpper').css('display:none');
 
