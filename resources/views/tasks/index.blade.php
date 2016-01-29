@@ -153,10 +153,12 @@
                                                     </FORM>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group form-group-default form-group-default-select2">
                                                     <label class="">Task Category</label>
-                                                    <form role='form'>
+                                                    
                                                         <div class="select2-container full-width" id="s2id_autogen3">
                                                             <select class="full-width select2-offscreen"
                                                                     data-placeholder="Select Country"
@@ -183,7 +185,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group form-group-default input-group col-md-12">
                                                     <label>Start Date</label>
-                                                    <input type="email" class="form-control" placeholder="Pick a date"
+                                                    <input type="text" name='start_date' class="form-control" placeholder="Pick a date"
                                                            id="datepicker-component2">
                                                     <span class="input-group-addon"><i
                                                                 class="fa fa-calendar"></i></span>
@@ -192,7 +194,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group form-group-default input-group col-md-12">
                                                     <label>End Date</label>
-                                                    <input type="email" class="form-control" placeholder="Pick a date"
+                                                   <input type="text" name='end_date' class="form-control" placeholder="Pick a date"
                                                            id="datepicker-component2">
                                                     <span class="input-group-addon"><i
                                                                 class="fa fa-calendar"></i></span>

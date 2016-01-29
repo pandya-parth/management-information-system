@@ -19,8 +19,17 @@ class TasksController extends Controller
     public function index()
     {
         $tasks=Task::all();
-        return view('task/index',compact('tasks'));
+        return view('tasks/index',compact('tasks'));
+
     }
+
+
+    public function getTasks()
+    {
+       $tasks = Task::get();
+       return response()->json($tasks);
+    }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -40,7 +49,11 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input= Input::all();
+        $tasks=Tasks::create($input);
+        $tasks->save();
+        return response()->json(['success'=>true]);
+
     }
 
     /**
@@ -65,6 +78,12 @@ class TasksController extends Controller
         //
     }
 
+    public function getTask($id)
+    {
+        $task = Task::findOrFail($id);
+        return response()->json($task);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -74,7 +93,10 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $task = Task::find($id);
+         $task->name = Input::get('name');
+         $task->save();  
+         return response()->json(['success'=>true]);      
     }
 
     /**
@@ -84,7 +106,9 @@ class TasksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {        
+        $task = Task::find($id);
+        $task->delete();    
+        return response()->json(['success'=>true]);
     }
 }

@@ -3,7 +3,7 @@ angular.module 'mis'
 	.controller 'companyCtrl', ($scope, company, $timeout)->
 		$scope.loading = true
 		$scope.currentPage = 1
-		$scope.pageSize = 1
+		$scope.pageSize = 5
 		$scope.edit = false
 		company.get().success (data)->
 			$scope.companies = data
@@ -60,8 +60,7 @@ angular.module 'mis'
 							$scope.companies = getData
 							$scope.loading = false
 					), 500
-					
-
+			
 
 		$scope.deleteCompany = (id)-> 
 			$scope.loading = true
@@ -79,10 +78,7 @@ angular.module 'mis'
 		$scope.editCompany = (id)->
 			company.edit(id).success (data)->
 				$scope.edit = true
-				$scope.companies = {
-					id: data.id
-					name: data.name
-				}
+				$scope.company = data
 				angular.element('#addNewAppModal').modal('show')
 
 

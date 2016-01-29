@@ -13,7 +13,7 @@ angular.module 'mis'
 					data: $.param(formData)
 
 			edit: (id)->
-				$http.get '/api//companies/'+id
+				$http.get '/api/company/'+id
 
 			update: (formData)->
 				$http
@@ -21,6 +21,7 @@ angular.module 'mis'
 					url: '/companies/'+formData.id
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
+					
 
 			destroy: (id)->
 				$http.delete('/companies/' + id)

@@ -76,6 +76,12 @@ class CompaniesController extends Controller
         //
     }
 
+    public function getCompany($id)
+    {
+        $company = Company::findOrFail($id);
+        return response()->json($company);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -85,7 +91,10 @@ class CompaniesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $company = Company::find($id);
+       
+        $company->update(Input::all());  
+        return response()->json(['success'=>true]); 
     }
 
     /**
