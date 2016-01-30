@@ -43,7 +43,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'id'" current-page="currentPage">
+                            <tr dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'-id'" current-page="currentPage">
                                 <td class="v-align-middle">
                                     <p ng-cloak>{% people.id %}</p>
                                 </td>

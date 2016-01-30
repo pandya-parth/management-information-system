@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Project;
 use App\ProjectCategory;
 use App\User;
+use App\People;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Former\Facades\Former;
@@ -101,7 +102,9 @@ class ProjectsController extends Controller
     public function update(Request $request, $id)
     {
          $project = Project::find($id);
+
          $project->update(Input::all());  
+         
          return response()->json(['success'=>true]);      
     }
 

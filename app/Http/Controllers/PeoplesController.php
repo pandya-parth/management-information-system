@@ -8,11 +8,13 @@ use Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\People;
+use App\User;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Former\Facades\Former;
 use Validator;
 use Image;
+use Hash;
 
 class PeoplesController extends Controller
 {
@@ -50,10 +52,41 @@ class PeoplesController extends Controller
      */
     public function store(Request $request)
     {
+            $user = new User;
+            $user->email = Input::get('email');
+            $user->password = Hash::make(str_random(60));
+            $user->active = false;
+            $user->save();
 
-            $input= Input::all();
-            $peoples=People::create($input);
-            $peoples->save();
+            $user_profile = new People;
+            $user_profile->user_id = $user->id;
+            $user_profile->fname = Input::get('fname');
+            $user_profile->lname = Input::get('lname');
+            $user_profile->email = Input::get('email');
+            $user_profile->mobile = Input::get('mobile');
+            $user_profile->adrs1 = Input::get('adrs1');
+            $user_profile->adrs2 = Input::get('adrs2');
+            $user_profile->city = Input::get('city');
+            $user_profile->state = Input::get('state');
+            $user_profile->country = Input::get('country');
+            $user_profile->department = Input::get('department');
+            $user_profile->designation = Input::get('designation');
+            $user_profile->google = Input::get('google');
+            $user_profile->facebook = Input::get('facebook');
+            $user_profile->skype = Input::get('skype');
+            $user_profile->linkedin = Input::get('linkedin');
+            $user_profile->twitter = Input::get('twitter');
+            $user_profile->website = Input::get('website');
+            $user_profile->save();
+
+
+
+
+
+
+            // $input= Input::all();
+            // $peoples=People::create($input);
+            // $peoples->save();
             // return Redirect::route('peoples.index')->with("success","Record Save");
             return response()->json(['success'=>true]);
     }
