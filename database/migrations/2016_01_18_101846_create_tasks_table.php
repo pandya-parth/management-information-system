@@ -25,7 +25,6 @@ class CreateTasksTable extends Migration
             $table->boolean('billable')->nullable();
             $table->boolean('status')->nullable();
             $table->string('attachments')->nullable();
-            $table->boolean('status')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('task_categories')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
