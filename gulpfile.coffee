@@ -49,7 +49,10 @@ elixir (mix)->
       'bootstrap-timepicker.min.js'
       'bootstrap-datepicker.js'
       bowerPath('angular', 'angular.min.js')
+      bowerPath('underscore', 'underscore.js')
+      bowerPath('angular-bootstrap', 'ui-bootstrap-tpls.js')
       bowerPath('angular-utils-pagination', 'dirPagination.js')
+      bowerPath('angular-prompt', 'angular-prompt.js')
       'scripts.js'
     ], 'public/js/vendor.js'
 
