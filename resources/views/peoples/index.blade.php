@@ -148,15 +148,12 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default input-group col-md-12">
-
                                         <label>Date Of Birth</label>
                                         <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob'>
                                         
                               <span class="input-group-addon">
                               <i class="fa fa-calendar"></i>
                               </span>
-
-                                        
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -177,7 +174,6 @@
                                             <option value="{!! $marital_status !!}">{!! $marital_status !!}</option>
                                             @endforeach
                                         </select>
-                                        
                                     </div>
                                 </div>
                             </div>
