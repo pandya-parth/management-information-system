@@ -31,7 +31,7 @@ class PeoplesController extends Controller
 
     public function getPeoples()
     {
-       $peoples = People::get();
+       $peoples = People::orderBy('id','DESC')->get();
        return response()->json($peoples);
     }
 

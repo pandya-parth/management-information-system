@@ -2,3 +2,21 @@
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
  }
+
+.list-view li{}
+li.chat-user{
+	padding: 0;
+}
+li.chat-user a{
+	padding: 10px;
+}
+.pill{
+	float: right;
+	color:#757575;
+	background-color: #fff;
+	border-radius: 2px;
+	font-size: 11px;
+}
+.active{
+	background-color: #daeffd;
+}
