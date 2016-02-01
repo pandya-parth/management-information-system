@@ -1,2 +1,3 @@
-<p>Hello, User..{!! implode(",",$user_info) !!} </p>
-<p>Welcome in KrishaWeb..!!</p>
+<p> Hello, User..!! </p>
+<p> Your username and password is {!! implode(",",$user_info) !!} </p>
+<p> Welcome in KrishaWeb..!! </p>
