@@ -175,7 +175,48 @@
         
         <div class="tab-pane fade in active no-padding" id="quickview-chat">
           <div class="view-port clearfix" id="chat">
-            
+            <div class="view bg-white">
+              <div data-init-list-view="ioslist" class="list-view boreded no-top-border">
+                <div class="list-view-group-container">
+                 
+                  <ul>
+                    <!-- BEGIN Chat User List Item  !-->
+                    <li class="chat-user clearfix">
+                      <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
+                        <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                          <span class="text-master">ava flores</span>
+                          <span class="pill">1111</span>
+                          </p>
+                      </a>
+                    </li>
+                    <!-- END Chat User List Item  !-->
+                  </ul>
+                </div>
+                <div class="list-view-group-container">
+                  
+                  <ul>
+                    <!-- BEGIN Chat User List Item  !-->
+                    <li class="chat-user clearfix">
+                      <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
+                        <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                          <span class="text-master">bella mccoy</span>
+                          </p>
+                      </a>
+                    </li>
+                    <!-- END Chat User List Item  !-->
+                    <!-- BEGIN Chat User List Item  !-->
+                    <li class="chat-user clearfix">
+                      <a data-view-animation="push-parrallax" data-view-port="#chat" data-navigate="view" class="" href="#">
+                        <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                          <span class="text-master">bob stephens</span>
+                          </p>
+                      </a>
+                    </li>
+                    <!-- END Chat User List Item  !-->
+                  </ul>
+                </div>
+              </div>
+            </div>
             <!-- BEGIN Conversation View  !-->
             <div class="view chat-view bg-white clearfix">
               <!-- BEGIN Header  !-->
