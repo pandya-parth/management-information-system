@@ -1,6 +1,7 @@
   @extends('layouts.app')
   @section('title','Task')
   @section('content')
+  <div ng-controller="TasksCtrl">
   <div class="content">
     <!-- START CONTAINER FLUID -->
     <div class="container-fluid container-fixed-lg">
@@ -21,10 +22,10 @@
             </div>
             <div class="pull-right">
               <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
-               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
              </div>
              <div class="col-xs-6">
-              <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Addtask
+              <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Task
               </button>
             </div>
           </div>
@@ -40,7 +41,7 @@
                 <th>Duration</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
               <tr dir-paginate="task in tasks| orderBy:'-id' | filter:q | itemsPerPage: pageSize    " current-page="currentPage" ng-show="tasks.length != 0" >
                 <td class="v-align-middle">
                   <p  ng-cloak>{% task.id %}</p>
@@ -49,7 +50,7 @@
                   <p ng-cloak>{% task.name ? task.name : '-' %}</p>
                 </td>
                 <td class="v-align-middle">
-                  <p>
+                  <p ng-cloak>
                     <a  ng-click="editTask(task.id)">Edit</a>
                     <a  ng-click="deleteTask(task.id)">Delete</a>
                   </p>
@@ -89,13 +90,10 @@
                 <a data-toggle="tab" href="#slide1"
                 aria-expanded="true"><span>Description</span></a>
               </li>
-              <li class="">
-                <a data-toggle="tab" href="#slide2"
-                aria-expanded="false"><span>Project</span></a>
-              </li>
+             
               <li class="">
                 <a data-toggle="tab" href="#slide3"
-                aria-expanded="false"><span>Date & Time</span></a>
+                aria-expanded="false"><span>Priority</span></a>
               </li>
               <li class="">
                 <a data-toggle="tab" href="#slide4"
@@ -113,16 +111,35 @@
                       <span class="error" ng-show="submitted && Task.name.$error.required">* Please enter Task name</span>
                     </div>
                   </div>
-                         <div class="col-md-12">
+                </div>
+                <div class="row column-seperation">
+                    <div class="col-md-12">
                     <div class="form-group form-group-default">
                       <label>Descripation</label>
-                      <textarea id="appName" type="text" name="name" class="form-control" placeholder="Description" ng-model='task.name' required></textarea>
+                      <textarea id="appName" type="text" name="name" class="form-control" placeholder="Description" ng-model='task.description' required></textarea>
                       <span class="error" ng-show="submitted && Task.name.$error.required">* Please enter description</span>
                       
                     </div>
+
                   </div>
+                  <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group form-group-default input-group col-md-12">
+                    <label>Start Date</label>
+                    <input type="text" name='start_date' class="form-control" placeholder="Select Date" id="task_startdate">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group form-group-default input-group col-md-12">
+                    <label>Due Date</label>
+                    <input type="text" name='end_date' class="form-control" placeholder="Select Date" id="task_enddate">
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  </div>
+                </div>
+              </div>
                   
-                    <div class="col-md-6">
+                   {{--  <div class="col-md-6">
                       <label>Status</label>
                       <div class="radio radio-success">
                          <input type="radio" checked="checked" value="0" name="status"
@@ -139,60 +156,28 @@
                         <label for="checkbox2">Billable</label>
                       </div>
                     
-                  </div>
+                  </div> --}}
                   
                 </div>
               </div>
-              <div class="tab-pane slide-left" id="slide2">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group form-group-default form-group-default-select2">
-                      <label class="">Project Name</label>
-                      <div class="select2-container full-width" id="s2id_autogen3">
-                        <select class="full-width select2-offscreen" name="project_id" ng-modal="task.project_id" data-placeholder="Select Country" data-init-plugin="select2" tabindex="-1" title="">
-                          @foreach($projects as $project)
-                          <option value="{!! $project->id !!}"> {!! $project->name !!}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group form-group-default form-group-default-select2">
-                      <label class="">Task Category</label>
-                      <form role='form'>
-                        <div class="select2-container full-width" id="s2id_autogen3">
-                          <select class="full-width select2-offscreen"
-                          data-placeholder="Select Task Category"
-                          data-init-plugin="select2" tabindex="-1" title="">
-                          @foreach($taskCategories as $category)
-                          <option value="{!! $category->id !!}"> {!! $category->name !!}</option>
-                          @endforeach
-                        </select>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             <div class="tab-pane slide-left" id="slide3">
               <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group form-group-default input-group col-md-12">
-                    <label>Start Date</label>
-                    <input type="text" name='start_date' class="form-control" placeholder="Pick a date" id="task_startdate">
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group form-group-default input-group col-md-12">
-                    <label>End Date</label>
-                    <input type="text" name='end_date' class="form-control" placeholder="Pick a date" id="task_enddate">
-                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                  </div>
-                </div>
+              <div class="col-md-12">
+                      
+                      <div class="radio radio-success">
+                         <input type="radio" checked="checked" value="0" name="priority"
+                        id="yes">
+                        <label for="yes">None</label>
+                        <input type="radio" value="1" name="priority" id="no">
+                        <label for="no">Low</label>
+                        <input type="radio" value="2" name="priority" id="no">
+                        <label for="no">Medium</label>
+
+                        <input type="radio" value="3" name="priority" id="no">
+                        <label for="no">High</label>
+                      </div>                
+                    </div>
               </div>
             </div>
             <div class="tab-pane slide-left" id="slide4">
@@ -228,5 +213,5 @@
 </div>
 </div>
 </div>
-
+</div>
 @endsection
