@@ -123,8 +123,9 @@
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
                                         <label>Email</label>
-                                        <input type="text" name="email" class="form-control" placeholder="Email" ng-model='people_array.email' required>
+                                        <input type="text" name="email" class="form-control" placeholder="Email" ng-model='people_array.email' required ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'>
                                         <span class="error" ng-show="submitted && people.email.$error.required">* Please enter Email </span>
+                                        <span class="error" ng-show="submitted && people.email.$error.pattern">* Please enter valid email</span>
                                     </div>
                                 </div>
                             </div>
