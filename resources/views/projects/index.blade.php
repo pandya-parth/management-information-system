@@ -20,7 +20,8 @@
                 <div class="panel-heading">
                     <div class="panel-title">Project Listing
                         <!-- {!! $projects !!} -->
-                        <!-- {!! $users !!} -->
+                        <!-- {!! $users !!} --> 
+
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-6" ng-if="projects.length>0">
@@ -43,7 +44,7 @@
                             </tr>
                         </thead>
                         <tbody >
-                            <tr dir-paginate="project in projects | filter:q | itemsPerPage: pageSize" current-page="currentPage">
+                            <tr dir-paginate="project in projects | orderBy: '-id' | filter:q | itemsPerPage: pageSize" current-page="currentPage">
                                 <td class="v-align-middle">
                                     <p ng-cloak>{% project.id %}</p>
                                 </td>
@@ -116,8 +117,8 @@
                                             <label class="">Client</label>
                                             <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
                                               <option selected="selected">-- Select One --</option>
-                                              @foreach($projects as $project)
-                                              <option value="{!! $project->id !!}">{!! $project->name !!}</option>
+                                              @foreach($users as $user)
+                                              <option value="{!! $user->id !!}">{!! $user->name !!}</option>
                                               @endforeach
                                           </select>
                                       </div>
@@ -129,8 +130,8 @@
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default form-group-default-select2">
                                         <label class="">Project Category</label>
-                                        <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
-                                          <option selected="selected">-- Select One --</option>
+                                        <select class="full-width" data-placeholder="Select Country"  name="category_id" data-init-plugin="select2">
+                                          <option >-- Select One --</option>
                                           @foreach($projects as $project)
                                           <option value="{!! $project->id !!}">{!! $project->name !!}</option>
                                           @endforeach
@@ -163,6 +164,30 @@
                               </div>
                           </div>
                       </div>
+                  </div>
+                  <div id="menu3" class="tab-pane slide-left">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group form-group-default input-group col-md-12">
+                                    <label>Start Date</label>
+                                    <input type="text" name="start_date" class="form-control" placeholder="Pick a date" id="start-date" ng-model='people_array.start_date'>                                       
+                                    <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group form-group-default input-group col-md-12">
+                                    <label>End Date</label>
+                                    <input type="text" name="end_date" class="form-control" placeholder="Pick a date" id="end-date" ng-model='people_array.end_date'>                                       
+                                    <span class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
                   </div>
               </div>
           </div>
