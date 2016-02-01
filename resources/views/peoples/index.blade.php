@@ -20,6 +20,11 @@
                 <div class="panel-heading">
                     <div class="panel-title">People Listing
                     </div>
+                    <?php
+                    $marital_statuses = array('maried'=>'maried',
+                        'single'=>'single',
+                        'other'=>'other');
+                    ?>
                     <div class="pull-right">
                         <div class="col-xs-6" ng-show="peoples.length>0">
                             <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
@@ -43,7 +48,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'id'" current-page="currentPage">
+                            <tr dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'-id'" current-page="currentPage">
                                 <td class="v-align-middle">
                                     <p ng-cloak>{% people.id %}</p>
                                 </td>
@@ -118,8 +123,9 @@
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default">
                                         <label>Email</label>
-                                        <input type="text" name="email" class="form-control" placeholder="Email" ng-model='people_array.email' required>
+                                        <input type="text" name="email" class="form-control" placeholder="Email" ng-model='people_array.email' required ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'>
                                         <span class="error" ng-show="submitted && people.email.$error.required">* Please enter Email </span>
+                                        <span class="error" ng-show="submitted && people.email.$error.pattern">* Please enter valid email</span>
                                     </div>
                                 </div>
                             </div>
@@ -153,22 +159,21 @@
                                 <div class="col-md-4">
                                     <label>Gender</label>
                                     <div class="radio radio-success">
-                                        <input type="radio" checked="checked" value="male"  name="gender" id="yes">
+                                        <input type="radio" checked="checked" value="male" ng-model="people_array.gender"  name="gender" id="yes">
                                         <label for="yes">Male</label>
-                                        <input type="radio" value="female" name="gender" id="no">
+                                        <input type="radio" value="female" ng-model="people_array.gender" name="gender" id="no">
                                         <label for="no">Female</label>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-group-default form-group-default-select2">
                                         <label>Marital Status</label>
-                                        <select class="full-width" data-placeholder="Select Country"
-                                                data-init-plugin="select2">
-                                            <option value="1">Single</option>
-                                            <option value="2">Married</option>
-                                            <option value="3">Others</option>
+                                        
+                                        <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                        @foreach($marital_statuses as $marital_status)
+                                            <option value="{!! $marital_status !!}">{!! $marital_status !!}</option>
+                                            @endforeach
                                         </select>
-
                                     </div>
                                 </div>
                             </div>
@@ -240,11 +245,9 @@
                                 <div class="col-md-12">
                                     <div class="form-group form-group-default input-group col-md-12">
                                         <label>Joining Date</label>
-<<<<<<< HEAD
+
                                         <input type="text" name="join_date" class="form-control" placeholder="Pick a date" id="joining-date" ng-model='people_array.join_date'>
-=======
-                                        <input type="text" class="form-control" placeholder="Pick a date" id="joining-date" ng-model='people_array.join_date'>
->>>>>>> 6c20f3b13db8a4d50fa45e738af1348052b85c4f
+
                                         
                               <span class="input-group-addon">
                               <i class="fa fa-calendar"></i>

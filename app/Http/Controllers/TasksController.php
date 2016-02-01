@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Task;
+use App\Project;
+use App\TaskCategory;
+use App\People;
 use Redirect;
 
 class TasksController extends Controller
@@ -19,15 +22,17 @@ class TasksController extends Controller
     public function index()
     {
         $tasks=Task::all();
-        return view('tasks/index',compact('tasks'));
-
+        $projects=Project::all();
+        $taskCategories=TaskCategory::all();
+        $peoples=People::all();
+        return view('tasks/index',compact('tasks','projects','taskCategories','peoples'));
     }
 
 
     public function getTasks()
     {
        $tasks = Task::get();
-       return response()->json($tasks);
+       return response()->json($tasks); 
     }
     
 

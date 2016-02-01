@@ -19,10 +19,9 @@ class CreateProjectsTable extends Migration
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
-            $table->enum('price_types', ['fix', 'per_hour','hiring'])->default('fix')->nullable();
+            $table->enum('price_types', ['fix', 'per_hour','hiring'])->default('per_hour')->nullable();
             $table->text('notes')->nullable();
-            $table->boolean('active')->nullable();
-            $table->boolean('archive')->nullable();
+            $table->string('status')->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
             $table->timestamps();

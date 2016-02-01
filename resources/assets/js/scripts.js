@@ -7,7 +7,11 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $('#birth-date,#joining-date').datepicker({
+        $('#birth-date,#joining-date,#start-date,#end-date').datepicker({
+            autoclose: true
+        });
+
+        $('#task_startdate, #task_enddate').datepicker({
             autoclose: true
         });
 

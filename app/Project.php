@@ -19,11 +19,16 @@ class Project extends Model  implements SluggableInterface
         'on_update'  => true,
     ]; 
 
-    protected $fillable = ['name','category_id'];
+    protected $fillable = ['name','category_id','client_id','description'];
 
-    public function category()
-	{
-		return $this->belongsTo('ProjectCategory','category_id');
-	}
+ //    public function category()
+	// {
+	// 	return $this->belongsTo('ProjectCategory','category_id');
+	// }
+
+ //    public function users()
+ //    {
+ //        return $this->hasMany('User','user_id');
+ //    }
 
 }

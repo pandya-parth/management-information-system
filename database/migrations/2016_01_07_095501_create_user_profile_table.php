@@ -14,10 +14,9 @@ class CreateUserProfileTable extends Migration
     {
         Schema::create('user_profile', function (Blueprint $table) {
             $table->increments('id');
-            //$table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
-            $table->string('email')->nullable();
             $table->string('mobile')->nullable();
             $table->string('phone')->nullable();
             $table->text('adrs1')->nullable();
@@ -31,8 +30,6 @@ class CreateUserProfileTable extends Migration
             $table->string('pan_number')->nullable();
             $table->string('department')->nullable();
             $table->string('designation')->nullable();
-            $table->string('work_exp')->nullable();
-            $table->string('education')->nullable();
             $table->dateTime('join_date')->nullable();
             $table->string('attach')->nullable();
             $table->string('google')->nullable();
@@ -42,7 +39,7 @@ class CreateUserProfileTable extends Migration
             $table->string('linkedin')->nullable();
             $table->string('twitter')->nullable();
             $table->timestamps();
-            //$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

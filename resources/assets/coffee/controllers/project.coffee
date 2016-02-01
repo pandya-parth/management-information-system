@@ -6,7 +6,7 @@ angular.module 'mis'
 		$scope.pageSize = 5
 		$scope.edit = false
 		PROJECT.get().success (data)->
-			$scope.projects =data
+			$scope.projects = data
 			$scope.loading = false
 
 		$scope.clearAll = ->
@@ -40,10 +40,11 @@ angular.module 'mis'
 						type: 'success').show()
 
 					PROJECT.get().success (getData)->
-						$scope.projects =getData
+						$scope.projects = getData
 						$scope.loading = false
 			else
 				PROJECT.update($scope.project_array).success (data)->
+					console.log data
 					$scope.submitted = false
 					$scope.edit = false
 					$scope.project_array = {}
@@ -57,7 +58,7 @@ angular.module 'mis'
 							type: 'success').show()
 
 						PROJECT.get().success (getData)->
-							$scope.projects =getData
+							$scope.projects = getData
 							$scope.loading = false
 					), 500
 
@@ -66,7 +67,7 @@ angular.module 'mis'
 			$scope.loading = true
 			PROJECT.destroy(id).success (data)->
 				PROJECT.get().success (getData)->
-					$scope.projects =getData
+					$scope.projects = getData
 					$scope.loading = false
 				angular.element('body').pgNotification(
 						style: 'flip'
