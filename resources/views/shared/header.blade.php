@@ -65,5 +65,5 @@
           </div>
           <!-- END User Info-->
         </div>
-
+        @include('shared.right_sidebar')
       </div>
