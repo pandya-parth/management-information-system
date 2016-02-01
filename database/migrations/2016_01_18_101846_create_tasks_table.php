@@ -19,16 +19,13 @@ class CreateTasksTable extends Migration
             $table->string('name')->nullable();
             $table->string('slug')->nullable();
             $table->dateTime('start_date')->nullable();
-            $table->dateTime('end_date')->nullable();
+            $table->dateTime('due_date')->nullable();
             $table->text('notes')->nullable();
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->boolean('billable')->nullable();
             $table->boolean('status')->nullable();
-            $table->string('attachments')->nullable();
+            $table->string('priority')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('task_categories')->onDelete('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-        });
+         });
     }
 
     /**
