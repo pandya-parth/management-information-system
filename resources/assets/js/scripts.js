@@ -7,9 +7,18 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $( "#close_btn" ).click(function() {
-            $('#addNewAppModal').hide();
+        $('#birth-date,#joining-date,#start-date,#end-date').datepicker({
+            autoclose: true
         });
+
+        $('#task_startdate, #task_enddate').datepicker({
+            autoclose: true
+        });
+
+
+        $('pgn-warpper').css('display:none');
+
+       
 
         $(".list-view-wrapper").scrollbar();
 

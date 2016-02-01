@@ -25,7 +25,7 @@
       <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
       <!-- BEGIN SIDEBAR MENU HEADER-->
       <div class="sidebar-header">
-        <img src="img/logo_white.png" alt="logo" class="brand" data-src="img/logo_white.png" data-src-retina="img/logo_white_2x.png" width="100" height="30">
+        <img src="img/logo_white.png" alt="logo" class="brand" data-src="img/logo_white.png" data-src-retina="img/logo_white_2x.png" width="78" height="22">
         <div class="sidebar-header-controls">
           <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
           </button>
@@ -52,7 +52,7 @@
             <ul class="sub-menu">
 
               <li class="">
-                <a href="{!! url('project_categories') !!}">Project Category</a>
+                <a href="{!! url('project-categories') !!}">Project Category</a>
                 <span class="icon-thumbnail">PC</span>
               </li>
               <li class="">
@@ -73,7 +73,7 @@
             <ul class="sub-menu">
 
               <li class="">
-                <a href="{!! url('task_categories') !!}">Task Category</a>
+                <a href="{!! url('task-categories') !!}">Task Category</a>
                 <span class="icon-thumbnail">TC</span>
               </li>
               <li class="">

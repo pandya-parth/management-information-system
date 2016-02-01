@@ -17,10 +17,10 @@ class CreateUserProfileTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('fname')->nullable();
             $table->string('lname')->nullable();
-            $table->string('email')->nullable();
             $table->string('mobile')->nullable();
             $table->string('phone')->nullable();
-            $table->text('address')->nullable();
+            $table->text('adrs1')->nullable();
+            $table->text('adrs2')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('country')->nullable();
@@ -30,8 +30,6 @@ class CreateUserProfileTable extends Migration
             $table->string('pan_number')->nullable();
             $table->string('department')->nullable();
             $table->string('designation')->nullable();
-            $table->string('work_exp')->nullable();
-            $table->string('education')->nullable();
             $table->dateTime('join_date')->nullable();
             $table->string('attach')->nullable();
             $table->string('google')->nullable();

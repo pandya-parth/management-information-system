@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\TaskCategory;
+use Illuminate\Support\Facades\Input;
+
 
 class TaskCategoriesController extends Controller
 {
@@ -17,20 +19,24 @@ class TaskCategoriesController extends Controller
      */
     public function index()
     {
-        $taskcategories=TaskCategory::all();
-        return view('task_categories/index',compact('taskcategories'));
+        return view('task_categories.index',compact('categories'));   
     }
-
+    
+    public function getTaskCategories()
+    {
+       $categories = TaskCategory::get();
+       
+       return response()->json($categories);
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        $id = false;
-        return view('task_categories/form', compact('id'));
-
+        //
     }
 
     /**
@@ -41,7 +47,11 @@ class TaskCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input= Input::all();
+        $categories=TaskCategory::create($input);
+        $categories->save();
+        return response()->json(['success'=>true]);
+
     }
 
     /**
@@ -66,6 +76,12 @@ class TaskCategoriesController extends Controller
         //
     }
 
+    public function getTaskCategory($id)
+    {
+        $task_category = TaskCategory::findOrFail($id);
+        return response()->json($task_category);
+    }
+       
     /**
      * Update the specified resource in storage.
      *
@@ -75,7 +91,10 @@ class TaskCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $category = TaskCategory::find($id);
+         $category->name = Input::get('name');
+         $category->save();  
+         return response()->json(['success'=>true]);      
     }
 
     /**
@@ -86,6 +105,8 @@ class TaskCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task_category = TaskCategory::find($id);
+        $task_category->delete();    
+        return response()->json(['success'=>true]);
     }
 }

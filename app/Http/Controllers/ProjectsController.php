@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Response;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Project;
 use App\ProjectCategory;
+use App\User;
+use App\People;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Former\Facades\Former;
@@ -23,8 +26,15 @@ class ProjectsController extends Controller
      */
     public function index()
     {
-        $projects=Project::all();
-        return view('projects/index',compact('projects'));
+        $projects = ProjectCategory::all();
+        $users = User::all();
+        return view('projects.index',compact('projects','users'));   
+    }
+
+    public function getProjects()
+    {
+       $projects = Project::get();
+       return response()->json($projects);
     }
 
     /**
@@ -34,10 +44,7 @@ class ProjectsController extends Controller
      */
     public function create()
     {
-        $projects = new Project(Input::old());
-        $id=false;
-        Former::populate($projects);
-        return view('projects/form',compact('id','projects'));
+       
     }
 
     /**
@@ -48,18 +55,13 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:30'
-            ]);
-        if ($validator->fails()) {
-            return redirect('projects/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }  
-              $input= Input::all();
-             $projects=Project::create($input);
-             $projects->save();
-             return Redirect::route('projects.index')->with("success","Record Save");
+
+            $input= Input::all();
+
+            $projects=Project::create($input);
+            $projects->save();
+            // return Redirect::route('projects.index')->with("success","Record Save");
+            return response()->json(['success'=>true]);
     }
 
     /**
@@ -81,9 +83,13 @@ class ProjectsController extends Controller
      */
     public function edit($id)
     {
-        $projects=Project::findOrFail($id);
-        Former::populate($projects);
-        return view('projects.form',compact('projects'));
+        
+    }
+
+    public function getProject($id)
+    {
+        $project = Project::findOrFail($id);
+        return response()->json($project);
     }
 
     /**
@@ -95,20 +101,11 @@ class ProjectsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3|max:30',
-           'description'=>'required'
-        ]);
-        if ($validator->fails()) {
-            return redirect('project/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }  
-             $projects = Project::find($id);
-             $projects->fill( Input::all() );   
-             
-             $projects->save();
-             return Redirect::route('project.index');
+         $project = Project::find($id);
+
+         $project->update(Input::all());  
+         
+         return response()->json(['success'=>true]);      
     }
 
     /**
@@ -119,8 +116,9 @@ class ProjectsController extends Controller
      */
     public function destroy($id)
     {
-        $affectedRows  = Project::where('id', '=', $id)->delete();
+        $project = Project::find($id);
+        $project->delete();    
 
-        return $affectedRows;
+        return response()->json(['success'=>true]);
     }
 }

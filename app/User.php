@@ -15,6 +15,12 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    
+    public function people()
+    {
+        return $this->belongsTo('User', 'user_id');
+    }
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -23,4 +29,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function projects()
+    {
+        return $this->hasMany('Project','user_id');
+    }
+
 }

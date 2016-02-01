@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Response;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -22,8 +23,13 @@ class ProjectCategoriesController extends Controller
      */
     public function index()
     {
-        $categories=ProjectCategory::all();
-        return view('project_categories/index',compact('categories'));
+        return view('project_categories.index',compact('categories'));   
+    }
+
+    public function getProjectCategories()
+    {
+       $categories = ProjectCategory::get();
+       return response()->json($categories);
     }
 
     /**
@@ -33,10 +39,7 @@ class ProjectCategoriesController extends Controller
      */
     public function create()
     {
-        $project_cats = new ProjectCategory(Input::old());
-        $id=false;
-        Former::populate($project_cats);
-        return view('project_categories/form',compact('id','project_cats'));
+       
     }
 
     /**
@@ -47,18 +50,12 @@ class ProjectCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:30'
-            ]);
-        if ($validator->fails()) {
-            return redirect('project_categories/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }  
-              $input= Input::all();
-             $project_cats=ProjectCategory::create($input);
-             $project_cats->save();
-             return Redirect::route('project_categories.index')->with("success","Record Save");
+
+            $input= Input::all();
+            $categories=ProjectCategory::create($input);
+            $categories->save();
+            // return Redirect::route('project-categories.index')->with("success","Record Save");
+            return response()->json(['success'=>true]);
     }
 
     /**
@@ -80,9 +77,13 @@ class ProjectCategoriesController extends Controller
      */
     public function edit($id)
     {
-        $project_cats=ProjectCategory::findOrFail($id);
-        Former::populate($project_cats);
-        return view('project_categories.form',compact('project_cats'));
+        
+    }
+
+    public function getCategory($id)
+    {
+        $category = ProjectCategory::findOrFail($id);
+        return response()->json($category);
     }
 
     /**
@@ -94,20 +95,10 @@ class ProjectCategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3|max:30',
-           'description'=>'required'
-        ]);
-        if ($validator->fails()) {
-            return redirect('project_categories/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }  
-             $project_cats = ProjectCategory::find($id);
-             $project_cats->fill( Input::all() );   
-             
-             $project_cats->save();
-             return Redirect::route('project_categories.index');
+         $category = ProjectCategory::find($id);
+         $category->name = Input::get('name');
+         $category->save();  
+         return response()->json(['success'=>true]);      
     }
 
     /**
@@ -118,8 +109,9 @@ class ProjectCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $affectedRows  = ProjectCategory::where('id', '=', $id)->delete();
+        $project_category = ProjectCategory::find($id);
+        $project_category->delete();    
 
-        return $affectedRows;
+        return response()->json(['success'=>true]);
     }
 }

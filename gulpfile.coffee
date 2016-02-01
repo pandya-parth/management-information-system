@@ -1,5 +1,6 @@
 elixir = require 'laravel-elixir'
 
+
 bowerPath = (parts...)-> ['.','bower_components'].concat(parts).join('/')
 
 elixir (mix)->
@@ -16,8 +17,8 @@ elixir (mix)->
       'pages.css',
       'windows.chrome.fix.css',
       'datepicker3.css',
-      'daterangepicker-bs3.css',
       'bootstrap-timepicker.min.css',
+      'style.css',
     ], 'public/css/vendor.css'
 
 
@@ -25,40 +26,41 @@ elixir (mix)->
     mix.sass 'app.scss'
 
     mix.scripts [
+      'pace.min.js'
       bowerPath('jquery','dist', 'jquery.min.js')
+      'modernizr.custom.js'
+      'jquery-ui.min.js'
       bowerPath('bootstrap','dist','js','bootstrap.min.js')
-      'pace.min.js',
-      'modernizr.custom.js',
-      'jquery-ui.min.js',
-      'jquery-easy.js',
-      'jquery.unveil.min.js',
-      'jquery.bez.min.js',
-      'jquery.ioslist.min.js',
-      'jquery.actual.min.js',
-      'jquery.scrollbar.min.js',
-      'select2.min.js',
-      'classie.js',
-      'switchery.min.js',
-      'pages.min.js',
-      'scripts.js',
-      'angular.min.js',
-      'app.js',
-      'jquery.dataTables.min.js',
-      'dataTables.tableTools.min.js',
-      'jquery-datatable-bootstrap.js',
-      'datatables.responsive.js',
-      'lodash.min.js',
-      'pages.min.js',
-      'datatables.js',
-      'bootstrap-timepicker.min.js',
-      'daterangepicker.js',
-      'bootstrap-datepicker.js',
+      'jquery.unveil.min.js'
+      'jquery.bez.min.js'
+      'jquery.ioslist.min.js'
+      'jquery.actual.min.js'
+      'jquery.scrollbar.min.js'
+      'select2.min.js'
+      'classie.js'
+      'switchery.min.js'
+      'jquery.dataTables.min.js'
+      'dataTables.tableTools.min.js'
+      'jquery-datatable-bootstrap.js'
+      'datatables.responsive.js'
+      'lodash.min.js'
+      'pages.min.js'
+      'datatables.js'
+      'bootstrap-timepicker.min.js'
+      'bootstrap-datepicker.js'
+      bowerPath('angular', 'angular.min.js')
+      bowerPath('underscore', 'underscore.js')
+      bowerPath('angular-bootstrap', 'ui-bootstrap-tpls.js')
+      bowerPath('angular-utils-pagination', 'dirPagination.js')
+      bowerPath('angular-prompt', 'angular-prompt.js')
+      'scripts.js'
     ], 'public/js/vendor.js'
 
     mix.coffee [
-      'app.coffee'
+      '*.coffee'
       'config/*.coffee'
       'controllers/*.coffee'
+      'services/*.coffee'
     ]
 
     mix.version [

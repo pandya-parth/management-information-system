@@ -23,10 +23,15 @@
         <!-- END MOBILE CONTROLS -->
         <div class=" pull-left sm-table">
           <div class="header-inner">
-            <div class="brand inline">
+            <div class="brand inline" style="padding-left:25px;">
               <img src="img/logo.png" alt="logo" data-src="img/logo.png" data-src-retina="img/logo_2x.png" width="150" >
             </div>
             </div>
+        </div>
+        <div class=" pull-right">
+          <div class="header-inner">
+            <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs" data-toggle="quickview" data-toggle-element="#quickview"></a>
+          </div>
         </div>
         <div class=" pull-right">
           <!-- START User Info-->
@@ -60,4 +65,5 @@
           </div>
           <!-- END User Info-->
         </div>
+
       </div>
