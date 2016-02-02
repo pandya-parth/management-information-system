@@ -24,7 +24,7 @@
         <div class=" pull-left sm-table">
           <div class="header-inner">
             <div class="brand inline" style="padding-left:25px;">
-              <img src="img/logo.png" alt="logo" data-src="img/logo.png" data-src-retina="img/logo_2x.png" width="150" >
+              <img src="{!! asset('img/logo.png')!!}" alt="logo" data-src="{!! asset('img/logo.png')!!}" data-src-retina="{!! asset('img/logo_2x.png')!!}" width="150" >
             </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
             <div class="dropdown pull-right">
               <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="thumbnail-wrapper d32 circular inline m-t-5">
-                <img src="img/profiles/avatar.jpg" alt="" data-src="img/profiles/avatar.jpg" data-src-retina="img/profiles/avatar_small2x.jpg" width="32" height="32">
+                <img src="{!! asset('img/profiles/avatar.jpg')!!}" alt="" data-src="{!! asset('img/profiles/avatar.jpg')!!}" data-src-retina="{!! asset('img/profiles/avatar_small2x.jpg')!!}" width="32" height="32">
             </span>
               </button>
               <ul class="dropdown-menu profile-dropdown" role="menu">
