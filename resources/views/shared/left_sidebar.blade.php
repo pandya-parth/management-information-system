@@ -3,21 +3,21 @@
       <div class="sidebar-overlay-slide from-top" id="appMenu">
         <div class="row">
           <div class="col-xs-6 no-padding">
-            <a href="#" class="p-l-40"><img src="img/demo/social_app.svg" alt="socail">
+            <a href="#" class="p-l-40"><img src="{!! asset('img/demo/social_app.svg')!!}" alt="socail">
             </a>
           </div>
           <div class="col-xs-6 no-padding">
-            <a href="#" class="p-l-10"><img src="img/demo/email_app.svg" alt="socail">
+            <a href="#" class="p-l-10"><img src="{!! asset('img/demo/email_app.svg')!!}" alt="socail">
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6 m-t-20 no-padding">
-            <a href="#" class="p-l-40"><img src="img/demo/calendar_app.svg" alt="socail">
+            <a href="#" class="p-l-40"><img src="{!! asset('img/demo/calendar_app.svg')!!}" alt="socail">
             </a>
           </div>
           <div class="col-xs-6 m-t-20 no-padding">
-            <a href="#" class="p-l-10"><img src="img/demo/add_more.svg" alt="socail">
+            <a href="#" class="p-l-10"><img src="{!! asset('img/demo/add_more.svg')!!}" alt="socail">
             </a>
           </div>
         </div>
