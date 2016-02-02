@@ -42,6 +42,12 @@
               </tr>
             </thead>
             <tbody >
+
+              @foreach($taskCategories as $Category)
+                <li>{!! $Category->name !!}</li>
+                <li>  <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Task</li>
+              @endforeach
+              
               <tr dir-paginate="task in tasks| orderBy:'-id' | filter:q | itemsPerPage: pageSize    " current-page="currentPage" ng-show="tasks.length != 0" >
                 <td class="v-align-middle">
                   <p  ng-cloak>{% task.id %}</p>
