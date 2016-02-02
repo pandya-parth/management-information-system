@@ -7,14 +7,13 @@
     <div class="container-fluid container-fixed-lg">
       <!-- START PANEL -->
       <div class="inner">
-        <!-- START BREADCRUMB -->
-        <ul class="breadcrumb">
-          <li>
-            <a href="{!!url('/')!!}">Home</a>
-          </li>
-          <li><a href="{!!url('tasks')!!}" class="active">Tasks</a>
-          </li>
-        </ul>
+                <!-- START BREADCRUMB -->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{!! url('tasks') !!}">Task</a></li>
+                    <li><a href="{!! url('milestones') !!}">Milestone</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
         <div class="panel panel-transparent">
           <div class="panel-heading">
             <div class="panel-title">
@@ -42,6 +41,12 @@
               </tr>
             </thead>
             <tbody >
+
+              @foreach($taskCategories as $Category)
+                <li>{!! $Category->name !!}</li>
+                <li>  <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Task</li>
+              @endforeach
+              
               <tr dir-paginate="task in tasks| orderBy:'-id' | filter:q | itemsPerPage: pageSize    " current-page="currentPage" ng-show="tasks.length != 0" >
                 <td class="v-align-middle">
                   <p  ng-cloak>{% task.id %}</p>
@@ -66,7 +71,7 @@
         </div>
       </div>
       <!-- END PANEL -->
-    </div>
+    
     <!-- END CONTAINER FLUID -->
   </div>
   <!-- MODAL STICK UP  -->
@@ -167,15 +172,15 @@
                       
                       <div class="radio radio-success">
                          <input type="radio" checked="checked" value="0" name="priority"
-                        id="yes">
-                        <label for="yes">None</label>
-                        <input type="radio" value="1" name="priority" id="no">
-                        <label for="no">Low</label>
-                        <input type="radio" value="2" name="priority" id="no">
-                        <label for="no">Medium</label>
+                        id="none">
+                        <label for="none">None</label>
+                        <input type="radio" value="1" name="priority" id="low">
+                        <label for="low">Low</label>
+                        <input type="radio" value="2" name="priority" id="medium">
+                        <label for="medium">Medium</label>
 
-                        <input type="radio" value="3" name="priority" id="no">
-                        <label for="no">High</label>
+                        <input type="radio" value="3" name="priority" id="high">
+                        <label for="high">High</label>
                       </div>                
                     </div>
               </div>
@@ -187,18 +192,11 @@
                    <label class="">Task Asign To</label>
                    <select class=" full-width" data-init-plugin="select2" multiple>
                     @foreach($peoples as $people)
-
                     <option value="{!! $people->id!!}"> {!! $people->fname ." ".$people->lname  !!}</option>
-
                     @endforeach
                   </select>
                 </div>
-                <div class="form-group form-group-default input-group col-sm-12">
-                  <label class="">Files </label>
-                  <button class="btn btn-success btn-cons m-b-10" type="button"><i
-                    class="fa fa-cloud-upload"></i> <span class="bold">Upload</span>
-                  </button>
-                </div>
+               
               </div>
             </div>
           </div>

@@ -32,6 +32,8 @@ class UserController extends Controller
 
         }
         return redirect()->back()->with('message','Invalid Current Password');
+
+   
         
     }
 }

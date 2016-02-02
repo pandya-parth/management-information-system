@@ -42,7 +42,7 @@
                                 <tr ng-cloak>
                                     <th>#Id</th>
                                     <th>Name</th>
-                                    <th>Email</th>
+                                    <th>Date of Birth</th>
                                     <th>Phone</th>
                                     <th>Action</th>
                                 </tr>
@@ -56,7 +56,7 @@
                                     <p ng-cloak>{% people.fname %} {% people.lname %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p ng-cloak>{% people.email %}</p>
+                                    <p ng-cloak>{% people.dob %}</p>
                                 </td>
                                 <td class="v-align-middle">
                                     <p ng-cloak>{% people.phone %}</p>
@@ -128,7 +128,7 @@
                                         <span class="error" ng-show="submitted && people.email.$error.pattern">* Please enter valid email</span>
                                     </div>
                                 </div>
-                            </div>
+                              </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group form-group-default">
@@ -174,6 +174,23 @@
                                             <option value="{!! $marital_status !!}">{!! $marital_status !!}</option>
                                             @endforeach
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default">
+                                        <ul id="filelist"></ul>
+                                            <br />
+                                             
+                                            <div id="container">
+                                                <a id="browse" href="javascript:;">[Browse...]</a>
+                                                <a id="start-upload" href="javascript:;">[Start Upload]</a>
+                                            </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Preview</label>
+                                        <input type="text" class="form-control">
                                     </div>
                                 </div>
                             </div>

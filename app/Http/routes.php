@@ -37,10 +37,9 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::resource('/project-categories','ProjectCategoriesController');
     Route::resource('/people','PeoplesController');
     Route::resource('/milestones','MilestonesController');
-    Route::resource('/tasks','TasksController');
+    Route::resource('projects.tasks','TasksController');
     Route::resource('/task-categories','TaskCategoriesController');    
     Route::resource('/milestones','MilestonesController');
-
     Route::post('change-password', 'UserController@updatePassword');
     Route::get('change-password', 'UserController@changePassword');
 });
@@ -50,8 +49,8 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('company/{id}','CompaniesController@getCompany');
     Route::get('task-categories', 'TaskCategoriesController@getTaskCategories');
     Route::get('task-category/{id}','TaskCategoriesController@getTaskCategory');
-    Route::get('tasks', 'TasksController@getTasks');
-    Route::get('task/{id}','TasksController@getTask');
+    Route::get('projects.tasks', 'TasksController@getTasks');
+    Route::get('projects.task/{id}','TasksController@getTask');
     Route::get('project-categories', 'ProjectCategoriesController@getProjectCategories');
     Route::get('people', 'PeoplesController@getPeoples');
     Route::get('projects','ProjectsController@getProjects');

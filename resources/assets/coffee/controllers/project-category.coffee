@@ -29,8 +29,11 @@ angular.module 'mis'
 				]
     
 			if form.$dirty
-				prompt($scope.options).then( ->
+				prompt($scope.options).then( ->					
 					angular.element('#addNewAppModal').modal('hide')
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.project_category = {}					
 				)
 			else
 				angular.element('#addNewAppModal').modal('hide')

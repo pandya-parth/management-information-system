@@ -48,11 +48,12 @@ elixir (mix)->
       'datatables.js'
       'bootstrap-timepicker.min.js'
       'bootstrap-datepicker.js'
+      'plupload.full.min.js'
       bowerPath('angular', 'angular.min.js')
       bowerPath('underscore', 'underscore.js')
       bowerPath('angular-bootstrap', 'ui-bootstrap-tpls.js')
       bowerPath('angular-utils-pagination', 'dirPagination.js')
-      bowerPath('angular-prompt', 'angular-prompt.js')
+      bowerPath('angular-prompt', 'dist', 'angular-prompt.js')
       'scripts.js'
     ], 'public/js/vendor.js'
 

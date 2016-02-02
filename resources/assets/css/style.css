@@ -1,4 +1,71 @@
 .datepicker{z-index:1151 !important;}
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-    display: none !important;
- }
+	display: none !important;
+}
+.list-view li{
+	position: relative;
+}
+li.categories_p{
+	padding: 0;
+	background-color: transparent;
+}
+li.categories_p a{
+	padding:10px 10px;
+	line-height: normal;
+}
+ul.log-indropdown li:last-child > a{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+}
+li.categories_p p{
+	line-height:20px;
+}
+li.categories_p a:hover{
+    background-color: #daeffd;
+}
+li.categories_p:hover{
+	background-color: transparent !important;
+}
+.pill{
+	float: right;
+	color:#fff;
+	background-color: rgb(43, 48, 59);
+	border-radius: 2px;
+	font-size: 11px;
+	padding: 0 3px;
+}
+li.categories_active{
+	background-color: #daeffd;
+}
+ul.log-indropdown{
+}
+ul.log-indropdown li{
+	padding: 0;
+}
+ul.log-indropdown li:hover{
+	background-color: transparent;
+}
+ul.log-indropdown li a{
+	padding-left: 25px;
+}
+li.categories_p span.dropdown{
+	width: 20px;
+	height: 20px;
+	border: none;
+	position: absolute;
+	top: 10px;
+	left: 5px;
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	background-color: red;
+	z-index: 1200
+}
+ul.log-indropdown{
+	display: none;
+}
+.dropdown.active{
+	display: block;
+}
+
+/* custom css */

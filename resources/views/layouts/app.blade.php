@@ -29,8 +29,10 @@
 </head>
 <body ng-controller="BodyCtrl" class="fixed-header" id="app-layout">
     @include('shared.left_sidebar')
+    
     <div class="page-container">
        @include('shared.header')
+
        <div class="page-content-wrapper">
           
         @yield('content')    

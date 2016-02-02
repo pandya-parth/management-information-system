@@ -7,13 +7,12 @@
         <div class="container-fluid container-fixed-lg">
             <div class="inner">
                 <!-- START BREADCRUMB -->
-                <ul class="breadcrumb">
-                    <li>
-                        <a href="{!!url('/')!!}">Home</a>
-                    </li>
-                    <li><a href="{!!url('projects')!!}" class="active">Projects</a>
-                    </li>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{!! url('companies') !!}">Task Categories <span class="sr-only">(current)</span></a></li>
+                    <li><a href="{!! url('tasks') !!}">Task</a></li>
+                    <li><a href="{!! url('milestones') !!}">Milestone</a></li>
                 </ul>
+                <div class="clearfix"></div>
             </div>
             <!-- START PANEL -->
             <div class="panel panel-transparent">
@@ -45,11 +44,12 @@
                         </thead>
                         <tbody >
                             <tr dir-paginate="project in projects | orderBy: '-id' | filter:q | itemsPerPage: pageSize" current-page="currentPage">
-                                <td class="v-align-middle">
+                                
+                                <td class="v-align-middle" >
                                     <p ng-cloak>{% project.id %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p ng-cloak>{% project.name %}</p>
+                                    <p ng-cloak><a href="{!!url('/projects/{% project.id %}/tasks')!!}">{% project.name %}</a></p>
                                 </td>
                                 <td class="v-align-middle">
                                     <p>
@@ -57,6 +57,7 @@
                                         <a ng-click="deleteProject(project.id)">Delete</a>
                                     </p>
                                 </td>
+                                
                             </tr>
                         </tbody>
                     </table>
@@ -166,32 +167,32 @@
                       </div>
                   </div>
                   <div id="menu3" class="tab-pane slide-left">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group form-group-default input-group col-md-12">
-                                    <label>Start Date</label>
-                                    <input type="text" name="start_date" class="form-control" placeholder="Pick a date" id="start-date" ng-model='people_array.start_date'>                                       
-                                    <span class="input-group-addon">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default input-group col-md-12">
+                                <label>Start Date</label>
+                                <input type="text" name="start_date" class="form-control" placeholder="Pick a date" id="start-date" ng-model='people_array.start_date'>                                       
+                                <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
-                                    </span>
-                                </div>
+                                </span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group form-group-default input-group col-md-12">
-                                    <label>End Date</label>
-                                    <input type="text" name="end_date" class="form-control" placeholder="Pick a date" id="end-date" ng-model='people_array.end_date'>                                       
-                                    <span class="input-group-addon">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default input-group col-md-12">
+                                <label>End Date</label>
+                                <input type="text" name="end_date" class="form-control" placeholder="Pick a date" id="end-date" ng-model='people_array.end_date'>                                       
+                                <span class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
-                                    </span>
-                                </div>
+                                </span>
                             </div>
                         </div>
-                  </div>
-              </div>
-          </div>
-          <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
             <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(project)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
             <button type="button" class="btn btn-cons" id="close" ng-click="clearAll()">Close</button>
         </div>
