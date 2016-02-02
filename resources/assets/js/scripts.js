@@ -65,6 +65,17 @@
 
     });
 
+
+
+    $('.registerBtn').click(function() {
+       $("#cat_id").val($(this).attr('data-value'));
+    });
+    
+        $('.task_category').click(function() {
+            $('#addNewAppModal').modal('show');
+        });
+
+
     
     $('.panel-collapse label').on('click', function(e){
         e.stopPropagation();
