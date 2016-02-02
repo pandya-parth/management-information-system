@@ -23,10 +23,7 @@
               <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
                <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
              </div>
-             <div class="col-xs-6">
-              <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Task
-              </button>
-            </div>
+          
           </div>
           <div class="clearfix"></div>
         </div>
@@ -41,6 +38,12 @@
               </tr>
             </thead>
             <tbody >
+
+              @foreach($taskCategories as $Category)
+                <li>{!! $Category->name !!}</li>
+                <li>  <button id="#addNewAppModal"  data-id="{!! $Category->id !!}" class="btn btn-primary btn-cons task_category" data-toggle="modal" data-value="{!! $Category->id !!}"><i class="fa fa-plus"></i> Add Task</li>
+              @endforeach
+              
               <tr dir-paginate="task in tasks| orderBy:'-id' | filter:q | itemsPerPage: pageSize    " current-page="currentPage" ng-show="tasks.length != 0" >
                 <td class="v-align-middle">
                   <p  ng-cloak>{% task.id %}</p>
@@ -80,6 +83,7 @@
         <h4 class="p-b-5"><h4>Add New Task</h4></h4>
       </div>
       <form name="Task" class='p-t-15' role='form' novalidate>
+        <input type="hidden" id='cat_id'>
         <div class="modal-body">
 
           <div class="panel panel-transparent ">
