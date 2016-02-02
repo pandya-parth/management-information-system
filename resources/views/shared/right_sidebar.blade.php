@@ -21,8 +21,9 @@
                   <ul>
                     <!-- BEGIN Categories List  !-->
                     <li class="chat-user categories_p clearfix">
-                    <span class="dropdown"></span>
+
                       <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
+                      <i class="fa fa-angle-down fs-16 dropdown"></i>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
                           <span class="text-master">A</span>
                           <span class="pill">1111</span>
