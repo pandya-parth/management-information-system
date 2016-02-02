@@ -69,5 +69,10 @@
     $('.panel-collapse label').on('click', function(e){
         e.stopPropagation();
     })
-    
+
+$(".dropdown").click(function() {          
+    $(".log-indropdown").slideToggle('slow');    
+    $(this).toggleClass('active');  
+});
+
 })(window.jQuery);
