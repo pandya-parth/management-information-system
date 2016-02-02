@@ -38,10 +38,10 @@ class CreateUserProfileTable extends Migration
             $table->string('skype')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('twitter')->nullable();
-            $table->string('profile')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
+        
     }
 
     /**
@@ -49,6 +49,11 @@ class CreateUserProfileTable extends Migration
      *
      * @return void
      */
+
+
+    
+
+
     public function down()
     {
         Schema::drop('user_profile');

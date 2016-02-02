@@ -43,7 +43,6 @@
                                     <th>#Id</th>
                                     <th>Name</th>
                                     <th>Date of Birth</th>
-                                    <th>Phone</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -178,12 +177,15 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-group-default">
-                                        <ul id="filelist"></ul>
+                                        <div id="filelist">Upload photos from here..</div>
+                                            <div id="progressbar"></div>
                                             <br />
-                                             
+                                            <div class="form-group">
+                                            <div class="col-lg-6 clearfix">
                                             <div id="container">
-                                                <a id="browse" href="javascript:;">[Browse...]</a>
-                                                <a id="start-upload" href="javascript:;">[Start Upload]</a>
+                                            <a id="pickfiles" href="javascript:;">Upload Photo</a>
+                                            </div>  
+                                            </div>  
                                             </div>
                                     </div>
                                 </div>
