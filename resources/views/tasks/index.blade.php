@@ -7,14 +7,13 @@
     <div class="container-fluid container-fixed-lg">
       <!-- START PANEL -->
       <div class="inner">
-        <!-- START BREADCRUMB -->
-        <ul class="breadcrumb">
-          <li>
-            <a href="{!!url('/')!!}">Home</a>
-          </li>
-          <li><a href="{!!url('tasks')!!}" class="active">Tasks</a>
-          </li>
-        </ul>
+                <!-- START BREADCRUMB -->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{!! url('tasks') !!}">Task</a></li>
+                    <li><a href="{!! url('milestones') !!}">Milestone</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
         <div class="panel panel-transparent">
           <div class="panel-heading">
             <div class="panel-title">
@@ -66,7 +65,7 @@
         </div>
       </div>
       <!-- END PANEL -->
-    </div>
+    
     <!-- END CONTAINER FLUID -->
   </div>
   <!-- MODAL STICK UP  -->
