@@ -19,7 +19,7 @@ class Task extends Model implements SluggableInterface
         'on_update'  => true,
     ]; 
 
-    protected $fillable = ['name',];
+    protected $fillable = ['name',''];
     
 
      public function users()
