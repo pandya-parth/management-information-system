@@ -10,7 +10,14 @@ li.categories_p{
 	background-color: transparent;
 }
 li.categories_p a{
-	padding: 10px;
+	padding:10px 10px;
+	line-height: normal;
+}
+ul.log-indropdown li:last-child > a{
+	border-bottom: 1px solid rgba(0, 0, 0, 0.07) !important;
+}
+li.categories_p p{
+	line-height:20px;
 }
 li.categories_p a:hover{
     background-color: #daeffd;
@@ -38,7 +45,7 @@ ul.log-indropdown li:hover{
 	background-color: transparent;
 }
 ul.log-indropdown li a{
-	padding-left: 15px;
+	padding-left: 25px;
 }
 li.categories_p span.dropdown{
 	width: 20px;
@@ -60,3 +67,5 @@ ul.log-indropdown{
 .dropdown.active{
 	display: block;
 }
+
+/* custom css */

@@ -42,7 +42,7 @@
                                 <tr ng-cloak>
                                     <th>#Id</th>
                                     <th>Name</th>
-                                    <th>Email</th>
+                                    <th>Date of Birth</th>
                                     <th>Phone</th>
                                     <th>Action</th>
                                 </tr>
@@ -56,7 +56,7 @@
                                     <p ng-cloak>{% people.fname %} {% people.lname %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p ng-cloak>{% people.email %}</p>
+                                    <p ng-cloak>{% people.dob %}</p>
                                 </td>
                                 <td class="v-align-middle">
                                     <p ng-cloak>{% people.phone %}</p>
