@@ -53,7 +53,7 @@ class PeoplesController extends Controller
      */
     public function store(Request $request)
     {
-
+      
             $pass=str_random(8);
             $user = new User;
 
@@ -76,6 +76,8 @@ class PeoplesController extends Controller
             $user_profile->fname = Input::get('fname');
             $user_profile->lname = Input::get('lname');
             $user_profile->mobile = Input::get('mobile');
+            $user_profile->phone = Input::get('phone');
+            $user_profile->photo = Input::get('photo');
             $user_profile->dob = Input::get('dob');
             $user_profile->marital_status = Input::get('marital_status');
             $user_profile->gender = Input::get('gender');
@@ -94,7 +96,7 @@ class PeoplesController extends Controller
             $user_profile->twitter = Input::get('twitter');
             $user_profile->website = Input::get('website');
             $user_profile->save();
-            $data[] = $user_profile;
+       
 
             return response()->json(['success'=>true]);
     }

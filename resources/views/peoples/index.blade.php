@@ -43,6 +43,7 @@
                                     <th>#Id</th>
                                     <th>Name</th>
                                     <th>Date of Birth</th>
+                                    <th>Phone</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -94,7 +95,7 @@
                     </button>
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
-                <form name='people' class='p-t-15' role='form' novalidate>
+                <form name='people' class='p-t-15' role='form' novalidate enctype="multipart/form-data">
                 <div class="modal-body">
                     <ul class="nav nav-tabs nav-tabs-fillup">
                         <li class="active"><a data-toggle="tab" href="#home">Personal</a></li>
@@ -187,7 +188,9 @@
                                             </div>  
                                             </div>  
                                             </div>
+                                            <input type="hidden" name="photo" id="photo">
                                     </div>
+
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group form-group-default">

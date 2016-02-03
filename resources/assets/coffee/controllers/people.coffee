@@ -15,6 +15,7 @@ angular.module 'mis'
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.people_array = {}
+				
 			), 1000
 			return
 

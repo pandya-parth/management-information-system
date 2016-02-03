@@ -94,15 +94,15 @@ var uploader = new plupload.Uploader({
     browse_button : 'pickfiles', // you can pass in id...
     container: document.getElementById('container'), // ... or DOM Element itself
      
-    url : "{{ asset('assets/plupload/upload.php') }}",
+    url : "../plupload/upload.php ",
  
     // Flash settings
    
-    flash_swf_url : "{{ asset('assets/plupload/Moxie.swf') }}",
+    flash_swf_url : "../plupload/Moxie.swf ",
  
     // Silverlight settings
     
-    silverlight_xap_url : "{{asset('assets/plupload/Moxie.xap')}}",
+    silverlight_xap_url : "../plupload/Moxie.xap ",
      
  
     init: {
@@ -127,17 +127,12 @@ var uploader = new plupload.Uploader({
         },
  
         UploadProgress: function(up, file) {
-            var progressBarValue = up.total.percent;
-            $('#progressbar').fadeIn().progressbar({
-                value: progressBarValue
-            });
-            $('#progressbar .ui-progressbar-value').html('<span class="progressTooltip">' + up.total.percent + '%</span>');
             $('#photo').val(file.name);
             document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
         },
 
         UploadComplete: function(){
-            $('#progressbar').fadeOut('slow');
+            //
         },
  
         Error: function(up, err) {
