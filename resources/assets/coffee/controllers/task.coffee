@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-.controller 'TasksCtrl', ($scope, tasks, $timeout)->
+.controller 'TasksCtrl', ($scope, task, $timeout)->
 	$scope.loading = true
 	$scope.currentPage = 1
 	$scope.pageSize = 5
