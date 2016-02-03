@@ -16,7 +16,9 @@
         });
 
 
-        $('pgn-warpper').css('display:none');    
+        $('pgn-warpper').css('display:none');
+
+       
 
         $(".list-view-wrapper").scrollbar();
 
@@ -125,6 +127,7 @@ var uploader = new plupload.Uploader({
         },
  
         UploadProgress: function(up, file) {
+            console.log(file.name);
             $('#photo').val(file.name);
             document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
         },
