@@ -34,9 +34,13 @@ class TasksController extends Controller
        $tasks = Task::get();
        return response()->json($tasks); 
     }
-    
 
-    /**
+    public function getCategories()
+    {
+        $taskCategories = TaskCategory::get();
+       return response()->json($taskcategories); 
+    }
+     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

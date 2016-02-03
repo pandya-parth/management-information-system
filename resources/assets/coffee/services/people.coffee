@@ -9,7 +9,7 @@ angular.module 'mis'
 				$http
 					method: 'POST'
 					url: '/people'
-					headers: { 'Content-Type' : undefined }
+					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
 			edit: (id)->

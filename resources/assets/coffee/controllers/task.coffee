@@ -1,11 +1,11 @@
 angular.module 'mis'
 
-.controller 'TasksCtrl', ($scope, tasks, $timeout)->
+.controller 'TasksCtrl', ($scope, task, $timeout)->
 	$scope.loading = true
 	$scope.currentPage = 1
 	$scope.pageSize = 5
 	$scope.edit = false
-	taskCategory.get().success (data)->
+	task.get().success (data)->
 		$scope.tasks = data
 		$scope.loading = false
 

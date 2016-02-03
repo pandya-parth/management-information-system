@@ -56,10 +56,8 @@ class PeoplesController extends Controller
       
             $pass=str_random(8);
             $user = new User;
-
             $user->email = Input::get('email');
             $user->password = Hash::make($pass);
-
             $user->active = true;
             $user->save();
             

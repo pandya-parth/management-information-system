@@ -100,7 +100,7 @@
               </li>
               <li class="">
                 <a data-toggle="tab" href="#slide4"
-                aria-expanded="false"><span>Task Assign To.</span></a>
+                aria-expanded="false"><span>Assign To.</span></a>
               </li>
             </ul>
             <!-- Tab panes -->
@@ -110,7 +110,7 @@
                   <div class="col-md-12">
                     <div class="form-group form-group-default">
                       <label>Task Name</label>
-                      <input id="appName" type="text" name="name" class="form-control" placeholder="Name" ng-model='task.name' required>
+                      <input id="appName" type="text" name="name" class="form-control" placeholder="What needs to be done" ng-model='task.name' required>
                       <span class="error" ng-show="submitted && Task.name.$error.required">* Please enter Task name</span>
                     </div>
                   </div>
@@ -128,14 +128,14 @@
                   <div class="row">
                 <div class="col-md-6">
                   <div class="form-group form-group-default input-group col-md-12">
-                    <label>Start Date</label>
+                    <label>Start Date (optional)</label>
                     <input type="text" name='start_date' class="form-control" placeholder="Select Date" id="task_startdate">
                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group form-group-default input-group col-md-12">
-                    <label>Due Date</label>
+                    <label>Due Date (optional)</label>
                     <input type="text" name='end_date' class="form-control" placeholder="Select Date" id="task_enddate">
                     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                   </div>
@@ -167,17 +167,18 @@
             <div class="tab-pane slide-left" id="slide3">
               <div class="row">
               <div class="col-md-12">
-                      
+                      <label>Choose the priority of this task</label>
                       <div class="radio radio-success">
-                         <input type="radio" checked="checked" value="0" name="priority"
+
+                         <input type="radio" checked="checked" value="0" ng-modal="task.priority" name='priority'
                         id="none">
                         <label for="none">None</label>
-                        <input type="radio" value="1" name="priority" id="low">
+                        <input type="radio" value="1" name="priority" ng-modal='task.priority' id="low">
                         <label for="low">Low</label>
-                        <input type="radio" value="2" name="priority" id="medium">
+                        <input type="radio" value="2" name="priority" ng-modal='task.priority' id="medium">
                         <label for="medium">Medium</label>
 
-                        <input type="radio" value="3" name="priority" id="high">
+                        <input type="radio" value="3" name="priority" ng-modal='task.priority' id="high">
                         <label for="high">High</label>
                       </div>                
                     </div>
@@ -187,8 +188,8 @@
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group form-group-default">
-                   <label class="">Task Asign To</label>
-                   <select class=" full-width" data-init-plugin="select2" multiple>
+                   <label class="">Who should do this?</label>
+                   <select class=" full-width" name="task.user_id" data-init-plugin="select2" multiple>
                     @foreach($peoples as $people)
                     <option value="{!! $people->id!!}"> {!! $people->fname ." ".$people->lname  !!}</option>
                     @endforeach
@@ -201,11 +202,11 @@
         </div>
       </div>
     </div>
-    <div class="modal-footer">
-      <button id="add-app" type="button" class="btn btn-primary  btn-cons">Add</button>
-      <button type="button" class="btn btn-cons" id="close" data-dismiss="modal">Close</button>
-    </div>
-  </FORM>
+     <div class="modal-footer">
+            <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(Task)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
+            <button type="button" class="btn btn-cons" id="close" ng-click="clearAll()">Close</button>
+        </div>
+  </form>
 </div>
 </div>
 </div>
