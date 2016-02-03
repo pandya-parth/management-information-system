@@ -62,8 +62,9 @@
                         </tbody>
                     </table>
                     <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="projects.length==0">
-                        <div class="alert alert-warning" role="alert">
-                            No record found.
+                        <div style="text-align:center;">
+                            <img src="{!! asset('img/noProjects.png') !!}" />
+                            <p><h3>No match found</h3></p>
                         </div>
                     </div>
                 </div>

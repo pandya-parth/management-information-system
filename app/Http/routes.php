@@ -51,9 +51,11 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('task-categories', 'TaskCategoriesController@getTaskCategories');
     Route::get('task-category/{id}','TaskCategoriesController@getTaskCategory');
 
+
     Route::get('tasks', 'TasksController@getTasks');
     Route::get('task/{id}','TasksController@getTask');
     
+
     Route::get('project-categories', 'ProjectCategoriesController@getProjectCategories');
     Route::get('people', 'PeoplesController@getPeoples');
     Route::get('projects','ProjectsController@getProjects');
