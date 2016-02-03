@@ -69,3 +69,5 @@ ul.log-indropdown{
 }
 
 /* custom css */
+
+.plupload{ z-index : 99999; }
