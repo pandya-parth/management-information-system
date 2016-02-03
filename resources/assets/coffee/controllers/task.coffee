@@ -5,7 +5,7 @@ angular.module 'mis'
 	$scope.currentPage = 1
 	$scope.pageSize = 5
 	$scope.edit = false
-	taskCategory.get().success (data)->
+	task.get().success (data)->
 		$scope.tasks = data
 		$scope.loading = false
 
