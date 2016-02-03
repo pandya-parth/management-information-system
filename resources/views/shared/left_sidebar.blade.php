@@ -76,10 +76,7 @@
                 <a href="{!! url('task-categories') !!}">Task Category</a>
                 <span class="icon-thumbnail">TC</span>
               </li>
-              <li class="">
-                <a href="{!! url('tasks') !!}">Tasks</a>
-                <span class="icon-thumbnail">T</span>
-              </li>
+              
               
             </ul>
           </li>
