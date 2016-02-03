@@ -74,9 +74,8 @@
                         </table>
                         
                             <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="peoples.length==0">
-                                <div style="text-align:center;">
-                                    <img src="{!! asset('img/noPeople.png') !!}" />
-                                    <p><h3>No match found</h3></p>
+                                <div class="alert alert-warning" role="alert">
+                                    No record found.
                                 </div>
                             </div>
                 </div>
@@ -189,7 +188,7 @@
                                             </div>  
                                             </div>  
                                             </div>
-                                            <input type="hidden" name="photo" id="photo">
+                                            <input type="hidden" name="photo" id="photo" ng-model = 'people_array.photo'>
                                     </div>
 
                                 </div>
