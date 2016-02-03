@@ -3,7 +3,7 @@ angular.module 'mis'
 	.factory 'task', ($http)->
 		return{
 			get:->
-				$http.get '/api/tasks'
+				$http.get '/api/projects.tasks'
 
 			save: (formData)->
 				$http
@@ -13,15 +13,15 @@ angular.module 'mis'
 					data: $.param(formData)
 
 			edit: (id)->
-				$http.get '/api/task/'+id
+				$http.get '/api/projects.task'+id
 
 			update: (formData)->
 				$http
 					method: 'PUT'
-					url: '/tasks/'+formData.id
+					url: '/projects.tasks/'+formData.id
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
 			destroy: (id)->
-				$http.delete('/tasks/' + id)
+				$http.delete('/projects.tasks/' + id)
 		}
