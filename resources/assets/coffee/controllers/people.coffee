@@ -20,7 +20,6 @@ angular.module 'mis'
 			return
 
 		$scope.submit = (form)->
-			console.log $scope.people_array.photo
 			$scope.loading = true
 			$scope.submitted = true
 			if form.$invalid

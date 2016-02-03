@@ -141,11 +141,10 @@ var uploader = new plupload.Uploader({
         }
     }
 });
- 
-uploader.init();
+ Uploader.init();
 $('#addNewAppModal').on('shown.bs.modal', function () {
     uploader.refresh();
-})
+});
 //plupload end
 
 })(window.jQuery);
