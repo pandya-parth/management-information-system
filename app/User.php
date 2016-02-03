@@ -18,7 +18,7 @@ class User extends Authenticatable
     
     public function people()
     {
-        return $this->belongsTo('User', 'user_id');
+        return $this->belongsTo('People', 'user_id');
     }
 
     /**
