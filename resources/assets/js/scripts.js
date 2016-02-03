@@ -16,9 +16,7 @@
         });
 
 
-        $('pgn-warpper').css('display:none');
-
-       
+        $('pgn-warpper').css('display:none');    
 
         $(".list-view-wrapper").scrollbar();
 
