@@ -143,7 +143,13 @@ var uploader = new plupload.Uploader({
         Error: function(up, err) {
             document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
         }
-    }
+
+        
+        
+    },
+     multipart: true,
+     multipart_params: {}
+
 });
 
 uploader.init();

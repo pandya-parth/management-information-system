@@ -70,6 +70,7 @@ class PeoplesController extends Controller
             $user_profile->mobile = Input::get('mobile');
             $user_profile->phone = Input::get('phone');
             $user_profile->dob = Input::get('dob');
+            $user_profile->photo = Input::get('photo');
             $user_profile->marital_status = Input::get('marital_status');
             $user_profile->gender = Input::get('gender');
             $user_profile->adrs1 = Input::get('adrs1');
