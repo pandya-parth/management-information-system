@@ -60,7 +60,7 @@ class PeoplesController extends Controller
             $user->active = true;
             $user->save();
             Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)  ], function($message) {
-                            $message->to('kajal@krishaweb.net');
+                            $message->to('nicolecross1579@gmail.com');
                             $message->subject('Thank You');
                         });
             $user_profile = new People;

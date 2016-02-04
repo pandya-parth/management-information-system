@@ -18,7 +18,11 @@
 
         $('pgn-warpper').css('display:none');
 
-       
+       $('.task_category').click(function(){
+        
+                var a = $(this).data('id');
+                $('#cat_id').val(a);
+            });
 
         $(".list-view-wrapper").scrollbar();
 
@@ -141,7 +145,7 @@ var uploader = new plupload.Uploader({
         }
     }
 });
- 
+
 uploader.init();
 $('#addNewAppModal').on('shown.bs.modal', function () {
     uploader.refresh();

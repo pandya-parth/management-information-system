@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Task;
 use App\Project;
 use App\TaskCategory;
@@ -59,7 +60,7 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         $input= Input::all();
-        $tasks=Tasks::create($input);
+        $tasks=Task::create($input);
         $tasks->save();
         return response()->json(['success'=>true]);
 
