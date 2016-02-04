@@ -53,7 +53,6 @@ class PeoplesController extends Controller
      */
     public function store(Request $request)
     {
-      
             $pass=str_random(8);
             $user = new User;
             $user->email = Input::get('email');
@@ -62,11 +61,11 @@ class PeoplesController extends Controller
             $user->save();
             
 
-            Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)  ], function($message) {
+            // Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)  ], function($message) {
 
-                            $message->to('kajal@krishaweb.net');
-                            $message->subject('Thank You');
-                        });
+            //                 $message->to('kajal@krishaweb.net');
+            //                 $message->subject('Thank You');
+            //             });
 
 
             $user_profile = new People;

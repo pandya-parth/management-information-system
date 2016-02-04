@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout)->
+	.controller 'PeopleCtrl', ($scope, $location, PEOPLE, $timeout)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
@@ -20,7 +20,6 @@ angular.module 'mis'
 			return
 
 		$scope.submit = (form)->
-			console.log $scope.people_array.photo
 			$scope.loading = true
 			$scope.submitted = true
 			if form.$invalid
@@ -46,7 +45,6 @@ angular.module 'mis'
 						$scope.loading = false
 			else
 				PEOPLE.update($scope.people_array).success (data)->
-					console.log data
 					$scope.submitted = false
 					$scope.edit = false
 					$scope.people_array = {}
