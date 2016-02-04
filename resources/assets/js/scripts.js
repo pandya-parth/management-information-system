@@ -71,9 +71,11 @@
 
 
 
-    $('.registerBtn').click(function() {
-       $("#cat_id").val($(this).attr('data-value'));
-    });
+        $('.registerBtn').click(function() {
+           $("#cat_id").val($(this).attr('data-value'));
+        });
+
+        
     
         $('.task_category').click(function() {
             $('#addNewAppModal').modal('show');
@@ -92,7 +94,69 @@ $(".dropdown").click(function() {
 
 // for plupload
 
+<<<<<<< HEAD
 
+=======
+var uploader = new plupload.Uploader({
+    runtimes : 'html5,flash,silverlight,html4',
+     
+    browse_button : 'pickfiles', // you can pass in id...
+    container: document.getElementById('container'), // ... or DOM Element itself
+     
+    url : "../plupload/upload.php ",
+ 
+    // Flash settings
+   
+    flash_swf_url : "../plupload/Moxie.swf ",
+ 
+    // Silverlight settings
+    
+    silverlight_xap_url : "../plupload/Moxie.xap ",
+     
+ 
+    init: {
+        PostInit: function() {
+            document.getElementById('filelist').innerHTML = '';
+ 
+            // document.getElementById('uploadfiles').onclick = function() {
+            //     uploader.start();
+            //     return false;
+            // };
+        },
+ 
+        FilesAdded: function(up, files) {
+            plupload.each(files, function(file) {
+                 $('#filelist').after('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <span class="glyphicon glyphicon-file"> </span>' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b><a href="#" id="' + file.id + '" class="removeFile"><span class="glyphicon glyphicon-remove-circle"></span></a></div></div>');
+                $('a#'+file.id).on('click',function() {
+                uploader.removeFile(file);
+                $('.'+file.id).hide();
+              });
+            });
+            uploader.start();
+        },
+ 
+        UploadProgress: function(up, file) {
+
+            $('#photo').val(file.name);
+            document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+        },
+
+        UploadComplete: function(){
+            //
+        },
+ 
+        Error: function(up, err) {
+            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+        }
+    }
+});
+
+uploader.init();
+
+$('#addNewAppModal').on('shown.bs.modal', function () {
+    uploader.refresh();
+});
+>>>>>>> 953ccb4140c9acdf06373ab8f05e2ea931d3b144
 //plupload end
 
 })(window.jQuery);

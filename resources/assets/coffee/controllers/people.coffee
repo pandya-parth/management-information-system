@@ -46,7 +46,6 @@ angular.module 'mis'
 						$scope.loading = false
 			else
 				PEOPLE.update($scope.people_array).success (data)->
-					console.log data
 					$scope.submitted = false
 					$scope.edit = false
 					$scope.people_array = {}
