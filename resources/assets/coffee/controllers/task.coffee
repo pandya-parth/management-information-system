@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-	.controller 'TasksCtrl', ($scope, task, $timeout)->
+	.controller 'TasksCtrl', ($scope, task, $timeout, $location)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
@@ -29,8 +29,9 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
+				$scope.task.category_id = angular.element('#cat_id').val()
+				$scope.task.project_id = $location.path().split("/")[3]
 				task.save($scope.task).success (data)->
-					console.log $scope.task
 					$scope.submitted = false
 					$scope.task = {}
 					angular.element('#addNewAppModal').modal('hide')

@@ -38,7 +38,7 @@
             <tbody >
               @foreach($taskCategories as $Category)
               <li>{!! $Category->name !!}</li>
-              <li>  <button id="#addNewAppModal"  data-id="{!! $Category->id !!}" class="btn btn-primary btn-cons task_category" data-toggle="modal" data-value="{!! $Category->id !!}"><i class="fa fa-plus"></i> Add Task</li>
+              <li>  <button target="#addNewAppModal"  data-id="{!! $Category->id !!}" class="btn btn-primary btn-cons task_category" data-toggle="modal" data-value="{!! $Category->id !!}"><i class="fa fa-plus"></i> Add Task</li>
               @endforeach
               
               <tr dir-paginate="task in tasks| orderBy:'-id' | filter:q | itemsPerPage: pageSize    " current-page="currentPage" ng-show="tasks.length != 0" >
@@ -79,8 +79,6 @@
           <h4 class="p-b-5"><h4>Add New Task</h4></h4>
         </div>
         <form name="Task" class='p-t-15' role='form' novalidate>
-          <input type="hidden" id='cat_id'>
-
           <div class="modal-body">
             <div class="panel panel-transparent ">
               <!-- Nav tabs -->
@@ -94,7 +92,7 @@
               <!-- Tab panes -->
               <div class="tab-content">
                 <div class="tab-pane slide-left active" id="slide1">
-                  <div class="row column-seperation">
+                  <div class=" row ">
                     <div class="col-md-12">
                       <div class="form-group form-group-default">
                         <label>Task Name</label>
@@ -103,7 +101,9 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row column-seperation">                                       
+                  <div class=" row ">
+                  <input type="hidden" name="project_id" id="pro_id" ng-model="task.project_id">
+                      <input type="hidden" name="category_id" id="cat_id" ng-model="task.category_id">                                      
                   </div>
                 </div>
               </div>
