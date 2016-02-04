@@ -71,9 +71,11 @@
 
 
 
-    $('.registerBtn').click(function() {
-       $("#cat_id").val($(this).attr('data-value'));
-    });
+        $('.registerBtn').click(function() {
+           $("#cat_id").val($(this).attr('data-value'));
+        });
+
+        
     
         $('.task_category').click(function() {
             $('#addNewAppModal').modal('show');

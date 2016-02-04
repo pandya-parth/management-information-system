@@ -78,6 +78,7 @@
           </button>
           <h4 class="p-b-5"><h4>Add New Task</h4></h4>
         </div>
+
         <form name="Task" class='p-t-15' role='form' novalidate>
           <div class="modal-body">
             <div class="panel panel-transparent ">
@@ -102,8 +103,8 @@
                     </div>
                   </div>
                   <div class=" row ">
-                  <input type="hidden" name="project_id" id="pro_id" ng-model="task.project_id">
-                      <input type="hidden" name="category_id" id="cat_id" ng-model="task.category_id">                                      
+                  <input type="text" name="project_id" id="project_id" value="{!! $id !!}" ng-model="task.project_id">
+                  <input type="text" name="category_id" id="cat_id" ng-model="task.category_id">                                      
                   </div>
                 </div>
               </div>

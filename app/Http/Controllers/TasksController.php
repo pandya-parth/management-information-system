@@ -20,13 +20,13 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $tasks=Task::all();
+    public function index($id)
+    { 
+        $tasks=Project::find($id);
         $projects=Project::all();
         $taskCategories=TaskCategory::all();
         $peoples=People::all();
-        return view('tasks/index',compact('tasks','projects','taskCategories','peoples'));
+        return view('tasks/index',compact('tasks','projects','taskCategories','peoples','id'));
     }
 
 
@@ -57,10 +57,11 @@ class TasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        $input= Input::all();
-        $tasks=Task::create($input);
+        $tasks = new Task;
+        $tasks->project_id = $id;
+        $tasks->name = Input::get('name');
         $tasks->save();
         return response()->json(['success'=>true]);
 

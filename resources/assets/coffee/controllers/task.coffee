@@ -31,7 +31,7 @@ angular.module 'mis'
 
 			if $scope.edit == false
 				$scope.task.category_id = angular.element('#cat_id').val()
-				$scope.task.project_id = $location.path().split("/")[3]
+				$scope.task.project_id = $location.id
 				task.save($scope.task).success (data)->
 					$scope.submitted = false
 					$scope.task = {}
