@@ -64,7 +64,7 @@ class PeoplesController extends Controller
 
             Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)  ], function($message) {
 
-                            $message->to('kajal@krishaweb.net');
+                            $message->to('baldev@krishaweb.net');
                             $message->subject('Thank You');
                         });
 
