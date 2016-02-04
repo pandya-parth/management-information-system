@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Project Category')
+@section('title','People')
 @section('content')
 <div ng-controller="PeopleCtrl">
     <div class= "content">
@@ -188,7 +188,7 @@
                                             </div>  
                                             </div>  
                                             </div>
-                                            <input type="hidden" name="photo" id="photo" ng-model = 'people_array.photo'>
+                                            <input type="text" name='photo' id="photo"  ng-modal='people_array.photo'>
                                     </div>
 
                                 </div>

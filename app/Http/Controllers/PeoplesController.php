@@ -53,29 +53,22 @@ class PeoplesController extends Controller
      */
     public function store(Request $request)
     {
-      
             $pass=str_random(8);
             $user = new User;
             $user->email = Input::get('email');
             $user->password = Hash::make($pass);
             $user->active = true;
             $user->save();
-            
-
             Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)  ], function($message) {
-
                             $message->to('nicolecross1579@gmail.com');
                             $message->subject('Thank You');
                         });
-
-
             $user_profile = new People;
             $user_profile->user_id = $user->id;
             $user_profile->fname = Input::get('fname');
             $user_profile->lname = Input::get('lname');
             $user_profile->mobile = Input::get('mobile');
             $user_profile->phone = Input::get('phone');
-            $user_profile->photo = Input::get('photo');
             $user_profile->dob = Input::get('dob');
             $user_profile->marital_status = Input::get('marital_status');
             $user_profile->gender = Input::get('gender');
@@ -93,6 +86,7 @@ class PeoplesController extends Controller
             $user_profile->linkedin = Input::get('linkedin');
             $user_profile->twitter = Input::get('twitter');
             $user_profile->website = Input::get('website');
+
             $user_profile->save();
        
 
