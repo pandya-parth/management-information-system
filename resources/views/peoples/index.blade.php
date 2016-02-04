@@ -74,8 +74,9 @@
                         </table>
                         
                             <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="peoples.length==0">
-                                <div class="alert alert-warning" role="alert">
-                                    No record found.
+                                <div style="text-align:center;">
+                                    <img src="{!! asset('img/noPeople.png') !!}" />
+                                    <p><h3>No match found</h3></p>
                                 </div>
                             </div>
                 </div>
@@ -95,7 +96,7 @@
                     </button>
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
-                <form name='people' class='p-t-15' role='form' novalidate enctype="multipart/form-data">
+                <form name='people' class='p-t-15' role='form' enctype="multipart/form-data" novalidate >
                 <div class="modal-body">
                     <ul class="nav nav-tabs nav-tabs-fillup">
                         <li class="active"><a data-toggle="tab" href="#home">Personal</a></li>
@@ -188,10 +189,13 @@
                                             </div>  
                                             </div>  
                                             </div>
-                                            <input type="text" name='photo' id="photo"  ng-modal='people_array.photo'>
+                                            <input type="hidden" name='photo' id="photo" value="{% people_array.photo %}"ng-modal='people_array.photo'>
                                     </div>
 
                                 </div>
+
+
+
                                 <div class="col-md-6">
                                     <div class="form-group form-group-default">
                                         <label>Preview</label>

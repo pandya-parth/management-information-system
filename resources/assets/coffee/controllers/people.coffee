@@ -29,6 +29,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
+				console.log $scope.people_array
 				PEOPLE.save($scope.people_array).success (data)->
 					$scope.submitted = false
 					$scope.people_array = {}
@@ -45,7 +46,6 @@ angular.module 'mis'
 						$scope.loading = false
 			else
 				PEOPLE.update($scope.people_array).success (data)->
-					console.log data
 					$scope.submitted = false
 					$scope.edit = false
 					$scope.people_array = {}

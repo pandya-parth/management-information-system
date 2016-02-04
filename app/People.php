@@ -25,7 +25,8 @@ public function setPhotoAttribute($file) {
 		if ($file && file_exists($source_path)) 
 		{
 			$d=upload_move($file,'blog');
-			Image::make($source_path)->resize(320, 240)->save($source_path);
+			$img=Image::make($source_path)->resize(320, 240)->save($source_path);
+			
 			upload_move($file,'blog','medium');
 			Image::make($source_path)->resize(175, 130)->save($source_path);
 			upload_move($file,'blog','thumb');

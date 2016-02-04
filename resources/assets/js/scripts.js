@@ -94,6 +94,9 @@ $(".dropdown").click(function() {
 
 // for plupload
 
+<<<<<<< HEAD
+
+=======
 var uploader = new plupload.Uploader({
     runtimes : 'html5,flash,silverlight,html4',
      
@@ -133,7 +136,7 @@ var uploader = new plupload.Uploader({
         },
  
         UploadProgress: function(up, file) {
-            
+
             $('#photo').val(file.name);
             document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
         },
@@ -149,9 +152,11 @@ var uploader = new plupload.Uploader({
 });
 
 uploader.init();
+
 $('#addNewAppModal').on('shown.bs.modal', function () {
     uploader.refresh();
 });
+>>>>>>> 953ccb4140c9acdf06373ab8f05e2ea931d3b144
 //plupload end
 
 })(window.jQuery);

@@ -5,6 +5,7 @@ angular.module 'mis'
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+		alert $location.path().split('/')[2]||"Undefined"
 		task.get().success (data)->
 			$scope.tasks = data
 			$scope.loading = false
