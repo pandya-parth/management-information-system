@@ -68,6 +68,7 @@
       <!-- END CONTAINER FLUID -->
     </div>
     <!-- MODAL STICK UP  -->
+    
     <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog"
     aria-labelledby="addNewAppModal" aria-hidden="true">
     <div class="modal-dialog">
@@ -103,7 +104,7 @@
                     </div>
                   </div>
                   <div class=" row ">
-                  <input type="text" name="project_id" id="project_id" value="{!! $id !!}" ng-model="task.project_id">
+                  <input type="text" name="project_id" id="pro_id" ng-value="{!! $id !!}" ng-model="task.project_id">
                   <input type="text" name="category_id" id="cat_id" ng-model="task.category_id">                                      
                   </div>
                 </div>

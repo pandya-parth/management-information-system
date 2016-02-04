@@ -9,6 +9,8 @@ angular.module 'mis'
 			$scope.tasks = data
 			$scope.loading = false
 
+		
+
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
@@ -18,6 +20,8 @@ angular.module 'mis'
 				
 			), 1000
 			return
+
+
 
 		$scope.submit = (form)->
 			$scope.loading = true
@@ -30,7 +34,7 @@ angular.module 'mis'
 
 			if $scope.edit == false
 				$scope.task.category_id = angular.element('#cat_id').val()
-				$scope.task.project_id = $location.id
+				$scope.task.project_id = $location.path().split('/')[2]
 				task.save($scope.task).success (data)->
 					$scope.submitted = false
 					$scope.task = {}
