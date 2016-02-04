@@ -38,6 +38,7 @@ class CreateUserProfileTable extends Migration
             $table->string('skype')->nullable();
             $table->string('linkedin')->nullable();
             $table->string('twitter')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

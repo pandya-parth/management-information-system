@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-	.controller 'PeopleCtrl', ($scope, $location, PEOPLE, $timeout)->
+	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5

@@ -52,13 +52,10 @@ if (!file_exists($targetDir)) {
 // Get a file name
 if (isset($_REQUEST["name"])) {
 	$fileName = $_REQUEST["name"];
-
 } elseif (!empty($_FILES)) {
 	$fileName = $_FILES["file"]["name"];
-
 } else {
 	$fileName = uniqid("file_");
-	//$fileName = preg_replace('/[^\w\._]+/', '', $fileName);
 }
 
 $filePath = $targetDir . DIRECTORY_SEPARATOR . $fileName;

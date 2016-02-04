@@ -7,11 +7,7 @@
         <div class="container-fluid container-fixed-lg">
             <div class="inner">
                 <!-- START BREADCRUMB -->
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="{!! url('companies') !!}">Task Categories <span class="sr-only">(current)</span></a></li>
-                    <li><a href="{!! url('tasks') !!}">Task</a></li>
-                    <li><a href="{!! url('milestones') !!}">Milestone</a></li>
-                </ul>
+                <div class="breadcrumb"></div>
                 <div class="clearfix"></div>
             </div>
             <!-- START PANEL -->

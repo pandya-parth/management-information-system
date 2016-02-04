@@ -18,7 +18,11 @@
 
         $('pgn-warpper').css('display:none');
 
-       
+       $('.task_category').click(function(){
+        
+                var a = $(this).data('id');
+                $('#cat_id').val(a);
+            });
 
         $(".list-view-wrapper").scrollbar();
 
@@ -127,7 +131,7 @@ var uploader = new plupload.Uploader({
         },
  
         UploadProgress: function(up, file) {
-            console.log(file);
+
             $('#photo').val(file.name);
             document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
         },
@@ -141,11 +145,12 @@ var uploader = new plupload.Uploader({
         }
     }
 });
+
 uploader.init();
 
 $('#addNewAppModal').on('shown.bs.modal', function () {
     uploader.refresh();
-})
+});
 //plupload end
 
 })(window.jQuery);
