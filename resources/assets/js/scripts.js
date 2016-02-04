@@ -127,7 +127,7 @@ var uploader = new plupload.Uploader({
         },
  
         UploadProgress: function(up, file) {
-            console.log(file.name);
+            
             $('#photo').val(file.name);
             document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
         },
@@ -145,7 +145,7 @@ var uploader = new plupload.Uploader({
 uploader.init();
 $('#addNewAppModal').on('shown.bs.modal', function () {
     uploader.refresh();
-})
+});
 //plupload end
 
 })(window.jQuery);
