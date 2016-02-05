@@ -7,7 +7,7 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $('#birth-date,#joining-date,#start-date,#end-date').datepicker({
+        $('#birth-date,#joining-date,#start-date,#end-date,#task-start-date,#due-date').datepicker({
             autoclose: true
         });
 
@@ -94,6 +94,7 @@ $(".dropdown").click(function() {
 $('#addNewAppModal').on('shown.bs.modal', function () {
     uploader.refresh();
 });
+
 //plupload end
 
 })(window.jQuery);
