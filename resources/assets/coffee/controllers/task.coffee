@@ -1,15 +1,15 @@
 angular.module 'mis'
 
-	.controller 'TasksCtrl', ($scope, task, $timeout, $location)->
+	.controller 'TasksCtrl', ($scope, task, $timeout, $window)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+		currentUrl = $window.location.href
+		pId = currentUrl.split('/')[4]||"Undefined"
 		task.get().success (data)->
 			$scope.tasks = data
 			$scope.loading = false
-
-		
 
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
@@ -20,11 +20,6 @@ angular.module 'mis'
 				
 			), 1000
 			return
-
-		$scope.addItem = (object) ->
-  			$scope.filesToUpload.push object
-  			return
-
 		$scope.submit = (form)->
 			$scope.loading = true
 			$scope.submitted = true
@@ -36,7 +31,7 @@ angular.module 'mis'
 
 			if $scope.edit == false
 				$scope.task.category_id = angular.element('#cat_id').val()
-				$scope.task.project_id = $location.path().split('/')[2]
+				$scope.task.project_id = pId
 				task.save($scope.task).success (data)->
 					$scope.submitted = false
 					$scope.task = {}
