@@ -14,8 +14,7 @@
             <div class="panel panel-transparent">
                 <div class="panel-heading">
                     <div class="panel-title">Project Listing
-                        <!-- {!! $projects !!} -->
-                        <!-- {!! $users !!} --> 
+                        
 
                     </div>
                     <div class="pull-right">

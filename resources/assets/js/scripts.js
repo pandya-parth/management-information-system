@@ -7,7 +7,7 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $('#birth-date,#joining-date,#start-date,#end-date').datepicker({
+        $('#birth-date,#joining-date,#start-date,#end-date,#task-start-date,#due-date').datepicker({
             autoclose: true
         });
 
@@ -94,9 +94,6 @@ $(".dropdown").click(function() {
 
 // for plupload
 
-<<<<<<< HEAD
-
-=======
 var uploader = new plupload.Uploader({
     runtimes : 'html5,flash,silverlight,html4',
      
@@ -156,7 +153,7 @@ uploader.init();
 $('#addNewAppModal').on('shown.bs.modal', function () {
     uploader.refresh();
 });
->>>>>>> 953ccb4140c9acdf06373ab8f05e2ea931d3b144
+
 //plupload end
 
 })(window.jQuery);
