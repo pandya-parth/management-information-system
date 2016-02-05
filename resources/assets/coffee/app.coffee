@@ -2,6 +2,5 @@ angular.module 'mis', [
 		'angularUtils.directives.dirPagination', 'ui.bootstrap', 'cgPrompt'	
 	]
 
-	.config (paginationTemplateProvider, $locationProvider)->
+	.config (paginationTemplateProvider)->
 		paginationTemplateProvider.setPath('../html/dirPagination.tpl.html')
-		$locationProvider.html5Mode(true)
