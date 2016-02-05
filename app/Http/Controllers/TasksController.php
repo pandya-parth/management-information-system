@@ -57,14 +57,14 @@ class TasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$id)
+    public function store(Request $request)
     {
-        $tasks = new Task;
-        $tasks->project_id = $id;
-        $tasks->name = Input::get('name');
+
+        $input= Input::all();
+        $tasks=Task::create($input);
         $tasks->save();
         return response()->json(['success'=>true]);
-
+        
     }
 
     /**

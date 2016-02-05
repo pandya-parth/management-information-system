@@ -96,7 +96,7 @@
                     </button>
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
-                <form name='people' class='p-t-15' role='form' novalidate enctype="multipart/form-data">
+                <form name='people' class='p-t-15' role='form' enctype="multipart/form-data" novalidate >
                 <div class="modal-body">
                     <ul class="nav nav-tabs nav-tabs-fillup">
                         <li class="active"><a data-toggle="tab" href="#home">Personal</a></li>
@@ -189,7 +189,7 @@
                                             </div>  
                                             </div>  
                                             </div>
-                                            <input type="text" name='photo' id="photo"  ng-modal='people_array.photo'>
+                                            <input type="hidden" name='photo' id="photo" value="{% people_array.photo %}"ng-modal='people_array.photo'>
                                     </div>
 
                                 </div>
