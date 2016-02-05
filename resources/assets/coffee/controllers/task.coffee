@@ -24,7 +24,6 @@ angular.module 'mis'
 				
 			), 1000
 			return
-
 		$scope.submit = (form)->
 			$scope.loading = true
 			$scope.submitted = true
