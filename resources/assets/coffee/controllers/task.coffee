@@ -22,7 +22,9 @@ angular.module 'mis'
 			), 1000
 			return
 
-
+		$scope.addItem = (object) ->
+  			$scope.filesToUpload.push object
+  			return
 
 		$scope.submit = (form)->
 			$scope.loading = true
