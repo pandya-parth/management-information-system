@@ -11,6 +11,10 @@ angular.module 'mis'
 			$scope.tasks = data
 			$scope.loading = false
 
+		task.getCat().success (data)->
+			$scope.taskcategories = data
+			$scope.loading = false
+
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
@@ -20,7 +24,6 @@ angular.module 'mis'
 				
 			), 1000
 			return
-
 		$scope.submit = (form)->
 			$scope.loading = true
 			$scope.submitted = true

@@ -5,6 +5,9 @@ angular.module 'mis'
 			get:->
 				$http.get '/api/tasks'
 
+			getCat:->
+				$http.get '/api/task-categories'
+
 			save: (formData)->
 				$http
 					method: 'POST'

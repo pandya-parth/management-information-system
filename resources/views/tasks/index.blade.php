@@ -33,10 +33,10 @@
                 </tr>
               </thead>
               <tbody >
-                @foreach($taskCategories as $Category)
-                  <li>{!! $Category->name !!}</li>
-                  <li>  <button target="#addNewAppModal"  data-id="{!! $Category->id !!}" class="btn btn-primary btn-cons task_category" data-toggle="modal" data-value="{!! $Category->id !!}"><i class="fa fa-plus"></i> Add Task</li>
-                @endforeach
+                <div ng-repeat='task_cat in taskcategories'>
+                  <li>{% task_cat.name %}</li>
+                  <li><button target="#appNewAppModal" data-id="{% $task_cat->id %}" class="btn btn-primary btn-cons task_category" date-toggle="modal" data-value-"{% $task_cat->id %}"><i class="fa fa-plus"></i> Add Task</button></li>
+                </div>
                 <tr dir-paginate="task in tasks| orderBy:'-id' | filter:q | itemsPerPage: pageSize    " current-page="currentPage" ng-show="tasks.length != 0" >
                   <td class="v-align-middle">
                     <p  ng-cloak>{% task.id %}</p>
