@@ -210,17 +210,18 @@
                                                             <a id="pickfiles" href="javascript:;">Upload Photo</a>
                                                         </div>
                                                     </div>
-                                                </div>
-
-                                                <div id="filelist">
+                                                   <div id="filelist">
                                                     <div ng-repeat="file in filesToUpload">{%file.name%} ({%file.size%})
                                                         <b>{%file.percent%}</b></div>
                                                 </div>
-                                                <br/>
-                                                <a id="pickfiles" href='#'>[Select files]</a>
+                                               
+                                                </div>
+
+                                           
+                                               
 
                                                 <input type="hidden" name='photo' id="photo"
-                                                       value="{% people_array.photo %}" ng-modal='people_array.photo'>
+                                                        ng-modal='people_array.photo'>
                                             </div>
 
                                         </div>

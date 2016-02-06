@@ -91,9 +91,6 @@ $(".dropdown").click(function() {
 });
 
 
-$('#addNewAppModal').on('shown.bs.modal', function () {
-    uploader.refresh();
-});
 
 //plupload end
 
