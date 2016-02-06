@@ -41,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 // Settings
 $targetDir = "../tmp";
 //$targetDir = 'uploads';
-// $cleanupTargetDir = true; // Remove old files
-// $maxFileAge = 5 * 3600; // Temp file age in seconds
+$cleanupTargetDir = true; // Remove old files
+$maxFileAge = 5 * 3600; // Temp file age in seconds
 
 
 // Create target dir
