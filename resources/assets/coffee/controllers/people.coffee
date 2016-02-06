@@ -12,12 +12,17 @@ angular.module 'mis'
 				url : "../plupload/upload.php "
 				flash_swf_url : "../plupload/Moxie.swf "
 				silverlight_xap_url : "../plupload/Moxie.xap "
+				multi_selection: false,
 				init:
 					PostInit: ->
 						angular.element('#filelist').innerHTML = ''
 					FilesAdded: (up, files)->
 						angular.forEach(files, (file)->
-								angular.element('#filelist').after('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <span class="glyphicon glyphicon-file"> </span>' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b><a href="#" id="' + file.id + '" class="removeFile"><span class="glyphicon glyphicon-remove-circle"></span></a></div></div>')
+								angular.element('#preview').html('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <img src=tmp/' + file.name + ' class="img-thumbnail img-responsive img-circle" style="width:100px;height:100px;"> (' + plupload.formatSize(file.size) + ') <b></b><a href="javascript:;" id="' + file.id + '" class="removeFile" ng-click="shownoimage()">Remove</a></div></div>')
+								angular.element('a#' + file.id).on 'click', ->
+								   up.removeFile file
+								   angular.element('.' + file.id).hide()
+								   return
 							)
 						uploader.start()
 					UploadProgress: (up, file)->
@@ -30,10 +35,16 @@ angular.module 'mis'
 		angular.element('#addNewAppModal').on('shown.bs.modal', ->
 				uploader.refresh()
 			)
+		
+		
 
 		PEOPLE.get().success (data)->
 			$scope.peoples = data
 			$scope.loading = false
+		
+		PEOPLE.getUser().success (data)->
+			$scope.user = data
+			
 
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
@@ -41,6 +52,7 @@ angular.module 'mis'
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.people_array = {}
+				angular.element('#filelist').hide('');
 				
 			), 1000
 			return
@@ -55,7 +67,6 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
-				$scope.people_array.photo= $scope.photo
 				PEOPLE.save($scope.people_array).success (data)->
 					$scope.submitted = false
 					$scope.people_array = {}

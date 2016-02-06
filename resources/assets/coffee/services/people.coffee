@@ -5,6 +5,9 @@ angular.module 'mis'
 			get: ->
 				$http.get '/api/people'
 
+			getUser:->
+				$http.get '/api/user'
+
 			save: (formData)->
 				$http
 					method: 'POST'
