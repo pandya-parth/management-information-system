@@ -55,6 +55,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
+				$scope.people_array.photo= $scope.photo
 				PEOPLE.save($scope.people_array).success (data)->
 					$scope.submitted = false
 					$scope.people_array = {}

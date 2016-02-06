@@ -29,6 +29,7 @@ public function setPhotoAttribute($file) {
 			upload_move($file,'people','medium');
 			Image::make($source_path)->resize(175, 130)->save($source_path);
 			upload_move($file,'people','thumb');
+
 			@unlink($source_path);
 			$this->deleteFile();
 		}
@@ -53,10 +54,7 @@ public function setPhotoAttribute($file) {
 		{
 			upload_delete($this->photo,'people',array('original','thumb','medium'));
 		}
-
-
 }
-
 Event::listen('eloquent.deleting:People', function($model) {
 		$model->deleteFile();
 	});
