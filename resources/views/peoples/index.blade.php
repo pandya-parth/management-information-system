@@ -190,6 +190,69 @@
                                             </div>  
                                             </div>
                                             <input type="hidden" name='photo' id="photo" value="{% people_array.photo %}"ng-modal='people_array.photo'>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Gender</label>
+                                            <div class="radio radio-success">
+                                                <input type="radio" checked="checked" value="male"
+                                                       ng-model="people_array.gender" name="gender" id="yes">
+                                                <label for="yes">Male</label>
+                                                <input type="radio" value="female" ng-model="people_array.gender"
+                                                       name="gender" id="no">
+                                                <label for="no">Female</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group form-group-default form-group-default-select2">
+                                                <label>Marital Status</label>
+
+                                                <select class="full-width" data-placeholder="Select Country"
+                                                        data-init-plugin="select2">
+                                                    @foreach($marital_statuses as $marital_status)
+                                                        <option value="{!! $marital_status !!}">{!! $marital_status !!}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <div id="filelist">Upload photos from here..</div>
+                                                <div id="progressbar"></div>
+                                                <br/>
+                                                <div class="form-group">
+                                                    <div class="col-lg-6 clearfix">
+                                                        <div id="container">
+                                                            <a id="pickfiles" href="javascript:;">Upload Photo</a>
+                                                        </div>
+                                                    </div>
+<<<<<<< HEAD
+                                                </div>
+=======
+                                                   <div id="filelist">
+                                                    <div ng-repeat="file in filesToUpload">{%file.name%} ({%file.size%})
+                                                        <b>{%file.percent%}</b></div>
+                                                </div>
+                                               
+                                                </div>
+
+                                           
+                                               
+>>>>>>> 6f50738108943ba312528d953d05cf5154b1f50d
+
+                                                <input type="hidden" name='photo' id="photo"
+                                                        ng-modal='people_array.photo'>
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <div class="form-group form-group-default">
+                                                <label>Preview</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                        </div>
+>>>>>>> 471514c6955773175fb2790d9ae5fac4aed7db9b
                                     </div>
 
                                 </div>
