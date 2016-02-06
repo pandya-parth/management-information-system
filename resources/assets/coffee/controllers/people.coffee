@@ -44,32 +44,6 @@ angular.module 'mis'
 				
 			), 1000
 			return
-		$scope.addItem = (object) ->
-  			$scope.filesToUpload.push object
-  			return
-  	$scope.uploader = new (plupload.Uploader)(
-		  runtimes: 'html5,flash,browserplus,gears'
-		  browse_button: 'pickfiles'
-		  container: 'container'
-		  max_file_size: '10mb'
-		  url: 'upload.php'
-		  flash_swf_url: '/plupload/plupload.flash.swf')
-
-		$scope.uploader.init()
-
-		$scope.uploader.bind 'FilesAdded', (up, files) ->
-		  $scope.filesToUpload = []
-
-		  $.each files, (i, file) ->
-		  	$scope.photo = file.name
-
-		    # $scope.addItem
-		    #   name: file.name
-		    # return
-		  
-		  up.refresh()
-		  # Reposition Flash/Silverlight
-		  return
 
 		$scope.submit = (form)->
 			$scope.loading = true
@@ -81,7 +55,6 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
-				$scope.people_array.photo= $scope.photo
 				PEOPLE.save($scope.people_array).success (data)->
 					$scope.submitted = false
 					$scope.people_array = {}
