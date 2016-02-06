@@ -68,7 +68,7 @@
                                 <td class="v-align-middle">
                                     <p>
                                         <a ng-click="editPeople(people.id)">Edit</a>
-                                        <a ng-click="deletePeople(people.id)">Delete</a>
+                                        <a ng-click="deletePeople(people.user_id)">Delete</a>
                                     </p>
                                 </td>
                             </tr>
@@ -210,17 +210,22 @@
                                                             <a id="pickfiles" href="javascript:;">Upload Photo</a>
                                                         </div>
                                                     </div>
+<<<<<<< HEAD
                                                 </div>
-
-                                                <div id="filelist">
+=======
+                                                   <div id="filelist">
                                                     <div ng-repeat="file in filesToUpload">{%file.name%} ({%file.size%})
                                                         <b>{%file.percent%}</b></div>
                                                 </div>
-                                                <br/>
-                                                <a id="pickfiles" href='#'>[Select files]</a>
+                                               
+                                                </div>
+
+                                           
+                                               
+>>>>>>> 6f50738108943ba312528d953d05cf5154b1f50d
 
                                                 <input type="hidden" name='photo' id="photo"
-                                                       value="{% people_array.photo %}" ng-modal='people_array.photo'>
+                                                        ng-modal='people_array.photo'>
                                             </div>
 
                                         </div>

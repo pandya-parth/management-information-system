@@ -5,6 +5,32 @@ angular.module 'mis'
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+
+		uploader = new (plupload.Uploader)(
+				runtimes : 'html5,flash,silverlight,html4'
+				browse_button : 'pickfiles'
+				url : "../plupload/upload.php "
+				flash_swf_url : "../plupload/Moxie.swf "
+				silverlight_xap_url : "../plupload/Moxie.xap "
+				init:
+					PostInit: ->
+						angular.element('#filelist').innerHTML = ''
+					FilesAdded: (up, files)->
+						angular.forEach(files, (file)->
+								angular.element('#filelist').after('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <span class="glyphicon glyphicon-file"> </span>' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b><a href="#" id="' + file.id + '" class="removeFile"><span class="glyphicon glyphicon-remove-circle"></span></a></div></div>')
+							)
+						uploader.start()
+					UploadProgress: (up, file)->
+						$scope.people_array.photo = file.name
+					Error: (up, err)->
+						alert "Error #" + err.code + ": " + err.message
+			)
+		uploader.init()
+
+		angular.element('#addNewAppModal').on('shown.bs.modal', ->
+				uploader.refresh()
+			)
+
 		PEOPLE.get().success (data)->
 			$scope.peoples = data
 			$scope.loading = false
@@ -18,30 +44,6 @@ angular.module 'mis'
 				
 			), 1000
 			return
-		$scope.addItem = (object) ->
-  			$scope.filesToUpload.push object
-  			return
-  	$scope.uploader = new (plupload.Uploader)(
-		  runtimes: 'html5,flash,browserplus,gears'
-		  browse_button: 'pickfiles'
-		  container: 'container'
-		  max_file_size: '10mb'
-		  url: 'upload.php'
-		  flash_swf_url: '/plupload/js/plupload.flash.swf')
-
-		$scope.uploader.init()
-
-		$scope.uploader.bind 'FilesAdded', (up, files) ->
-		  $scope.filesToUpload = []
-		  $.each files, (i, file) ->
-		    $scope.addItem
-		      id: file.id
-		      name: file.name
-		      size: plupload.formatSize(file.size)
-		    return
-		  up.refresh()
-		  # Reposition Flash/Silverlight
-		  return
 
 		$scope.submit = (form)->
 			$scope.loading = true
@@ -53,6 +55,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
+				$scope.people_array.photo= $scope.photo
 				PEOPLE.save($scope.people_array).success (data)->
 					$scope.submitted = false
 					$scope.people_array = {}
