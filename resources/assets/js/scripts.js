@@ -92,64 +92,64 @@ $(".dropdown").click(function() {
 
 // for plupload
 
-var uploader = new plupload.Uploader({
-    runtimes : 'html5,flash,silverlight,html4',
+// var uploader = new plupload.Uploader({
+//     runtimes : 'html5,flash,silverlight,html4',
      
-    browse_button : 'pickfiles', // you can pass in id...
-    container: document.getElementById('container'), // ... or DOM Element itself
+//     browse_button : 'pickfiles', // you can pass in id...
+//     container: document.getElementById('container'), // ... or DOM Element itself
      
-    url : "../plupload/upload.php ",
+//     url : "../plupload/upload.php ",
  
-    // Flash settings
+//     // Flash settings
    
-    flash_swf_url : "../plupload/Moxie.swf ",
+//     flash_swf_url : "../plupload/Moxie.swf ",
  
-    // Silverlight settings
+//     // Silverlight settings
     
-    silverlight_xap_url : "../plupload/Moxie.xap ",
+//     silverlight_xap_url : "../plupload/Moxie.xap ",
      
  
-    init: {
-        PostInit: function() {
-            document.getElementById('filelist').innerHTML = '';
+//     init: {
+//         PostInit: function() {
+//             document.getElementById('filelist').innerHTML = '';
  
-            // document.getElementById('uploadfiles').onclick = function() {
-            //     uploader.start();
-            //     return false;
-            // };
-        },
+//             // document.getElementById('uploadfiles').onclick = function() {
+//             //     uploader.start();
+//             //     return false;
+//             // };
+//         },
  
-        FilesAdded: function(up, files) {
-            plupload.each(files, function(file) {
-                 $('#filelist').after('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <span class="glyphicon glyphicon-file"> </span>' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b><a href="#" id="' + file.id + '" class="removeFile"><span class="glyphicon glyphicon-remove-circle"></span></a></div></div>');
-                $('a#'+file.id).on('click',function() {
-                uploader.removeFile(file);
-                $('.'+file.id).hide();
-              });
-            });
-            uploader.start();
-        },
+//         FilesAdded: function(up, files) {
+//             plupload.each(files, function(file) {
+//                  $('#filelist').after('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <span class="glyphicon glyphicon-file"> </span>' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b><a href="#" id="' + file.id + '" class="removeFile"><span class="glyphicon glyphicon-remove-circle"></span></a></div></div>');
+//                 $('a#'+file.id).on('click',function() {
+//                 uploader.removeFile(file);
+//                 $('.'+file.id).hide();
+//               });
+//             });
+//             uploader.start();
+//         },
  
-        UploadProgress: function(up, file) {
+//         UploadProgress: function(up, file) {
             
-            $('#photo').val(file.name);
-            document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
-        },
+//             $('#photo').val(file.name);
+//             document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+//         },
 
-        UploadComplete: function(){
-            //
-        },
+//         UploadComplete: function(){
+//             //
+//         },
  
-        Error: function(up, err) {
-            document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
-        }
-    }
-});
+//         Error: function(up, err) {
+//             document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+//         }
+//     }
+// });
 
-uploader.init();
-$('#addNewAppModal').on('shown.bs.modal', function () {
-    uploader.refresh();
-});
+// uploader.init();
+// $('#addNewAppModal').on('shown.bs.modal', function () {
+//     uploader.refresh();
+// });
 
 //plupload end
 

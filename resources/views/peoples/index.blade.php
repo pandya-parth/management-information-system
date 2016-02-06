@@ -64,7 +64,7 @@
                                 <td class="v-align-middle">
                                     <p>
                                         <a ng-click="editPeople(people.id)">Edit</a>
-                                        <a ng-click="deletePeople(people.id)">Delete</a>
+                                        <a ng-click="deletePeople(people.user_id)">Delete</a>
                                     </p>
                                 </td>
                             </tr>

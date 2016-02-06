@@ -24,12 +24,11 @@ public function setPhotoAttribute($file) {
 		
 		if ($file && file_exists($source_path)) 
 		{
-			$d=upload_move($file,'blog');
-			$img=Image::make($source_path)->resize(320, 240)->save($source_path);
-			
-			upload_move($file,'blog','medium');
+			upload_move($file,'people');
+			Image::make($source_path)->resize(320, 240)->save($source_path);
+			upload_move($file,'people','medium');
 			Image::make($source_path)->resize(175, 130)->save($source_path);
-			upload_move($file,'blog','thumb');
+			upload_move($file,'people','thumb');
 			@unlink($source_path);
 			$this->deleteFile();
 		}
@@ -44,20 +43,20 @@ public function setPhotoAttribute($file) {
 		public function photo_url($type='original') 
 		{
 			if (!empty($this->photo))
-				return upload_url($this->photo,'blog',$type);
+				return upload_url($this->photo,'people',$type);
 			elseif (!empty($this->photo) && file_exists(tmp_path($this->photo)))
-				return tmp_url($this->$photo);
+				return tmp_url($this->photo);
 			else
 				return asset('img/advertising.jpg');
 		}
 		public function deleteFile() 
 		{
-			upload_delete($this->photo,'blog',array('original','thumb','medium'));
+			upload_delete($this->photo,'people',array('original','thumb','medium'));
 		}
 
 
 }
 
-Event::listen('eloquent.deleting:Blog', function($model) {
+Event::listen('eloquent.deleting:People', function($model) {
 		$model->deleteFile();
 	});

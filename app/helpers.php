@@ -192,8 +192,7 @@ function upload_tmp_url($file) {
 }
 function upload_path($file, $model, $variation=false, $relative=null) {
   $use_aws = is_null($relative)? Config::get('aws.use',false) : $relative;
-  $folder = "/uploads/". ( empty($variation) || $variation =='original' ? $model : "{$model}-{$variation}" );
-  dd($folder); 
+  $folder = "/uploads/". ( empty($variation) || $variation =='original' ? $model : "{$model}-{$variation}" ); 
   if (!$use_aws && !is_array($variation) && !file_exists(public_path().$folder)) {
       umask(0);
       @mkdir(public_path().$folder, 0777, true);

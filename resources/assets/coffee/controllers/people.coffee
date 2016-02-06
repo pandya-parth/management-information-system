@@ -5,6 +5,32 @@ angular.module 'mis'
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+
+		uploader = new (plupload.Uploader)(
+				runtimes : 'html5,flash,silverlight,html4'
+				browse_button : 'pickfiles'
+				url : "../plupload/upload.php "
+				flash_swf_url : "../plupload/Moxie.swf "
+				silverlight_xap_url : "../plupload/Moxie.xap "
+				init:
+					PostInit: ->
+						angular.element('#filelist').innerHTML = ''
+					FilesAdded: (up, files)->
+						angular.forEach(files, (file)->
+								angular.element('#filelist').after('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <span class="glyphicon glyphicon-file"> </span>' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b><a href="#" id="' + file.id + '" class="removeFile"><span class="glyphicon glyphicon-remove-circle"></span></a></div></div>')
+							)
+						uploader.start()
+					UploadProgress: (up, file)->
+						$scope.people_array.photo = file.name
+					Error: (up, err)->
+						alert "Error #" + err.code + ": " + err.message
+			)
+		uploader.init()
+
+		angular.element('#addNewAppModal').on('shown.bs.modal', ->
+				uploader.refresh()
+			)
+
 		PEOPLE.get().success (data)->
 			$scope.peoples = data
 			$scope.loading = false
