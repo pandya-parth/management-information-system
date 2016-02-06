@@ -24,14 +24,14 @@ public function setPhotoAttribute($file) {
 		
 		if ($file && file_exists($source_path)) 
 		{
-
 			upload_move($file,'people');
 			Image::make($source_path)->resize(320, 240)->save($source_path);
 			upload_move($file,'people','medium');
 			Image::make($source_path)->resize(175, 130)->save($source_path);
 			upload_move($file,'people','thumb');
-			//@unlink($source_path);
-			//$this->deleteFile();
+
+			@unlink($source_path);
+			$this->deleteFile();
 		}
 		$this->attributes['photo'] = $file;
 			if ($file == '') 
@@ -46,7 +46,7 @@ public function setPhotoAttribute($file) {
 			if (!empty($this->photo))
 				return upload_url($this->photo,'people',$type);
 			elseif (!empty($this->photo) && file_exists(tmp_path($this->photo)))
-				return tmp_url($this->$photo);
+				return tmp_url($this->photo);
 			else
 				return asset('img/advertising.jpg');
 		}
@@ -54,10 +54,7 @@ public function setPhotoAttribute($file) {
 		{
 			upload_delete($this->photo,'people',array('original','thumb','medium'));
 		}
-
-
 }
-
-Event::listen('eloquent.deleting:people', function($model) {
+Event::listen('eloquent.deleting:People', function($model) {
 		$model->deleteFile();
 	});

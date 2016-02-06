@@ -92,7 +92,5 @@ $(".dropdown").click(function() {
 
 
 
-//plupload end
-
 })(window.jQuery);
 

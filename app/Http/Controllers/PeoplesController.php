@@ -148,7 +148,7 @@ class PeoplesController extends Controller
      */
     public function destroy($id)
     {
-        $people = People::find($id);
+        $people = User::find($id);
         $people->delete();    
 
         return response()->json(['success'=>true]);
