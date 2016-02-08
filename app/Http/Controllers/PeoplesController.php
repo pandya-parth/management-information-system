@@ -34,7 +34,7 @@ class PeoplesController extends Controller
        $peoples = People::orderBy('id','DESC')->get();
        return response()->json($peoples);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
