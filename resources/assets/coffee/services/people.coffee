@@ -5,15 +5,13 @@ angular.module 'mis'
 			get: ->
 				$http.get '/api/people'
 
-			getUser:->
-				$http.get '/api/user'
-
 			save: (formData)->
 				$http
 					method: 'POST'
 					url: '/people'
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 					data: $.param(formData)
+
 
 			edit: (id)->
 				$http.get '/api/people/'+id

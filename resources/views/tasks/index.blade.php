@@ -43,6 +43,7 @@
                         </thead>
                         <tbody >
 
+
                             <tr ng-repeat="tsk in tasks| orderBy:'-id'  " ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0" >
                               <div >
                               
@@ -51,6 +52,7 @@
 
                                 </td>
                                 <td class="v-align-middle">
+
                                  <p ng-cloak>{% task_cat.id  %}</p>
                                     <p ng-cloak>{% tsk.name ? tsk.name : '-' %}</p>
                                 </td>

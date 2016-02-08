@@ -101,6 +101,8 @@
                         <ul class="nav nav-tabs nav-tabs-fillup">
                             <li class="active"><a data-toggle="tab" href="#home">Personal</a></li>
                             <li><a data-toggle="tab" href="#menu1">Address</a></li>
+                            <li><a data-toggle="tab" href="#menu4">Education</a></li>
+                            <li><a data-toggle="tab" href="#menu5">Experence</a></li>
                             <li><a data-toggle="tab" href="#menu2">Employment</a></li>
                             <li><a data-toggle="tab" href="#menu3">Social</a></li>
                         </ul>
@@ -240,6 +242,83 @@
                                 </div>
                             </div>
                         </div>
+                        <div id="menu4" class="tab-pane slide-left">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="form-group form-group-default">
+                                        <label>Qualification</label>
+                                        <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-model='people_array.qualification' >
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group form-group-default">
+                                        <label>Collage</label>
+                                        <input type="text" name="collage" class="form-control" placeholder="Collage" ng-model='people_array.collage' >
+                                        
+                                    </div>
+                                </div>
+                                     <div class="col-sm-3">
+                                    <div class="form-group form-group-default">
+                                        <label>University</label>
+                                        <input type="text" name="country" class="form-control" placeholder="University" ng-model='people_array.university' >
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="form-group form-group-default">
+                                        <label>Passing Year</label>
+                                        <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-model='people_array.passing_year' >
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <div class="form-group form-group-default">
+                                        <label>%/Grd</label>
+                                        <input type="text" name="percentage" class="form-control" placeholder="% or Grd" ng-model='people_array.percentage' >
+                                    </div>
+                                    
+                                </div>+ -
+                            </div>
+                        </div>
+
+                         <div id="menu5" class="tab-pane slide-left">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Address 1</label>
+                                        <input type="text" name="adrs1" class="form-control" placeholder="Address 1" ng-model='people_array.adrs1' >
+
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>City</label>
+                                        <input type="text" name="city" class="form-control" placeholder="City" ng-model='people_array.city' >
+                                        
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Country</label>
+                                        <input type="text" name="country" class="form-control" placeholder="Country" ng-model='people_array.country' >
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Address 2</label>
+                                        <input type="text" name="adrs2" class="form-control" placeholder="Address 2" ng-model='people_array.adrs2' >
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>State</label>
+                                        <input type="text" name="state" class="form-control" placeholder="State" ng-model='people_array.state' >
+                                    </div>
+                                    <div class="form-group form-group-default">
+                                        <label>Zipcode</label>
+                                        <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" ng-model='people_array.zipcode' >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                         <div id="menu2" class="tab-pane slide-left">
                             <div class="row">
                                 <div class="col-sm-12">
