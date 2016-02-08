@@ -18,6 +18,7 @@
                 <div class="panel-heading">
                     <div class="panel-title">
                         <h4>Tasks</h4>
+
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
@@ -41,20 +42,27 @@
                             </tr>
                         </thead>
                         <tbody >
-                            <tr ng-repeat="task in tasks| orderBy:'-id' | filter:task_cat.id "  ng-show="tasks.length != 0" ng-if="task_cat.id==task.category_id" >
+
+
+                            <tr ng-repeat="tsk in tasks| orderBy:'-id'  " ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0" >
+                              <div >
+                              
                                 <td class="v-align-middle">
-                                    <p  ng-cloak>{% task.id %}</p>
+                                    <p  ng-cloak>{% tsk.id %}</p>
+
                                 </td>
                                 <td class="v-align-middle">
-                                 
-                                    <p ng-cloak>{% task.name ? task.name : '-' %}</p>
+
+                                 <p ng-cloak>{% task_cat.id  %}</p>
+                                    <p ng-cloak>{% tsk.name ? tsk.name : '-' %}</p>
                                 </td>
                                 <td class="v-align-middle">
                                     <p ng-cloak>
-                                        <a  ng-click="editTask(task.id)">Edit</a>
-                                        <a  ng-click="deleteTask(task.id)">Delete</a>
+                                        <a  ng-click="editTask(tsk.id)">Edit</a>
+                                        <a  ng-click="deleteTask(tsk.id)">Delete</a>
                                     </p>
                                 </td>
+                                </div>
                             </tr>
                             </tbody>
                     </table>

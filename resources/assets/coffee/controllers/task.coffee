@@ -53,7 +53,7 @@ angular.module 'mis'
 						timeout: 2000
 						type: 'success').show()
 
-					task.get().success (getData)->
+					task.get(pId).success (getData)->
 						$scope.tasks = getData
 						$scope.loading = false
 			else
@@ -70,7 +70,7 @@ angular.module 'mis'
 							timeout: 2000
 							type: 'success').show()
 
-						task.get().success (getData)->
+						task.get(pId).success (getData)->
 							$scope.tasks = getData
 							$scope.loading = false
 					), 500
@@ -79,7 +79,7 @@ angular.module 'mis'
 		$scope.deleteTask = (id)-> 
 			$scope.loading = true
 			task.destroy(id).success (data)->
-				task.get().success (getData)->
+				task.get(pId).success (getData)->
 					$scope.tasks = getData
 					$scope.loading = false
 				angular.element('body').pgNotification(

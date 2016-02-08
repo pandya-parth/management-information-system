@@ -15,16 +15,16 @@ angular.module 'mis'
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
-			edit: (id)->
-				$http.get '/api/task/'+id
+			edit: (id,pId)->
+				$http.get '/api/task/'+id, params: project_id: pId
 
 			update: (formData,id)->
 				$http
 					method: 'PUT'
-					url: '/projects/'+formData.id+ '/tasks/' + id
+					url: '/projects/'+ formData.project_id + '/tasks/' + formData.id
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
-			destroy: (id)->
-				$http.delete('/projects/'+ id+ '/tasks/' + id)
+			destroy: (pId,id)->
+				$http.delete('/projects/'+ pId + '/tasks/' + id)
 		}

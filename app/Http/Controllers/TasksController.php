@@ -32,8 +32,9 @@ class TasksController extends Controller
     }
 
 
-    public function getTasks()
+    public function getTasks(Request $request)
     {
+
        
        $tasks= Task::whereProjectId(Input::get('project_id'))->get();
        return response()->json($tasks); 
@@ -102,10 +103,10 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $task = Task::find($id);
-         $task->name = Input::get('name');
-         $task->save();  
-         return response()->json(['success'=>true]);      
+       
+         $task = Task::find($request->get('id'));
+         $task->update($request->all());  
+         return response()->json(['success'=>true]);     
     }
 
     /**
