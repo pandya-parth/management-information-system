@@ -18,7 +18,7 @@ class User extends Authenticatable
     
     public function people()
     {
-        return $this->belongsTo('User', 'user_id');
+        return $this->belongsTo('People', 'user_id');
     }
 
     /**
@@ -32,11 +32,12 @@ class User extends Authenticatable
 
     public function projects()
     {
-        return $this->hasMany('Project','user_id');
+        return $this->hasMany('App\Project');
     }
     public function tasks()
     {
         return $this->belongsToMany('App\Task');
     }
+
 
 }

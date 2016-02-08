@@ -47,10 +47,15 @@ Route::group(['middleware' => ['web','auth']], function () {
 Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('companies', 'CompaniesController@getCompanies');
     Route::get('company/{id}','CompaniesController@getCompany');
+
     Route::get('task-categories', 'TaskCategoriesController@getTaskCategories');
     Route::get('task-category/{id}','TaskCategoriesController@getTaskCategory');
-    Route::get('projects.tasks', 'TasksController@getTasks');
-    Route::get('projects.task/{id}','TasksController@getTask');
+
+
+    Route::get('tasks', 'TasksController@getTasks');
+    Route::get('task/{id}','TasksController@getTask');
+    Route::get('task-Categories', 'TasksController@getCategories');
+
     Route::get('project-categories', 'ProjectCategoriesController@getProjectCategories');
     Route::get('people', 'PeoplesController@getPeoples');
     Route::get('projects','ProjectsController@getProjects');

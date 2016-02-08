@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Task;
 use App\Project;
 use App\TaskCategory;
@@ -19,22 +20,23 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $tasks=Task::all();
+    public function index($id)
+    { 
+        $tasks=Project::find($id);
         $projects=Project::all();
         $taskCategories=TaskCategory::all();
         $peoples=People::all();
-        return view('tasks/index',compact('tasks','projects','taskCategories','peoples'));
+        return view('tasks/index',compact('tasks','projects','taskCategories','peoples','id'));
     }
 
 
-    public function getTasks()
+    public function getTasks(Request $request)
     {
-       $tasks = Task::get();
-       return response()->json($tasks); 
+        $tasks =  Task::whereProjectId($request->get('project_id'))->get();
+         
+        //$tasks = Task::find_by_project_id($pId)->get();
+        return response()->json($tasks); 
     }
-    
 
     /**
      * Show the form for creating a new resource.
@@ -54,11 +56,12 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+
         $input= Input::all();
-        $tasks=Tasks::create($input);
+        $tasks=Task::create($input);
         $tasks->save();
         return response()->json(['success'=>true]);
-
+        
     }
 
     /**
@@ -98,10 +101,10 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $task = Task::find($id);
-         $task->name = Input::get('name');
-         $task->save();  
-         return response()->json(['success'=>true]);      
+       
+         $task = Task::find($request->get('id'));
+         $task->update($request->all());  
+         return response()->json(['success'=>true]);     
     }
 
     /**

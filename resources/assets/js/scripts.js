@@ -7,7 +7,7 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $('#birth-date,#joining-date,#start-date,#end-date').datepicker({
+        $('#birth-date,#joining-date,#start-date,#end-date,#task-start-date,#due-date').datepicker({
             autoclose: true
         });
 
@@ -65,6 +65,17 @@
 
     });
 
+
+
+    $('.registerBtn').click(function() {
+       $("#cat_id").val($(this).attr('data-value'));
+    });
+    
+        $('.task_category').click(function() {
+            $('#addNewAppModal').modal('show');
+        });
+
+
     
     $('.panel-collapse label').on('click', function(e){
         e.stopPropagation();
@@ -75,4 +86,7 @@ $(".dropdown").click(function() {
     $(this).toggleClass('active');  
 });
 
+
+
 })(window.jQuery);
+

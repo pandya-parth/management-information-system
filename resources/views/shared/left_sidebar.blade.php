@@ -52,15 +52,15 @@
             <ul class="sub-menu">
 
               <li class="">
-                <a href="{!! url('project-categories') !!}">Project Category</a>
+                <a href="{!! url('/project-categories') !!}">Project Category</a>
                 <span class="icon-thumbnail">PC</span>
               </li>
               <li class="">
-                <a href="{!! url('projects') !!}">Projects</a>
+                <a href="{!! url('/projects') !!}">Projects</a>
                 <span class="icon-thumbnail">P</span>
               </li>
               <li class="">
-                <a href="{!! url('milestones') !!}">Milestones</a>
+                <a href="{!! url('/milestones') !!}">Milestones</a>
                 <span class="icon-thumbnail ">M</span>
               </li>
             </ul>
@@ -73,23 +73,20 @@
             <ul class="sub-menu">
 
               <li class="">
-                <a href="{!! url('task-categories') !!}">Task Category</a>
+                <a href="{!! url('/task-categories') !!}">Task Category</a>
                 <span class="icon-thumbnail">TC</span>
               </li>
-              <li class="">
-                <a href="{!! url('tasks') !!}">Tasks</a>
-                <span class="icon-thumbnail">T</span>
-              </li>
+              
               
             </ul>
           </li>
 
           <li class="">
-            <a href="{!! url('companies') !!}"><span class="title">Company</span></a>
+            <a href="{!! url('/companies') !!}"><span class="title">Company</span></a>
             <span class="icon-thumbnail ">C</span>
           </li>
           <li class="">
-            <a href="{!! url('people') !!}"><span class="title">People</span></a>
+            <a href="{!! url('/people') !!}"><span class="title">People</span></a>
             <span class="icon-thumbnail ">P</span>
           </li>
 

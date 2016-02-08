@@ -19,11 +19,15 @@ class Task extends Model implements SluggableInterface
         'on_update'  => true,
     ]; 
 
-    protected $fillable = ['name',''];
+    protected $fillable = ['name','category_id','project_id','notes','start_date','due_date','priority'];
     
 
      public function users()
     {
         return $this->belongsToMany('App\User');
+    }
+
+    public function project(){
+        return $this->belongsTo('Project','project_id');
     }
 }
