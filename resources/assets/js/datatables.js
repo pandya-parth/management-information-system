@@ -61,6 +61,12 @@
         $('#show-modal').click(function() {
             $('#addNewAppModal').modal('show');
         });
+
+
+        $('.task_category').click(function() {
+            $('#addNewAppModal').modal('show');
+        });
+
     }
 
     // Initialize datatable showing export options
