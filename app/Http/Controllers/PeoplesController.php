@@ -34,6 +34,7 @@ class PeoplesController extends Controller
        $peoples = People::orderBy('id','DESC')->get();
        return response()->json($peoples);
     }
+
     
     /**
      * Show the form for creating a new resource.
@@ -60,7 +61,6 @@ class PeoplesController extends Controller
             $user->active = true;
             $user->save();
             
-
             // Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)  ], function($message) {
 
             //                 $message->to('kajal@krishaweb.net');

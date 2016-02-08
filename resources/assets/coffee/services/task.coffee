@@ -2,8 +2,8 @@ angular.module 'mis'
 
 	.factory 'task', ($http)->
 		return{
-			get:->
-				$http.get '/api/tasks'
+			get:(pId)->
+				$http.get '/api/tasks', params: project_id: pId
 
 			getCat:->
 				$http.get '/api/task-categories'

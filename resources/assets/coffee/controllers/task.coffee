@@ -7,7 +7,7 @@ angular.module 'mis'
 		$scope.edit = false
 		currentUrl = $window.location.href
 		pId = currentUrl.split('/')[4]||"Undefined"
-		task.get().success (data)->
+		task.get(pId).success (data)->
 			$scope.tasks = data
 			$scope.loading = false
 

@@ -14,7 +14,7 @@ class People extends Model
 
     public function user()
     {
-        return $this->hasOne('User', 'user_id');
+        return $this->belongsTo('User', 'user_id');
     }
 
     	

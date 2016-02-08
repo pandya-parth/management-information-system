@@ -41,12 +41,12 @@
                             </tr>
                         </thead>
                         <tbody >
-                            <tr ng-repeat="task in tasks| orderBy:'-id' | filter:task_cat.id "  ng-show="tasks.length != 0" >
+                            <tr ng-repeat="task in tasks| orderBy:'-id' | filter:task_cat.id "  ng-show="tasks.length != 0" ng-if="task_cat.id==task.category_id" >
                                 <td class="v-align-middle">
                                     <p  ng-cloak>{% task.id %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                 <p ng-cloak>{% task_cat.id  %}</p>
+                                 
                                     <p ng-cloak>{% task.name ? task.name : '-' %}</p>
                                 </td>
                                 <td class="v-align-middle">

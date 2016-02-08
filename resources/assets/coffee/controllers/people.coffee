@@ -42,6 +42,8 @@ angular.module 'mis'
 			$scope.peoples = data
 			$scope.loading = false
 		
+		
+
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
