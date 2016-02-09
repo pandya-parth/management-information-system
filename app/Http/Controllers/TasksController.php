@@ -21,8 +21,10 @@ class TasksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index($id)
-    { 
-        $tasks=Project::find($id);
+    {   
+       
+        
+        //$tasks=Project::find($id)
         $projects=Project::all();
         $taskCategories=TaskCategory::all();
         $peoples=People::all();
@@ -30,18 +32,15 @@ class TasksController extends Controller
     }
 
 
-    public function getTasks()
+    public function getTasks(Request $request)
     {
-       $tasks = Task::get();
+
+       
+       $tasks= Task::whereProjectId(Input::get('project_id'))->get();
        return response()->json($tasks); 
     }
 
-    public function getCategories()
-    {
-        $taskCategories = TaskCategory::get();
-       return response()->json($taskcategories); 
-    }
-     /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -104,10 +103,10 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-         $task = Task::find($id);
-         $task->name = Input::get('name');
-         $task->save();  
-         return response()->json(['success'=>true]);      
+       
+         $task = Task::find($request->get('id'));
+         $task->update($request->all());  
+         return response()->json(['success'=>true]);     
     }
 
     /**

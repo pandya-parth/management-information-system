@@ -7,13 +7,20 @@ angular.module 'mis'
 		$scope.edit = false
 		currentUrl = $window.location.href
 		pId = currentUrl.split('/')[4]||"Undefined"
-		task.get().success (data)->
+		task.get(pId).success (data)->
 			$scope.tasks = data
 			$scope.loading = false
 
 		task.getCat().success (data)->
 			$scope.taskcategories = data
 			$scope.loading = false
+
+				
+
+		$scope.showModal = (event) ->
+			$scope.task.category_id = event.target.id
+			angular.element('#addNewAppModal').modal('show')
+			return
 
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
@@ -34,7 +41,6 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
-				$scope.task.category_id = angular.element('#cat_id').val()
 				$scope.task.project_id = pId
 				task.save($scope.task).success (data)->
 					$scope.submitted = false
@@ -47,7 +53,7 @@ angular.module 'mis'
 						timeout: 2000
 						type: 'success').show()
 
-					task.get().success (getData)->
+					task.get(pId).success (getData)->
 						$scope.tasks = getData
 						$scope.loading = false
 			else
@@ -64,7 +70,7 @@ angular.module 'mis'
 							timeout: 2000
 							type: 'success').show()
 
-						task.get().success (getData)->
+						task.get(pId).success (getData)->
 							$scope.tasks = getData
 							$scope.loading = false
 					), 500
@@ -73,7 +79,7 @@ angular.module 'mis'
 		$scope.deleteTask = (id)-> 
 			$scope.loading = true
 			task.destroy(id).success (data)->
-				task.get().success (getData)->
+				task.get(pId).success (getData)->
 					$scope.tasks = getData
 					$scope.loading = false
 				angular.element('body').pgNotification(

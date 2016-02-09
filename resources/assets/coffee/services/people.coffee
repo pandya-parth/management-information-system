@@ -12,6 +12,7 @@ angular.module 'mis'
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 					data: $.param(formData)
 
+
 			edit: (id)->
 				$http.get '/api/people/'+id
 
