@@ -71,3 +71,110 @@ ul.log-indropdown{
 /* custom css */
 
 .plupload{ z-index : 99999; }
+.grid_list_view{
+	padding: 0;
+	margin: 0;
+	font-size: 14px;
+	color: #444
+}
+.grid_list_view .head{
+	font-size: 14px;
+	text-align: left;
+	border-bottom: 1px solid #d1d1d1;
+	padding: 10px 0px;
+}
+.grid_list_view .data_area{
+	text-align: left;
+}
+.grid_list_view .data_area .row{
+	padding: 10px 0px;
+	border-bottom: 1px solid #d1d1d1;
+}
+.grid_list_view a{color: #444;}
+.people_id_pic{}
+.pic{display: inline-block; vertical-align: middle; margin-right:10px;}
+.pic_id{display: inline-block; margin-bottom: 10px}
+.pic img{border-radius: 100px; width: 50px; height: 50px; border: 1px solid #d1d1d1}
+
+.people_name{}
+.people_designation{}
+.people_email{}
+.people_phone{}
+.people_action{}
+.grid_list_view .datas{float: left; width:16.66%;}
+
+/* list view */
+.grid_list_view .data_area.list_view .row{
+	width: 100%;
+	display: table;
+}
+.grid_list_view .data_area.list_view .row .datas{
+	display: table-cell;
+	vertical-align: middle;
+	height: 50px;
+}
+.grid_list_view .data_area.list_view .row .people_id_pic .pic{
+display: inline-block;
+vertical-align: middle;
+}
+.grid_list_view .data_area.list_view .row .people_id_pic .pic_id{
+display: inline-block;
+vertical-align: middle;
+}
+.grid_list_view .data_area.list_view .row .box.people_name{
+	display: none;
+}
+.grid_list_view .data_area.list_view .row .box_real.people_name{
+	display: block;
+}
+/* grid view */
+.grid_list_view .head.grid_view .row .datas{
+	width: 25%
+}
+.grid_list_view .data_area.grid_view .row .datas{
+	width: 25%
+}
+.grid_list_view .head.grid_view .row .people_phone{
+	display: none;
+}
+.grid_list_view .head.grid_view .row .people_action{
+	display: none;
+}
+.grid_list_view .data_area.grid_view .row .people_phone{
+	display: none;
+}
+.grid_list_view .data_area.grid_view .row .people_action{
+	display: none;
+}
+.grid_list_view .data_area.grid_view .row .box.people_name{
+	display: none;
+}
+.grid_list_view .data_area.grid_view .row .box_real.people_name{
+	display: block;
+}
+/* box view */
+.grid_list_view .data_area.box_view .row{
+	width:31%;
+	border:1px solid #d1d1d1;
+	float: left;
+	margin:10px 10px 10px 0px;
+	padding: 15px;
+}
+.grid_list_view .data_area.box_view .row .datas{
+	width:100%;
+}
+.grid_list_view .data_area.box_view .row .people_id_pic{
+	border-bottom: 1px solid #d1d1d1; 
+	margin-bottom: 10px;
+}
+.grid_list_view .data_area.box_view .row .people_action{
+	border-top:1px solid #d1d1d1;
+	padding-top: 10px;
+	margin-top: 20px;
+}
+.grid_list_view .data_area.box_view .row .box.people_name{
+	display: inline-block;
+}
+.grid_list_view .data_area.box_view .row .box_real.people_name{
+	display: none;
+}

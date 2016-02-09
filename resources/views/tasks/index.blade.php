@@ -123,7 +123,7 @@
                     <div class="col-md-12">
                       <div class="form-group form-group-default input-group col-md-12">
                         <label>Start Date</label>
-                        <input type="text" name="start_date" class="form-control" placeholder="Pick a start date" id="task-start-date" ng-model='task.start_date'>
+                        <input type="text" id="task_start_date" name="start_date" class="form-control" placeholder="Pick a start date" id="task-start-date" ng-model='task.start_date'>
                         <span class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                         </span>
@@ -134,7 +134,7 @@
                     <div class="col-md-12">
                       <div class="form-group form-group-default input-group col-md-12">
                         <label>Due Date</label>
-                        <input type="text" name="due_date" class="form-control" placeholder="Pick a due date" id="due-date" ng-model='task.due_date'>
+                        <input type="text" id="task_due_date" name="due_date" class="form-control" placeholder="Pick a due date" id="due-date" ng-model='task.due_date'>
                         <span class="input-group-addon">
                           <i class="fa fa-calendar"></i>
                         </span>
