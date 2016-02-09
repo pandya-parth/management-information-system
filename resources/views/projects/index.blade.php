@@ -14,8 +14,6 @@
             <div class="panel panel-transparent">
                 <div class="panel-heading">
                     <div class="panel-title">Project Listing
-                        
-
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-6" ng-if="projects.length>0">

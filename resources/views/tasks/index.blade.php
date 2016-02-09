@@ -43,6 +43,7 @@
                 <tr ng-repeat="tsk in tasks| orderBy:'-id'  " ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0" >
                   <div >
 
+
                     <td class="v-align-middle">
                       <p  ng-cloak>{% tsk.id %}</p>
                     </td>
