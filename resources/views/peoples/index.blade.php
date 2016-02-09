@@ -41,14 +41,16 @@
                         <div class="grid_action">
                             <div class="row">
                                 <div class="col-lg-12 text-right">
-                                    <a href="#" class="btn btn-default btn-sm btn-list-action">List</a>
-                                    <a href="#" class="btn btn-default btn-sm btn-grid-action">Grid</a>
-                                    <a href="#" class="btn btn-default btn-sm btn-box-action">Box</a>
+                                    <div class="btn-toolbar">
+                                        <a href="#" class="btn btn-success btn-sm btn-list-action btn-cons"><i class="fa fa-list-ul"></i></a>
+                                        <a href="#" class="btn btn-success btn-sm btn-grid-action btn-cons"><i class="fs-14 fa fa-bars"></i></a>
+                                        <a href="#" class="btn btn-success btn-sm btn-box-action btn-cons"><i class="fs-14 fa fa-th "></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="grid_list_view">
-                            <div class="head list_view">
+                            <div class="head list_view border_class">
                                 <div class="row">
                                     <div class="datas people_id_pic">#Id</div>
                                     <div class="datas people_name">First Name</div>
@@ -58,9 +60,9 @@
                                     <div class="datas people_action">Action</div>
                                 </div>
                             </div>
-                            <div class="data_area list_view">
+                            <div class="data_area list_view ">
                                 <!-- row 1 -->
-                                <div class="row">
+                                <div class="row border_class">
                                     <div class="datas people_id_pic">
                                         <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
                                         <div class="pic_id">007</div>
@@ -79,14 +81,14 @@
                                         9999999999
                                     </div>
                                     <div class="datas people_action">
-                                       <a href="#" class="btn btn-default btn-sm">Edit</a>
-                                       <a href="#" class="btn btn-default btn-sm">View</a>
-                                       <a href="#" class="btn btn-default btn-sm">Delete</a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
                                    </div>
                                </div>
 
                                <!-- row 1 -->
-                                <div class="row">
+                                <div class="row border_class">
                                     <div class="datas people_id_pic">
                                         <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
                                         <div class="pic_id">007</div>
@@ -105,14 +107,14 @@
                                         9999999999
                                     </div>
                                     <div class="datas people_action">
-                                       <a href="#" class="btn btn-default btn-sm">Edit</a>
-                                       <a href="#" class="btn btn-default btn-sm">View</a>
-                                       <a href="#" class="btn btn-default btn-sm">Delete</a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
                                    </div>
                                </div>
 
                                <!-- row 1 -->
-                                <div class="row">
+                                <div class="row border_class">
                                     <div class="datas people_id_pic">
                                         <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
                                         <div class="pic_id">007</div>
@@ -131,9 +133,35 @@
                                         9999999999
                                     </div>
                                     <div class="datas people_action">
-                                       <a href="#" class="btn btn-default btn-sm">Edit</a>
-                                       <a href="#" class="btn btn-default btn-sm">View</a>
-                                       <a href="#" class="btn btn-default btn-sm">Delete</a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
+                                   </div>
+                               </div>
+
+                               <!-- row 1 -->
+                                <div class="row border_class">
+                                    <div class="datas people_id_pic">
+                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                        <div class="pic_id">007</div>
+                                        <div class="box people_name">Hitesh Patel</div>
+                                    </div>
+                                    <div class="datas people_name box_real">
+                                        Hitesh Patel
+                                    </div>
+                                    <div class="datas people_designation">
+                                        Sr.Designer
+                                    </div>
+                                    <div class="datas people_email">
+                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
+                                    </div>
+                                    <div class="datas people_phone">
+                                        9999999999
+                                    </div>
+                                    <div class="datas people_action">
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
                                    </div>
                                </div>
                                

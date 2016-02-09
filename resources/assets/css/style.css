@@ -71,9 +71,13 @@ ul.log-indropdown{
 /* custom css */
 
 .plupload{ z-index : 99999; }
+.grid_action .btn-cons{
+ min-width: inherit;
+
+}
 .grid_list_view{
 	padding: 0;
-	margin: 0;
+	margin:15px 0 0 0;
 	font-size: 14px;
 	color: #444
 }
@@ -81,20 +85,30 @@ ul.log-indropdown{
 	font-size: 14px;
 	text-align: left;
 	border-bottom: 1px solid #d1d1d1;
-	padding: 10px 0px;
+	padding:0px;
+	background-color: #0DAD9E;
+	color: #fff;
+}
+.grid_list_view .head .row{
+	padding: 10px 15px;
+	margin: 0;
+
 }
 .grid_list_view .data_area{
 	text-align: left;
+
 }
 .grid_list_view .data_area .row{
-	padding: 10px 0px;
+	padding: 10px 15px;
 	border-bottom: 1px solid #d1d1d1;
+	margin: 0;
 }
 .grid_list_view a{color: #444;}
+.grid_list_view .btn{color: #fff}
 .people_id_pic{}
 .pic{display: inline-block; vertical-align: middle; margin-right:10px;}
 .pic_id{display: inline-block; margin-bottom: 10px}
-.pic img{border-radius: 100px; width: 50px; height: 50px; border: 1px solid #d1d1d1}
+.pic img{border-radius: 100px; width: 40px; height: 40px; border: 1px solid #d1d1d1}
 
 .people_name{}
 .people_designation{}
@@ -107,6 +121,10 @@ ul.log-indropdown{
 .grid_list_view .data_area.list_view .row{
 	width: 100%;
 	display: table;
+	background-color:#fff
+}
+.grid_list_view .data_area.list_view .row:nth-child(even){
+	background-color: #f1f1f1;
 }
 .grid_list_view .data_area.list_view .row .datas{
 	display: table-cell;
@@ -131,6 +149,9 @@ vertical-align: middle;
 .grid_list_view .head.grid_view .row .datas{
 	width: 25%
 }
+.grid_list_view .data_area.grid_view .row:nth-child(even){
+	background-color: #f1f1f1;
+}
 .grid_list_view .data_area.grid_view .row .datas{
 	width: 25%
 }
@@ -154,14 +175,16 @@ vertical-align: middle;
 }
 /* box view */
 .grid_list_view .data_area.box_view .row{
-	width:31%;
+	width:32%;
 	border:1px solid #d1d1d1;
 	float: left;
-	margin:10px 10px 10px 0px;
+	margin:10px 10px 0px 0px;
 	padding: 15px;
+	border-radius: 5px;
 }
 .grid_list_view .data_area.box_view .row .datas{
 	width:100%;
+	padding: 5px 0px 10px;
 }
 .grid_list_view .data_area.box_view .row .people_id_pic{
 	border-bottom: 1px solid #d1d1d1; 
@@ -169,8 +192,9 @@ vertical-align: middle;
 }
 .grid_list_view .data_area.box_view .row .people_action{
 	border-top:1px solid #d1d1d1;
-	padding-top: 10px;
+	padding: 10px;
 	margin-top: 20px;
+	background-color: #f1f1f1;
 }
 .grid_list_view .data_area.box_view .row .box.people_name{
 	display: inline-block;
@@ -178,3 +202,7 @@ vertical-align: middle;
 .grid_list_view .data_area.box_view .row .box_real.people_name{
 	display: none;
 }
+.border_class{
+	border-radius: 70px;
+}
+
