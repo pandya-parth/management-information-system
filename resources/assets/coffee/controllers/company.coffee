@@ -5,6 +5,37 @@ angular.module 'mis'
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+
+		uploader = new (plupload.Uploader)(
+				runtimes : 'html5,flash,silverlight,html4'
+				browse_button : 'pickfiles'
+				url : "../plupload/upload.php "
+				flash_swf_url : "../plupload/Moxie.swf "
+				silverlight_xap_url : "../plupload/Moxie.xap "
+				multi_selection: false,
+				init:
+					PostInit: ->
+						angular.element('#filelist').innerHTML = ''
+					FilesAdded: (up, files)->
+						angular.forEach(files, (file)->
+								angular.element('#preview').html('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <img src=tmp/' + file.name + ' class="img-thumbnail img-responsive img-circle" style="width:100px;height:100px;"> (' + plupload.formatSize(file.size) + ') <b></b><a href="javascript:;" id="' + file.id + '" class="removeFile" ng-click="shownoimage()">Remove</a></div></div>')
+								angular.element('a#' + file.id).on 'click', ->
+								   up.removeFile file
+								   angular.element('.' + file.id).hide()
+								   return
+							)
+						uploader.start()
+					UploadProgress: (up, file)->
+						$scope.people_array.photo = file.name
+					Error: (up, err)->
+						alert "Error #" + err.code + ": " + err.message
+			)
+		uploader.init()
+
+		angular.element('#addNewAppModal').on('shown.bs.modal', ->
+				uploader.refresh()
+			)
+		
 		company.get().success (data)->
 			$scope.companies = data
 			$scope.loading = false

@@ -86,87 +86,8 @@
                                        <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
                                    </div>
                                </div>
-
-                               <!-- row 1 -->
-                                <div class="row border_class">
-                                    <div class="datas people_id_pic">
-                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                        <div class="pic_id">007</div>
-                                        <div class="box people_name">Hitesh Patel</div>
-                                    </div>
-                                    <div class="datas people_name box_real">
-                                        Hitesh Patel
-                                    </div>
-                                    <div class="datas people_designation">
-                                        Sr.Designer
-                                    </div>
-                                    <div class="datas people_email">
-                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
-                                    </div>
-                                    <div class="datas people_phone">
-                                        9999999999
-                                    </div>
-                                    <div class="datas people_action">
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
-                                   </div>
-                               </div>
-
-                               <!-- row 1 -->
-                                <div class="row border_class">
-                                    <div class="datas people_id_pic">
-                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                        <div class="pic_id">007</div>
-                                        <div class="box people_name">Hitesh Patel</div>
-                                    </div>
-                                    <div class="datas people_name box_real">
-                                        Hitesh Patel
-                                    </div>
-                                    <div class="datas people_designation">
-                                        Sr.Designer
-                                    </div>
-                                    <div class="datas people_email">
-                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
-                                    </div>
-                                    <div class="datas people_phone">
-                                        9999999999
-                                    </div>
-                                    <div class="datas people_action">
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
-                                   </div>
-                               </div>
-
-                               <!-- row 1 -->
-                                <div class="row border_class">
-                                    <div class="datas people_id_pic">
-                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                        <div class="pic_id">007</div>
-                                        <div class="box people_name">Hitesh Patel</div>
-                                    </div>
-                                    <div class="datas people_name box_real">
-                                        Hitesh Patel
-                                    </div>
-                                    <div class="datas people_designation">
-                                        Sr.Designer
-                                    </div>
-                                    <div class="datas people_email">
-                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
-                                    </div>
-                                    <div class="datas people_phone">
-                                        9999999999
-                                    </div>
-                                    <div class="datas people_action">
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
-                                   </div>
-                               </div>
-                               
-
-                           </div>
+                               <!-- row 1 complete -->
+                            </div>
                        </div>
                        <!-- hitesh close -->
                         <!-- <table class="table table-hover demo-table-dynamic" ng-show="peoples.length != 0" ng-cloak>
@@ -204,12 +125,12 @@
                             
                         </table> -->
                         
-                        <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="peoples.length==0">
+                        <!-- <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="peoples.length==0">
                             <div style="text-align:center;">
                                 <img src="{!! asset('img/noPeople.png') !!}" />
                                 <p><h3>No match found</h3></p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
                 </div>
