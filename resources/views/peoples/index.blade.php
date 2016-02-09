@@ -68,7 +68,6 @@
                                         </p>
                                     </td>
                                 </tr>
-
                             </tbody>
                             
                         </table>
@@ -153,7 +152,6 @@
                                         <div class="form-group form-group-default input-group col-md-12">
                                             <label>Date Of Birth</label>
                                             <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob'>
-
                                             <span class="input-group-addon">
                                               <i class="fa fa-calendar"></i>
                                           </span>
@@ -200,20 +198,14 @@
                                        <img src="{!! asset('img/noPhoto.png')!!}" id="noimage"style="height:100px;width:100px;">
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
-
-
-
                         <div id="menu1" class="tab-pane slide-left">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group form-group-default">
                                         <label>Address 1</label>
                                         <input type="text" name="adrs1" class="form-control" placeholder="Address 1" ng-model='people_array.adrs1' >
-
                                     </div>
                                     <div class="form-group form-group-default">
                                         <label>City</label>
@@ -223,7 +215,6 @@
                                     <div class="form-group form-group-default">
                                         <label>Country</label>
                                         <input type="text" name="country" class="form-control" placeholder="Country" ng-model='people_array.country' >
-
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -244,50 +235,55 @@
                         </div>
                         <div id="menu4" class="tab-pane slide-left">
                             <div class="row">
-                                <div class="col-sm-3">
+                                <div class="col-sm-6">
                                     <div class="form-group form-group-default">
                                         <label>Qualification</label>
                                         <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-model='people_array.qualification' >
-
                                     </div>
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-6">
                                     <div class="form-group form-group-default">
                                         <label>Collage</label>
                                         <input type="text" name="collage" class="form-control" placeholder="Collage" ng-model='people_array.collage' >
                                         
                                     </div>
                                 </div>
-                                     <div class="col-sm-3">
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
                                     <div class="form-group form-group-default">
                                         <label>University</label>
                                         <input type="text" name="country" class="form-control" placeholder="University" ng-model='people_array.university' >
-
                                     </div>
                                 </div>
-                                <div class="col-sm-2">
+                                <div class="col-sm-3">
                                     <div class="form-group form-group-default">
                                         <label>Passing Year</label>
                                         <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-model='people_array.passing_year' >
                                     </div>
                                 </div>
-                                <div class="col-sm-1">
+                       
+                       
+                                <div class="col-sm-3">
                                     <div class="form-group form-group-default">
                                         <label>%/Grd</label>
                                         <input type="text" name="percentage" class="form-control" placeholder="% or Grd" ng-model='people_array.percentage' >
                                     </div>
                                     
-                                </div>+ -
+                                </div>
+                                <div class="col-sm-3">
+                                        <div class="form-group form-group-default">
+                                    <a ng-click="" class="btn btn-success ">ADD</a> <a ng-click="" class="btn btn-danger ">REMOVE</a>
+                                </div>
+                                </div>
                             </div>
                         </div>
-
                          <div id="menu5" class="tab-pane slide-left">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group form-group-default">
                                         <label>Address 1</label>
                                         <input type="text" name="adrs1" class="form-control" placeholder="Address 1" ng-model='people_array.adrs1' >
-
                                     </div>
                                     <div class="form-group form-group-default">
                                         <label>City</label>
@@ -297,7 +293,6 @@
                                     <div class="form-group form-group-default">
                                         <label>Country</label>
                                         <input type="text" name="country" class="form-control" placeholder="Country" ng-model='people_array.country' >
-
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -316,9 +311,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
                         <div id="menu2" class="tab-pane slide-left">
                             <div class="row">
                                 <div class="col-sm-12">
@@ -359,7 +351,6 @@
                               </div>
                           </div>
                       </div>
-
                       <div id="menu3" class="tab-pane slide-left">
                         <div class="row">
                             <div class="col-md-12">
@@ -374,7 +365,6 @@
                                 <div class="form-group form-group-default">
                                     <label>Facebook</label>
                                     <input type="text" name="facebook" class="form-control" placeholder="Facebook" ng-model='people_array.facebook' >
-
                                 </div>
                             </div>
                         </div>
@@ -419,7 +409,6 @@
                     Close
                 </button>
             </div>
-
         </form>
     </div>
     <!-- /.modal-content -->
