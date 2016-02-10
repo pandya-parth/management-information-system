@@ -7,9 +7,11 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $("#birth-date,#joining-date,#start-date,#end-date,#task-start-date,#due-date").datepicker({
+        $('#birth-date,#joining-date,#start-date,#end-date,#task-start-date,#due-date,#task_start_date,#task_due_date').datepicker({
             autoclose: true
         });
+
+
         $('pgn-warpper').css('display:none');
 
        
@@ -80,6 +82,34 @@ $(".dropdown").click(function() {
     $(this).toggleClass('active');  
 });
 
+ 
+$('.btn-list-action').click(function(){
+    $('.grid_list_view .data_area').addClass('list_view');
+    $('.grid_list_view .data_area').removeClass('grid_view');
+    $('.grid_list_view .data_area').removeClass('box_view');
+
+    $('.grid_list_view .head').addClass('list_view');
+    $('.grid_list_view .head').removeClass('grid_view');
+    $('.grid_list_view .head').removeClass('box_view');
+});
+$('.btn-grid-action').click(function(){
+    $('.grid_list_view .data_area').removeClass('list_view');
+    $('.grid_list_view .data_area').addClass('grid_view');
+    $('.grid_list_view .data_area').removeClass('box_view');
+
+    $('.grid_list_view .head').removeClass('list_view');
+    $('.grid_list_view .head').addClass('grid_view');
+    $('.grid_list_view .head').removeClass('box_view');
+});
+$('.btn-box-action').click(function(){
+    $('.grid_list_view .data_area').removeClass('list_view');
+    $('.grid_list_view .data_area').removeClass('grid_view');
+    $('.grid_list_view .data_area').addClass('box_view');
+
+    $('.grid_list_view .head').removeClass('list_view');
+    $('.grid_list_view .head').removeClass('grid_view');
+    $('.grid_list_view .head').addClass('box_view');
+});
 
 
 })(window.jQuery);

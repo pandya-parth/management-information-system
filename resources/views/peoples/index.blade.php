@@ -2,89 +2,207 @@
 @section('title','People')
 @section('content')
 <div ng-controller="PeopleCtrl">
-  <div class= "content">
-    <!-- START CONTAINER FLUID -->
-    <div class="container-fluid container-fixed-lg">
-      <div class="inner">
-        <!-- START BREADCRUMB -->
-        <ul class="breadcrumb">
-          <li>
-            <a href="{!!url('/')!!}">Home</a>
-          </li>
-          <li><a href="{!!url('people')!!}" class="active">People</a>
-          </li>
-        </ul>
-      </div>
-      <!-- START PANEL -->
-      <div class="panel panel-transparent">
-        <div class="panel-heading">
-          <div class="panel-title">People Listing
-          </div>
-          <?php
-          $marital_statuses = array('maried'=>'maried',
-            'single'=>'single',
-            'other'=>'other');
-            ?>
-            <div class="pull-right">
-              <div class="col-xs-6" ng-show="peoples.length>0">
-                <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
-              </div>
-              <div class="col-xs-6">
-                <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add People</button>
-              </div>
+    <div class= "content">
+        <!-- START CONTAINER FLUID -->
+        <div class="container-fluid container-fixed-lg">
+            <div class="inner">
+                <!-- START BREADCRUMB -->
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="{!!url('/')!!}">Home</a>
+                    </li>
+                    <li><a href="{!!url('people')!!}" class="active">People</a>
+                    </li>
+                </ul>
             </div>
-            <div class="clearfix"></div>
-          </div>
-          <div class="panel-body">
-            <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
-            <table class="table table-hover demo-table-dynamic" ng-show="peoples.length != 0" ng-cloak>
-              <thead>
-                <tr ng-cloak>
-                  <th>#Id</th>
-                  <th>Name</th>
-                  <th>Date of Birth</th>
-                  <th>Phone</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'-id'" current-page="currentPage">
-                  <td class="v-align-middle">
-                    <p ng-cloak>{% people.id %}</p>
-                  </td>
-                  <td class="v-align-middle">
-                    <p ng-cloak>{% people.fname %} {% people.lname %}</p>
-                  </td>
-                  <td class="v-align-middle">
-                    <p ng-cloak>{% people.dob %}</p>
-                  </td>
-                  <td class="v-align-middle">
-                    <p ng-cloak>{% people.phone %}</p>
-                  </td>
-                  <td class="v-align-middle">
-                    <p>
-                      <a ng-click="editPeople(people.id)">Edit</a>
-                      <a ng-click="deletePeople(people.user_id)">Delete</a>
-                    </p>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="peoples.length==0">
-              <div style="text-align:center;">
-                <img src="{!! asset('img/noPeople.png') !!}" />
-                <p><h3>No match found</h3></p>
-              </div>
+            <!-- START PANEL -->
+            <div class="panel panel-transparent">
+                <div class="panel-heading">
+                    <div class="panel-title">People Listing
+                    </div>
+                    <?php
+                    $marital_statuses = array('maried'=>'maried',
+                        'single'=>'single',
+                        'other'=>'other');
+                        ?>
+                        <div class="pull-right text-right">
+                            <div class="row">
+                            <div class="col-xs-5" ng-show="peoples.length>0">
+                                <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                            </div>
+                            <div class="col-xs-3">
+                                <select class="cs-select cs-skin-slide" ng-model="pageSize" data-init-plugin="cs-select">
+                                      <option value="5">5</option>
+                                      <option value="10">10</option>
+                                      <option value="20">20</option>
+                                      <option value="50">50</option>
+                                    </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add People</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-body">
+                        <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
+                        <!-- hitesh -->
+                        <div class="grid_action">
+                            <div class="row">
+                                <div class="col-lg-12 text-right">
+                                    <div class="btn-toolbar">
+                                        <a href="#" class="btn btn-success btn-sm btn-list-action btn-cons"><i class="fa fa-list-ul"></i></a>
+                                        <a href="#" class="btn btn-success btn-sm btn-grid-action btn-cons"><i class="fs-14 fa fa-bars"></i></a>
+                                        <a href="#" class="btn btn-success btn-sm btn-box-action btn-cons"><i class="fs-14 fa fa-th "></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid_list_view">
+                            <div class="head list_view border_class">
+                                <div class="row">
+                                    <div class="datas people_id_pic">#Id</div>
+                                    <div class="datas people_name">First Name</div>
+                                    <div class="datas people_designation">Designation</div>
+                                    <div class="datas people_email">Email</div>
+                                    <div class="datas people_phone">Phone</div>
+                                    <div class="datas people_action">Action</div>
+                                </div>
+                            </div>
+                            <div class="data_area list_view ">
+                                <!-- row 1 -->
+                                <div class="row border_class">
+                                    <div class="datas people_id_pic">
+                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                        <div class="pic_id">007</div>
+                                        <div class="box people_name">Kajal</div>
+                                    </div>
+                                    <div class="datas people_name box_real">
+                                        Kajal
+                                    </div>
+                                    <div class="datas people_designation">
+                                        Sr.Designer
+                                    </div>
+                                    <div class="datas people_email">
+                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
+                                    </div>
+                                    <div class="datas people_phone">
+                                        9999999999
+                                    </div>
+                                    <div class="datas people_action">
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
+                                   </div>
+                               </div>
+                               <!-- row 1 complete -->
+                               <!-- row 1 -->
+                                <div class="row border_class">
+                                    <div class="datas people_id_pic">
+                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                        <div class="pic_id">007</div>
+                                        <div class="box people_name">Kajal</div>
+                                    </div>
+                                    <div class="datas people_name box_real">
+                                        Kajal
+                                    </div>
+                                    <div class="datas people_designation">
+                                        Sr.Designer
+                                    </div>
+                                    <div class="datas people_email">
+                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
+                                    </div>
+                                    <div class="datas people_phone">
+                                        9999999999
+                                    </div>
+                                    <div class="datas people_action">
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
+                                   </div>
+                               </div>
+                               <!-- row 1 complete -->
+                               <!-- row 1 -->
+                                <div class="row border_class">
+                                    <div class="datas people_id_pic">
+                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                        <div class="pic_id">007</div>
+                                        <div class="box people_name">Kajal</div>
+                                    </div>
+                                    <div class="datas people_name box_real">
+                                        Kajal
+                                    </div>
+                                    <div class="datas people_designation">
+                                        Sr.Designer
+                                    </div>
+                                    <div class="datas people_email">
+                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
+                                    </div>
+                                    <div class="datas people_phone">
+                                        9999999999
+                                    </div>
+                                    <div class="datas people_action">
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
+                                   </div>
+                               </div>
+                               <!-- row 1 complete -->
+
+                            </div>
+                       </div>
+                       <!-- hitesh close -->
+                        <!-- <table class="table table-hover demo-table-dynamic" ng-show="peoples.length != 0" ng-cloak>
+                            <thead>
+                                <tr ng-cloak>
+                                    <th>#Id</th>
+                                    <th>Name</th>
+                                    <th>Date of Birth</th>
+                                    <th>Phone</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'-id'" current-page="currentPage">
+                                    <td class="v-align-middle">
+                                        <p ng-cloak>{% people.id %}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <p ng-cloak>{% people.fname %} {% people.lname %}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <p ng-cloak>{% people.dob %}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <p ng-cloak>{% people.phone %}</p>
+                                    </td>
+                                    <td class="v-align-middle">
+                                        <p>
+                                            <a ng-click="editPeople(people.id)">Edit</a>
+                                            <a ng-click="deletePeople(people.user_id)">Delete</a>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            
+                        </table> -->
+                        
+                        <!-- <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="peoples.length==0">
+                            <div style="text-align:center;">
+                                <img src="{!! asset('img/noPeople.png') !!}" />
+                                <p><h3>No match found</h3></p>
+                            </div>
+                        </div> -->
+                    </div>
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                </div>
+                <!-- END PANEL -->
             </div>
-          </div>
-          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+            <!-- END CONTAINER FLUID -->
         </div>
-        <!-- END PANEL -->
-      </div>
-      <!-- END CONTAINER FLUID -->
-    </div>
-    <!-- MODAL STICK UP  -->
-    <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog" aria-labelledby="addNewAppModal"
+        <!-- MODAL STICK UP  -->
+      <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog" aria-labelledby="addNewAppModal"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -230,52 +348,69 @@
                 </div>
               </div>
               <div id="menu4" class="tab-pane slide-left">
+                 <div class="row">
+                  <div class="col-sm-12">
+
+                    <div style="padding: 10px;">
+                      
+                      <div style="width: 90%; display: inline-block; border: 1px silver dotted;">
+                     
+<div class="row" style="padding-top: 5px;">
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group form-group-default">
+            <label>Qualification</label>
+            <input type="text" name="qualification[]" class="form-control" placeholder="Qualification" ng-model='qualification' >
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group form-group-default">
+            <label>Collage</label>
+            <input type="text" name="collage[]" class="form-control" placeholder="Collage" ng-model='element.collage' >
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-3">
+      <div class="form-group form-group-default">
+        <label>University</label>
+        <input type="text" name="university[]" class="form-control" placeholder="University" ng-model='element.university' >
+    </div>
+</div>
+<div class="col-sm-3">
+    <div class="form-group form-group-default">
+        <label>Passing Year</label>
+        <input type="text" name="passing_year[]" class="form-control" placeholder="Passing Year" ng-model='ent.passing_year' >
+    </div>
+</div>
+<div class="col-sm-3">
+    <div class="form-group form-group-default">
+        <label>%/Grd</label>
+        <input type="text" name="percentage[]" class="form-control" placeholder="% or Grd" ng-model='element.percentage' >
+    </div>
+</div>
+<div class="col-sm-3">
+    <a class="btn btn-danger" href="#" tooltip="Delete" ng-click="deleteRow($index);">REMOVE</a>
+</div>
+<hr>
+</div>
+</div>
+                      </div>
+                      
+                      <a class="btn btn-success" style="margin-bottom: 27px;" href="#" tooltip="Add" ng-click='addRow()'>
+                        ADD
+                      </a>
+                     
+                    </div>
+                  </div>
+                </div>
 
                
                 <div id="cloneDiv"></div>
 
               </div>
               <div id="menu5" class="tab-pane slide-left">
-                <div class="row">
-                  <div class="col-sm-12">
-
-                    <div style="padding: 10px;">
-                      
-                      <div style="width: 90%; display: inline-block; border: 1px silver dotted;">
-                        <div class="row">
-                         {{--  <div class="col-xs-3">
-                            <select class="form-control" ng-init="nativeLanguage.level = 'Native'" data-ng-model="nativeLanguage.level" tooltip="Level">
-                              <option value="Native" ng-selected="true">Native</option>
-                            </select>
-                          </div> --}}
-                          {{-- <div class="col-xs-4">
-                            <select class="form-control" data-ng-model="nativeLanguage.name" tooltip="Language">
-                              <option value="">Language</option>
-                              <option value="EN">English</option>
-                              <option value="IT">Italian</option>
-                              <option value="DE">German</option>
-                              <option value="FR">French</option>
-                            </select>
-                          </div> --}}
-                        {{--   <div class="col-xs-3">
-                            <input type="text" data-ng-model="nativeLanguage.remark" class="form-control" placeholder="Remark" tooltip="Remark">
-                          </div> --}}
-                          <div class="col-xs-6">
-
-                          </div>
-                        </div>
-                        <div select-last ng-repeat='language in languages'></div>
-                      </div>
-                      
-                      <a class="btn btn-success" style="margin-bottom: 27px;" href="#" tooltip="Add" ng-click='addRow()'>
-                        ADD
-                      </a>
-                      <pre>{%nativeLanguage | json%}</pre>
-                      <pre>{%languages | json%}</pre>
-                    </div>
-                  </div>
-                </div>
-
+               
                
               </div>
           

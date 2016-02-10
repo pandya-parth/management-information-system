@@ -21,10 +21,8 @@ class TasksController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index($id)
-    {   
-       
-        
-        //$tasks=Project::find($id)
+    { 
+        $tasks=Project::find($id);
         $projects=Project::all();
         $taskCategories=TaskCategory::all();
         $peoples=People::all();
@@ -34,10 +32,10 @@ class TasksController extends Controller
 
     public function getTasks(Request $request)
     {
-
-       
-       $tasks= Task::whereProjectId(Input::get('project_id'))->get();
-       return response()->json($tasks); 
+        $tasks =  Task::whereProjectId($request->get('project_id'))->get();
+         
+        //$tasks = Task::find_by_project_id($pId)->get();
+        return response()->json($tasks); 
     }
 
     /**
@@ -105,7 +103,8 @@ class TasksController extends Controller
     {
        
          $task = Task::find($request->get('id'));
-         $task->update($request->all());  
+         $task = fill(Input::all()); 
+         $task->save($task);
          return response()->json(['success'=>true]);     
     }
 

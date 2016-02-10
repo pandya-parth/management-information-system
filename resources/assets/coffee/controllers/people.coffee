@@ -11,17 +11,17 @@ angular.module 'mis'
 
 		$scope.addRow = ->
 		  newLanguage = 
-		    level: $scope.level
-		    name: $scope.name
-		    remark: $scope.remark
+		    qualification: $scope.qualification
+		    collage: $scope.collage
+		    university: $scope.university
 		  	$scope.languages.push newLanguage
-		  	console.log $scope.languages
 		  	return
 
 		$scope.deleteRow = (rowNo) ->
 		  $scope.languages.splice rowNo, 1
 		  return
 
+		
 
 		uploader = new (plupload.Uploader)(
 				runtimes : 'html5,flash,silverlight,html4'
@@ -72,6 +72,7 @@ angular.module 'mis'
 			return
 
 		$scope.submit = (form)->
+
 			$scope.loading = true
 			$scope.submitted = true
 			if form.$invalid
