@@ -123,39 +123,32 @@ aria-hidden="true">
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default">
                                         <label>Email</label>
-                                        <input id="appName" type="email" name="email" class="form-control email"
-                                        placeholder="Email" ng-model='company.email'
-                                        ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'
-                                        required>
-                                        <span class="error" ng-show="submitted && Companies.$error.required">* Please enter email</span>
-                                        <span class="error"
-                                        ng-show="submitted && Companies.email.$error.pattern">* Please enter valid email</span>
+                                        <input type="text" name="email" class="form-control" placeholder="Email" ng-model='company.email' required ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'>
+                                        <span class="error" ng-show="submitted && Companies.email.$error.required">* Please enter Email </span>
+                                        <span class="error" ng-show="submitted && Companies.email.$error.pattern">* Please enter valid email</span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                            <div class="col-md-6">
+                                <div class="col-md-6">
                                     <div  id="preview">
-                                        <img src="{!! asset('img/noPhoto.png')!!}" id="noimage"style="height:100px;width:100px;">
+                                        <img src="{!! asset('img/noPhoto.png')!!}" id="noimage" style="height:100px;width:100px;">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    
-                                        <div id="filelist">Upload photos from here..</div>
-                                        <div id="progressbar"></div>
-                                        <br />
-                                        <div class="form-group">
-                                            <div class="col-lg-6 clearfix">
-                                                <div id="container">
-                                                    <a id="pickfiles" href="javascript:;">Upload Photo</a>
-                                                </div>  
+                                    <div id="filelist">Upload logo from here..</div>
+                                    <div id="progressbar"></div>
+                                    <br />
+                                    <div class="form-group">
+                                        <div class="col-lg-6 clearfix">
+                                            <div id="container">
+                                                <a id="pickfiles" href="javascript:;">Upload Logo</a>
                                             </div>  
-                                        </div>
-                                        <input type="hidden" name='photo' id="photo"
-                                        ng-modal='people_array.photo'>
-                                    
+                                        </div>  
+                                    </div>
+                                    <input type="hidden" name='logo' id="logo"
+                                    ng-modal='company.logo'>
                                 </div>
-
                             </div>
                         </div>
                         <div id="menu1" class="tab-pane slide-left">
@@ -174,7 +167,6 @@ aria-hidden="true">
                                         <label>Phone</label>
                                         <input id="appName" type="text" name="phone" class="form-control"
                                         placeholder="Phone" ng-model='company.phone'>
-                                        <!-- <span class="error" ng-show="submitted && company.$error.required">* Please enter phone number</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -184,7 +176,6 @@ aria-hidden="true">
                                         <label>Fax</label>
                                         <input id="appName" type="text" name="mobile" class="form-control"
                                         placeholder="Fax" ng-model='company.fax'>
-                                        <!-- <span class="error" ng-show="submitted && company.$error.required">* Please enter fax</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +187,6 @@ aria-hidden="true">
                                         <label>Address 1</label>
                                         <textarea id="appName" type="text" name="adrs1" class="form-control"
                                         placeholder="Address 1" ng-model='company.adrs1'> </textarea>
-                                        <!-- <span class="error" ng-show="submitted && company.$error.required">* Please enter address 2</span> -->
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -204,7 +194,6 @@ aria-hidden="true">
                                         <label>Address 2</label>
                                         <textarea id="appName" type="text" name="adrs2" class="form-control"
                                         placeholder="Address 2" ng-model='company.adrs2'> </textarea>
-                                        <!-- <span class="error" ng-show="submitted && company.$error.required">* Please enter address 2</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -241,7 +230,6 @@ aria-hidden="true">
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="modal-footer">

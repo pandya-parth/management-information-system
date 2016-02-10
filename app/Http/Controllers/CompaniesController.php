@@ -47,7 +47,7 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
-        $input= Input::all();
+       dd($input= Input::all());
         $companies=Company::create($input);
         $companies->save();
         return response()->json(['success'=>true]);

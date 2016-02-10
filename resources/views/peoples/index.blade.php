@@ -75,10 +75,10 @@
                                     <div class="datas people_id_pic">
                                         <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
                                         <div class="pic_id">007</div>
-                                        <div class="box people_name">Hitesh Patel</div>
+                                        <div class="box people_name">Kajal</div>
                                     </div>
                                     <div class="datas people_name box_real">
-                                        Hitesh Patel
+                                        Kajal
                                     </div>
                                     <div class="datas people_designation">
                                         Sr.Designer
@@ -101,10 +101,10 @@
                                     <div class="datas people_id_pic">
                                         <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
                                         <div class="pic_id">007</div>
-                                        <div class="box people_name">Hitesh Patel</div>
+                                        <div class="box people_name">Kajal</div>
                                     </div>
                                     <div class="datas people_name box_real">
-                                        Hitesh Patel
+                                        Kajal
                                     </div>
                                     <div class="datas people_designation">
                                         Sr.Designer
@@ -127,10 +127,10 @@
                                     <div class="datas people_id_pic">
                                         <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
                                         <div class="pic_id">007</div>
-                                        <div class="box people_name">Hitesh Patel</div>
+                                        <div class="box people_name">Kajal</div>
                                     </div>
                                     <div class="datas people_name box_real">
-                                        Hitesh Patel
+                                        Kajal
                                     </div>
                                     <div class="datas people_designation">
                                         Sr.Designer

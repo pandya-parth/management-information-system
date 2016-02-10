@@ -26,7 +26,7 @@ angular.module 'mis'
 							)
 						uploader.start()
 					UploadProgress: (up, file)->
-						$scope.people_array.photo = file.name
+						$scope.company.logo = file.name
 					Error: (up, err)->
 						alert "Error #" + err.code + ": " + err.message
 			)
