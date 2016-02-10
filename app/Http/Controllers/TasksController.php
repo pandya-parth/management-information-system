@@ -101,10 +101,8 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
-         $task = Task::find($request->get('id'));
-         $task = fill(Input::all()); 
-         $task->save($task);
+         $task = Task::find($request->get('id')); 
+         $task->update(Input::all());
          return response()->json(['success'=>true]);     
     }
 

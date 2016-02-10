@@ -12,6 +12,30 @@ class Task extends Model implements SluggableInterface
 
    	public $timestamps = true;
 
+    public function setStartDateAttribute($value)
+    {   
+        if(!empty($value))
+        {
+            $this->attributes['start_date'] = $value;
+        }
+        else
+        {
+            $this->attributes['start_date'] = NULL;
+        }
+    }
+
+    public function setDueDateAttribute($value)
+    {   
+        if(!empty($value))
+        {
+            $this->attributes['due_date'] = $value;
+        }
+        else
+        {
+            $this->attributes['due_date'] = NULL;
+        }
+    }
+
     protected $sluggable = [
         'build_from' => 'name',
         'save_to'    => 'slug',
