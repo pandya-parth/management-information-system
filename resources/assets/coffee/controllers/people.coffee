@@ -5,6 +5,23 @@ angular.module 'mis'
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+		
+		$scope.languages = []
+		$scope.languages.push $scope.nativeLanguage
+
+		$scope.addRow = ->
+		  newLanguage = 
+		    level: $scope.level
+		    name: $scope.name
+		    remark: $scope.remark
+		  	$scope.languages.push newLanguage
+		  	console.log $scope.languages
+		  	return
+
+		$scope.deleteRow = (rowNo) ->
+		  $scope.languages.splice rowNo, 1
+		  return
+
 
 		uploader = new (plupload.Uploader)(
 				runtimes : 'html5,flash,silverlight,html4'
@@ -36,22 +53,21 @@ angular.module 'mis'
 				uploader.refresh()
 			)
 		
-		
 
 		PEOPLE.get().success (data)->
 			$scope.peoples = data
 			$scope.loading = false
+
 		
-		
+			
 
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
+				angular.element('#filelist').clear();
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.people_array = {}
-				angular.element('#filelist').hide('');
-				
 			), 1000
 			return
 

@@ -1,0 +1,67 @@
+<div class="row" style="padding-top: 5px;">
+
+   <!--  <div class="col-xs-3">
+        <select class="form-control" data-ng-model="level" tooltip="Level">
+            <option value="">Level</option>
+            <option value="proficient">Proficient</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="beginner">Beginner</option>
+        </select>
+    </div>
+    <div class="col-xs-4">
+        <select class="form-control" data-ng-model="name" tooltip="Language">
+            <option value="">Language</option>
+            <option value="EN">English</option>
+            <option value="IT">Italian</option>
+            <option value="DE">German</option>
+            <option value="FR">French</option>
+        </select>
+    </div>
+    <div class="col-xs-3">
+        <input type="text" data-ng-model="remark" class="form-control" placeholder="Remark" tooltip="Remark">
+    </div> -->
+
+     
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group form-group-default">
+                        <label>Qualification</label>
+                            <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-model='people_array.qualification' >
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group form-group-default">
+                        <label>Collage</label>
+                        <input type="text" name="collage" class="form-control" placeholder="Collage" ng-model='people_array.collage' >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group form-group-default">
+                        <label>University</label>
+                        <input type="text" name="country" class="form-control" placeholder="University" ng-model='people_array.university' >
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group form-group-default">
+                        <label>Passing Year</label>
+                        <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-model='people_array.passing_year' >
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group form-group-default">
+                        <label>%/Grd</label>
+                        <input type="text" name="percentage" class="form-control" placeholder="% or Grd" ng-model='people_array.percentage' >
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                    <a class="btn btn-danger" href="#" tooltip="Delete" ng-click="deleteRow($index);">REMOVE</a>{% $index %}
+                    </div>
+                    <hr>
+                </div>
+                
+                
+
+
+</div>

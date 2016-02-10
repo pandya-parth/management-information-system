@@ -3,4 +3,13 @@ angular.module 'mis', [
 	]
 
 	.config (paginationTemplateProvider)->
-		paginationTemplateProvider.setPath('../html/dirPagination.tpl.html')
+		paginationTemplateProvider.setPath('/html/dirPagination.tpl.html')
+
+	.directive 'selectLast', ->
+		{
+	  	  	restrict: 'A'
+	    	transclude: true
+	    	templateUrl: '/html/language.html'
+	    	replace: true
+	   	}
+  	

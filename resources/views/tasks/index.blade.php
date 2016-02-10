@@ -27,8 +27,6 @@
           <div class="clearfix"></div>
         </div>
         <div class="panel-body">
-
-
           <div ng-cloak  ng-repeat='task_cat in taskcategories'>
             <li>{% task_cat.name %}</li>
             <table class="table table-hover demo-table-dynamic" ng-show="tasks.length != 0" ng-cloak>
@@ -42,8 +40,6 @@
               <tbody >
                 <tr ng-repeat="tsk in tasks| orderBy:'-id'  " ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0" >
                   <div >
-
-
                     <td class="v-align-middle">
                       <p  ng-cloak>{% tsk.id %}</p>
                     </td>
@@ -63,8 +59,6 @@
             </table>
             <li><button ng-click="showModal($event)" type="button" class="btn btn-primary btn-cons task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button></li>
           </div>
-
-
           <div class="col-md-12 sm-p-t-15" ng-if="tasks.length==0" ng-cloak>
             <div class="alert alert-warning" role="alert">
               No record found.
