@@ -110,5 +110,6 @@ $('.btn-box-action').click(function(){
     $('.grid_list_view .head').addClass('box_view');
 });
 
+
 })(window.jQuery);
 

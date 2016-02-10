@@ -25,12 +25,21 @@
                         'single'=>'single',
                         'other'=>'other');
                         ?>
-                        <div class="pull-right">
-                            <div class="col-xs-6" ng-show="peoples.length>0">
+                        <div class="pull-right text-right">
+                            <div class="row">
+                            <div class="col-xs-5" ng-show="peoples.length>0">
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-3">
+                                <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
+                                      <option value="sightseeing">Web-safe</option>
+                                      <option value="business">Helvetica</option>
+                                      <option value="honeymoon">SegeoUI</option>
+                                    </select>
+                            </div>
+                            <div class="col-xs-4">
                                 <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add People</button>
+                            </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -87,6 +96,59 @@
                                    </div>
                                </div>
                                <!-- row 1 complete -->
+                               <!-- row 1 -->
+                                <div class="row border_class">
+                                    <div class="datas people_id_pic">
+                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                        <div class="pic_id">007</div>
+                                        <div class="box people_name">Hitesh Patel</div>
+                                    </div>
+                                    <div class="datas people_name box_real">
+                                        Hitesh Patel
+                                    </div>
+                                    <div class="datas people_designation">
+                                        Sr.Designer
+                                    </div>
+                                    <div class="datas people_email">
+                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
+                                    </div>
+                                    <div class="datas people_phone">
+                                        9999999999
+                                    </div>
+                                    <div class="datas people_action">
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
+                                   </div>
+                               </div>
+                               <!-- row 1 complete -->
+                               <!-- row 1 -->
+                                <div class="row border_class">
+                                    <div class="datas people_id_pic">
+                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                        <div class="pic_id">007</div>
+                                        <div class="box people_name">Hitesh Patel</div>
+                                    </div>
+                                    <div class="datas people_name box_real">
+                                        Hitesh Patel
+                                    </div>
+                                    <div class="datas people_designation">
+                                        Sr.Designer
+                                    </div>
+                                    <div class="datas people_email">
+                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
+                                    </div>
+                                    <div class="datas people_phone">
+                                        9999999999
+                                    </div>
+                                    <div class="datas people_action">
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
+                                   </div>
+                               </div>
+                               <!-- row 1 complete -->
+
                             </div>
                        </div>
                        <!-- hitesh close -->
@@ -230,8 +292,15 @@
                                         </select>
                                     </div>
                                 </div>
+                                <div class="row form-group form-group-default input-group col-md-12">
                                 <div class="col-md-6">
-                                    <div class="form-group form-group-default">
+                                    <div id="preview">
+                                        <img src="{!! asset('img/noPhoto.png')!!}" id="noimage"style="height:100px;width:100px;">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+
                                         <div id="filelist">Upload photos from here..</div>
                                         <div id="progressbar"></div>
                                         <br />
@@ -244,13 +313,10 @@
                                         </div>
                                         <input type="hidden" name='photo' id="photo"
                                         ng-modal='people_array.photo'>
-                                    </div>
+                                   
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group form-group-default" id="preview">
-                                     <img src="{!! asset('img/noPhoto.png')!!}" id="noimage"style="height:100px;width:100px;">
-                                 </div>
-                             </div>
+                                </div>
+                                
                          </div>
                      </div>
                      <div id="menu1" class="tab-pane slide-left">
