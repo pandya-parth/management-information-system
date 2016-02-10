@@ -354,53 +354,35 @@
                     <div style="padding: 10px;">
                       
                       <div style="width: 90%; display: inline-block; border: 1px silver dotted;">
-                     
-<div class="row" style="padding-top: 5px;">
-    <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group form-group-default">
-            <label>Qualification</label>
-            <input type="text" name="qualification[]" class="form-control" placeholder="Qualification" ng-model='qualification' >
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="form-group form-group-default">
-            <label>Collage</label>
-            <input type="text" name="collage[]" class="form-control" placeholder="Collage" ng-model='element.collage' >
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-3">
-      <div class="form-group form-group-default">
-        <label>University</label>
-        <input type="text" name="university[]" class="form-control" placeholder="University" ng-model='element.university' >
-    </div>
-</div>
-<div class="col-sm-3">
-    <div class="form-group form-group-default">
-        <label>Passing Year</label>
-        <input type="text" name="passing_year[]" class="form-control" placeholder="Passing Year" ng-model='ent.passing_year' >
-    </div>
-</div>
-<div class="col-sm-3">
-    <div class="form-group form-group-default">
-        <label>%/Grd</label>
-        <input type="text" name="percentage[]" class="form-control" placeholder="% or Grd" ng-model='element.percentage' >
-    </div>
-</div>
-<div class="col-sm-3">
-    <a class="btn btn-danger" href="#" tooltip="Delete" ng-click="deleteRow($index);">REMOVE</a>
-</div>
-<hr>
-</div>
-</div>
+                        <div class="row">
+                         {{--  <div class="col-xs-3">
+                            <select class="form-control" ng-init="nativeLanguage.level = 'Native'" data-ng-model="nativeLanguage.level" tooltip="Level">
+                              <option value="Native" ng-selected="true">Native</option>
+                            </select>
+                          </div> --}}
+                          {{-- <div class="col-xs-4">
+                            <select class="form-control" data-ng-model="nativeLanguage.name" tooltip="Language">
+                              <option value="">Language</option>
+                              <option value="EN">English</option>
+                              <option value="IT">Italian</option>
+                              <option value="DE">German</option>
+                              <option value="FR">French</option>
+                            </select>
+                          </div> --}}
+                        {{--   <div class="col-xs-3">
+                            <input type="text" data-ng-model="nativeLanguage.remark" class="form-control" placeholder="Remark" tooltip="Remark">
+                          </div> --}}
+                          <div class="col-xs-6">
+
+                          </div>
+                        </div>
+                        <div select-last ng-repeat='language in languages'></div>
                       </div>
                       
                       <a class="btn btn-success" style="margin-bottom: 27px;" href="#" tooltip="Add" ng-click='addRow()'>
                         ADD
                       </a>
-                     
+                      
                     </div>
                   </div>
                 </div>
