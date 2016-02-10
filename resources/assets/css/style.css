@@ -88,6 +88,7 @@ ul.log-indropdown{
 	padding:0px;
 	background-color: #0DAD9E;
 	color: #fff;
+	margin-bottom: 20px;
 }
 .grid_list_view .head .row{
 	padding: 10px 15px;
@@ -121,7 +122,8 @@ ul.log-indropdown{
 .grid_list_view .data_area.list_view .row{
 	width: 100%;
 	display: table;
-	background-color:#fff
+	background-color:#fff;
+	margin-bottom: 5px;
 }
 .grid_list_view .data_area.list_view .row:nth-child(even){
 	background-color: #f1f1f1;
@@ -146,6 +148,9 @@ vertical-align: middle;
 	display: block;
 }
 /* grid view */
+.grid_list_view .head.grid_view .row{
+	margin-bottom: 2px;
+}
 .grid_list_view .head.grid_view .row .datas{
 	width: 25%
 }
