@@ -21,51 +21,81 @@
                     <div class="panel-title">
                         Companies
                     </div>
-                    <div class="pull-right">
-                        <div class="col-xs-6" ng-show="companies.length > 0" ng-cloak>
-                            <input ng-model="q" type="text" id="search-table" class="form-control pull-right"
-                            placeholder="Search">
+                    <div class="pull-right text-right">
+                            <div class="row">
+                            <div class="col-xs-5" ng-show="companies.length>0">
+                                <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
+                            </div>
+                            <div class="col-xs-3">
+                                <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
+                                      <option value="sightseeing">Web-safe</option>
+                                      <option value="business">Helvetica</option>
+                                      <option value="honeymoon">SegeoUI</option>
+                                    </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Company</button>
+                            </div>
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add
-                                Company
-                            </button>
-                        </div>
-                    </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
-                    <table class="table table-hover demo-table-dynamic" ng-if="companies.length > 0" ng-cloak>
-                        <thead>
-                            <tr>
-                                <th>#Id</th>
-                                <th>Name</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody ng-cloak>
-                            <tr dir-paginate="company in companies| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
+
+
+
+
+
+                <div ng-cloak class="grid_list_view" ng-show="companies.length>0">
+                            <div class="head list_view border_class">
+                                <div class="row">
+                                    <div class="datas people_id_pic">Logo</div>
+                                    <div class="datas people_name">Name</div>
+                                    <div class="datas people_designation">Website</div>
+                                    <div class="datas people_email">Email</div>
+                                    <div class="datas people_phone">Phone</div>
+                                    <div class="datas people_action">Action</div>
+                                </div>
+                            </div>
+                            <div class="data_area list_view " dir-paginate="company in companies| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
                             current-page="currentPage" ng-show="companies.length != 0">
-                            <td class="v-align-middle">
-                                <p ng-cloak>{% company.id %}</p>
-                            </td>
-                            <td class="v-align-middle">
-                                <p ng-cloak>{% company.name ? company.name : '-' %}</p>
-                            </td>
-                            <td class="v-align-middle">
-                                <p>
-                                    <a ng-click="editCompany(company.id)">Edit</a>
-                                    <a ng-click="deleteCompany(company.id)">Delete</a>
-                                </p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="col-md-12 sm-p-t-15" ng-if="companies.length==0" ng-cloak>
-                    <div class="alert alert-warning" role="alert">
-                        No record found.
-                    </div>
-                </div>
+                                <!-- row 1 -->
+                                <div ng-cloak class="row border_class">
+                                    <div class="datas people_id_pic">
+                                        <div ng-cloak class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                        
+                                        
+                                    </div>
+                                    <div ng-cloak class="datas people_name box_real">
+                                        {% company.name ? company.name : '-' %}
+                                    </div>
+                                    <div ng-cloak class="datas people_designation">
+                                        {% company.website %}
+                                    </div>
+                                    <div ng-cloak class="datas people_email">
+                                        <a href="hitesh@krishaweb.com" target="_blank">{% company.email %}</a>
+                                    </div>
+                                    <div ng-cloak class="datas people_phone">
+                                        {% company.phone %}
+                                    </div>
+                                    <div class="datas people_action">
+                                       <a href="#" class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
+                                   </div>
+                               </div>
+                               <!-- row 1 complete -->
+                               
+
+                            </div>
+                       </div>
+    
+                <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="companies.length==0">
+                            <div style="text-align:center;">
+                                <img src="{!! asset('img/noCompany.png') !!}" style=" width:100px; height:100px; " />
+                                <p><h3>No match found</h3></p>
+                            </div>
+                        </div>
             </div>
             <dir-pagination-controls boundary-links="true"
             on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
@@ -223,9 +253,7 @@ aria-hidden="true">
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group form-group-default">
-                                        <label>Country</label>
-                                        <input id="appName" name="country" type="text" class="form-control"
-                                        placeholder="Country" ng-model='company.country'>
+                                        <div id="basic"  data-input-name="country" data-selected-country="US" data-button-size="btn-lg" data-button-type="btn-warning" data-scrollable="true" data-scrollable-height="250px"></div>
                                     </div>
                                 </div>
                             </div>

@@ -11,6 +11,7 @@ use App\Project;
 use App\ProjectCategory;
 use App\User;
 use App\People;
+use App\Company;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Former\Facades\Former;
@@ -27,8 +28,8 @@ class ProjectsController extends Controller
     public function index()
     {
         $projects = ProjectCategory::all();
-        $users = User::all();
-        return view('projects.index',compact('projects','users'));   
+        $companies = Company::all();
+        return view('projects.index',compact('projects','companies'));   
     }
 
     public function getProjects()

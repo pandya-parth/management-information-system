@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Company;
 use Illuminate\Support\Facades\Input;
+use Image;
 // use Former\Facades\Former;
 
 
@@ -47,7 +48,7 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
-       dd($input= Input::all());
+        $input= Input::all();
         $companies=Company::create($input);
         $companies->save();
         return response()->json(['success'=>true]);

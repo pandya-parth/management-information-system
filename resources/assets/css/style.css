@@ -207,7 +207,13 @@ vertical-align: middle;
 .grid_list_view .data_area.box_view .row .box_real.people_name{
 	display: none;
 }
+.grid_list_view .head.border_class.box_view{
+	display: none;
+}
 .border_class{
 	border-radius: 70px;
+}
+.header_class{
+	background-color: #0DAD9E;
 }
 

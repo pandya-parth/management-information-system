@@ -19,7 +19,32 @@ class Project extends Model  implements SluggableInterface
         'on_update'  => true,
     ]; 
 
-    protected $fillable = ['name','category_id','client_id','description'];
+    protected $fillable = ['name','category_id','client_id','description','price_types','notes','status','start_date','end_date'];
+
+    public function setStartDateAttribute($value)
+    {   
+        if(!empty($value))
+        {
+            $this->attributes['start_date'] = $value;
+        }
+        else
+        {
+            $this->attributes['start_date'] = NULL;
+        }
+    }
+
+    public function setEndDateAttribute($value)
+    {   
+        if(!empty($value))
+        {
+            $this->attributes['end_date'] = $value;
+        }
+        else
+        {
+            $this->attributes['end_date'] = NULL;
+        }
+    }
+
 
  //    public function category()
 	// {
