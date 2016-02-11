@@ -12,7 +12,8 @@
                     <li>
                         <a href="{!!url('/')!!}">Home</a>
                     </li>
-                    <li><a href="{!!url('people')!!}" class="active">People</a>
+                    <li>
+                        <a href="{!!url('people')!!}" class="active">People</a>
                     </li>
                 </ul>
             </div>
