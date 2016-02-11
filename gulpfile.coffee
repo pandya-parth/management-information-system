@@ -18,6 +18,7 @@ elixir (mix)->
       'windows.chrome.fix.css',
       'datepicker3.css',
       'bootstrap-timepicker.min.css',
+      'flags.css',
       'style.css',
     ], 'public/css/vendor.css'
 
@@ -49,6 +50,7 @@ elixir (mix)->
       'bootstrap-timepicker.min.js'
       'bootstrap-datepicker.js'
       'plupload.full.min.js'
+      'jquery.flagstrap.js'
       bowerPath('angular', 'angular.min.js')
       bowerPath('underscore', 'underscore.js')
       bowerPath('angular-bootstrap', 'ui-bootstrap-tpls.js')

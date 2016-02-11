@@ -36,6 +36,7 @@ class Task extends Model implements SluggableInterface
         }
     }
 
+
     protected $sluggable = [
         'build_from' => 'name',
         'save_to'    => 'slug',

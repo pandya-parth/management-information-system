@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title','People')
 @section('content')
+
 <div ng-controller="PeopleCtrl">
     <div class= "content">
         <!-- START CONTAINER FLUID -->
@@ -369,7 +370,7 @@
                             <div class="col-sm-3">
                                 <div class="form-group form-group-default">
                                     <label>University</label>
-                                    <input type="text" name="country" class="form-control" placeholder="University" ng-model='people_array.university' >
+                                    <input type="text" name="university" class="form-control" placeholder="University" ng-model='people_array.university' >
                                 </div>
                             </div>
                             <div class="col-sm-2">

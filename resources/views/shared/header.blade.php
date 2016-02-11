@@ -42,15 +42,10 @@
       </ul>
 
       <div class=" pull-right">
-        <div class="header-inner">
-          <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs" data-toggle="quickview" data-toggle-element="#quickview"></a>
-        </div>
-      </div>
-      <div class=" pull-right">
         <!-- START User Info-->
         <div class="visible-lg visible-md m-t-10">
           <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
-            <span class="semi-bold">David</span> <span class="text-master">Nest</span>
+            <span class="semi-bold">{!! Auth::user()->email !!}</span>
           </div>
           <div class="dropdown pull-right">
             <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -78,6 +73,6 @@
         </div>
         <!-- END User Info-->
       </div>
-      @include('shared.right_sidebar')
+      
     </div>
 

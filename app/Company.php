@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Image;	
+use Event;
 
 class Company extends Model 
 {
@@ -47,3 +49,6 @@ class Company extends Model
 
 
 }
+Event::listen('eloquent.deleting:Company', function($model) {
+		$model->deleteFile();
+	});
