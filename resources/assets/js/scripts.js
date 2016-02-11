@@ -11,6 +11,7 @@
             autoclose: true
         });
 
+
         $('pgn-warpper').css('display:none');
 
        
