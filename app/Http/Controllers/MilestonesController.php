@@ -7,36 +7,39 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Milestone;
+use App\Company;
 use Illuminate\Support\Facades\Input;
-use Redirect;
-use Former\Facades\Former;
-use Validator;
 use Image;
+// use Former\Facades\Former;
+
 
 class MilestonesController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $milestones=Milestone::all();
-        return view('milestones/index',compact('milestones'));
+        $companies = Company::all();
+        return view('milestones.index',compact('milestones','companies'));   
     }
-
+    
+    public function getMilestones()
+    {
+       $milestones = Milestone::get();
+       return response()->json($milestones);
+    }
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        $milestones = new Milestone(Input::old());
-        $id=false;
-        Former::populate($milestones);
-        return view('milestones/form',compact('id','milestones'));
+        //
     }
 
     /**
@@ -47,18 +50,11 @@ class MilestonesController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:30'
-            ]);
-        if ($validator->fails()) {
-            return redirect('milestones/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }  
-              $input= Input::all();
-             $milestones=Milestone::create($input);
-             $milestones->save();
-             return Redirect::route('milestones.index')->with("success","Record Save");
+        $input= Input::all();
+        $milestones= Milestone::create($input);
+        $milestones->save();
+        return response()->json(['success'=>true]);
+
     }
 
     /**
@@ -80,9 +76,13 @@ class MilestonesController extends Controller
      */
     public function edit($id)
     {
-        $milestones=Milestone::findOrFail($id);
-        Former::populate($milestones);
-        return view('milestones.form',compact('milestones'));
+        //
+    }
+
+    public function getMilestone($id)
+    {
+        $milestone = Milestone::findOrFail($id);
+        return response()->json($milestone);
     }
 
     /**
@@ -94,20 +94,10 @@ class MilestonesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|min:3|max:30',
-           'description'=>'required'
-        ]);
-        if ($validator->fails()) {
-            return redirect('milestone/create')
-                        ->withErrors($validator)
-                        ->withInput();
-        }  
-             $milestones = Milestone::find($id);
-             $milestones->fill( Input::all() );   
-             
-             $milestones->save();
-             return Redirect::route('milestone.index');
+        $milestone = Milestone::find($id);
+       
+        $milestone->update(Input::all());  
+        return response()->json(['success'=>true]); 
     }
 
     /**
@@ -118,8 +108,8 @@ class MilestonesController extends Controller
      */
     public function destroy($id)
     {
-        $affectedRows  = Milestone::where('id', '=', $id)->delete();
-
-        return $affectedRows;
+        $milestone = Milestone::find($id);
+        $milestone->delete();    
+        return response()->json(['success'=>true]);
     }
 }

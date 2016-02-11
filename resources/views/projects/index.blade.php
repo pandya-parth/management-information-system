@@ -51,12 +51,14 @@
                         current-page="currentPage" ng-show="projects.length != 0">
                         <!-- row 1 -->
                         <div ng-cloak class="row border_class">
+                        <a href="{!!url('/projects/{% project.id %}/tasks')!!}">
                             <div class="datas people_id_pic">
                                 <div ng-cloak class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
 
 
                             </div>
                             <div ng-cloak class="datas people_name box_real">
+
                                 {% project.name ? project.name : '-' %}
                             </div>
                             <div ng-cloak class="datas people_designation">

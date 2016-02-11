@@ -23,10 +23,10 @@
                     </div>
                     <div class="pull-right text-right">
                             <div class="row">
-                            <div class="col-xs-5" ng-show="companies.length>0">
+                            <div class="col-xs-5" ng-cloak ng-show="companies.length>0">
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-3" ng-cloak ng-show="companies.length>0">
                                 <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
                                       <option value="sightseeing">Web-safe</option>
                                       <option value="business">Helvetica</option>

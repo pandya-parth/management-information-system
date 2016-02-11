@@ -31,7 +31,7 @@
                             <div class="col-xs-5" ng-show="peoples.length>0">
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-3" ng-cloak ng-show="peoples.length>0">
                                 <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
                                       <option value="sightseeing">Web-safe</option>
                                       <option value="business">Helvetica</option>
@@ -51,7 +51,7 @@
                         <div class="grid_action">
                             <div class="row">
                                 <div class="col-lg-12 text-right">
-                                    <div class="btn-toolbar">
+                                    <div ng-cloak class="btn-toolbar" ng-show="peoples.length>0">
                                         <a href="#" class="btn btn-success btn-sm btn-list-action btn-cons"><i class="fa fa-list-ul"></i></a>
                                         <a href="#" class="btn btn-success btn-sm btn-grid-action btn-cons"><i class="fs-14 fa fa-bars"></i></a>
                                         <a href="#" class="btn btn-success btn-sm btn-box-action btn-cons"><i class="fs-14 fa fa-th "></i></a>
@@ -59,141 +59,55 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="grid_list_view">
-                            <div class="head list_view border_class">
-                                <div class="row">
+                        <div ng-cloak class="grid_list_view">
+                            <div ng-cloak class="head list_view border_class" ng-show="peoples.length>0">
+                                <div ng-cloak class="row">
                                     <div class="datas people_id_pic">#Id</div>
-                                    <div class="datas people_name">First Name</div>
-                                    <div class="datas people_designation">Designation</div>
-                                    <div class="datas people_email">Email</div>
+                                    <div class="datas people_name">Name</div>
+                                    <div class="datas people_designation">Date Of Birth</div>
+                                    <div class="datas people_email">Department</div>
                                     <div class="datas people_phone">Phone</div>
                                     <div class="datas people_action">Action</div>
                                 </div>
                             </div>
-                            <div class="data_area list_view ">
+                            <div ng-cloak class="data_area list_view " dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'-id'" current-page="currentPage">
                                 <!-- row 1 -->
-                                <div class="row border_class">
-                                    <div class="datas people_id_pic">
+                                <div ng-cloak class="row border_class">
+                                    <div ng-cloak class="datas people_id_pic">
                                         <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                        <div class="pic_id">007</div>
-                                        <div class="box people_name">Kajal</div>
+                                        
+                                        
                                     </div>
-                                    <div class="datas people_name box_real">
-                                        Kajal
+                                    <div ng-cloak class="datas people_name box_real">
+                                        {% people.fname %} {% people.lname %}
                                     </div>
-                                    <div class="datas people_designation">
-                                        Sr.Designer
+                                    <div ng-cloak class="datas people_designation">
+                                        {% people.dob %}
                                     </div>
-                                    <div class="datas people_email">
-                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
+                                    <div ng-cloak class="datas people_email">
+                                        {% people.department %}
                                     </div>
-                                    <div class="datas people_phone">
-                                        9999999999
+                                    <div ng-cloak class="datas people_phone">
+                                        {% people.phone %}
                                     </div>
                                     <div class="datas people_action">
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm" ng-click="editPeople(people.id)"><i class="fa fa-edit"></i></a>
                                        <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
+                                       <a href="#" class="btn btn-success btn-sm" ng-click="deletePeople(people.user_id)"><i class="fa fa-trash"></i></a>
                                    </div>
                                </div>
                                <!-- row 1 complete -->
-                               <!-- row 1 -->
-                                <div class="row border_class">
-                                    <div class="datas people_id_pic">
-                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                        <div class="pic_id">007</div>
-                                        <div class="box people_name">Kajal</div>
-                                    </div>
-                                    <div class="datas people_name box_real">
-                                        Kajal
-                                    </div>
-                                    <div class="datas people_designation">
-                                        Sr.Designer
-                                    </div>
-                                    <div class="datas people_email">
-                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
-                                    </div>
-                                    <div class="datas people_phone">
-                                        9999999999
-                                    </div>
-                                    <div class="datas people_action">
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
-                                   </div>
-                               </div>
-                               <!-- row 1 complete -->
-                               <!-- row 1 -->
-                                <div class="row border_class">
-                                    <div class="datas people_id_pic">
-                                        <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                        <div class="pic_id">007</div>
-                                        <div class="box people_name">Kajal</div>
-                                    </div>
-                                    <div class="datas people_name box_real">
-                                        Kajal
-                                    </div>
-                                    <div class="datas people_designation">
-                                        Sr.Designer
-                                    </div>
-                                    <div class="datas people_email">
-                                        <a href="hitesh@krishaweb.com" target="_blank">hitesh@krishaweb.com</a>
-                                    </div>
-                                    <div class="datas people_phone">
-                                        9999999999
-                                    </div>
-                                    <div class="datas people_action">
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-edit"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-trash"></i></a>
-                                   </div>
-                               </div>
-                               <!-- row 1 complete -->
+                               
 
                             </div>
                        </div>
-                       <!-- hitesh close -->
-                        <!-- <table class="table table-hover demo-table-dynamic" ng-show="peoples.length != 0" ng-cloak>
-                            <thead>
-                                <tr ng-cloak>
-                                    <th>#Id</th>
-                                    <th>Name</th>
-                                    <th>Date of Birth</th>
-                                    <th>Phone</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'-id'" current-page="currentPage">
-                                    <td class="v-align-middle">
-                                        <p ng-cloak>{% people.id %}</p>
-                                    </td>
-                                    <td class="v-align-middle">
-                                        <p ng-cloak>{% people.fname %} {% people.lname %}</p>
-                                    </td>
-                                    <td class="v-align-middle">
-                                        <p ng-cloak>{% people.dob %}</p>
-                                    </td>
-                                    <td class="v-align-middle">
-                                        <p ng-cloak>{% people.phone %}</p>
-                                    </td>
-                                    <td class="v-align-middle">
-                                        <p>
-                                            <a ng-click="editPeople(people.id)">Edit</a>
-                                            <a ng-click="deletePeople(people.user_id)">Delete</a>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            
-                        </table> -->
-                        
-                        <!-- <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="peoples.length==0">
+                                             
+                        <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="peoples.length==0">
                             <div style="text-align:center;">
                                 <img src="{!! asset('img/noPeople.png') !!}" />
                                 <p><h3>No match found</h3></p>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
                     <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
                 </div>
@@ -430,7 +344,7 @@
                                     <input type="text" name="education" class="form-control" placeholder="Education" ng-model='people_array.education' >
                                 </div>
                                 <div class="form-group form-group-default">
-                                    <label>Departmentr</label>
+                                    <label>Department</label>
                                     <input type="text" name="department" class="form-control" placeholder="Department" ng-model='people_array.department' >
                                 </div>
                                 <div class="form-group form-group-default">

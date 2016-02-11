@@ -6,14 +6,16 @@
       <!-- START Login Background Pic Wrapper-->
       <div class="bg-pic">
         <!-- START Background Pic-->
-       <img src="{!! asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')!!}" data-src="{!! asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')!!}" data-src-retina="{!! asset('img/demo/new-york-city-buildings-sunrise-morning-hd-wallpaper.jpg')!!}" alt="" class="lazy">
+       <img src="{!! asset('img/demo/team2.jpg')!!}" data-src="{!! asset('img/demo/team2.jpg')!!}" data-src-retina="{!! asset('img/demo/team2.jpg')!!}" alt="" class="lazy">
         <!-- END Background Pic-->
         <!-- START Background Caption-->
         <div class="bg-caption pull-bottom sm-pull-bottom text-white p-l-20 m-b-20">
-          <h2 class="semi-bold text-white">
-          Pages make it easy to enjoy what matters the most in the life</h2>
+        
+          <h2 style="vertical-align:center" class="semi-bold text-white">
+          <img src="{{asset('img/demo/logo2.png')}}" alt="logo" data-src="{{asset('img/demo/logo2.png')}}" data-src-retina="{{ asset('img/demo/logo2.png')}}"  >
+          KrishaWeb Teamwork</h2>
           <p class="small">
-            images Displayed are solely for representation purposes only, All work copyright of respective owner, otherwise © 2013-2014 REVOX.
+            All work copyright of respective owner, otherwise © <?php echo date('Y') ?> KrishaWeb Technologies Pvt Ltd.
           </p>
         </div>
         <!-- END Background Caption-->
