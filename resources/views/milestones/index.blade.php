@@ -103,6 +103,108 @@
         <!-- END PANEL -->
     </div>
     <!-- END CONTAINER FLUID -->
+    <!-- START CONTAINER FLUID -->
+          <div class="container-fluid container-fixed-lg">
+            <div class="panel panel-transparent">
+              <div class="panel-heading">
+                <div class="panel-title">Draggable Portlets
+                </div>
+              </div>
+              <div class="panel-body sortable">
+                <div class="row">
+                  <div class="col-md-6 sortable-column">
+                    <div class="panel panel-default bg-danger" data-pages="portlet">
+                      <div class="panel-heading">
+                        <div class="panel-title">Draggable Portlet
+                        </div>
+                        <div class="panel-controls">
+                          <ul>
+                            <li><a href="#" class="portlet-collapse" data-toggle="collapse"><i class="portlet-icon portlet-icon-collapse"></i></a>
+                            </li>
+                            <li><a href="#" class="portlet-refresh" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                            </li>
+                            <li><a href="#" class="portlet-close" data-toggle="close"><i class="portlet-icon portlet-icon-close"></i></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <h3 class="text-white">
+                                <span class="semi-bold">Drag</span> me!</h3>
+                        <p class="text-white">When it comes to digital design, the lines between functionality, aesthetics, and psychology are inseparably blurred. Without the constraints of the physical world, there’s no natural form to fall back on, and every bit of constraint and affordance must be introduced intentionally. Good design makes a product useful. A product is bought to be used. It has to satisfy certain criteria, not only functional, but also psychological and aesthetic. </p>
+                      </div>
+                    </div>
+                    <div class="panel panel-default bg-complete" data-pages="portlet">
+                      <div class="panel-heading">
+                        <div class="panel-title">Draggable Portlet
+                        </div>
+                        <div class="panel-controls">
+                          <ul>
+                            <li><a href="#" class="portlet-collapse" data-toggle="collapse"><i class="portlet-icon portlet-icon-collapse"></i></a>
+                            </li>
+                            <li><a href="#" class="portlet-refresh" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                            </li>
+                            <li><a href="#" class="portlet-close" data-toggle="close"><i class="portlet-icon portlet-icon-close"></i></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <h3 class="text-white">
+                                <span class="semi-bold">Drag</span> me!</h3>
+                        <p class="text-white">When it comes to digital design, the lines between functionality, aesthetics, and psychology are inseparably blurred. Without the constraints of the physical world, there’s no natural form to fall back on, and every bit of constraint and affordance must be introduced intentionally. Good design makes a product useful. A product is bought to be used. It has to satisfy certain criteria, not only functional, but also psychological and aesthetic. </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 sortable-column">
+                    <div class="panel panel-default bg-primary" data-pages="portlet">
+                      <div class="panel-heading">
+                        <div class="panel-title">Draggable Portlet
+                        </div>
+                        <div class="panel-controls">
+                          <ul>
+                            <li><a href="#" class="portlet-collapse text-white" data-toggle="collapse"><i class="portlet-icon portlet-icon-collapse"></i></a>
+                            </li>
+                            <li><a href="#" class="portlet-refresh text-white" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                            </li>
+                            <li><a href="#" class="portlet-close text-white" data-toggle="close"><i class="portlet-icon portlet-icon-close"></i></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <h3 class="text-white">
+                                <span class="semi-bold">Drag</span> me!</h3>
+                        <p class="text-white">When it comes to digital design, the lines between functionality, aesthetics, and psychology are inseparably blurred. Without the constraints of the physical world, there’s no natural form to fall back on, and every bit of constraint and affordance must be introduced intentionally. Good design makes a product useful. A product is bought to be used. It has to satisfy certain criteria, not only functional, but also psychological and aesthetic. </p>
+                      </div>
+                    </div>
+                    <div class="panel panel-default bg-success" data-pages="portlet">
+                      <div class="panel-heading">
+                        <div class="panel-title">Draggable Portlet
+                        </div>
+                        <div class="panel-controls">
+                          <ul>
+                            <li><a href="#" class="portlet-collapse" data-toggle="collapse"><i class="portlet-icon portlet-icon-collapse"></i></a>
+                            </li>
+                            <li><a href="#" class="portlet-refresh" data-toggle="refresh"><i class="portlet-icon portlet-icon-refresh"></i></a>
+                            </li>
+                            <li><a href="#" class="portlet-close" data-toggle="close"><i class="portlet-icon portlet-icon-close"></i></a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <h3 class="text-white">
+                                <span class="semi-bold">Drag</span> me!</h3>
+                        <p class="text-white">When it comes to digital design, the lines between functionality, aesthetics, and psychology are inseparably blurred. Without the constraints of the physical world, there’s no natural form to fall back on, and every bit of constraint and affordance must be introduced intentionally. A product is bought to be used. It has to satisfy certain criteria, not only functional, but also psychological and aesthetic.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END CONTAINER FLUID -->
 </div>
 <!-- MODAL STICK UP  -->
 <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog"
