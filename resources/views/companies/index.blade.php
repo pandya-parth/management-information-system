@@ -43,7 +43,7 @@
                 <div class="panel-body">
 
 
-
+<p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
 
 
                 <div ng-cloak class="grid_list_view" ng-show="companies.length>0">

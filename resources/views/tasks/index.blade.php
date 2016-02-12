@@ -26,27 +26,27 @@
           </div>
           <div class="clearfix"></div>
         </div>
-        <div class="panel-body">
-     
+        <div ng-cloak class="panel-body" >
+     <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
           
-          <div class="panel-group"  role="tablist" aria-multiselectable="true" ng-repeat='task_cat in taskcategories' >
-            <div class="panel panel-default" id="{%task_cat.id%}">
-              <div class="panel-heading" role="tab" id="headingOne" >
+          <div ng-cloak class="panel-group"  role="tablist" aria-multiselectable="true" ng-repeat='task_cat in taskcategories' >
+            <div ng-cloak class="panel panel-default" id="{%task_cat.id%}" class="accordion">
+              <div ng-cloak class="panel-heading" role="tab" id="headingOne" >
                 <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#{%task_cat.id%}" href="#tasklist{% task_cat.id %}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                  <a ng-cloak data-toggle="collapse" data-parent="#{%task_cat.id%}" href="#tasklist{% task_cat.id %}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
                     {% task_cat.name %}
                   </a>
                 </h4>
                 
               </div>
 
-                <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                           <div class="panel-body">
                             <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
                               <a href="#" class="taskInner">
                                 <div class="checkbox check-success">
-                                  <input type="checkbox" name="status[]" value="1" id="onhold">
-                                  <label for="onhold"></label>
+                                  <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}">
+                                  <label for="{% tsk.id %}"></label>
                                 </div>
                               </a>
                               <div class="task_detail">
