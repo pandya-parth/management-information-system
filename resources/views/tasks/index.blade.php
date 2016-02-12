@@ -9,7 +9,7 @@
       <div class="inner">
         <!-- START BREADCRUMB -->
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{!! url('tasks') !!}">Task</a></li>
+          <li class="active"><a href="{!!url('/projects/{% pId %}/tasks')!!}">Task</a></li>
           <li><a href="{!! url('milestones') !!}">Milestone</a></li>
         </ul>
         <div class="clearfix"></div>
@@ -27,43 +27,68 @@
           <div class="clearfix"></div>
         </div>
         <div class="panel-body">
-          <div ng-cloak  ng-repeat='task_cat in taskcategories'>
-            <li>{% task_cat.name %}</li>
-            <table class="table table-hover demo-table-dynamic" ng-show="tasks.length != 0" ng-cloak>
-              <thead>
-                <tr>
-                  <th>Id</th>
-                  <th>Task Name</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody >
-                <tr ng-repeat="tsk in tasks| orderBy:'-id'  " ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0" >
-                  <div >
-                    <td class="v-align-middle">
-                      <p  ng-cloak>{% tsk.id %}</p>
-                    </td>
-                    <td class="v-align-middle">
-                      <p ng-cloak>{% task_cat.id  %}</p>
-                      <p ng-cloak>{% tsk.name ? tsk.name : '-' %}</p>
-                    </td>
-                    <td class="v-align-middle">
-                      <p ng-cloak>
-                        <a  ng-click="editTask(tsk.id)">Edit</a>
-                        <a  ng-click="deleteTask(tsk.id)">Delete</a>
-                      </p>
-                    </td>
-                  </div>
-                </tr>
-              </tbody>
-            </table>
-            <li><button ng-click="showModal($event)" type="button" class="btn btn-primary btn-cons task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button></li>
-          </div>
-          <div class="col-md-12 sm-p-t-15" ng-if="tasks.length==0" ng-cloak>
-            <div class="alert alert-warning" role="alert">
-              No record found.
+     
+          
+          <div class="panel-group"  role="tablist" aria-multiselectable="true" ng-repeat='task_cat in taskcategories' >
+            <div class="panel panel-default" id="{%task_cat.id%}">
+              <div class="panel-heading" role="tab" id="headingOne" >
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#{%task_cat.id%}" href="#tasklist{% task_cat.id %}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                    {% task_cat.name %}
+                  </a>
+                </h4>
+                
+              </div>
+
+                <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                          <div class="panel-body">
+                            <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
+                              <a href="#" class="taskInner">
+                                <div class="checkbox check-success">
+                                  <input type="checkbox" name="status[]" value="1" id="onhold">
+                                  <label for="onhold"></label>
+                                </div>
+                              </a>
+                              <div class="task_detail">
+                                <label class="taskBubble">hello 2</label>
+                                <a href="#" class="task_name">{% tsk.name %}</a>
+                                <a href="#" class="timer">
+                                  <i class="glyphicon glyphicon-time"></i>
+                                </a>
+                              </div>
+                            </div>
+                            <button ng-click="showModal($event)" type="button" class="btn btn-primary btn-cons task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button>
+
+                          </div>
+                        </div>
+              
             </div>
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
       </div>
       <!-- END PANEL -->

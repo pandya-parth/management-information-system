@@ -216,4 +216,58 @@ vertical-align: middle;
 .header_class{
 	background-color: #0DAD9E;
 }
-
+label.taskBubble{
+	background-color: #10CFBD;
+	padding: 2px 10px;
+	color: #fff;
+	border-radius: 2px;
+	font-size: 12px;
+	line-height: 16px
+}
+a.task_name{
+	color: rgb(98, 98, 98);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 14px;
+    margin: 0 10px 0;
+    display: inline-block;
+}
+a.timer{
+    color: #10CFBD;
+    font-size: 14px;
+    vertical-align: middle;
+}
+.topTask{
+	padding: 0 0 0 30px;
+}
+.topTask .taskInner{
+	display: inline-block;
+	vertical-align: middle;
+}
+.topTask .taskInner .checkbox label{
+	margin: 0;
+}
+.topTask .task_detail{
+	display: inline-block;
+	vertical-align: middle;
+}
+.panel-group .panel-heading{
+	background-color: #0DAD9E;
+}
+.panel-group .panel-heading .panel-title > a{
+	color: #fff !important;
+}
+.panel-group .panel-heading .panel-title > a:hover{
+	color: #fff !important;
+}
+.panel-group .panel-heading .panel-title > a:after{
+	color: #fff !important;
+}
+.panel-group .panel-heading .panel-title > a:hover:after{
+	color: #fff !important;
+}
+.panel.panel-default{
+	border:none !important;
+}
+.panel{
+	background-color: transparent !important;
+}

@@ -16,7 +16,7 @@
                     <div class="panel-title">Project Listing
                     </div>
                     <div class="pull-right text-right">
-                        <div class="row">
+                        <div ng-cloak class="row">
                             <div class="col-xs-5" ng-show="projects.length>0">
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
@@ -27,8 +27,8 @@
                                     <option value="honeymoon">SegeoUI</option>
                                 </select>
                             </div>
-                            <div class="col-xs-4">
-                                <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Project</button>
+                            <div ng-cloak class="col-xs-4">
+                                <button ng-cloak id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Project</button>
                             </div>
                         </div>
                     </div>
