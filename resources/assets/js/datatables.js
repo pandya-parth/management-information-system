@@ -62,6 +62,10 @@
             $('#addNewAppModal').modal('show');
         });
 
+        $('#timer_button').click(function() {
+            $('#logTimeModal').modal('show');
+        });
+
 
         $('.task_category').click(function() {
             $('#addNewAppModal').modal('show');
