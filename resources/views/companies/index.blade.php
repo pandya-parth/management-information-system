@@ -41,18 +41,10 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
-                <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
-                 <div class="grid_action">
-                        <div class="row">
-                            <div class="col-lg-12 text-right">
-                                <div ng-cloak class="btn-toolbar" ng-show="companies.length>0">
-                                    <a href="#" class="btn btn-success btn-sm btn-list-action btn-cons"><i class="fa fa-list-ul"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm btn-grid-action btn-cons"><i class="fs-14 fa fa-bars"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm btn-box-action btn-cons"><i class="fs-14 fa fa-th "></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+
+<p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
+
 
                 <div ng-cloak class="grid_list_view" ng-show="companies.length>0">
                             <div class="head list_view border_class">
@@ -69,9 +61,9 @@
                             current-page="currentPage" ng-show="companies.length != 0">
                                 <!-- row 1 -->
                                 <div ng-cloak class="row border_class">
-                                    <div class="datas people_id_pic">
+                                   <div class="datas people_id_pic">
                                         <div ng-cloak class="pic" ng-if="company.logo==''"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                        <div ng-cloak class="pic" ng-if="company.logo!=''"> <img src="{!! asset('uploads/company-thumb/{% company.logo %}') !!}" /></div>
+                                        <div ng-cloak class="pic" ng-if="company.logo!=''"> <img src="{!! asset('uploads/people-thumb/{% company.logo %}') !!}" /></div>
                                         
                                         
                                     </div>
