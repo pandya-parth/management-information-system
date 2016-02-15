@@ -15,11 +15,15 @@ angular.module 'mis'
 			$scope.taskcategories = data
 			$scope.loading = false
 
-				
+		$scope.Pro_Id = pId	
 
 		$scope.showModal = (event) ->
 			$scope.task.category_id = event.target.id
 			angular.element('#addNewAppModal').modal('show')
+			return
+
+		$scope.showLogModal = (event) ->
+			angular.element('#logTimeModal').modal('show')
 			return
 
 		$scope.clearAll = ->
@@ -31,6 +35,17 @@ angular.module 'mis'
 				
 			), 1000
 			return
+
+		$scope.logClearAll = ->
+			angular.element('#logTimeModal').modal('hide')
+			$timeout (->
+				$scope.submitted = false
+				$scope.edit = false
+				$scope.task = {}
+				
+			), 1000
+			return
+
 		$scope.submit = (form)->
 			$scope.loading = true
 			$scope.submitted = true

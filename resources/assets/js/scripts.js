@@ -12,6 +12,7 @@
         });
 
 
+
         $('pgn-warpper').css('display:none');
 
        
