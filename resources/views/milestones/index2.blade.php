@@ -11,7 +11,8 @@
                     <li>
                         <a href="{!!url('/')!!}">Home</a>
                     </li>
-                    <li><a href="{!!url('milestones')!!}" class="active">Milestones</a>
+                    <li class="active"><a href="{!!url('/projects/{% Pro_Id %}/tasks')!!}">Task</a></li>
+          <li><a href="{!! url('/projects/{% Pro_Id %}/milestones') !!}">Milestone</a></li>
                     </li>
                 </ul>
             </div>
@@ -73,10 +74,10 @@
                                         {% milestone.description %}
                                     </div>
                                     <div ng-cloak class="datas people_email">
-                                        <a href="hitesh@krishaweb.com" target="_blank">{% milestone.notes %}</a>
+                                        <a href="hitesh@krishaweb.com" target="_blank">{% milestone.due_date %}</a>
                                     </div>
                                     <div ng-cloak class="datas people_phone">
-                                        {% milestone.due_date %}
+                                        {% milestone.user_id %}
                                     </div>
                                     <div class="datas people_action">
                                        <a href="#" class="btn btn-success btn-sm" ng-click="editMilestone(milestone.id)" ><i class="fa fa-edit"></i></a>
@@ -160,7 +161,6 @@ aria-hidden="true">
                                         <span class="error"
                                         ng-show="submitted && Milestone.notes.$error.required">* Please enter milestone notes.</span>
                                     </div>
-                                    <input type="text" name="project_id"  ng-model="milestone.project_id">
                           </div>
                           </div>
                           </div>
@@ -180,11 +180,11 @@ aria-hidden="true">
                   <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default form-group-default-select2">
-                                        <label class="">User</label>
+                                        <label class="">Client</label>
                                         <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2" ng-model="milestone.user_id">
                                             <option selected="selected">-- Select One --</option>
-                                            @foreach($peoples as $user)
-                                            <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
+                                            @foreach($companies as $company)
+                                            <option value="{!! $company->id !!}">{!! $company->name !!}</option>
                                             @endforeach
                                         </select>
                                     </div>

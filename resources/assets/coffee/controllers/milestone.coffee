@@ -1,14 +1,18 @@
 angular.module 'mis'
 
-	.controller 'milestoneCtrl', ($scope, milestone, $timeout)->
+	.controller 'milestoneCtrl', ($scope, milestone, $timeout, $window)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+		currentUrl = $window.location.href
+		pId = currentUrl.split('/')[4]||"Undefined"
 
-		milestone.get().success (data)->
+		milestone.get(pId).success (data)->
 			$scope.milestones = data
 			$scope.loading = false
+
+		$scope.Pro_Id = pId
 
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
@@ -29,6 +33,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
+				$scope.milestone.project_id = pId
 				milestone.save($scope.milestone).success (data)->
 					$scope.submitted = false
 					$scope.milestone = {}
@@ -40,7 +45,7 @@ angular.module 'mis'
 						timeout: 2000
 						type: 'success').show()
 
-					milestone.get().success (getData)->
+					milestone.get(pId).success (getData)->
 						$scope.milestones = getData
 						$scope.loading = false
 			else
@@ -57,7 +62,7 @@ angular.module 'mis'
 							timeout: 2000
 							type: 'success').show()
 
-						milestone.get().success (getData)->
+						milestone.get(pId).success (getData)->
 							$scope.milestones = getData
 							$scope.loading = false
 					), 500
@@ -66,7 +71,7 @@ angular.module 'mis'
 		$scope.deleteMilestone = (id)-> 
 			$scope.loading = true
 			milestone.destroy(id).success (data)->
-				milestone.get().success (getData)->
+				milestone.get(pId).success (getData)->
 					$scope.milestones = getData
 					$scope.loading = false
 				angular.element('body').pgNotification(

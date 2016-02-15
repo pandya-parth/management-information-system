@@ -32,7 +32,7 @@ angular.module 'mis'
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.task = {}
-				
+				$scope.task.priority = "low"
 			), 1000
 			return
 

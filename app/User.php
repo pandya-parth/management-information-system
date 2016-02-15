@@ -38,6 +38,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Task');
     }
+    public function milestones()
+    {
+        return $this->belongsToMany('App\Milestone');
+    }
 
 
 }
