@@ -62,7 +62,7 @@
                     <div ng-cloak class="grid_list_view">
                         <div ng-cloak class="head list_view border_class" ng-show="peoples.length>0">
                             <div ng-cloak class="row">
-                                <div class="datas people_id_pic">#Id</div>
+                                <div class="datas people_id_pic">Profile</div>
                                 <div class="datas people_name">Name</div>
                                 <div class="datas people_designation">Date Of Birth</div>
                                 <div class="datas people_email">Department</div>
@@ -73,11 +73,12 @@
                         <div ng-cloak class="data_area list_view " dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'-id'" current-page="currentPage">
                             <!-- row 1 -->
                             <div ng-cloak class="row border_class">
-                                <div ng-cloak class="datas people_id_pic">
-                                    <div class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-
-
-                                </div>
+                                <div class="datas people_id_pic">
+                                        <div ng-cloak class="pic" ng-if="people.photo==''"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                        <div ng-cloak class="pic" ng-if="people.photo!=''"> <img src="{!! asset('uploads/people-thumb/{% people.photo %}') !!}" /></div>
+                                        
+                                        
+                                    </div>
                                 <div ng-cloak class="datas people_name box_real">
                                     {% people.fname %} {% people.lname %}
                                 </div>
