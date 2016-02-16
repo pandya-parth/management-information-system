@@ -113,8 +113,6 @@ $('.btn-box-action').click(function(){
 
 // for country
 
-$('#basic').flagStrap();
-
 var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36251023-1']);
   _gaq.push(['_setDomainName', 'jqueryscript.net']);

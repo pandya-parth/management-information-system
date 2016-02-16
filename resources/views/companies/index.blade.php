@@ -116,7 +116,7 @@ aria-hidden="true">
             </button>
             <h4 class="p-b-5" ng-bind="edit==false ? 'Add New Company' : 'Edit Company'">
             </div>
-            <form name="Companies" class='p-t-15' role='form' novalidate>
+            <form name="Companies" class='p-t-15 country' role='form' novalidate>
                 <div class="modal-body">
                     <ul class="nav nav-tabs nav-tabs-fillup">
                         <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
@@ -253,7 +253,8 @@ aria-hidden="true">
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group form-group-default">
-                                        <div id="basic"  data-input-name="country" data-selected-country="US" data-button-size="btn-lg" data-button-type="btn-warning" data-scrollable="true" data-scrollable-height="250px"></div>
+                                        <label>Country</label>
+                                        <input country-select data-ng-model="company.country">
                                     </div>
                                 </div>
                             </div>
