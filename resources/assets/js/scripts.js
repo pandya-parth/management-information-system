@@ -10,15 +10,9 @@
         $('#birth-date,#joining-date,#people_from,#people_to,#start-date,#end-date,#task-start-date,#task-due-date,#milestone-due-date').datepicker({
             autoclose: true
         });
-
-
-
+        $('#logTimer').timepicker();
         $('pgn-warpper').css('display:none');
-
-       
-
         $(".list-view-wrapper").scrollbar();
-
         $('[data-pages="search"]').search({
             // Bind elements that are included inside search overlay
             searchField: '#overlay-search',

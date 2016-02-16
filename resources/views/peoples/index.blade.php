@@ -76,9 +76,6 @@
                                 <div class="datas people_id_pic">
                                         <div ng-cloak class="pic" ng-if="people.photo==''"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
                                         <div ng-cloak class="pic" ng-if="people.photo!=''"> <img src="{!! asset('uploads/people-thumb/{% people.photo %}') !!}" /></div>
-                                        
-                                        
-                                    </div>
                                 <div ng-cloak class="datas people_name box_real">
                                     {% people.fname %} {% people.lname %}
                                 </div>
@@ -178,7 +175,7 @@ aria-hidden="true">
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-4 ">
                                 <div class="form-group form-group-default input-group col-md-12">
                                     <label>Date Of Birth</label>
                                     <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob'>
@@ -188,14 +185,14 @@ aria-hidden="true">
                               </div>
                           </div>
                           <div class="col-md-4">
-                            <label>Gender</label>
-                            <div class="radio radio-success">
-                                <input type="radio" checked="checked" value="male" ng-model="people_array.gender"  name="gender" id="yes">
-                                <label for="yes">Male</label>
-                                <input type="radio" value="female" ng-model="people_array.gender" name="gender" id="no">
-                                <label for="no">Female</label>
-                            </div>
-                        </div>
+                                    <label>Gender </label>
+                                    <div class="radio radio-success" ng-init="people_array.gender='male'">
+                                    <input type="radio" ng-model="people_array  .gender" name='gender' id="male" ng-value="'male'">
+                                    <label for="male">Male</label>
+                                    <input type="radio" ng-model='people_array.gender' name='gender' id="female" ng-value="'female'">
+                                    <label for="female">Female</label>
+                                    </div>      
+                          </div>
                         <div class="col-md-4">
                             <div class="form-group form-group-default form-group-default-select2">
                                 <label>Marital Status</label>
@@ -210,7 +207,9 @@ aria-hidden="true">
                         <div class="row form-group form-group-default input-group col-md-12">
                             <div class="col-md-6">
                                 <div id="preview">
+                                <div class='noimage'>
                                     <img src="{!! asset('img/noPhoto.png')!!}" id="noimage"style="height:100px;width:100px;">
+                                </div>
                                 </div>
                             </div>
                             <div class="col-md-6">

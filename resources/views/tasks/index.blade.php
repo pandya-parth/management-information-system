@@ -32,7 +32,7 @@
             <div ng-cloak class="panel panel-default" id="{%task_cat.id%}" class="accordion">
               <div ng-cloak class="panel-heading" role="tab" id="headingOne" >
                 <h4 class="panel-title">
-                  <a ng-cloak data-toggle="collapse" data-parent="#{%task_cat.id%}" href="#tasklist{% task_cat.id %}" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                  <a ng-cloak data-toggle="collapse" data-parent="#{%task_cat.id%}" href="#tasklist{% task_cat.id %}" aria-expanded="true" aria-controls="collapseOne" class='ng-binding(collapsed)'>
                     {% task_cat.name %}
                   </a>
                 </h4>

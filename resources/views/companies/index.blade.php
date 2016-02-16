@@ -61,8 +61,9 @@
                             current-page="currentPage" ng-show="companies.length != 0">
                                 <!-- row 1 -->
                                 <div ng-cloak class="row border_class">
-                                    <div class="datas people_id_pic">
-                                        <div ng-cloak class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                   <div class="datas people_id_pic">
+                                        <div ng-cloak class="pic" ng-if="company.logo==''"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                        <div ng-cloak class="pic" ng-if="company.logo!=''"> <img src="{!! asset('uploads/people-thumb/{% company.logo %}') !!}" /></div>
                                         
                                         
                                     </div>
