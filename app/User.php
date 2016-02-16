@@ -15,11 +15,14 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    
     public function people()
     {
-        return $this->belongsTo('People', 'user_id');
-    }
+        return $this->hasOne('People'); //Profile is your profile model
+    } 
+    // public function people()
+    // {
+    //     return $this->belongsTo('People', 'user_id');
+    // }
 
     /**
      * The attributes excluded from the model's JSON form.

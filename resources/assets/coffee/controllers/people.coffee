@@ -18,7 +18,8 @@ angular.module 'mis'
 						angular.element('#filelist').innerHTML = ''
 					FilesAdded: (up, files)->
 						angular.forEach(files, (file)->
-								angular.element('#preview').html('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <img src=tmp/' + file.name + ' class="img-thumbnail img-responsive img-circle" style="width:100px;height:100px;"> (' + plupload.formatSize(file.size) + ') <b></b><a href="javascript:;" id="' + file.id + '" class="removeFile" ng-click="shownoimage()">Remove</a></div></div>')
+								
+								angular.element('#preview').html('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <img src=tmp/' + file.name + ' class="img-thumbnail img-responsive img-circle" style="width:100px;height:100px;"> (' + plupload.formatSize(file.size) + ') <b></b><a href="javascript:;" id="' + file.id + '" class="removeFile" ng-click="shownoimage()" >Remove</a></div></div>')
 								angular.element('a#' + file.id).on 'click', ->
 								   up.removeFile file
 								   angular.element('.' + file.id).hide()
@@ -29,7 +30,7 @@ angular.module 'mis'
 						$scope.people_array.photo = file.name
 					Error: (up, err)->
 						alert "Error #" + err.code + ": " + err.message
-			)
+				)
 		uploader.init()
 
 		angular.element('#addNewAppModal').on('shown.bs.modal', ->
@@ -43,10 +44,14 @@ angular.module 'mis'
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
-				angular.element('#filelist').clear();
+				myEl = angular.element(document.querySelector('#fileadded'))
+				myEl.remove()
+				angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.people_array = {}
+				$scope.people_array.gender = 'male'
+				
 			), 1000
 			return
 
@@ -61,9 +66,13 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
+
 				PEOPLE.save($scope.people_array).success (data)->
 					$scope.submitted = false
 					$scope.people_array = {}
+					myEl = angular.element(document.querySelector('#fileadded'))
+					myEl.remove()
+					angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
 					angular.element('#addNewAppModal').modal('hide')
 					angular.element('body').pgNotification(
 						style: 'flip'
@@ -77,7 +86,6 @@ angular.module 'mis'
 						$scope.loading = false
 			else
 				PEOPLE.update($scope.people_array).success (data)->
-					console.log data
 					$scope.submitted = false
 					$scope.edit = false
 					$scope.people_array = {}

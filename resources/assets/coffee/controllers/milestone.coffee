@@ -9,7 +9,8 @@ angular.module 'mis'
 		milestone.get().success (data)->
 			$scope.milestones = data
 			$scope.loading = false
-
+			
+		$scope.people_array.gender = 'male'
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->

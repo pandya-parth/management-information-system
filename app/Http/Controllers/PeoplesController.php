@@ -120,9 +120,14 @@ class PeoplesController extends Controller
         
     }
 
-    public function getPeople($id)
+    public function getPeople($id,Request $request)
     {
+        
+        $userprofile = User::find($id)->email;
+        
         $people = People::findOrFail($id);
+        
+        
         return response()->json($people);
     }
 
