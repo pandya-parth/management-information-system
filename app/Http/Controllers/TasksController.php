@@ -57,8 +57,7 @@ class TasksController extends Controller
     public function store(Request $request)
     {
 
-        $input= Input::all();
-        $tasks=Task::create($input);
+        $tasks=Task::create(Input::all());
         $tasks->save();
         return response()->json(['success'=>true]);
         
