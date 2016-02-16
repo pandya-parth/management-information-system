@@ -182,7 +182,7 @@
         </div>
         <form name="Task" class='p-t-15' role='form' novalidate>
           <div class="modal-body">
-            <div class="panel panel-transparent ">
+            <div class="panel panel-transparent">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-fillup">
                 <li class="active"><a data-toggle="tab" href="#home" aria-expanded="true"><span>Description</span></a></li>
@@ -190,14 +190,14 @@
                 <li><a data-toggle="tab" href="#menu2" aria-expanded="true"><span>Priority</span></a></li>
               </ul>
               <!-- Tab panes -->
-              <div class="tab-content">
+              <div class="tab-content tab_time_picker">
                 <div class="tab-pane slide-left active" id="home">
                   <div class=" row ">
                     <div class="col-sm-6">
-                      <div class="input-group bootstrap-timepicker">
-                        <input id="timepicker" type="text" class="form-control">
-                        <span class="input-group-addon"><i class="pg-clock"></i></span>
-                      </div>
+                    <div class="input-group bootstrap-timepicker timepicker">
+                        <input id="timepicker1" type="text" class="form-control input-small">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                    </div>
                     </div>
                   </div>
                   <div class=" row ">

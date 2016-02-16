@@ -62,8 +62,7 @@
 
     });
 
-
-
+    
     $('.registerBtn').click(function() {
        $("#cat_id").val($(this).attr('data-value'));
     });

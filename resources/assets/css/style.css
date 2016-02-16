@@ -1,4 +1,5 @@
 .datepicker{z-index:1151 !important;}
+.timepicker{z-index:1151 !important;}
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 	display: none !important;
 }
@@ -283,7 +284,17 @@ form.country button.btn.btn-default.btn-md.dropdown-toggle{
 form.country .modal-body{
 	z-index: 120;
 }
-
 .col-sm-6 .select2-container{
 	width:100%;
 }
+.tab-content.tab_time_picker{
+	overflow:visible;
+}
+/*.tab-content.tab_time_picker .tab-pane.slide-left{
+	position: relative;
+}
+.tab-content.tab_time_picker .bootstrap-timepicker-widget.dropdown-menu{
+	position: absolute !important;
+	top: 38px!important;
+	left: 0 !important;
+}*/
