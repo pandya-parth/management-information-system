@@ -99,9 +99,9 @@
                     <div class="col-md-12">
                       <div class="form-group form-group-default form-group-default-select2">
                         <label>Add People</label>
-                        <select class=" full-width" data-init-plugin="select2" multiple name="user_id" ng-model="task.user_id">
-                          @foreach($peoples as $user)
-                          <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
+                        <select class=" full-width" data-init-plugin="select2" id="user_ids" multiple name="user_id" ng-model="task.user_id">
+                          @foreach($users as $user)
+                          <option value="{!! $user->id !!}">{!! $user->email !!}</option>
                           @endforeach
                         </select>
                       </div>

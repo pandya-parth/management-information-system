@@ -11,16 +11,27 @@ class Milestone extends Model
 
 	public $timestamps = true;
 
-	protected $fillable = ['name','description','notes','due_date','user_id','project_id','reminder'];
+	protected $fillable = ['name','description','notes','due_date','project_id','reminder'];
 
-	public function user()
-    {
-        return $this->belongsToMany('App\User');
+    public function setDueDateAttribute($value)
+    {   
+        if(!empty($value))
+        {
+            $this->attributes['due_date'] = $value;
+        }
+        else
+        {
+            $this->attributes['due_date'] = NULL;
+        }
     }
 
-    public function project()
+	public function project()
     {
         return $this->belongsToMany('App\Project');
+    }
+    public function users()
+    {
+        return $this->belongsToMany('App\User','milestone_users','milestone_id','user_id');
     }
 
 }
