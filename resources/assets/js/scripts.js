@@ -7,7 +7,7 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $('#birth-date,#joining-date,#people_from,#people_to,#start-date,#end-date,#task-start-date,#due-date,#milestone-due-date').datepicker({
+        $('#birth-date,#joining-date,#people_from,#people_to,#start-date,#end-date,#task-start-date,#task-due-date,#milestone-due-date').datepicker({
             autoclose: true
         });
         $('#logTimer').timepicker();
@@ -107,8 +107,6 @@ $('.btn-box-action').click(function(){
 });
 
 // for country
-
-$('#basic').flagStrap();
 
 var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36251023-1']);

@@ -97,6 +97,18 @@
                   </div>
                   <div class=" row ">
                     <div class="col-md-12">
+                      <div class="form-group form-group-default form-group-default-select2">
+                        <label>Add People</label>
+                        <select class=" full-width" data-init-plugin="select2" multiple name="user_id" ng-model="task.user_id">
+                          @foreach($peoples as $user)
+                          <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" row ">
+                    <div class="col-md-12">
                       <div class="form-group form-group-default">
                         <label>Notes</label>
                         <input id="notes" type="text" name="notes" class="form-control" placeholder="Notes Of Task" ng-model='task.notes' required>
@@ -159,19 +171,14 @@
       </div>
     </div>
   </div>
-
-
-
-
-<!-- modal for log time -->
-
-<div class="modal fade stick-up" id="logTimeModal" tabindex="-1" role="dialog" aria-labelledby="logTimeModal" aria-hidden="true">
+  <!-- modal for log time -->
+  <div class="modal fade stick-up" id="logTimeModal" tabindex="-1" role="dialog" aria-labelledby="logTimeModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header clearfix ">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
           </button>
-          <h4 class="p-b-5"><h4>Add New Task</h4></h4>
+          <h4 class="p-b-5"><h4>Log Time</h4></h4>
         </div>
         <form name="Task" class='p-t-15' role='form' novalidate>
           <div class="modal-body">
@@ -187,11 +194,11 @@
                 <div class="tab-pane slide-left active" id="home">
                   <div class=" row ">
                     <div class="col-sm-6">
-                        <div class="input-group bootstrap-timepicker">
-                          <input id="timepicker" type="text" class="form-control">
-                          <span class="input-group-addon"><i class="pg-clock"></i></span>
-                        </div>
+                      <div class="input-group bootstrap-timepicker">
+                        <input id="timepicker" type="text" class="form-control">
+                        <span class="input-group-addon"><i class="pg-clock"></i></span>
                       </div>
+                    </div>
                   </div>
                   <div class=" row ">
                     <div class="col-md-12">
@@ -257,9 +264,5 @@
       </div>
     </div>
   </div>
-
-
-
-
 </div>
 @endsection

@@ -47,11 +47,7 @@ class Task extends Model implements SluggableInterface
     protected $fillable = ['name','category_id','project_id','notes','start_date','due_date','priority'];
     
 
-    public function user()
-    {
-        return $this->belongsToMany('App\User');
-    }
-
+    
     public function category()
     {
         return $this->belongsToMany('App\TaskCategory');
@@ -61,5 +57,12 @@ class Task extends Model implements SluggableInterface
     {
         return $this->belongsTo('App\Project');
     }
+
+    public function users()
+    {
+        return $this->belongsToMany('App\User','task_users','task_id','user_id');
+    }
+
+    
     
 }

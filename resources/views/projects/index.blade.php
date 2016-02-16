@@ -20,7 +20,7 @@
                             <div class="col-xs-5" ng-show="projects.length>0">
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-3" ng-show="projects.length>0">
                                 <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
                                     <option value="sightseeing">Web-safe</option>
                                     <option value="business">Helvetica</option>
@@ -137,7 +137,7 @@
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default form-group-default-select2">
                                         <label class="">Client</label>
-                                        <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
+                                        <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2" ng-model="project_array.client_id">
                                             <option selected="selected">-- Select One --</option>
                                             @foreach($companies as $company)
                                             <option value="{!! $company->id !!}">{!! $company->name !!}</option>

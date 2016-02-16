@@ -274,3 +274,19 @@ a.timer{
 .panel{
 	background-color: transparent !important;
 }
+form.country .tab-content{
+	overflow: visible;
+}
+form.country .flagstrap{
+	padding: 12px 0 0;
+}
+form.country button.btn.btn-default.btn-md.dropdown-toggle{
+	width: 100%;
+}
+form.country .modal-body{
+	z-index: 120;
+}
+
+.col-sm-6 .select2-container{
+	width:100%;
+}
