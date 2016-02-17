@@ -82,8 +82,10 @@ class PeoplesController extends Controller
             $user_profile->city = Input::get('city');
             $user_profile->state = Input::get('state');
             $user_profile->country = Input::get('country');
+            $user_profile->pan_number = Input::get('pan_number');
             $user_profile->department = Input::get('department');
             $user_profile->designation = Input::get('designation');
+            $user_profile->management_level = Input::get('management_level');
             $user_profile->join_date = Input::get('join_date');
             $user_profile->google = Input::get('google');
             $user_profile->facebook = Input::get('facebook');
@@ -120,14 +122,9 @@ class PeoplesController extends Controller
         
     }
 
-    public function getPeople($id,Request $request)
+    public function getPeople($id)
     {
-        
-        $userprofile = User::find($id)->email;
-        
         $people = People::findOrFail($id);
-        
-        
         return response()->json($people);
     }
 
