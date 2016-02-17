@@ -8,6 +8,7 @@ elixir (mix)->
     mix.styles [
       bowerPath('bootstrap','dist','css','bootstrap.min.css')
       bowerPath('bootstrap','dist','css','bootstrap-theme.min.css')
+      bowerPath('bootstrap-timepicker','css','bootstrap-timepicker.min.css',)
       'pace-theme-flash.css',
       'font-awesome.css',
       'jquery.scrollbar.css',
@@ -17,7 +18,6 @@ elixir (mix)->
       'pages.css',
       'windows.chrome.fix.css',
       'datepicker3.css',
-      'bootstrap-timepicker.min.css',
       'style.css',
     ], 'public/css/vendor.css'
 
@@ -31,6 +31,7 @@ elixir (mix)->
       'modernizr.custom.js'
       'jquery-ui.min.js'
       bowerPath('bootstrap','dist','js','bootstrap.min.js')
+      bowerPath('bootstrap-timepicker','js','bootstrap-timepicker.min.js')
       'jquery.unveil.min.js'
       'jquery.bez.min.js'
       'jquery.ioslist.min.js'
@@ -46,7 +47,6 @@ elixir (mix)->
       'lodash.min.js'
       'pages.min.js'
       'datatables.js'
-      'bootstrap-timepicker.min.js'
       'bootstrap-datepicker.js'
       'plupload.full.min.js'
       bowerPath('angular', 'angular.min.js')

@@ -65,7 +65,9 @@
             $('#addNewAppModal').modal('show');
         });
 
-
+    $('#timepicker1').timepicker({
+        template: 'modal'
+    });
     
     $('.panel-collapse label').on('click', function(e){
         e.stopPropagation();

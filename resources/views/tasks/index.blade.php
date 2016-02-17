@@ -195,9 +195,9 @@
                   <div class=" row ">
                     <div class="col-sm-6">
                     <div class="input-group bootstrap-timepicker timepicker">
-                        <input id="timepicker1" type="text" class="form-control input-small">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-                    </div>
+            <input id="timepicker1" type="text" class="form-control input-small">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+        </div>
                     </div>
                   </div>
                   <div class=" row ">
