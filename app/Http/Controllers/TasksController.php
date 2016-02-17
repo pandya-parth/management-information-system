@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Task;
+use App\User;
 use App\Project;
 use App\TaskCategory;
 use App\People;
@@ -26,7 +27,8 @@ class TasksController extends Controller
         $projects=Project::all();
         $taskCategories=TaskCategory::all();
         $peoples=People::all();
-        return view('tasks/index',compact('tasks','projects','taskCategories','peoples','id'));
+        $users = User::all();
+        return view('tasks/index',compact('tasks','projects','taskCategories','peoples','id','users'));
     }
 
 
@@ -59,6 +61,7 @@ class TasksController extends Controller
     {
 
         $tasks=Task::create(Input::all());
+        $tasks->users()->attach($request->get('user_id'));
         $tasks->save();
         return response()->json(['success'=>true]);
         

@@ -38,13 +38,13 @@ class User extends Authenticatable
         return $this->hasMany('App\Project');
     }
     
-    public function milestones()
-    {
-        return $this->belongsToMany('App\Milestone');
-    }
     public function tasks()
     {
         return $this->belongsToMany('App\Task','task_users','task_id','user_id');
+    }
+    public function milestones()
+    {
+        return $this->belongsToMany('App\Milestone','milestone_users','milestone_id','user_id');
     }
 
 

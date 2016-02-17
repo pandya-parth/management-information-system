@@ -99,9 +99,9 @@
                     <div class="col-md-12">
                       <div class="form-group form-group-default form-group-default-select2">
                         <label>Add People</label>
-                        <select class=" full-width" data-init-plugin="select2" multiple name="user_id" ng-model="task.user_id">
-                          @foreach($peoples as $user)
-                          <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
+                        <select class=" full-width" data-init-plugin="select2" id="user_ids" multiple name="user_id" ng-model="task.user_id">
+                          @foreach($users as $user)
+                          <option value="{!! $user->id !!}">{!! $user->email !!}</option>
                           @endforeach
                         </select>
                       </div>
@@ -182,7 +182,7 @@
         </div>
         <form name="Task" class='p-t-15' role='form' novalidate>
           <div class="modal-body">
-            <div class="panel panel-transparent ">
+            <div class="panel panel-transparent">
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-tabs-fillup">
                 <li class="active"><a data-toggle="tab" href="#home" aria-expanded="true"><span>Description</span></a></li>
@@ -190,14 +190,16 @@
                 <li><a data-toggle="tab" href="#menu2" aria-expanded="true"><span>Priority</span></a></li>
               </ul>
               <!-- Tab panes -->
-              <div class="tab-content">
+              <div class="tab-content tab_time_picker">
                 <div class="tab-pane slide-left active" id="home">
                   <div class=" row ">
                     <div class="col-sm-6">
-                      <div class="input-group bootstrap-timepicker">
-                        <input id="timepicker" type="text" class="form-control">
-                        <span class="input-group-addon"><i class="pg-clock"></i></span>
-                      </div>
+                    <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+    <input type="text" class="form-control" value="13:14">
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+    </span>
+</div>
                     </div>
                   </div>
                   <div class=" row ">

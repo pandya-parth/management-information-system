@@ -56,8 +56,7 @@
 
     });
 
-
-
+    
     $('.registerBtn').click(function() {
        $("#cat_id").val($(this).attr('data-value'));
     });
@@ -66,7 +65,11 @@
             $('#addNewAppModal').modal('show');
         });
 
+    $('#timepicker1').timepicker({
+        template: 'modal'
+    });
 
+    $('.clockpicker').clockpicker();
     
     $('.panel-collapse label').on('click', function(e){
         e.stopPropagation();

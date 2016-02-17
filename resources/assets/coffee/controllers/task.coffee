@@ -32,6 +32,7 @@ angular.module 'mis'
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.task = {}
+				$scope.task.user_id.length = 0;  
 				$scope.task.priority = "low"
 			), 1000
 			return

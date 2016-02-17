@@ -65,7 +65,7 @@
                                 {% project.description %}
                             </div>
                             <div ng-cloak class="datas people_email">
-                                <a href="hitesh@krishaweb.com" target="_blank">{% project.price_type %}</a>
+                                {% project.price_types %}
                             </div>
                             <div ng-cloak class="datas people_phone">
                                 {% project.start_date %}
@@ -152,13 +152,15 @@
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default form-group-default-select2">
                                         <label class="">Project Category</label>
-                                        <select class="full-width" data-placeholder="Select Country"  name="category_id" data-init-plugin="select2">
+                                        <select class="full-width" data-placeholder="Select Country"  name="category_id" ng-model="project_array.category_id" data-init-plugin="select2" required>
                                             <option >-- Select One --</option>
                                             @foreach($projects as $project)
                                             <option value="{!! $project->id !!}">{!! $project->name !!}</option>
                                             @endforeach
                                         </select>
+                                        <span class="error" ng-show="submitted && project.category_id.$error.required">* Please enter project category</span>
                                     </div>
+                                    
                                 </div>
                             </div>
                             <div class="row">
@@ -174,27 +176,25 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <label>Status</label>
-                                    <div class="checkbox check-success  ">
-                                        <input type="checkbox" name="status[]" value="1" id="onhold">
+                                    <div class="radio radio-success" ng-init="project_array.status='active'">
+                                        <input type="radio" ng-model="project_array.status" name='status' id="onhold" ng-value="'onhold'">
                                         <label for="onhold">On Hold</label>
-                                        <input type="checkbox" name="status[]" value="1" id="active">
+                                        <input type="radio" ng-model='project_array.status' name='status' id="active" ng-value="'active'">
                                         <label for="active">Active</label>
-                                        <input type="checkbox" name="status[]" value="1" id="completed">
+                                        <input type="radio" ng-model='project_array.status' name='status' id="completed" ng-value="'completed'">
                                         <label for="completed">Completed</label>
-                                        <input type="checkbox" name="status[]" value="1" id="archived">
-                                        <label for="archived">Archived</label>
                                     </div>
                                 </div>
                             </div>
                             <div class=" row ">
                                 <div class="col-sm-12">
                                     <label>Choose the project price type. </label>
-                                    <div class="radio radio-success" ng-init="project_array.price_type='per_hour'">
-                                        <input type="radio" ng-model="project_array.price_type" name='price_type' id="fix" ng-value="'fix'">
+                                    <div class="radio radio-success" ng-init="project_array.price_types='per_hour'">
+                                        <input type="radio" ng-model="project_array.price_types" name='price_types' id="fix" ng-value="'fix'">
                                         <label for="fix">Fix</label>
-                                        <input type="radio" ng-model='project_array.price_type' name='price_type' id="per_hour" ng-value="'per_hour'">
+                                        <input type="radio" ng-model='project_array.price_types' name='price_types' id="per_hour" ng-value="'per_hour'">
                                         <label for="per_hour">Per Hour</label>
-                                        <input type="radio" ng-model='project_array.price_type' name='price_type' id="hiring" ng-value="'hiring'">
+                                        <input type="radio" ng-model='project_array.price_types' name='price_types' id="hiring" ng-value="'hiring'">
                                         <label for="hiring">Hiring</label>
                                     </div>    
                                 </div>
