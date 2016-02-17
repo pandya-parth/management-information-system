@@ -1,5 +1,5 @@
 .datepicker{z-index:1151 !important;}
-.timepicker{z-index:11510 !important;}
+.popover.clockpicker-popover.left.clockpicker-align-top{z-index:11510 !important;}
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 	display: none !important;
 }

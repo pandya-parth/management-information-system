@@ -194,10 +194,12 @@
                 <div class="tab-pane slide-left active" id="home">
                   <div class=" row ">
                     <div class="col-sm-6">
-                    <div class="input-group bootstrap-timepicker timepicker">
-            <input id="timepicker1" type="text" class="form-control input-small">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-        </div>
+                    <div class="input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
+    <input type="text" class="form-control" value="13:14">
+    <span class="input-group-addon">
+        <span class="glyphicon glyphicon-time"></span>
+    </span>
+</div>
                     </div>
                   </div>
                   <div class=" row ">
