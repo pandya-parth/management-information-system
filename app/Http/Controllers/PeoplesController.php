@@ -26,18 +26,27 @@ class PeoplesController extends Controller
      */
     public function index()
     {
-        return view('peoples.index',compact('peoples'));   
+        return view('peoples.index');   
     }
 
     public function getProjectPeople(){
-        return view('peoples.addpeople');
+        $allPeople = People::all();
+        return view('peoples.addpeople',compact('allPeople'));
     }
 
     public function getPeoples()
     {
     
-       $peoples = People::orderBy('id','DESC')->get();
+       $peoples = People::all();
        return response()->json($peoples);
+    }
+
+    public function postPeoples()
+    {
+        $addpeople=Project::create(Input::all());
+        $addpeople->peoples()->attach($request->get('user_id'));
+        $addpeople->save();
+        return response()->json(['success'=>true]);
     }
 
     

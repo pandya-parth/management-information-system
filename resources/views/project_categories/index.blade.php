@@ -22,10 +22,10 @@
                     <div class="panel-title">Project Category Listing
                     </div>
                     <div class="pull-right">
-                        <div class="col-xs-6" ng-show="categories.length>0">
+                        <div class="col-xs-4" ng-show="categories.length>0">
                             <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                         </div>
-                        <div class="col-xs-3" ng-cloak ng-show="categories.length>0">
+                        <div class="col-xs-4" ng-cloak ng-show="categories.length>0">
                                     <select class=" full-width" data-init-plugin="select2" ng-model='pageSize'>
                                         <option value="5">5</option>
                                         <option value="10">10</option>
@@ -40,7 +40,7 @@
                                         <option value="100">100</option>
                                     </select>
                                 </div>
-                        <div class="col-xs-6">
+                        <div class="col-xs-4">
                             <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add project category</button>
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout)->
+	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout,prompt)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
@@ -40,18 +40,48 @@ angular.module 'mis'
 			$scope.peoples = data
 			$scope.loading = false
 
-		$scope.clearAll = ->
+		$scope.cancelAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
-				myEl = angular.element(document.querySelector('#fileadded'))
-				myEl.remove()
-				angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.people_array = {}
-				$scope.people_array.gender = 'male'
-				
 			), 1000
+			return
+
+		$scope.clearAll = (form)->
+			$scope.options =
+				title: 'You have changes.'
+				message:'Are you sure you want to discard changes?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+    
+			if form.$dirty
+				prompt($scope.options).then( ->					
+					angular.element('#addNewAppModal').modal('hide')
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.people_array = {}					
+				)
+			else
+				angular.element('#addNewAppModal').modal('hide')
+				$timeout (->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.people_array = {}
+					), 1000
 			return
 
 		$scope.submit = (form)->
@@ -101,6 +131,51 @@ angular.module 'mis'
 							$scope.peoples = getData
 							$scope.loading = false
 					), 500
+
+
+		$scope.submit = (form)->
+			$scope.loading = true
+			$scope.submitted = true
+			if form.$invalid
+				$scope.loading = false
+				return
+			else
+				$scope.loading = true
+
+			if $scope.edit == false
+				PROJECT.addPeople($scope.people).success (data)->
+					$scope.submitted = false
+					$scope.people = {}
+					angular.element('#addNewAppModal').modal('hide')
+					angular.element('body').pgNotification(
+						style: 'flip'
+						message: 'Record saved successfully.'
+						position: 'top-right'
+						timeout: 2000
+						type: 'success').show()
+
+					PROJECT.getPeople(pId).success (getData)->
+						$scope.peoples = getData
+						$scope.loading = false
+			else
+				PROJECT.updatePeople($scope.people).success (data)->
+					console.log data
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.people = {}
+					angular.element('#addNewAppModal').modal('hide')
+					$timeout (->
+						angular.element('body').pgNotification(
+							style: 'flip'
+							message: 'Record updated successfully.'
+							position: 'top-right'
+							timeout: 2000
+							type: 'success').show()
+
+						PROJECT.getPeople(pId).success (getData)->
+							$scope.peoples = getData
+							$scope.loading = false
+					), 500			
 
 
 		$scope.deletePeople = (id)-> 

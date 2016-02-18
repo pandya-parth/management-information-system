@@ -125,7 +125,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header clearfix ">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="clearAll()"><i class="pg-close fs-14"></i>
+                    <button type="button" ng-click="cancelAll()" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancelAll()"><i class="pg-close fs-14"></i>
                     </button>
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
@@ -466,9 +466,10 @@
     </div>
     <div class="modal-footer">
         <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(people)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-        <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true" ng-click="clearAll()">
+        <button type="button" class="btn btn-cons" id="close" ng-click="clearAll(people)">
             Close
         </button>
+        
     </div>
 </form>
 </div>
