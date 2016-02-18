@@ -53,7 +53,7 @@
                         <div ng-cloak class="row border_class">
                         <a href="{!!url('/projects/{% project.id %}/tasks')!!}">
                             <div class="datas people_id_pic">
-                                <div ng-cloak class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+                                <div ng-cloak class="pic">{% project.id%}</div>
 
 
                             </div>

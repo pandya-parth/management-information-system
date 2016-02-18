@@ -29,6 +29,10 @@ class PeoplesController extends Controller
         return view('peoples.index',compact('peoples'));   
     }
 
+    public function getProjectPeople(){
+        return view('peoples.addpeople');
+    }
+
     public function getPeoples()
     {
     

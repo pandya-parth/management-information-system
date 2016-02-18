@@ -38,6 +38,8 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::resource('/project-categories','ProjectCategoriesController');
     Route::resource('/people','PeoplesController');
     Route::resource('projects.tasks','TasksController');
+    Route::get('project/{id}/people','PeoplesController@getProjectPeople');
+    Route::resource('project.people','PeoplesController');
     Route::resource('/task-categories','TaskCategoriesController');    
     Route::resource('projects.milestones','MilestonesController');
     Route::post('change-password', 'UserController@updatePassword');

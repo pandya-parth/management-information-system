@@ -7,13 +7,12 @@
     <div class="container-fluid container-fixed-lg">
       <div class="inner">
         <!-- START BREADCRUMB -->
-        <ul class="breadcrumb">
-          <li>
-            <a href="{!!url('/')!!}">Home</a>
-          </li>
-          <li><a href="{!!url('milestones')!!}" class="active">Milestones</a>
-          </li>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="{!!url('/projects/{% Pro_Id %}/tasks')!!}">Task</a></li>
+          <li><a href="{!! url('/projects/{% Pro_Id %}/milestones') !!}">Milestone</a></li>
+          <li><a href="{!! url('/project/{% Pro_Id %}/people') !!}">People</a></li>
         </ul>
+        <div class="clearfix"></div>
       </div>
       <!-- START PANEL -->
       <div class="panel panel-transparent">
