@@ -91,6 +91,50 @@ angular.module 'mis'
 							$scope.loading = false
 					), 500
 
+		$scope.submitLog = (form)->
+			$scope.loading = true
+			$scope.submitted = true
+			if form.$invalid
+				$scope.loading = false
+				return
+			else
+				$scope.loading = true
+
+			if $scope.edit == false
+				task.savelog($scope.logtime).success (data)->
+					$scope.submitted = false
+					alert $scope.logtime.hour = parseFloat($scope.logtime.start_time) - parseFloat($scope.logtime.end_time);
+					$scope.logtime = {}
+					angular.element('#logTimeModal').modal('hide')
+					angular.element('body').pgNotification(
+						style: 'flip'
+						message: 'Record saved successfully.'
+						position: 'top-right'
+						timeout: 2000
+						type: 'success').show()
+
+					task.getlog().success (getData)->
+						$scope.logtimes = getData
+						$scope.loading = false
+			else
+				task.updatelog($scope.logtime).success (data)->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.logtime = {}
+					angular.element('#logTimeModal').modal('hide')
+					$timeout (->
+						angular.element('body').pgNotification(
+							style: 'flip'
+							message: 'Record updated successfully.'
+							position: 'top-right'
+							timeout: 2000
+							type: 'success').show()
+
+						task.getlog().success (getData)->
+							$scope.logtimes = getData
+							$scope.loading = false
+					), 500
+
 
 		$scope.deleteTask = (id)-> 
 			$scope.loading = true

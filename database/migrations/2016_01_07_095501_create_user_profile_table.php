@@ -31,6 +31,7 @@ class CreateUserProfileTable extends Migration
             $table->string('pan_number')->nullable();
             $table->string('department')->nullable();
             $table->string('designation')->nullable();
+            $table->string('management_level')->nullable();
             $table->dateTime('join_date')->nullable();
             $table->string('attach')->nullable();
             $table->string('google')->nullable();
