@@ -5,6 +5,9 @@ angular.module 'mis'
 			get: ->
 				$http.get '/api/projects'
 
+			getCompany:->
+				$http.get '/api/companies'
+
 			save: (formData)->
 				$http
 					method: 'POST'

@@ -20,13 +20,6 @@
                             <div class="col-xs-5" ng-show="projects.length>0">
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
-                            <div class="col-xs-3" ng-show="projects.length>0">
-                                <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
-                                    <option value="sightseeing">Web-safe</option>
-                                    <option value="business">Helvetica</option>
-                                    <option value="honeymoon">SegeoUI</option>
-                                </select>
-                            </div>
                             <div ng-cloak class="col-xs-4">
                                 <button ng-cloak id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Project</button>
                             </div>
@@ -34,60 +27,31 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
+                <div ng-cloak class="panel-body" >
+          <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
+          <div ng-cloak class="panel-group"  role="tablist" aria-multiselectable="true" ng-repeat='company in companies' >
+            <div ng-cloak class="panel panel-default" id="{%company.id%}" class="accordion">
+              <div ng-cloak class="panel-heading" role="tab" id="headingOne" >
+                <h4 class="panel-title">
+                  <a ng-cloak data-toggle="collapse" data-parent="#{%company.id%}" href="#project{% company.id %}" aria-expanded="true" aria-controls="collapseOne" class='ng-binding(collapsed)'>
+                    {% company.name %}
+                  </a>
+                </h4>
+              </div>
+              <div id="project{% company.id %}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
-                    <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
-                    <div ng-cloak class="grid_list_view" ng-show="projects.length>0">
-                        <div class="head list_view border_class">
-                            <div class="row">
-                                <div class="datas people_id_pic">#ID</div>
-                                <div class="datas people_name">Name</div>
-                                <div class="datas people_designation">Description</div>
-                                <div class="datas people_email">Price Types</div>
-                                <div class="datas people_phone">Start Date</div>
-                                <div class="datas people_action">Action</div>
-                            </div>
-                        </div>
-                        <div class="data_area list_view " dir-paginate="project in projects| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
-                        current-page="currentPage" ng-show="projects.length != 0">
-                        <!-- row 1 -->
-                        <div ng-cloak class="row border_class">
-                        <a href="{!!url('/projects/{% project.id %}/tasks')!!}">
-                            <div class="datas people_id_pic">
-                                <div ng-cloak class="pic">{% project.id%}</div>
-
-
-                            </div>
-                            <div ng-cloak class="datas people_name box_real">
-
-                                {% project.name ? project.name : '-' %}
-                            </div>
-                            <div ng-cloak class="datas people_designation">
-                                {% project.description %}
-                            </div>
-                            <div ng-cloak class="datas people_email">
-                                {% project.price_types %}
-                            </div>
-                            <div ng-cloak class="datas people_phone">
-                                {% project.start_date %}
-                            </div>
-                            <div class="datas people_action">
-                                <a href="#" class="btn btn-success btn-sm" ng-click="editProject(project.id)" ><i class="fa fa-edit"></i></a>
-                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                <a href="#" class="btn btn-success btn-sm" ng-click="deleteProject(project.id)" ><i class="fa fa-trash"></i></a>
-                            </div>
-                        </div>
-                        <!-- row 1 complete -->
-
+                  <div class="topTask" ng-repeat="project in projects| orderBy:'-id'" ng-if="project.client_id == company.id "  ng-show="tasks.length != 0">
+                    <i class="fa fa-book"></i>
+                    <div class="task_detail">
+                      <a href="{!!url('/projects/{% project.id %}/tasks')!!}" class="task_name">{% project.name %}</a>
                     </div>
+                  </div>
+                  
                 </div>
-
-                <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="projects.length==0">
-                    <div style="text-align:center;">
-                        <img src="{!! asset('img/noProjects.png') !!}" />
-                        <p><h3>No match found</h3></p>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+        </div>
             <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
         </div>
         <!-- END PANEL -->

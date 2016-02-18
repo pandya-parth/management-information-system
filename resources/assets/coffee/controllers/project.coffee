@@ -9,6 +9,10 @@ angular.module 'mis'
 			$scope.projects = data
 			$scope.loading = false
 
+		PROJECT.getCompany().success (data)->
+			$scope.companies = data
+			$scope.loading = false
+
 		$scope.clearAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
