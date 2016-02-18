@@ -32,10 +32,10 @@
                                     <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                                 </div>
                                 <div class="col-xs-3" ng-cloak ng-show="peoples.length>0">
-                                    <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
-                                        <option value="sightseeing">Web-safe</option>
-                                        <option value="business">Helvetica</option>
-                                        <option value="honeymoon">SegeoUI</option>
+                                    <select class="cs-select cs-skin-slide" data-init-plugin="cs-select" ng-model='pageSize'>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-4">
@@ -270,7 +270,7 @@
                                         
                                         <div class="form-group form-group-default form-group-default-select2">
                                             <label>Department</label>
-                                            <select class="full-width" data-placeholder="Select Country"
+                                            <select class="full-width" data-placeholder="Select Department"
                                             data-init-plugin="select2" ng-model='people_array.department'>
                                             <option value="SEO">SEO</option>
                                             <option value="Design">Design</option>
@@ -309,7 +309,7 @@
                         <div class="col-md-12">
                             <div class="form-group form-group-default input-group col-md-12">
                                 <label>Joining Date</label>
-                                <input type="text" ng-model='join_date' class="form-control" placeholder="Pick a date"
+                                <input type="text"  name="join_date" class="form-control" placeholder="Pick a date"
                                 id="joining-date" ng-model='people_array.join_date'>
                                 <span class="input-group-addon">
                                   <i class="fa fa-calendar"></i>

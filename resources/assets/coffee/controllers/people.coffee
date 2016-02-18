@@ -5,7 +5,6 @@ angular.module 'mis'
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
-		console.log uId = $scope.people_array.user_id
 		uploader = new (plupload.Uploader)(
 				runtimes : 'html5,flash,silverlight,html4'
 				browse_button : 'pickfiles'

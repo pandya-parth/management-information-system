@@ -8,7 +8,6 @@ elixir (mix)->
     mix.styles [
       bowerPath('bootstrap','dist','css','bootstrap.min.css')
       bowerPath('bootstrap','dist','css','bootstrap-theme.min.css')
-      bowerPath('bootstrap-timepicker','css','bootstrap-timepicker.min.css',)
       'pace-theme-flash.css',
       'font-awesome.css',
       'jquery.scrollbar.css',
@@ -33,7 +32,6 @@ elixir (mix)->
       'modernizr.custom.js'
       'jquery-ui.min.js'
       bowerPath('bootstrap','dist','js','bootstrap.min.js')
-      bowerPath('bootstrap-timepicker','js','bootstrap-timepicker.min.js')
       'jquery.unveil.min.js'
       'jquery.bez.min.js'
       'jquery.ioslist.min.js'
