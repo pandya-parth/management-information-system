@@ -68,6 +68,7 @@ class PeoplesController extends Controller
      */
     public function store(Request $request)
     {
+            dd(Input::all());
             $pass=str_random(8);
             $user = new User;
             $user->email = Input::get('email');

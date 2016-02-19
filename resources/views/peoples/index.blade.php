@@ -32,22 +32,14 @@
                                     <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                                 </div>
                                 <div class="col-xs-3" ng-cloak ng-show="peoples.length>0">
-                                    <select class=" full-width" data-init-plugin="select2" ng-model='pageSize'>
+                                    <select class="cs-select cs-skin-slide" data-init-plugin="cs-select" ng-model='pageSize'>
                                         <option value="5">5</option>
                                         <option value="10">10</option>
                                         <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="50">50</option>
-                                        <option value="60">60</option>
-                                        <option value="70">70</option>
-                                        <option value="80">80</option>
-                                        <option value="90">90</option>
-                                        <option value="100">100</option>
                                     </select>
                                 </div>
                                 <div class="col-xs-4">
-                                    <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add People</button>
+                                    <button id="show-modal" class="btn btn-complete btn-cons"><i class="fa fa-plus"></i> Add People</button>
                                 </div>
                             </div>
                         </div>
@@ -125,11 +117,11 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header clearfix ">
-                    <button type="button" ng-click="cancelAll()" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancelAll()"><i class="pg-close fs-14"></i>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="clearAll()"><i class="pg-close fs-14"></i>
                     </button>
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
-                <input type="hidden" name='user_id' value='{%people'>
+                
                 <form name='people' class='p-t-15' role='form' enctype="multipart/form-data" novalidate >
                     <div class="modal-body">
                         <ul class="nav nav-tabs nav-tabs-fillup">
@@ -326,48 +318,55 @@
                       </div>
                   </div>
               </div>
-              <div id="menu4" class="tab-pane slide-left">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group form-group-default">
-                            <label>Qualification</label>
-                            <input type="text" name="qualification[]" class="form-control" placeholder="Qualification" ng-model='qualification' >
+            <div id="menu4" class="tab-pane slide-left">
+                <div ng-repeat="education in educations">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group form-group-default">
+                                <label>Qualification</label>
+                                <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-model="people_array.education[$index].qualification" >
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group form-group-default">
+                                <label>Collage</label>
+                                <input type="text" name="collage" class="form-control" placeholder="Collage" ng-model="people_array.education[$index].collage" >
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group form-group-default">
-                            <label>Collage</label>
-                            <input type="text" name="collage[]" class="form-control" placeholder="Collage" ng-model='element.collage' >
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group form-group-default">
+                                <label>University</label>
+                                <input type="text" name="university" class="form-control" placeholder="University" ng-model="people_array.education[$index].university" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group form-group-default">
+                                <label>Passing Year</label>
+                                <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-model="people_array.education[$index].passing_year" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group form-group-default">
+                                <label>Percentage / Grade</label>
+                                <input type="text" name="percentage" class="form-control" placeholder="Percentage / Grade" ng-model="people_array.education[$index].percentage" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <a class="btn btn-danger" tooltip="Delete" ng-if="!$first" ng-click="educations.splice($index, 1);">REMOVE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="form-group form-group-default">
-                            <label>University</label>
-                            <input type="text" name="university[]" class="form-control" placeholder="University" ng-model='element.university' >
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group form-group-default">
-                            <label>Passing Year</label>
-                            <input type="text" name="passing_year[]" class="form-control" placeholder="Passing Year" ng-model='ent.passing_year' >
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group form-group-default">
-                            <label>%/Grd</label>
-                            <input type="text" name="percentage[]" class="form-control" placeholder="% or Grd" ng-model='element.percentage' >
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group form-group-default">
-                            <a class="btn btn-success" href="#" tooltip="Add" >ADD</a>
-                            <a class="btn btn-danger" href="#" tooltip="Delete" >REMOVE</a>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <a class="btn btn-success" tooltip="Add" ng-click="newItem($event)">ADD</a>
                     </div>
                 </div>
             </div>
+
             <div id="menu5" class="tab-pane slide-left">
                 <div class="row">
                     <div class="col-sm-4">
@@ -466,10 +465,9 @@
     </div>
     <div class="modal-footer">
         <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(people)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-        <button type="button" class="btn btn-cons" id="close" ng-click="clearAll(people)">
+        <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true" ng-click="clearAll()">
             Close
         </button>
-        
     </div>
 </form>
 </div>

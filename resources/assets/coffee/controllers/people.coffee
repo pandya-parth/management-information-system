@@ -5,6 +5,24 @@ angular.module 'mis'
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+		$scope.educations = [
+			qualification: ''
+			collage: ''
+			university: ''
+			passing_year: ''
+			percentage: ''
+		]
+
+		$scope.newItem = ($event) ->
+			$scope.educations.push(
+				qualification: ''
+				collage: ''
+				university: ''
+				passing_year: ''
+				percentage: ''
+			)
+			$event.preventDefault()
+
 		uploader = new (plupload.Uploader)(
 				runtimes : 'html5,flash,silverlight,html4'
 				browse_button : 'pickfiles'
