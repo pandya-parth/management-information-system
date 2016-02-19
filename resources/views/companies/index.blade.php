@@ -102,7 +102,7 @@
                 <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="companies.length==0">
                             <div style="text-align:center;">
                                 <img src="{!! asset('img/noCompany.png') !!}" style=" width:100px; height:100px; " />
-                                <p><h3>No match found</h3></p>
+                                <p><h3>No company found</h3></p>
                             </div>
                         </div>
             </div>
