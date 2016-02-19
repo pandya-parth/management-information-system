@@ -40,15 +40,6 @@ angular.module 'mis'
 			$scope.companies = data
 			$scope.loading = false
 
-		$scope.clearAll = ->
-			angular.element('#addNewAppModal').modal('hide')
-			$timeout (->
-				$scope.submitted = false
-				$scope.edit = false
-				$scope.company = {}
-				), 1000
-			return
-
 		$scope.submit = (form)->
 			$scope.loading = true
 			$scope.submitted = true

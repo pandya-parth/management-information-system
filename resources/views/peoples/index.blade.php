@@ -121,7 +121,7 @@
                     </button>
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
-                <input type="hidden" name='user_id' value='{%people'>
+                
                 <form name='people' class='p-t-15' role='form' enctype="multipart/form-data" novalidate >
                     <div class="modal-body">
                         <ul class="nav nav-tabs nav-tabs-fillup">
