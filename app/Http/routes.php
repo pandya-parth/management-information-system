@@ -63,7 +63,7 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('task-categories', 'TaskCategoriesController@getTaskCategories');
     Route::get('task-category/{id}','TaskCategoriesController@getTaskCategory');
 
-    Route::get('logtimes', 'TasksController@getLogtimes');
+    Route::get('logtimes/{id}', 'TasksController@getLogtimes');
     Route::get('logtime/{id}','TasksController@getLogtime');
 
     Route::get('tasks', 'TasksController@getTasks');

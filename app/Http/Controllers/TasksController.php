@@ -45,11 +45,12 @@ class TasksController extends Controller
         return response()->json($tasks); 
     }
 
-    public function getLogtimes()
+    public function getLogtimes($id)
     {
-        $logtimes = Logtime::get();
+        $logtimes = Logtime::whereTaskId($id)->get();
        
-       return response()->json($logtimes);
+       
+       return view('tasks.view',compact('logtimes'));
 
     }
 

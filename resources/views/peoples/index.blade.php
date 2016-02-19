@@ -39,7 +39,7 @@
                                     </select>
                                 </div>
                                 <div class="col-xs-4">
-                                    <button id="show-modal" class="btn btn-complete btn-cons"><i class="fa fa-plus"></i> Add People</button>
+                                    <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add People</button>
                                 </div>
                             </div>
                         </div>
