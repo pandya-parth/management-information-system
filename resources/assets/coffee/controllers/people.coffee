@@ -133,7 +133,7 @@ angular.module 'mis'
 					), 500
 
 
-		$scope.submit = (form)->
+		$scope.submitPeople = (form)->
 			$scope.loading = true
 			$scope.submitted = true
 			if form.$invalid
@@ -143,7 +143,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
-				PROJECT.addPeople($scope.people).success (data)->
+				PEOPLE.addPeople($scope.people).success (data)->
 					$scope.submitted = false
 					$scope.people = {}
 					angular.element('#addNewAppModal').modal('hide')
@@ -154,11 +154,11 @@ angular.module 'mis'
 						timeout: 2000
 						type: 'success').show()
 
-					PROJECT.getPeople(pId).success (getData)->
+					PEOPLE.getPeople(pId).success (getData)->
 						$scope.peoples = getData
 						$scope.loading = false
 			else
-				PROJECT.updatePeople($scope.people).success (data)->
+				PEOPLE.updatePeople($scope.people).success (data)->
 					console.log data
 					$scope.submitted = false
 					$scope.edit = false
@@ -172,7 +172,7 @@ angular.module 'mis'
 							timeout: 2000
 							type: 'success').show()
 
-						PROJECT.getPeople(pId).success (getData)->
+						PEOPLE.getPeople(pId).success (getData)->
 							$scope.peoples = getData
 							$scope.loading = false
 					), 500			

@@ -120,7 +120,7 @@ aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header clearfix ">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+            <button type="button" class="close" ng-click="cancelAll()" data-dismiss="modal" aria-hidden="true"><i
                 class="pg-close fs-14"></i>
             </button>
             <h4 class="p-b-5" ng-bind="edit==false ? 'Add New Company' : 'Edit Company'">
@@ -274,7 +274,7 @@ aria-hidden="true">
                     <button id="add-app" type="button" class="btn btn-primary  btn-cons"
                     ng-click="submit(Companies)" ng-bind="edit==false ? 'Add' : 'Edit'">Add
                 </button>
-                <button type="button" class="btn btn-cons" id="close" ng-click='clearAll()'>Close</button>
+                <button type="button" class="btn btn-cons" id="close" ng-click='clearAll(Companies)'>Close</button>
             </div>
         </form>
     </div>
