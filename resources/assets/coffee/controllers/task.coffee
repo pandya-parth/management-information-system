@@ -164,6 +164,13 @@ angular.module 'mis'
 							$scope.loading = false
 					), 500
 
+		$scope.toggleStatus = ->
+			task.update($scope.task.status).success (data)->
+					alert $scope.task.status
+					task.get(pId).success (getData)->
+						$scope.tasks = getData
+						
+
 		$scope.submitLog = (form)->
 			$scope.loading = true
 			$scope.submitted = true

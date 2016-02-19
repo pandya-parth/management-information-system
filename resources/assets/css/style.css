@@ -326,3 +326,9 @@ form.country .modal-body{
 .add_project_people .row [class*='col-']:last-child{
 	padding-right: 7px;
 }
+.strike{
+	text-decoration:line-through;
+}
+.strikethrough:checked + .strikeThis {
+  text-decoration: line-through
+}

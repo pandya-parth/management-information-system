@@ -43,8 +43,47 @@
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
                     <a href="#" class="taskInner">
                       <div class="checkbox check-success">
-                        <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                       
+
+
+                        <input type="checkbox" value="1" name="status[]"  ng-click="toggleStatus()"  id="{% tsk.id %}" ng-model="task.status">
                         <label for="{% tsk.id %}"></label>
+                        {%task.status%}
+                        <span ng-class="strike:tsk.status=false"></span>
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                       </div>
                     </a>
                     <div class="task_detail">
