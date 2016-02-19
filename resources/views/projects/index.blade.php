@@ -43,7 +43,7 @@
                   <div class="topTask" ng-repeat="project in projects| orderBy:'-id'" ng-if="project.client_id == company.id "  ng-show="tasks.length != 0">
                     <i class="fa fa-book"></i>
                     <div class="task_detail">
-                      <a href="{!!url('/projects/{% project.id %}/tasks')!!}" class="task_name">{% project.name %}</a>
+                      <a href="{!!url('/projects/{% project.id %}/tasks')!!}" class="task_name"><h2>{% project.name %}</h2></a>
                     </div>
                   </div>
                   

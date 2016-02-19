@@ -48,8 +48,8 @@
                       </div>
                     </a>
                     <div class="task_detail">
-                      <label class="taskBubble">hello 2</label>
-                      <a href="#" class="task_name">{% tsk.name %}</a>
+                      <label class="taskBubble">kajal</label>
+                      <a href="{!! url('/projects/{% Pro_Id %}/tasks/{% tsk.id %}') !!}" class="task_name">{% tsk.name %}</a>
                       <a href="#" class="timer timer_button" ng-click="showLogModal($event)" id="timer_button">
                         <i class="glyphicon glyphicon-time"></i>
                       </a>

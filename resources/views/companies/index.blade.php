@@ -66,7 +66,7 @@
                                 </div>
                             </div>
                             <div class="data_area list_view " dir-paginate="company in companies| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
-                            current-page="currentPage" ng-show="companies.length != 0">
+                            current-page="currentPage" ng-if="companies.length != 0">
                                 <!-- row 1 -->
                                 <div ng-cloak class="row border_class">
                                    <div class="datas people_id_pic">
@@ -82,7 +82,7 @@
                                         {% company.website %}
                                     </div>
                                     <div ng-cloak class="datas people_email">
-                                        <a href="hitesh@krishaweb.com" target="_blank">{% company.email %}</a>
+                                        <a href="{% company.email %}" target="_blank">{% company.email %}</a>
                                     </div>
                                     <div ng-cloak class="datas people_phone">
                                         {% company.phone %}

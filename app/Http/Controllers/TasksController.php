@@ -45,13 +45,12 @@ class TasksController extends Controller
         return response()->json($tasks); 
     }
 
-    public function getLogtimes(Request $request)
+    public function getLogtimes()
     {
-        
-        $logtimes =  Task::whereProjectId($request->get('task_id'))->get();
-         
-        //$tasks = Task::find_by_project_id($pId)->get();
-        return response()->json($logtimes); 
+        $logtimes = Logtime::get();
+       
+       return response()->json($logtimes);
+
     }
 
     /**
@@ -108,9 +107,11 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+
+
+
     }
 
    
