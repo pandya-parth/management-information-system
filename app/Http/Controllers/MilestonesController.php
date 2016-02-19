@@ -8,8 +8,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Milestone;
-use App\Project;
 use App\User;
+use App\Project;
 use App\People;
 use Redirect;
 
@@ -23,9 +23,10 @@ class MilestonesController extends Controller
     public function index($id)
     { 
         $milestones=Project::find($id);
+        $projects=Project::all();
         $peoples=People::all();
         $users = User::all();
-        return view('milestones/index',compact('milestones','peoples','id','users'));
+        return view('milestones/index',compact('milestones','projects','peoples','id','users'));
     }
 
 
@@ -56,8 +57,9 @@ class MilestonesController extends Controller
     public function store(Request $request)
     {
 
-        $input= Input::all();
-        $milestones=Milestone::create($input);
+        $milestones=Milestone::create(Input::all());
+        $milestones->users()->attach($request->get('user_id'));
+        $milestones->reminder = false;
         $milestones->save();
         return response()->json(['success'=>true]);
         

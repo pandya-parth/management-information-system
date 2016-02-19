@@ -2,27 +2,27 @@ angular.module 'mis'
 
 	.factory 'milestone', ($http)->
 		return{
-			get: ->
-				$http.get '/api/milestones'
+			get:(pId) ->
+				$http.get '/api/milestones', params: project_id: pId
 
 			save: (formData)->
 				$http
 					method: 'POST'
-					url: '/milestones'
+					url: '/projects/'+ formData.id + '/milestones'
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
-			edit: (id)->
-				$http.get '/api/milestone/'+id
+			edit: (id,pId)->
+				$http.get '/api/milestone/'+id, params: project_id: pId
 
-			update: (formData)->
+			update: (formData,id)->
 				$http
 					method: 'PUT'
-					url: '/milestones/'+formData.id
+					url: '/projects/'+ formData.project_id + '/milestones/' + formData.id
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 					
 
-			destroy: (id)->
-				$http.delete('/milestones/' + id)
+			destroy: (pId,id)->
+				$http.delete('/projects/'+ pId + '/milestones/' + id)
 		}

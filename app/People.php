@@ -3,19 +3,46 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use User;
+use App\User;
 use Image;	
 use Event;
 
 class People extends Model
 {
 	protected $table='user_profile';
-	protected $fillable = ['fname','lname','mobile','phone','dob','adrs1','adrs2','city','state','country','pan_number','department','designation','education','google','facebook','website','skype','linkedin','twitter','photo'];
+	protected $fillable = ['fname','lname','mobile','gender','dob','phone','join_date','adrs1','adrs2','city','state','country','pan_number','department','designation','management_level','google','facebook','website','skype','linkedin','twitter','photo'];
+	public function setDobAttribute($value)
+    {   
+        if(!empty($value))
+        {
+            $this->attributes['dob'] = $value;
+        }
+        else
+        {
+            $this->attributes['dob'] = NULL;
+        }
+    }
 
-	public function user()
-	{
-		return $this->belongsTo('User', 'user_id');
+    public function setJoinDateAttribute($value)
+    {   
+        if(!empty($value))
+        {
+            $this->attributes['join_date'] = $value;
+        }
+        else
+        {
+            $this->attributes['join_date'] = NULL;
+        }
+    }
+
+	
+	public function user() {
+    	return $this->belongsTo('User');
 	}
+	// public function user()
+	// {
+	// 	return $this->belongsTo('User', 'user_id');
+	// }
 	public function setPhotoAttribute($file) {
 		$source_path = upload_tmp_path($file);
 		if ($file && file_exists($source_path)) 

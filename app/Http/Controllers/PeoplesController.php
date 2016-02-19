@@ -26,13 +26,27 @@ class PeoplesController extends Controller
      */
     public function index()
     {
-        return view('peoples.index',compact('peoples'));   
+        return view('peoples.index');   
+    }
+
+    public function getProjectPeople(){
+        $allPeople = People::all();
+        return view('peoples.addpeople',compact('allPeople'));
     }
 
     public function getPeoples()
     {
-       $peoples = People::orderBy('id','DESC')->get();
+    
+       $peoples = People::all();
        return response()->json($peoples);
+    }
+
+    public function postPeoples()
+    {
+        $addpeople=Project::create(Input::all());
+        $addpeople->peoples()->attach($request->get('user_id'));
+        $addpeople->save();
+        return response()->json(['success'=>true]);
     }
 
     
@@ -83,8 +97,10 @@ class PeoplesController extends Controller
             $user_profile->city = Input::get('city');
             $user_profile->state = Input::get('state');
             $user_profile->country = Input::get('country');
+            $user_profile->pan_number = Input::get('pan_number');
             $user_profile->department = Input::get('department');
             $user_profile->designation = Input::get('designation');
+            $user_profile->management_level = Input::get('management_level');
             $user_profile->join_date = Input::get('join_date');
             $user_profile->google = Input::get('google');
             $user_profile->facebook = Input::get('facebook');

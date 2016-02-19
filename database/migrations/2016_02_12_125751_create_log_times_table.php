@@ -14,15 +14,18 @@ class CreateLogTimesTable extends Migration
     {
         Schema::create('log_times', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->nullable()->unsigned();
+            $table->integer('task_id')->nullable()->unsigned();
             $table->dateTime('date')->nullable();
             $table->time('start_time')->nullable();
             $table->time('end_time')->nullable();
             $table->string('hour')->nullable();
             $table->string('minute')->nullable();
+            $table->string('description')->nullable();
             $table->boolean('billable')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
         });
     }
 

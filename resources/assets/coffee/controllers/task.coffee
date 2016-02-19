@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-	.controller 'TasksCtrl', ($scope, task, $timeout, $window)->
+	.controller 'TasksCtrl', ($scope, task, $timeout, $window, prompt)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
@@ -26,24 +26,93 @@ angular.module 'mis'
 			angular.element('#logTimeModal').modal('show')
 			return
 
-		$scope.clearAll = ->
+		$scope.cancelAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.task = {}
-				$scope.task.priority = "low"
 			), 1000
 			return
 
-		$scope.logClearAll = ->
+		$scope.clearAll = (form)->
+			$scope.options =
+				title: 'You have changes.'
+				message:'Are you sure you want to discard changes?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+    
+			if form.$dirty
+				prompt($scope.options).then( ->					
+					angular.element('#addNewAppModal').modal('hide')
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.task = {}					
+				)
+			else
+				angular.element('#addNewAppModal').modal('hide')
+				$timeout (->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.task = {}
+					$scope.task.priority = "low"
+					), 1000
+			return
+		
+		$scope.logCancel = ->
 			angular.element('#logTimeModal').modal('hide')
 			$timeout (->
 				$scope.submitted = false
 				$scope.edit = false
-				$scope.task = {}
-				
+				$scope.logtime = {}
 			), 1000
+			return
+
+		$scope.logClearAll = (form)->
+			$scope.options =
+				title: 'You have changes.'
+				message:'Are you sure you want to discard changes?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+    
+			if form.$dirty
+				prompt($scope.options).then( ->					
+					angular.element('#logTimeModal').modal('hide')
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.logtime = {}					
+				)
+			else
+				angular.element('#logTimeModal').modal('hide')
+				$timeout (->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.logtime = {}
+					), 1000
 			return
 
 		$scope.submit = (form)->
@@ -87,6 +156,50 @@ angular.module 'mis'
 
 						task.get(pId).success (getData)->
 							$scope.tasks = getData
+							$scope.loading = false
+					), 500
+
+		$scope.submitLog = (form)->
+			$scope.loading = true
+			$scope.submitted = true
+			if form.$invalid
+				$scope.loading = false
+				return
+			else
+				$scope.loading = true
+
+			if $scope.edit == false
+				task.savelog($scope.logtime).success (data)->
+					$scope.submitted = false
+					alert $scope.logtime.hour = parseFloat($scope.logtime.start_time) - parseFloat($scope.logtime.end_time);
+					$scope.logtime = {}
+					angular.element('#logTimeModal').modal('hide')
+					angular.element('body').pgNotification(
+						style: 'flip'
+						message: 'Record saved successfully.'
+						position: 'top-right'
+						timeout: 2000
+						type: 'success').show()
+
+					task.getlog().success (getData)->
+						$scope.logtimes = getData
+						$scope.loading = false
+			else
+				task.updatelog($scope.logtime).success (data)->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.logtime = {}
+					angular.element('#logTimeModal').modal('hide')
+					$timeout (->
+						angular.element('body').pgNotification(
+							style: 'flip'
+							message: 'Record updated successfully.'
+							position: 'top-right'
+							timeout: 2000
+							type: 'success').show()
+
+						task.getlog().success (getData)->
+							$scope.logtimes = getData
 							$scope.loading = false
 					), 500
 

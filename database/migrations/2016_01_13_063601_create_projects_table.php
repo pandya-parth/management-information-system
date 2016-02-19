@@ -21,12 +21,11 @@ class CreateProjectsTable extends Migration
             $table->text('description')->nullable();
             $table->enum('price_types', ['fix', 'per_hour','hiring'])->default('per_hour')->nullable();
             $table->text('notes')->nullable();
-            $table->string('status')->nullable();
+            $table->enum('status',['on_hold','active','completed'])->default('active')->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('project_categories')->onDelete('cascade');
-            $table->foreign('client_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

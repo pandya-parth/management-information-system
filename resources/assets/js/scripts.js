@@ -7,18 +7,12 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $('#birth-date,#joining-date,#people_from,#people_to,#start-date,#end-date,#task-start-date,#task-due-date,#milestone-due-date').datepicker({
+        $('#birth-date,#joining-date,#people_from,#people_to,#start-date,#end-date,#task-start-date,#task-due-date,#milestone-due-date,#log-date').datepicker({
             autoclose: true
         });
-
-
-
+        $('#logTimer').timepicker();
         $('pgn-warpper').css('display:none');
-
-       
-
         $(".list-view-wrapper").scrollbar();
-
         $('[data-pages="search"]').search({
             // Bind elements that are included inside search overlay
             searchField: '#overlay-search',
@@ -62,8 +56,7 @@
 
     });
 
-
-
+    
     $('.registerBtn').click(function() {
        $("#cat_id").val($(this).attr('data-value'));
     });
@@ -72,7 +65,11 @@
             $('#addNewAppModal').modal('show');
         });
 
+    $('#timepicker1').timepicker({
+        template: 'modal'
+    });
 
+    $('.clockpicker').clockpicker();
     
     $('.panel-collapse label').on('click', function(e){
         e.stopPropagation();

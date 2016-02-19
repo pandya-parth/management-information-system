@@ -38,10 +38,19 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::resource('/project-categories','ProjectCategoriesController');
     Route::resource('/people','PeoplesController');
     Route::resource('projects.tasks','TasksController');
+
+    Route::get('project/{id}/people','PeoplesController@getProjectPeople');
+    Route::post('project/{id}/people','PeoplesController@postProjectPeople');
+    
+    Route::resource('project.people','PeoplesController');
     Route::resource('/task-categories','TaskCategoriesController');    
     Route::resource('projects.milestones','MilestonesController');
     Route::post('change-password', 'UserController@updatePassword');
     Route::get('change-password', 'UserController@changePassword');
+
+    Route::post('/logtimes','TasksController@logStore');
+    Route::post('/logtimes/{id}','TasksController@logUpdate');
+    Route::get('/logtimes/{id}','TasksController@logDestroy');
 });
 
 Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
@@ -54,6 +63,8 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('task-categories', 'TaskCategoriesController@getTaskCategories');
     Route::get('task-category/{id}','TaskCategoriesController@getTaskCategory');
 
+    Route::get('logtimes', 'TasksController@getLogtimes');
+    Route::get('logtime/{id}','TasksController@getLogtime');
 
     Route::get('tasks', 'TasksController@getTasks');
     Route::get('task/{id}','TasksController@getTask');
