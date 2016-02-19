@@ -1,10 +1,28 @@
 angular.module 'mis'
 
-	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout)->
+	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout,prompt)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+		$scope.educations = [
+			qualification: ''
+			collage: ''
+			university: ''
+			passing_year: ''
+			percentage: ''
+		]
+
+		$scope.newItem = ($event) ->
+			$scope.educations.push(
+				qualification: ''
+				collage: ''
+				university: ''
+				passing_year: ''
+				percentage: ''
+			)
+			$event.preventDefault()
+
 		uploader = new (plupload.Uploader)(
 				runtimes : 'html5,flash,silverlight,html4'
 				browse_button : 'pickfiles'
@@ -40,18 +58,48 @@ angular.module 'mis'
 			$scope.peoples = data
 			$scope.loading = false
 
-		$scope.clearAll = ->
+		$scope.cancelAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
-				myEl = angular.element(document.querySelector('#fileadded'))
-				myEl.remove()
-				angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.people_array = {}
-				$scope.people_array.gender = 'male'
-				
 			), 1000
+			return
+
+		$scope.clearAll = (form)->
+			$scope.options =
+				title: 'You have changes.'
+				message:'Are you sure you want to discard changes?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+    
+			if form.$dirty
+				prompt($scope.options).then( ->					
+					angular.element('#addNewAppModal').modal('hide')
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.people_array = {}					
+				)
+			else
+				angular.element('#addNewAppModal').modal('hide')
+				$timeout (->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.people_array = {}
+					), 1000
 			return
 
 		$scope.submit = (form)->
@@ -101,6 +149,51 @@ angular.module 'mis'
 							$scope.peoples = getData
 							$scope.loading = false
 					), 500
+
+
+		$scope.submitPeople = (form)->
+			$scope.loading = true
+			$scope.submitted = true
+			if form.$invalid
+				$scope.loading = false
+				return
+			else
+				$scope.loading = true
+
+			if $scope.edit == false
+				PEOPLE.addPeople($scope.people).success (data)->
+					$scope.submitted = false
+					$scope.people = {}
+					angular.element('#addNewAppModal').modal('hide')
+					angular.element('body').pgNotification(
+						style: 'flip'
+						message: 'Record saved successfully.'
+						position: 'top-right'
+						timeout: 2000
+						type: 'success').show()
+
+					PEOPLE.getPeople(pId).success (getData)->
+						$scope.peoples = getData
+						$scope.loading = false
+			else
+				PEOPLE.updatePeople($scope.people).success (data)->
+					console.log data
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.people = {}
+					angular.element('#addNewAppModal').modal('hide')
+					$timeout (->
+						angular.element('body').pgNotification(
+							style: 'flip'
+							message: 'Record updated successfully.'
+							position: 'top-right'
+							timeout: 2000
+							type: 'success').show()
+
+						PEOPLE.getPeople(pId).success (getData)->
+							$scope.peoples = getData
+							$scope.loading = false
+					), 500			
 
 
 		$scope.deletePeople = (id)-> 

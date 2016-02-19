@@ -318,48 +318,55 @@
                       </div>
                   </div>
               </div>
-              <div id="menu4" class="tab-pane slide-left">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group form-group-default">
-                            <label>Qualification</label>
-                            <input type="text" name="qualification[]" class="form-control" placeholder="Qualification" ng-model='qualification' >
+            <div id="menu4" class="tab-pane slide-left">
+                <div ng-repeat="education in educations">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group form-group-default">
+                                <label>Qualification</label>
+                                <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-model="people_array.education[$index].qualification" >
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group form-group-default">
+                                <label>Collage</label>
+                                <input type="text" name="collage" class="form-control" placeholder="Collage" ng-model="people_array.education[$index].collage" >
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="form-group form-group-default">
-                            <label>Collage</label>
-                            <input type="text" name="collage[]" class="form-control" placeholder="Collage" ng-model='element.collage' >
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group form-group-default">
+                                <label>University</label>
+                                <input type="text" name="university" class="form-control" placeholder="University" ng-model="people_array.education[$index].university" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group form-group-default">
+                                <label>Passing Year</label>
+                                <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-model="people_array.education[$index].passing_year" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group form-group-default">
+                                <label>Percentage / Grade</label>
+                                <input type="text" name="percentage" class="form-control" placeholder="Percentage / Grade" ng-model="people_array.education[$index].percentage" >
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <a class="btn btn-danger" tooltip="Delete" ng-if="!$first" ng-click="educations.splice($index, 1);">REMOVE</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="form-group form-group-default">
-                            <label>University</label>
-                            <input type="text" name="university[]" class="form-control" placeholder="University" ng-model='element.university' >
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group form-group-default">
-                            <label>Passing Year</label>
-                            <input type="text" name="passing_year[]" class="form-control" placeholder="Passing Year" ng-model='ent.passing_year' >
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group form-group-default">
-                            <label>%/Grd</label>
-                            <input type="text" name="percentage[]" class="form-control" placeholder="% or Grd" ng-model='element.percentage' >
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="form-group form-group-default">
-                            <a class="btn btn-success" href="#" tooltip="Add" >ADD</a>
-                            <a class="btn btn-danger" href="#" tooltip="Delete" >REMOVE</a>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <a class="btn btn-success" tooltip="Add" ng-click="newItem($event)">ADD</a>
                     </div>
                 </div>
             </div>
+
             <div id="menu5" class="tab-pane slide-left">
                 <div class="row">
                     <div class="col-sm-4">

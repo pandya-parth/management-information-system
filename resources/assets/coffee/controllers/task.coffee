@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-	.controller 'TasksCtrl', ($scope, task, $timeout, $window)->
+	.controller 'TasksCtrl', ($scope, task, $timeout, $window, prompt)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
@@ -9,6 +9,10 @@ angular.module 'mis'
 		pId = currentUrl.split('/')[4]||"Undefined"
 		task.get(pId).success (data)->
 			$scope.tasks = data
+			$scope.loading = false
+
+		task.getLog().success (data)->
+			$scope.logs = data
 			$scope.loading = false
 
 		task.getCat().success (data)->
@@ -26,25 +30,93 @@ angular.module 'mis'
 			angular.element('#logTimeModal').modal('show')
 			return
 
-		$scope.clearAll = ->
+		$scope.cancelAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.task = {}
-				$scope.task.user_id.length = 0;  
-				$scope.task.priority = "low"
 			), 1000
 			return
 
-		$scope.logClearAll = ->
+		$scope.clearAll = (form)->
+			$scope.options =
+				title: 'You have changes.'
+				message:'Are you sure you want to discard changes?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+    
+			if form.$dirty
+				prompt($scope.options).then( ->					
+					angular.element('#addNewAppModal').modal('hide')
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.task = {}					
+				)
+			else
+				angular.element('#addNewAppModal').modal('hide')
+				$timeout (->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.task = {}
+					$scope.task.priority = "low"
+					), 1000
+			return
+		
+		$scope.logCancel = ->
 			angular.element('#logTimeModal').modal('hide')
 			$timeout (->
 				$scope.submitted = false
 				$scope.edit = false
-				$scope.task = {}
-				
+				$scope.logtime = {}
 			), 1000
+			return
+
+		$scope.logClearAll = (form)->
+			$scope.options =
+				title: 'You have changes.'
+				message:'Are you sure you want to discard changes?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+    
+			if form.$dirty
+				prompt($scope.options).then( ->					
+					angular.element('#logTimeModal').modal('hide')
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.logtime = {}					
+				)
+			else
+				angular.element('#logTimeModal').modal('hide')
+				$timeout (->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.logtime = {}
+					), 1000
 			return
 
 		$scope.submit = (form)->

@@ -27,10 +27,18 @@
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
                             <div class="col-xs-3" ng-cloak ng-show="companies.length>0">
-                                <select class="cs-select cs-skin-slide" data-init-plugin="cs-select">
-                                      <option value="sightseeing">Web-safe</option>
-                                      <option value="business">Helvetica</option>
-                                      <option value="honeymoon">SegeoUI</option>
+                                <select class=" full-width" data-init-plugin="select2" ng-model='pageSize'>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                        <option value="50">50</option>
+                                        <option value="60">60</option>
+                                        <option value="70">70</option>
+                                        <option value="80">80</option>
+                                        <option value="90">90</option>
+                                        <option value="100">100</option>
                                     </select>
                             </div>
                             <div class="col-xs-4">
@@ -58,7 +66,7 @@
                                 </div>
                             </div>
                             <div class="data_area list_view " dir-paginate="company in companies| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
-                            current-page="currentPage" ng-show="companies.length != 0">
+                            current-page="currentPage" ng-if="companies.length != 0">
                                 <!-- row 1 -->
                                 <div ng-cloak class="row border_class">
                                    <div class="datas people_id_pic">
@@ -74,7 +82,7 @@
                                         {% company.website %}
                                     </div>
                                     <div ng-cloak class="datas people_email">
-                                        <a href="hitesh@krishaweb.com" target="_blank">{% company.email %}</a>
+                                        <a href="{% company.email %}" target="_blank">{% company.email %}</a>
                                     </div>
                                     <div ng-cloak class="datas people_phone">
                                         {% company.phone %}
@@ -112,7 +120,7 @@ aria-hidden="true">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header clearfix ">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+            <button type="button" class="close" ng-click="cancelAll()" data-dismiss="modal" aria-hidden="true"><i
                 class="pg-close fs-14"></i>
             </button>
             <h4 class="p-b-5" ng-bind="edit==false ? 'Add New Company' : 'Edit Company'">
@@ -266,7 +274,7 @@ aria-hidden="true">
                     <button id="add-app" type="button" class="btn btn-primary  btn-cons"
                     ng-click="submit(Companies)" ng-bind="edit==false ? 'Add' : 'Edit'">Add
                 </button>
-                <button type="button" class="btn btn-cons" id="close" ng-click='clearAll()'>Close</button>
+                <button type="button" class="btn btn-cons" id="close" ng-click='clearAll(Companies)'>Close</button>
             </div>
         </form>
     </div>

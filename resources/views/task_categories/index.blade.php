@@ -21,10 +21,25 @@
                         <div class="panel-title">Task Categories
                         </div>
                         <div class="pull-right">
-                             <div class="col-xs-6" ng-show="task_categories.length > 0">
+                             <div class="col-xs-4" ng-show="task_categories.length > 0">
                                  <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-4" ng-cloak ng-show="task_categories.length>0">
+                                    <select class=" full-width" data-init-plugin="select2" ng-model='pageSize'>
+                                        <option value="5">5</option>
+                                        <option value="10">10</option>
+                                        <option value="20">20</option>
+                                        <option value="30">30</option>
+                                        <option value="40">40</option>
+                                        <option value="50">50</option>
+                                        <option value="60">60</option>
+                                        <option value="70">70</option>
+                                        <option value="80">80</option>
+                                        <option value="90">90</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>
+                            <div class="col-xs-4">
                                 <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add
                                     Task Category
                                 </button>
@@ -78,8 +93,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header clearfix ">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancelAll()"><i class="pg-close fs-14"></i>
-                    </button>
+
+                        <button type="button" class="close" ng-click="cancelAll()" data-dismiss="modal" aria-hidden="true"><i
+                                    class="pg-close fs-14"></i>
+                        </button>
+
                         <h4 class="p-b-5" ng-bind="edit==false ? 'Add New Task Category' : 'Edit New Task Category'"></h4>
                     </div>
                     <form name='taskCategory' class='p-t-15' role='form' novalidate>

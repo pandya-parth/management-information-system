@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-.controller 'TaskCategoryCtrl', ($scope, taskCategory, prompt, $timeout)->
+.controller 'TaskCategoryCtrl', ($scope, taskCategory, $timeout,prompt)->
 	$scope.loading = true
 	$scope.currentPage = 1
 	$scope.pageSize = 5
@@ -19,38 +19,39 @@ angular.module 'mis'
 		return
 
 	$scope.clearAll = (form)->
-		$scope.options =
-			title: 'You have changes.'
-			message:'Are you sure you want to discard changes?'
-			input:false
-			label:''
-			value:''
-			values:false
-			buttons:[
-				{
-					label: 'ok'
-					primary: true
-				}
-				{
-					label: 'Cancel'
-					cancel: true
-				}
-			]
-		if form.$dirty
-			prompt($scope.options).then( ->					
+			$scope.options =
+				title: 'You have changes.'
+				message:'Are you sure you want to discard changes?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+    
+			if form.$dirty
+				prompt($scope.options).then( ->					
+					angular.element('#addNewAppModal').modal('hide')
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.task_category = {}					
+				)
+			else
 				angular.element('#addNewAppModal').modal('hide')
-				$scope.submitted = false
-				$scope.edit = false
-				$scope.task_category = {}					
-			)
-		else
-			angular.element('#addNewAppModal').modal('hide')
-			$timeout (->
-				$scope.submitted = false
-				$scope.edit = false
-				$scope.task_category = {}
-				), 1000
-		return
+				$timeout (->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.task_category = {}
+					), 1000
+			return
 
 	$scope.submit = (form)->
 			$scope.loading = true
@@ -114,4 +115,3 @@ angular.module 'mis'
 				name: data.name
 			}
 			angular.element('#addNewAppModal').modal('show')
-			

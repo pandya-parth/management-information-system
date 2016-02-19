@@ -298,3 +298,31 @@ form.country .modal-body{
 	top: 38px!important;
 	left: 0 !important;
 }*/
+.add_project_people{
+	margin: 0;
+	padding: 0;
+}
+.add_project_people .row{
+	margin-left: -10px;
+	margin-right: -10px;
+}
+.add_project_people ul{
+	margin: 0;
+	padding: 0;
+}
+.add_project_people ul li{
+	list-style: none;
+	border: 1px solid #d1d1d1;
+	margin: 0 14px 30px;
+    border-radius: 5px;
+}
+.add_project_people ul li .people_id_pic{
+	text-align: center;
+	min-height: 120px;
+}
+.add_project_people .row [class*='col-']:first-child{
+	padding-left: 7px;
+}
+.add_project_people .row [class*='col-']:last-child{
+	padding-right: 7px;
+}
