@@ -172,7 +172,6 @@
       </div>
     </div>
   </div>
-
   <!-- MODAL FOR LOG TIME  -->
   <div class="modal fade stick-up" id="logTimeModal" tabindex="-1" role="dialog" aria-labelledby="logTimeModal" aria-hidden="true">
     <div class="modal-dialog">
@@ -181,14 +180,10 @@
           <button type="button" class="close" ng-click="logCancel()" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
           </button>
           <h4 class="p-b-5"><h4>Log time on this task</h4></h4>
-
         </div>
         <form name="Logtime" class='p-t-15' role='form' novalidate>
-          {%diff(logtime.end_time-logtime.start_time)%}
-
           <div class="modal-body">
             <div class="panel panel-transparent ">
-
               <!-- Tab panes -->
               <div class="tab-content">
                 <div class="tab-pane slide-left active" id="loghome">
@@ -196,7 +191,6 @@
                     <div class="col-md-6">
                       <div class="form-group form-group-default form-group-default-select2">
                         <label>Who</label>
-
                         <select class="form-control input-group form-group form-group-default" id="user_ids"  name="user_id" ng-model="logtime.user_id" >
                           @foreach($users as $user)
                           <option value="{!! $user->id !!}">{!! $user->email !!}</option>
@@ -204,8 +198,6 @@
                         </select>
                       </div>
                     </div>
-
-
                     <div class="col-md-6">
                       <div class="form-group form-group-default input-group col-md-12">
                         <input type="text" name="date" class="form-control" placeholder="Pick a date" id="log-date" ng-model='logtime.date'>
@@ -234,15 +226,12 @@
                       </div>
                       <span class="error" ng-show="submitted && Logtime.end_time.$error.required">* Please enter end time</span>
                     </div>
-
                     <div class="col-md-2">
-
                       <div class="form-group form-group-default">
                         <input id="hour" type="text" name="hour" class="form-control"  ng-model='logtime.hour' placeholder="Hour">
                       </div>
                     </div>
                     <div class="col-md-2">
-
                       <div class="form-group form-group-default">
                         <input id="minute" type="text" name="minute" class="form-control"  ng-model='logtime.minute' placeholder="Minute">
                       </div>
@@ -264,10 +253,7 @@
                       </div>
                     </div>
                   </div>
-
                 </div>
-
-
               </div>
             </div>
           </div>
@@ -279,32 +265,5 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 @endsection

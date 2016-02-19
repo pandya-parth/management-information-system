@@ -93,9 +93,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header clearfix ">
+
                         <button type="button" class="close" ng-click="cancelAll()" data-dismiss="modal" aria-hidden="true"><i
                                     class="pg-close fs-14"></i>
                         </button>
+
                         <h4 class="p-b-5" ng-bind="edit==false ? 'Add New Task Category' : 'Edit New Task Category'"></h4>
                     </div>
                     <form name='taskCategory' class='p-t-15' role='form' novalidate>

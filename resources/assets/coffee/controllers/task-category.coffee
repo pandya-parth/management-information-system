@@ -115,4 +115,3 @@ angular.module 'mis'
 				name: data.name
 			}
 			angular.element('#addNewAppModal').modal('show')
-			
