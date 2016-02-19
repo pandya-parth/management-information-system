@@ -5,7 +5,6 @@ angular.module 'mis'
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
-		$scope.counter = 1
 		$scope.educations = [
 			qualification: ''
 			collage: ''
@@ -15,7 +14,6 @@ angular.module 'mis'
 		]
 
 		$scope.newItem = ($event) ->
-			$scope.counter++
 			$scope.educations.push(
 				qualification: ''
 				collage: ''
