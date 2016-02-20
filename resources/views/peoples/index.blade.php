@@ -465,7 +465,7 @@
     </div>
     <div class="modal-footer">
         <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(people)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-        <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true" ng-click="clearAll()">
+        <button type="button" class="btn btn-cons" id="close"  ng-click="clearAll(people)">
             Close
         </button>
     </div>

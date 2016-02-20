@@ -8,6 +8,8 @@ use Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\People;
+use App\Project;
+use App\ProjectUser;
 use App\User;
 use Illuminate\Support\Facades\Input;
 use Redirect;
@@ -34,10 +36,12 @@ class PeoplesController extends Controller
         return view('peoples.addpeople',compact('allPeople'));
     }
 
-    public function getPeoples()
+
+
+
+    public function getPeoples(Request $request)
     {
-    
-       $peoples = People::all();
+       $peoples = ProjectUser::all();
        return response()->json($peoples);
     }
 
