@@ -31,29 +31,12 @@ class PeoplesController extends Controller
         return view('peoples.index');   
     }
 
-    public function getProjectPeople(){
-        $allPeople = People::all();
-        return view('peoples.addpeople',compact('allPeople'));
-    }
-
-
-
-
     public function getPeoples(Request $request)
     {
-       $peoples = ProjectUser::all();
+       $peoples = People::all();
        return response()->json($peoples);
     }
 
-    public function postPeoples()
-    {
-        $addpeople=Project::create(Input::all());
-        $addpeople->peoples()->attach($request->get('user_id'));
-        $addpeople->save();
-        return response()->json(['success'=>true]);
-    }
-
-    
     /**
      * Show the form for creating a new resource.
      *
@@ -70,6 +53,7 @@ class PeoplesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
             $pass=str_random(8);
@@ -124,6 +108,7 @@ class PeoplesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
@@ -135,6 +120,7 @@ class PeoplesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function edit($id)
     {
         
@@ -153,6 +139,7 @@ class PeoplesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, $id)
     {
          $people = People::find($id);
@@ -166,11 +153,26 @@ class PeoplesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
         $people = User::find($id);
         $people->delete();    
 
         return response()->json(['success'=>true]);
+    }
+
+    /* to add people in project */
+
+    public function getProjectPeople(Request $request,$id)
+    {
+        $allPeople =  ProjectUser::find($id);
+        return view('peoples.addpeople',compact('allPeople'));
+    }
+
+    public function postProjectPeople(Request $request)
+    {
+        dd($request->get('user_id'));
+        
     }
 }

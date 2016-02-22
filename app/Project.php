@@ -61,7 +61,8 @@ class Project extends Model  implements SluggableInterface
     {
         return $this->belongsToMany('App\User','project_users','project_id','user_id');
     }
-     public function tasks()
+
+    public function tasks()
     {
         return $this->hasMany('App\Task');
     }

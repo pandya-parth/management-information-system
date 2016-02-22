@@ -19,6 +19,7 @@
                 <div class="panel-heading">
                     <div class="panel-title">
                         <h1> <b> People On This Project </b> </h1>
+                        {!!$allPeople!!}
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-4" ng-show="peoples.length > 0">
@@ -97,6 +98,7 @@
                     class="pg-close fs-14"></i>
                 </button>
                 <h4 class="p-b-5"> Add people to project </h4>
+                
             </div>
             <form name='addPeople' class='p-t-15' role='form' novalidate>
                 <div class="modal-body">
@@ -113,11 +115,11 @@
                         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-repeat="people in peoples|filter:query">
                             <div class="btn btn-primary">
                              <label class="btn btn-success">
-                                <input type="checkbox" name="options" id="people.id">
+                                <input type="checkbox" name="user_id[]" id="{% people.id %}" value="{% people.user_id %}" ng-model="project_people.user_id">
                               </label>
                             <div class="datas people_id_pic">
-                                <div ng-cloak class="pic" ng-if="people.photo==''"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                <div ng-cloak class="pic" ng-if="people.photo!=''"><img src="{!! asset('uploads/people-thumb/{% people.photo %}') !!}" /></div>
+                                <div ng-cloak class="pic" ng-if="people.photo==''"></div>
+                                <div ng-cloak class="pic" ng-if="people.photo!=''"></div>
                             </div> 
                             <div ng-cloak class="datas people_name box_real">
                                 {% people.fname %} {% people.lname %}
