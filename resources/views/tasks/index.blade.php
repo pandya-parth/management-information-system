@@ -40,24 +40,48 @@
               </div>
               <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
-                  <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
-                    <a href="#" class="taskInner">
-                      <div class="checkbox check-success">
-                        <input type="checkbox" name="status[]" id="{% tsk.id %}" nd-model='status'>
+                  <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
 
-                        <label for="{% tsk.id %}"></label>
-                      
+
+
+
+
+                    <span class="taskBubble">hello 2</span>
+                    <div class="taskInner" style="padding: 0 0 0 50px;">
+                   
+                      <div class="checkbox check-success">
+                        <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
+                        {% task.status[$index] %}
+                        <label for="{% tsk.id %}" class="label-for-check task_name" style="width:700px;">{% tsk.name %}</label>
                       </div>
-                    </a>
-                      <p>{% status %}</p>
-                    <div class="task_detail">
-                      <label class="taskBubble">kajal</label>
-                      <a href="{!! url('/api/logtimes/{% tsk.id %}') !!}" class="task_name">{% tsk.name %}</a>
+                    </div>
+                    <div class="task_detail" style="padding:0 0 0 50px;">
+                      
                       <a href="#" class="timer timer_button" ng-click="showLogModal($event)" id="timer_button">
                         <i class="glyphicon glyphicon-time"></i>
                       </a>
                     </div>
-                  </div>
+                    <div class="task_detail" style="padding:0 0 0 50px;">
+                      <a href="#" class="timer timer_button"  id="view_button">
+                        <i class="fa fa-eye"></i>
+                      </a>
+                    </div>
+                    <div class="task_detail" style="padding:0 0 0 50px;">
+                      <a href="#" class="timer timer_button"  id="view_button" ng-click="editTask(tsk.id)">
+                        <i class="fa fa-edit"></i>
+                      </a>
+                    </div>
+                    <div class="task_detail" style="padding:0 0 0 50px;">
+                      <a href="#" class="timer timer_button"  id="view_button" ng-click="deleteTask(tsk.id)">
+                        <i class="fa fa-trash"></i>
+                      </a>
+                    </div>
+                  
+
+
+
+
+                </div>
                   <button ng-click="showModal($event)" type="button" class="btn btn-primary btn-cons task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button>
                 </div>
               </div>

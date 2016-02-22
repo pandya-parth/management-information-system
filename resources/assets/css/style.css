@@ -217,7 +217,7 @@ vertical-align: middle;
 .header_class{
 	background-color: #0DAD9E;
 }
-label.taskBubble{
+span.taskBubble{
 	background-color: #10CFBD;
 	padding: 2px 10px;
 	color: #fff;
@@ -312,17 +312,48 @@ form.country .modal-body{
 }
 .add_project_people ul li{
 	list-style: none;
-	border: 1px solid #d1d1d1;
 	margin: 0 14px 30px;
     border-radius: 5px;
+    position: relative;
+    padding: 0;
+}
+.add_project_people ul li label.btn input[type="checkbox"]{
+	display: none;
+}
+.add_project_people ul li label.btn{
+	position: absolute;
+	background-color: #10CFBD;
+	width: 15px;
+	height:15px;
+	left:-10px;
+	top: -10px;
+	z-index: 10;
+	padding: 0;
+}
+.add_project_people ul li .btn.active label.btn{
+	background-color: #5B4D91;
+}
+.add_project_people ul li .btn.btn-primary{
+	width:100%;
+	background-color: #40D9CA;
+	border: none;
 }
 .add_project_people ul li .people_id_pic{
 	text-align: center;
 	min-height: 120px;
 }
 .add_project_people .row [class*='col-']:first-child{
-	padding-left: 7px;
+	padding: 0;
 }
 .add_project_people .row [class*='col-']:last-child{
-	padding-right: 7px;
+	padding: 0;
+}
+.strike{
+	text-decoration:line-through;
+}
+.strikethrough:checked + .strikeThis {
+  text-decoration: line-through
+}
+.check-with-label:checked + .label-for-check {
+  text-decoration:line-through;
 }

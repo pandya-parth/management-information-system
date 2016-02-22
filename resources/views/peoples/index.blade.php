@@ -467,7 +467,9 @@
     </div>
     <div class="modal-footer">
         <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(people)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-        <button type="button" class="btn btn-cons"  ng-click="clearAll(people)"> Close   </button>
+        <button type="button" class="btn btn-cons" id="close"  ng-click="clearAll(people)">
+            Close
+        </button>
     </div>
 </form>
 </div>

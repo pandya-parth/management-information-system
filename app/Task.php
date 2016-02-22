@@ -44,7 +44,7 @@ class Task extends Model implements SluggableInterface
         'on_update'  => true,
     ]; 
 
-    protected $fillable = ['name','category_id','project_id','notes','start_date','due_date','priority'];
+    protected $fillable = ['name','category_id','project_id','notes','start_date','due_date','priority','status'];
     
 
     

@@ -1,6 +1,6 @@
 angular.module 'mis'
 
-	.controller 'companyCtrl', ($scope, company, $timeout)->
+	.controller 'companyCtrl', ($scope, company, $timeout,prompt)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
@@ -39,6 +39,41 @@ angular.module 'mis'
 		company.get().success (data)->
 			$scope.companies = data
 			$scope.loading = false
+
+		$scope.clearAll = (form)->
+			$scope.options =
+				title: 'You have changes.'
+				message:'Are you sure you want to discard changes?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+    
+			if form.$dirty
+				prompt($scope.options).then( ->					
+					angular.element('#addNewAppModal').modal('hide')
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.company = {}					
+				)
+			else
+				angular.element('#addNewAppModal').modal('hide')
+				$timeout (->
+					$scope.submitted = false
+					$scope.edit = false
+					$scope.company = {}
+					), 1000
+			return
 
 		$scope.submit = (form)->
 			$scope.loading = true
