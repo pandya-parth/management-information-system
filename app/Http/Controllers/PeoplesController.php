@@ -172,7 +172,9 @@ class PeoplesController extends Controller
 
     public function postProjectPeople(Request $request)
     {
-        dd($request->get('user_id'));
-        
+        $addpeople=ProjectUser::create(Input::all());
+        $addpeople->peoples()->attach($request->get('user_id'));
+        $addpeople->save();
+        return response()->json(['success'=>true]);
     }
 }

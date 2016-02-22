@@ -22,89 +22,84 @@
                         Companies
                     </div>
                     <div class="pull-right text-right">
-                            <div class="row">
+                        <div class="row">
                             <div class="col-xs-5" ng-cloak ng-show="companies.length>0">
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
                             <div class="col-xs-3" ng-cloak ng-show="companies.length>0">
                                 <select class=" full-width" data-init-plugin="select2" ng-model='pageSize'>
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="20">20</option>
-                                        <option value="30">30</option>
-                                        <option value="40">40</option>
-                                        <option value="50">50</option>
-                                        <option value="60">60</option>
-                                        <option value="70">70</option>
-                                        <option value="80">80</option>
-                                        <option value="90">90</option>
-                                        <option value="100">100</option>
-                                    </select>
+                                    <option value="5">5</option>
+                                    <option value="10">10</option>
+                                    <option value="20">20</option>
+                                    <option value="30">30</option>
+                                    <option value="40">40</option>
+                                    <option value="50">50</option>
+                                    <option value="60">60</option>
+                                    <option value="70">70</option>
+                                    <option value="80">80</option>
+                                    <option value="90">90</option>
+                                    <option value="100">100</option>
+                                </select>
                             </div>
                             <div class="col-xs-4">
                                 <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Company</button>
                             </div>
-                            </div>
                         </div>
+                    </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
-
-
-        <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
-
-
-                <div ng-cloak class="grid_list_view" ng-show="companies.length>0">
-                            <div class="head list_view border_class">
-                                <div class="row">
-                                    <div class="datas people_id_pic">Logo</div>
-                                    <div class="datas people_name">Name</div>
-                                    <div class="datas people_designation">Website</div>
-                                    <div class="datas people_email">Email</div>
-                                    <div class="datas people_phone">Phone</div>
-                                    <div class="datas people_action">Action</div>
-                                </div>
-                            </div>
-                            <div class="data_area list_view " dir-paginate="company in companies| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
-                            current-page="currentPage" ng-if="companies.length != 0">
-                                <!-- row 1 -->
-                                <div ng-cloak class="row border_class">
-                                   <div class="datas people_id_pic">
-                                        <div ng-cloak class="pic" ng-if="company.logo==''"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                        <div ng-cloak class="pic" ng-if="company.logo!=''"> <img src="{!! asset('uploads/people-thumb/{% company.logo %}') !!}" /></div>
-                                        
-                                        
-                                    </div>
-                                    <div ng-cloak class="datas people_name box_real">
-                                        {% company.name ? company.name : '-' %}
-                                    </div>
-                                    <div ng-cloak class="datas people_designation">
-                                        {% company.website %}
-                                    </div>
-                                    <div ng-cloak class="datas people_email">
-                                        <a href="{% company.email %}" target="_blank">{% company.email %}</a>
-                                    </div>
-                                    <div ng-cloak class="datas people_phone">
-                                        {% company.phone %}
-                                    </div>
-                                    <div class="datas people_action">
-                                       <a href="#" class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                       <a href="#" class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
-                                   </div>
-                               </div>
-                               <!-- row 1 complete -->
-                               
-
-                            </div>
-                       </div>
-    
-                <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="companies.length==0">
-                            <div style="text-align:center;">
-                                <img src="{!! asset('img/noCompany.png') !!}" style=" width:100px; height:100px; " />
-                                <p><h3>No company found</h3></p>
+                    <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
+                    <div ng-cloak class="grid_list_view" ng-show="companies.length>0">
+                        <div class="head list_view border_class">
+                            <div class="row">
+                                <div class="datas people_id_pic">Logo</div>
+                                <div class="datas people_name">Name</div>
+                                <div class="datas people_designation">Website</div>
+                                <div class="datas people_email">Email</div>
+                                <div class="datas people_phone">Phone</div>
+                                <div class="datas people_action">Action</div>
                             </div>
                         </div>
+                        <div class="data_area list_view " dir-paginate="company in companies| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
+                        current-page="currentPage" ng-if="companies.length != 0">
+                        <!-- row 1 -->
+                        <div ng-cloak class="row border_class">
+                            <div class="datas people_id_pic">
+                                <div ng-cloak class="pic" ng-if="company.logo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
+                                <div ng-cloak class="pic" ng-if="company.logo!=''"><img ng-src={!! asset("uploads/company-thumb/{%company.logo%}") !!} /></div>
+
+
+                            </div>
+                            <div ng-cloak class="datas people_name box_real">
+                                {% company.name ? company.name : '-' %}
+                            </div>
+                            <div ng-cloak class="datas people_designation">
+                                {% company.website %}
+                            </div>
+                            <div ng-cloak class="datas people_email">
+                                <a href="{% company.email %}" target="_blank">{% company.email %}</a>
+                            </div>
+                            <div ng-cloak class="datas people_phone">
+                                {% company.phone %}
+                            </div>
+                            <div class="datas people_action">
+                                <a href="#" class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
+                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                <a href="#" class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
+                            </div>
+                        </div>
+                        <!-- row 1 complete -->
+
+                    </div>
+                </div>
+
+                <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="companies.length==0">
+                    <div style="text-align:center;">
+                        <img src="{!! asset('img/noCompany.png') !!}" style=" width:100px; height:100px; " />
+                        <p><h3>No company found</h3></p>
+                    </div>
+                </div>
             </div>
             <dir-pagination-controls boundary-links="true"
             on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>

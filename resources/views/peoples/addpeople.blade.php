@@ -98,7 +98,7 @@
                     class="pg-close fs-14"></i>
                 </button>
                 <h4 class="p-b-5"> Add people to project </h4>
-                
+
             </div>
             <form name='addPeople' class='p-t-15' role='form' novalidate>
                 <div class="modal-body">
@@ -114,12 +114,13 @@
                     <ul class="row clearfix" data-toggle="buttons">
                         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-repeat="people in peoples|filter:query">
                             <div class="btn btn-primary">
+
                              <label class="btn btn-success">
-                                <input type="checkbox" name="user_id[]" id="{% people.id %}" value="{% people.user_id %}" ng-model="project_people.user_id">
+                                <input type="checkbox" name="user_id[]" value="{% people.user_id %}" id="{% people.user_id %}" class="check-with-label" ng-model="user_id" >
                               </label>
                             <div class="datas people_id_pic">
-                                <div ng-cloak class="pic" ng-if="people.photo==''"></div>
-                                <div ng-cloak class="pic" ng-if="people.photo!=''"></div>
+                                <div ng-cloak class="pic" ng-if="people.photo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
+                                <div ng-cloak class="pic" ng-if="people.photo!=''"><img ng-src={!! asset("uploads/people-thumb/{%people.photo%}") !!} /></div>
                             </div> 
                             <div ng-cloak class="datas people_name box_real">
                                 {% people.fname %} {% people.lname %}
@@ -130,13 +131,15 @@
                         </div>
                         </li>
                     </ul>
+
                 </div>
             </div>
             <!-- /.modal-content -->
             <div class="modal-footer">
-                <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submitPeople(addPeople)">Add</button>
+                <button  type="button" class="btn btn-primary  btn-cons" ng-click="submitPeople(addPeople)">Add</button>
                 <button type="button" class="btn btn-cons" id="close" ng-click='clearAll(addPeople)'>Close</button>
             </div>
+        </form>
         </div>
         <!-- /.modal-content -->
     </div>

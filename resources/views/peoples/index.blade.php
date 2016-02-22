@@ -74,8 +74,8 @@
                                 <!-- row 1 -->
                                 <div ng-cloak class="row border_class">
                                     <div class="datas people_id_pic">
-                                        <div ng-cloak class="pic" ng-if="people.photo==''"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
-                                        <div ng-cloak class="pic" ng-if="people.photo!=''"> <img src="{!! asset('uploads/people-thumb/{% people.photo %}') !!}" /></div>
+                                        <div ng-cloak class="pic" ng-if="people.photo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
+                                        <div ng-cloak class="pic" ng-if="people.photo!=''"><img ng-src={!! asset("uploads/people-thumb/{%people.photo%}") !!} /></div>
                                     </div> 
                                     <div ng-cloak class="datas people_name box_real">
                                         {% people.fname %} {% people.lname %}
@@ -121,7 +121,7 @@
                     </button>
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
-                
+
                 <form name='people' class='p-t-15' role='form' enctype="multipart/form-data" novalidate >
                     <div class="modal-body">
                         <ul class="nav nav-tabs nav-tabs-fillup">
@@ -267,7 +267,7 @@
                                             <label>PAN Number</label>
                                             <input type="text" name="pan_number" class="form-control" placeholder="Pan Number" ng-model='people_array.pan_number' >
                                         </div>
-                                        
+
                                         <div class="form-group form-group-default form-group-default-select2">
                                             <label>Department</label>
                                             <select class="full-width" data-placeholder="Select Department"
@@ -277,11 +277,11 @@
                                             <option value="Development">Development</option>
                                             <option value="QA/QC">QA/QC</option>
                                             <option value="HTML">HTML</option>
-                                            
+
                                         </select> 
                                     </div>
-                                    
-                                    
+
+
                                     <div class="form-group form-group-default form-group-default-select2">
                                         <label>Designation/Job Title</label>
                                         <select class="full-width" data-placeholder="select Designation"
@@ -289,11 +289,11 @@
                                         <option value="Front-end Developer">Front-end Developer</option>
                                         <option value="Grapic Designer">Grapic Designer</option>
                                         <option value="Magento Developer">Magento Developer</option>
-                                        
+
                                     </select>
                                 </div>
-                                
-                                
+
+
                                 <div class="form-group form-group-default form-group-default-select2">
                                     <label>Management Level</label>
                                     <select class="full-width" data-placeholder="select Designation"
@@ -312,164 +312,163 @@
                                 <input type="text"  name="join_date" class="form-control" placeholder="Pick a date"
                                 id="joining-date" ng-model='people_array.join_date'>
                                 <span class="input-group-addon">
-                                  <i class="fa fa-calendar"></i>
-                              </span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-            <div id="menu4" class="tab-pane slide-left">
-                <div ng-repeat="education in educations">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu4" class="tab-pane slide-left">
+                    <div ng-repeat="education in educations">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default">
+                                    <label>Qualification</label>
+                                    <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-model="people_array.education[$index].qualification" >
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group form-group-default">
+                                    <label>Collage</label>
+                                    <input type="text" name="collage" class="form-control" placeholder="Collage" ng-model="people_array.education[$index].collage" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group form-group-default">
+                                    <label>University</label>
+                                    <input type="text" name="university" class="form-control" placeholder="University" ng-model="people_array.education[$index].university" >
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-group-default">
+                                    <label>Passing Year</label>
+                                    <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-model="people_array.education[$index].passing_year" >
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group form-group-default">
+                                    <label>Percentage / Grade</label>
+                                    <input type="text" name="percentage" class="form-control" placeholder="Percentage / Grade" ng-model="people_array.education[$index].percentage" >
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first" ng-click="educations.splice($index, 1);">REMOVE</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <a class="btn btn-success" tooltip="Add" ng-click="newItem($event)">ADD</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu5" class="tab-pane slide-left">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <div class="form-group form-group-default">
-                                <label>Qualification</label>
-                                <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-model="people_array.education[$index].qualification" >
+                                <label>Company Name</label>
+                                <input type="text" name="company_name[]" class="form-control" placeholder="Company Name" ng-model='company_name' >
                             </div>
                         </div>
-                        <div class="col-sm-6">
-                            <div class="form-group form-group-default">
-                                <label>Collage</label>
-                                <input type="text" name="collage" class="form-control" placeholder="Collage" ng-model="people_array.education[$index].collage" >
+                        <div class="col-sm-4">
+                            <div class="form-group form-group-default input-group col-md-12">
+                                <label>From</label>
+                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-model='from'>
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group form-group-default input-group col-md-12">
+                                <label>To</label>
+                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-model='to'>
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <div class="form-group form-group-default">
-                                <label>University</label>
-                                <input type="text" name="university" class="form-control" placeholder="University" ng-model="people_array.education[$index].university" >
+                                <label>Salary</label>
+                                <input type="text" name="salary[]" class="form-control" placeholder="Salary" ng-model='salary' >
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <div class="form-group form-group-default">
-                                <label>Passing Year</label>
-                                <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-model="people_array.education[$index].passing_year" >
+                                <label>Reason </label>
+                                <input type="text" name="reason[]" class="form-control" placeholder="Reason for leaving previous job" ng-model='Reason' >
                             </div>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <div class="form-group form-group-default">
-                                <label>Percentage / Grade</label>
-                                <input type="text" name="percentage" class="form-control" placeholder="Percentage / Grade" ng-model="people_array.education[$index].percentage" >
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="form-group">
-                                <a class="btn btn-danger" tooltip="Delete" ng-if="!$first" ng-click="educations.splice($index, 1);">REMOVE</a>
+                                <a class="btn btn-success" href="#" tooltip="Add" >ADD</a>
+                                <a class="btn btn-danger" href="#" tooltip="Delete" >REMOVE</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <a class="btn btn-success" tooltip="Add" ng-click="newItem($event)">ADD</a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="menu5" class="tab-pane slide-left">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group form-group-default">
-                            <label>Company Name</label>
-                            <input type="text" name="company_name[]" class="form-control" placeholder="Company Name" ng-model='company_name' >
+                <div id="menu3" class="tab-pane slide-left">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Google</label>
+                                <input type="text" name="google" class="form-control" placeholder="Google" ng-model='people_array.google' >
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-group form-group-default input-group col-md-12">
-                            <label>From</label>
-                            <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-model='from'>
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Facebook</label>
+                                <input type="text" name="facebook" class="form-control" placeholder="Facebook" ng-model='people_array.facebook' >
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-group form-group-default input-group col-md-12">
-                            <label>To</label>
-                            <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-model='to'>
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Web Site</label>
+                                <input type="text" name="website" class="form-control" placeholder="Web Site" ng-model='people_array.website' >
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="form-group form-group-default">
-                            <label>Salary</label>
-                            <input type="text" name="salary[]" class="form-control" placeholder="Salary" ng-model='salary' >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Linkedin</label>
+                                <input type="text" name="linkedin" class="form-control" placeholder="Linkedin" ng-model='people_array.linkedin' >
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-group form-group-default">
-                            <label>Reason </label>
-                            <input type="text" name="reason[]" class="form-control" placeholder="Reason for leaving previous job" ng-model='Reason' >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Skype</label>
+                                <input type="text" name="skype" class="form-control" placeholder="Skype" ng-model='people_array.skype' >
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-group form-group-default">
-                            <a class="btn btn-success" href="#" tooltip="Add" >ADD</a>
-                            <a class="btn btn-danger" href="#" tooltip="Delete" >REMOVE</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="menu3" class="tab-pane slide-left">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group form-group-default">
-                            <label>Google</label>
-                            <input type="text" name="google" class="form-control" placeholder="Google" ng-model='people_array.google' >
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group form-group-default">
-                            <label>Facebook</label>
-                            <input type="text" name="facebook" class="form-control" placeholder="Facebook" ng-model='people_array.facebook' >
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group form-group-default">
-                            <label>Web Site</label>
-                            <input type="text" name="website" class="form-control" placeholder="Web Site" ng-model='people_array.website' >
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group form-group-default">
-                            <label>Linkedin</label>
-                            <input type="text" name="linkedin" class="form-control" placeholder="Linkedin" ng-model='people_array.linkedin' >
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group form-group-default">
-                            <label>Skype</label>
-                            <input type="text" name="skype" class="form-control" placeholder="Skype" ng-model='people_array.skype' >
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group form-group-default">
-                            <label>Twitter</label>
-                            <input type="text" name="twitter" class="form-control" placeholder="Twitterl" ng-model='people_array.twitter' >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group form-group-default">
+                                <label>Twitter</label>
+                                <input type="text" name="twitter" class="form-control" placeholder="Twitterl" ng-model='people_array.twitter' >
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(people)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-        <button type="button" class="btn btn-cons" id="close"  ng-click="clearAll(people)">
-            Close
-        </button>
-    </div>
-</form>
+        <div class="modal-footer">
+            <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(people)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
+            <button type="button" class="btn btn-cons" id="close"  ng-click="clearAll(people)">
+                Close
+            </button>
+        </div>
+    </form>
 </div>
 <!-- /.modal-content -->
 </div>
