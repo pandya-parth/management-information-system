@@ -20,7 +20,9 @@
             <div class="panel panel-transparent">
                 <div class="panel-heading">
                     <div class="panel-title">People Listing
+
                     </div>
+
                     <?php
                     $marital_statuses = array('maried'=>'maried',
                         'single'=>'single',
@@ -312,13 +314,13 @@
                                 <input type="text"  name="join_date" class="form-control" placeholder="Pick a date"
                                 id="joining-date" ng-model='people_array.join_date'>
                                 <span class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="menu4" class="tab-pane slide-left">
+                                  <i class="fa fa-calendar"></i>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div id="menu4" class="tab-pane slide-left">
                     <div ng-repeat="education in educations">
                         <div class="row">
                             <div class="col-sm-6">

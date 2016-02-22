@@ -17,6 +17,7 @@ use Former\Facades\Former;
 use Validator;
 use Image;
 use Hash;
+use App\UserEducation;
 use Mail;
 
 class PeoplesController extends Controller
@@ -56,6 +57,7 @@ class PeoplesController extends Controller
 
     public function store(Request $request)
     {
+
             $pass=str_random(8);
             $user = new User;
             $user->email = Input::get('email');
@@ -97,6 +99,24 @@ class PeoplesController extends Controller
             $user_profile->website = Input::get('website');
 
             $user_profile->save();
+            
+            
+            
+             $input= Input::get('education');
+             
+                foreach ($input as $key => $value) {
+                    $education = new UserEducation($value);
+                    $education->user_id=$user->id;
+                    $education->save();
+                }
+                    
+             
+                
+
+            
+
+
+
        
 
             return response()->json(['success'=>true]);
@@ -126,10 +146,18 @@ class PeoplesController extends Controller
         
     }
 
-    public function getPeople($id)
+    public function getPeople($id,Request $request)
     {
+
         $people = People::findOrFail($id);
-        return response()->json($people);
+        $data=$people->user->id;
+        //$UserEducation = UserEducation::find($people->user_id)->userEducations;
+        $education = user::find($data)->userEducations;
+        dd($education);
+        
+
+        return response()->json(array($people,$people->user->email,$data));
+
     }
 
     /**

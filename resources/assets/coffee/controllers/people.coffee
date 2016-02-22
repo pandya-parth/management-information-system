@@ -58,6 +58,8 @@ angular.module 'mis'
 			$scope.peoples = data
 			$scope.loading = false
 
+		
+
 		$scope.cancelAll = ->
 			angular.element('#addNewAppModal').modal('hide')
 			$timeout (->
@@ -212,5 +214,6 @@ angular.module 'mis'
 		$scope.editPeople = (id)->
 			PEOPLE.edit(id).success (data)->
 				$scope.edit = true
-				$scope.people_array = data
+				$scope.people_array = data[0]
+				$scope.people_array.email = data[1]
 				angular.element('#addNewAppModal').modal('show')

@@ -15,10 +15,11 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    public function people()
-    {
-        return $this->hasOne('People'); //Profile is your profile model
-    } 
+ 
+    // public function people()
+    // {
+    //     return $this->hasOne('People','user_id'); //Profile is your profile model
+    // } 
     // public function people()
     // {
     //     return $this->belongsTo('People', 'user_id');
@@ -44,6 +45,15 @@ class User extends Authenticatable
     public function projects()
     {
         return $this->belongsToMany('App\Project','project_users','project_id','user_id');
+    }
+    
+    public function userEducations()
+    {
+        $this->hasMany('App\UserEducation');
+    }        
+    public function people()
+    {
+        return $this->hasOne('App\People');
     }
 
 
