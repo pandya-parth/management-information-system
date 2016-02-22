@@ -20,7 +20,9 @@
             <div class="panel panel-transparent">
                 <div class="panel-heading">
                     <div class="panel-title">People Listing
+
                     </div>
+
                     <?php
                     $marital_statuses = array('maried'=>'maried',
                         'single'=>'single',
@@ -39,7 +41,7 @@
                                     </select>
                                 </div>
                                 <div class="col-xs-4">
-                                    <button id="show-modal" class="btn btn-complete btn-cons"><i class="fa fa-plus"></i> Add People</button>
+                                    <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add People</button>
                                 </div>
                             </div>
                         </div>
@@ -329,8 +331,8 @@
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group form-group-default">
-                                <label>Collage</label>
-                                <input type="text" name="collage" class="form-control" placeholder="Collage" ng-model="people_array.education[$index].collage" >
+                                <label>College</label>
+                                <input type="text" name="college" class="form-control" placeholder="College" ng-model="people_array.education[$index].college" >
                             </div>
                         </div>
                     </div>
@@ -465,9 +467,7 @@
     </div>
     <div class="modal-footer">
         <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(people)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-        <button type="button" class="btn btn-cons" id="close_btn" data-dismiss="modal" aria-hidden="true" ng-click="clearAll()">
-            Close
-        </button>
+        <button type="button" class="btn btn-cons"  ng-click="clearAll(people)"> Close   </button>
     </div>
 </form>
 </div>

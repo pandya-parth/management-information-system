@@ -82,7 +82,6 @@
               </div>
               <div class="datas people_action">
                 <a href="#" class="btn btn-success btn-sm" ng-click="editMilestone(milestone.id)" ><i class="fa fa-edit"></i></a>
-                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                 <a href="#" class="btn btn-success btn-sm" ng-click="deleteMilestone(milestone.id)" ><i class="fa fa-trash"></i></a>
               </div>
             </div>
@@ -93,8 +92,8 @@
 
         <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="milestones.length==0">
           <div style="text-align:center;">
-            <img src="{!! asset('img/noMilestones.png') !!}" style=" width:100px; height:100px; " />
-            <p><h3>No match found</h3></p>
+            <img src="{!! asset('img/noMilestone1.png') !!}" style=" width:100px; height:100px; " />
+            <p><h3>No milestone found</h3></p>
           </div>
         </div>
       </div>
@@ -157,7 +156,7 @@ aria-hidden="true">
                     <span class="error"
                     ng-show="submitted && Milestone.notes.$error.required">* Please enter milestone notes.</span>
                   </div>
-                  <input type="text" name="project_id"  ng-model="milestone.project_id">
+                  <input type="hidden" name="project_id"  ng-model="milestone.project_id">
                 </div>
               </div>
             </div>

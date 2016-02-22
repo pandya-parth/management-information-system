@@ -43,13 +43,16 @@
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
                     <a href="#" class="taskInner">
                       <div class="checkbox check-success">
-                        <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}">
+                        <input type="checkbox" name="status[]" id="{% tsk.id %}" nd-model='status'>
+
                         <label for="{% tsk.id %}"></label>
+                      
                       </div>
                     </a>
+                      <p>{% status %}</p>
                     <div class="task_detail">
-                      <label class="taskBubble">hello 2</label>
-                      <a href="#" class="task_name">{% tsk.name %}</a>
+                      <label class="taskBubble">kajal</label>
+                      <a href="{!! url('/api/logtimes/{% tsk.id %}') !!}" class="task_name">{% tsk.name %}</a>
                       <a href="#" class="timer timer_button" ng-click="showLogModal($event)" id="timer_button">
                         <i class="glyphicon glyphicon-time"></i>
                       </a>
@@ -71,7 +74,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header clearfix ">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+          <button type="button" class="close" data-dismiss="modal" ng-click="cancelAll()" aria-hidden="true"><i class="pg-close fs-14"></i>
           </button>
           <h4 class="p-b-5"><h4>Add New Task</h4></h4>
         </div>
@@ -166,7 +169,7 @@
           </div>
           <div class="modal-footer">
             <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(Task)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-            <button type="button" class="btn btn-cons" id="close" ng-click="clearAll()">Close</button>
+            <button type="button" class="btn btn-cons" id="close" ng-click="clearAll(Task)">Close</button>
           </div>
         </form>
       </div>
@@ -177,7 +180,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header clearfix ">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+          <button type="button" class="close" ng-click="logCancel()" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
           </button>
           <h4 class="p-b-5"><h4>Log time on this task</h4></h4>
         </div>
@@ -259,7 +262,7 @@
           </div>
           <div class="modal-footer">
             <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submitLog(Logtime)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-            <button type="button" class="btn btn-cons" id="close" ng-click="logClearAll()">Close</button>
+            <button type="button" class="btn btn-cons" id="close" ng-click="logClearAll(Logtime)">Close</button>
           </div>
         </form>
       </div>

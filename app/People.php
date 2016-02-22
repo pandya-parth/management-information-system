@@ -36,9 +36,10 @@ class People extends Model
     }
 
 	
-	public function user() {
-    	return $this->belongsTo('User');
-	}
+	public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 	// public function user()
 	// {
 	// 	return $this->belongsTo('User', 'user_id');
