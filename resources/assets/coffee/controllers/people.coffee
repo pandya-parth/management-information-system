@@ -163,10 +163,15 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
+<<<<<<< HEAD
 				alert $scope.people_array1
 				PEOPLE.addPeople($scope.people).success (data)->
+=======
+				alert $scope.user_id
+				PEOPLE.addPeople($scope.project_people).success (data)->
+>>>>>>> 97d6f56e577b8f1bcd8e0383739f93c02eb41798
 					$scope.submitted = false
-					$scope.people = {}
+					$scope.project_people = {}
 					angular.element('#addNewAppModal').modal('hide')
 					angular.element('body').pgNotification(
 						style: 'flip'
@@ -176,14 +181,13 @@ angular.module 'mis'
 						type: 'success').show()
 
 					PEOPLE.getPeople(pId).success (getData)->
-						$scope.peoples = getData
+						$scope.project_peoples = getData
 						$scope.loading = false
 			else
-				PEOPLE.updatePeople($scope.people).success (data)->
-					console.log data
+				PEOPLE.updatePeople($scope.project_people).success (data)->
 					$scope.submitted = false
 					$scope.edit = false
-					$scope.people = {}
+					$scope.project_people = {}
 					angular.element('#addNewAppModal').modal('hide')
 					$timeout (->
 						angular.element('body').pgNotification(
@@ -194,7 +198,7 @@ angular.module 'mis'
 							type: 'success').show()
 
 						PEOPLE.getPeople(pId).success (getData)->
-							$scope.peoples = getData
+							$scope.project_peoples = getData
 							$scope.loading = false
 					), 500			
 
