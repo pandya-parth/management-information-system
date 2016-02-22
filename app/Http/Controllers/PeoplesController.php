@@ -150,13 +150,9 @@ class PeoplesController extends Controller
     {
 
         $people = People::findOrFail($id);
-        $data=$people->user->id;
-        //$UserEducation = UserEducation::find($people->user_id)->userEducations;
-        $education = user::find($data)->userEducations;
-        dd($education);
+        $UserEducation = UserEducation::where('user_id','=',$people->user_id)->get();
         
-
-        return response()->json(array($people,$people->user->email,$data));
+        return response()->json(array($people,$people->user->email,$UserEducation));
 
     }
 

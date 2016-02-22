@@ -163,6 +163,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
+				alert $scope.people_array1
 				PEOPLE.addPeople($scope.people).success (data)->
 					$scope.submitted = false
 					$scope.people = {}
@@ -216,4 +217,5 @@ angular.module 'mis'
 				$scope.edit = true
 				$scope.people_array = data[0]
 				$scope.people_array.email = data[1]
+				$scope.educations=data[2]
 				angular.element('#addNewAppModal').modal('show')

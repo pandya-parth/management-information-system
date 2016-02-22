@@ -115,8 +115,10 @@
                         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-repeat="people in peoples|filter:query">
                             <div class="btn btn-primary">
                              <label class="btn btn-success">
-                                <input type="checkbox" name="user_id[]" id="{% people.id %}" value="{% people.user_id %}" ng-model="project_people.user_id">
+                                <input type="checkbox" name="user_id[]" value="people.user_id" id="{% people.user_id %}" class="check-with-label" ng-model="user_id" >
                               </label>
+                              
+                              
                             <div class="datas people_id_pic">
                                 <div ng-cloak class="pic" ng-if="people.photo==''"></div>
                                 <div ng-cloak class="pic" ng-if="people.photo!=''"></div>
@@ -130,6 +132,7 @@
                         </div>
                         </li>
                     </ul>
+                    {% user_id[$index] %}
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -137,6 +140,7 @@
                 <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submitPeople(addPeople)">Add</button>
                 <button type="button" class="btn btn-cons" id="close" ng-click='clearAll(addPeople)'>Close</button>
             </div>
+        </form>
         </div>
         <!-- /.modal-content -->
     </div>
