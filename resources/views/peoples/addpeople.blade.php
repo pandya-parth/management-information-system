@@ -19,8 +19,9 @@
                 <div class="panel-heading">
                     <div class="panel-title">
                         <h1> <b> People On This Project </b> </h1>
-                        {!!$allPeople!!}
+                        
                     </div>
+                    {% project_peoples %}
                     <div class="pull-right">
                         <div class="col-xs-4" ng-show="peoples.length > 0">
                             <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
@@ -112,11 +113,13 @@
                 </br>
                 <div class="add_project_people">
                     <ul class="row clearfix" data-toggle="buttons">
+                        <input type="text" name="project_id" ng-value="{% pro_Id %}" ng-model="project_people.project_id">
                         <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-repeat="people in peoples|filter:query">
                             <div class="btn btn-primary">
 
                              <label class="btn btn-success">
-                                <input type="checkbox" name="user_id[]" value="{% people.user_id %}" id="{% people.user_id %}" class="check-with-label" ng-model="user_id" >
+                                <input type="checkbox" name="user_id[]" value="{% people.user_id %}" id="{% people.user_id %}" class="check-with-label" ng-model="project_people.user_id" >
+                                
                               </label>
                             <div class="datas people_id_pic">
                                 <div ng-cloak class="pic" ng-if="people.photo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>

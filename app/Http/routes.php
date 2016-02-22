@@ -75,6 +75,7 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     
     Route::get('projects','ProjectsController@getProjects');
     Route::get('project-category/{id}','ProjectCategoriesController@getCategory');
+    
     Route::get('people/{id}','PeoplesController@getPeople');
     Route::get('projects/{id}','ProjectsController@getProject');
 });

@@ -1,10 +1,12 @@
 angular.module 'mis'
 
-	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout,prompt)->
+	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout,prompt,$window)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.pageSize = 5
 		$scope.edit = false
+		currentUrl = $window.location.href
+		pId = currentUrl.split('/')[4]||"Undefined"
 		$scope.educations = [
 			qualification: ''
 			collage: ''
@@ -54,11 +56,9 @@ angular.module 'mis'
 				uploader.refresh()
 			)
 		
-		PEOPLE.get().success (data)->
+		PEOPLE.get(pId).success (data)->
 			$scope.peoples = data
 			$scope.loading = false
-
-		
 
 		$scope.cancelAll = ->
 			angular.element('#addNewAppModal').modal('hide')
@@ -130,7 +130,7 @@ angular.module 'mis'
 						timeout: 2000
 						type: 'success').show()
 
-					PEOPLE.get().success (getData)->
+					PEOPLE.get(pId).success (getData)->
 						$scope.peoples = getData
 						$scope.loading = false
 			else
@@ -147,10 +147,13 @@ angular.module 'mis'
 							timeout: 2000
 							type: 'success').show()
 
-						PEOPLE.get().success (getData)->
+						PEOPLE.get(pId).success (getData)->
 							$scope.peoples = getData
 							$scope.loading = false
 					), 500
+
+
+		
 
 
 		$scope.submitPeople = (form)->
@@ -163,7 +166,6 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
-				alert $scope.user_id
 				PEOPLE.addPeople($scope.project_people).success (data)->
 					$scope.submitted = false
 					$scope.project_people = {}
@@ -175,7 +177,7 @@ angular.module 'mis'
 						timeout: 2000
 						type: 'success').show()
 
-					PEOPLE.getPeople(pId).success (getData)->
+					PEOPLE.getProjectPeople(pId).success (getData)->
 						$scope.project_peoples = getData
 						$scope.loading = false
 			else
@@ -192,7 +194,7 @@ angular.module 'mis'
 							timeout: 2000
 							type: 'success').show()
 
-						PEOPLE.getPeople(pId).success (getData)->
+						PEOPLE.getProjectPeople(pId).success (getData)->
 							$scope.project_peoples = getData
 							$scope.loading = false
 					), 500			
@@ -214,6 +216,5 @@ angular.module 'mis'
 		$scope.editPeople = (id)->
 			PEOPLE.edit(id).success (data)->
 				$scope.edit = true
-				$scope.people_array = data[0]
-				$scope.people_array.email = data[1]
+				$scope.people_array = data
 				angular.element('#addNewAppModal').modal('show')

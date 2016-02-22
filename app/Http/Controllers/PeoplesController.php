@@ -97,28 +97,16 @@ class PeoplesController extends Controller
             $user_profile->linkedin = Input::get('linkedin');
             $user_profile->twitter = Input::get('twitter');
             $user_profile->website = Input::get('website');
-
             $user_profile->save();
             
-            
-            
-             $input= Input::get('education');
+            $input= Input::get('education');
              
                 foreach ($input as $key => $value) {
                     $education = new UserEducation($value);
                     $education->user_id=$user->id;
                     $education->save();
                 }
-                    
-             
-                
-
             
-
-
-
-       
-
             return response()->json(['success'=>true]);
     }
 
@@ -150,13 +138,7 @@ class PeoplesController extends Controller
     {
 
         $people = People::findOrFail($id);
-        $data=$people->user->id;
-        //$UserEducation = UserEducation::find($people->user_id)->userEducations;
-        $education = user::find($data)->userEducations;
-        dd($education);
-        
-
-        return response()->json(array($people,$people->user->email,$data));
+       return response()->json($people);
 
     }
 
@@ -194,8 +176,10 @@ class PeoplesController extends Controller
 
     public function getProjectPeople(Request $request,$id)
     {
-        $allPeople =  ProjectUser::find($id);
+        $allPeople =  ProjectUser::whereProjectId($id)->get();
         return view('peoples.addpeople',compact('allPeople'));
+
+
     }
 
     public function postProjectPeople(Request $request)
