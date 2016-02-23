@@ -42,6 +42,4 @@ angular.module 'mis'
 
 			destroy: (id)->
 				$http.delete('/people/' + id)
-
-		
 		}
