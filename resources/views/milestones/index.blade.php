@@ -167,7 +167,7 @@
                       <label>Assign to.</label>
                       <select class=" full-width" data-init-plugin="select2" id="user_ids" multiple name="user_id" ng-model="milestone.user_id">
                         @foreach($users as $user)
-                        <option value="{!! $user->id !!}">{!! $user->email !!}</option>
+                        <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
                         @endforeach
                       </select>
                     </div>

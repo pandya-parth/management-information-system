@@ -19,6 +19,7 @@
         <div class="panel-heading">
           <div class="panel-title">
             <h4>Tasks</h4>
+            
           </div>
           <div class="pull-right">
             <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
@@ -120,7 +121,7 @@
                         <label>Add People</label>
                         <select class=" full-width" data-init-plugin="select2" id="user_ids" multiple name="user_id" ng-model="task.user_id">
                           @foreach($users as $user)
-                          <option value="{!! $user->id !!}">{!! $user->email !!}</option>
+                          <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
                           @endforeach
                         </select>
                       </div>

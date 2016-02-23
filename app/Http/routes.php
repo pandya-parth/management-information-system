@@ -51,6 +51,11 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::post('/logtimes','TasksController@logStore');
     Route::post('/logtimes/{id}','TasksController@logUpdate');
     Route::get('/logtimes/{id}','TasksController@logDestroy');
+
+    Route::get('/project-peoples','PeoplesController@getProjectPeople');
+    Route::post('/project-peoples','PeoplesController@postProjectPeople');
+    Route::post('/project-peoples/{id}','PeoplesController@updateProjectPeople');
+    Route::get('/project-peoples/{id}','PeoplesController@destroyProjectPeople');
 });
 
 Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
