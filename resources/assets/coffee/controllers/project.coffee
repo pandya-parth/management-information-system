@@ -3,7 +3,6 @@ angular.module 'mis'
 	.controller 'ProjectCtrl', ($scope, PROJECT, $timeout, prompt)->
 		$scope.loading = true
 		$scope.currentPage = 1
-		$scope.pageSize = 5
 		$scope.edit = false
 		PROJECT.get().success (data)->
 			$scope.projects = data

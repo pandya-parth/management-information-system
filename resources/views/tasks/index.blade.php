@@ -41,14 +41,9 @@
               <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
-
-
-
-
-
                     <span class="taskBubble">hello 2</span>
                     <div class="taskInner" style="padding: 0 0 0 50px;">
-                   
+
                       <div class="checkbox check-success">
                         <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
                         {% task.status[$index] %}
@@ -56,7 +51,7 @@
                       </div>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      
+
                       <a href="#" class="timer timer_button" ng-click="showLogModal($event)" id="timer_button">
                         <i class="glyphicon glyphicon-time"></i>
                       </a>
@@ -76,13 +71,9 @@
                         <i class="fa fa-trash"></i>
                       </a>
                     </div>
-                  
 
-
-
-
-                </div>
-                  <button ng-click="showModal($event)" type="button" class="btn btn-primary btn-cons task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button>
+                  </div>
+                  <button ng-click="showModal($event)" type="button" class="btn button_color task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button>
                 </div>
               </div>
             </div>

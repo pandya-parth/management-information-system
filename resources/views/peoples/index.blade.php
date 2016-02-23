@@ -20,9 +20,7 @@
             <div class="panel panel-transparent">
                 <div class="panel-heading">
                     <div class="panel-title">People Listing
-
                     </div>
-
                     <?php
                     $marital_statuses = array('maried'=>'maried',
                         'single'=>'single',
@@ -41,7 +39,7 @@
                                     </select>
                                 </div>
                                 <div class="col-xs-4">
-                                    <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add People</button>
+                                    <button id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add People</button>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +121,6 @@
                     </button>
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
-
                 <form name='people' class='p-t-15' role='form' enctype="multipart/form-data" novalidate >
                     <div class="modal-body">
                         <ul class="nav nav-tabs nav-tabs-fillup">
@@ -140,17 +137,15 @@
                                     <div class="col-md-4">
                                         <div class="form-group form-group-default">
                                             <label>First Name </label>
-                                            <input type="text" name="fname" class="form-control" placeholder="First Name" ng-model='people_array.fname' required ng-pattern="/^(\D)+$/">
+                                            <input type="text" name="fname" class="form-control" placeholder="First Name" ng-model='people_array.fname' required>
                                             <span class="error" ng-show="submitted && people.fname.$error.required">* Please enter First Name</span>
-                                            <span class="error" ng-show="submitted && people.fname.$error.pattern">* Please enter only text</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group form-group-default">
                                             <label>Last Name</label>
-                                            <input type="text" name="lname" class="form-control" placeholder="Last Name" ng-model='people_array.lname' required ng-pattern="/^(\D)+$/">
+                                            <input type="text" name="lname" class="form-control" placeholder="Last Name" ng-model='people_array.lname' required>
                                             <span class="error" ng-show="submitted && people.lname.$error.required">* Please enter Last Name </span>
-                                            <span class="error" ng-show="submitted && people.fname.$error.pattern">* Please enter only text</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -273,7 +268,6 @@
                                             <label>PAN Number</label>
                                             <input type="text" name="pan_number" class="form-control" placeholder="Pan Number" ng-model='people_array.pan_number' >
                                         </div>
-
                                         <div class="form-group form-group-default form-group-default-select2">
                                             <label>Department</label>
                                             <select class="full-width" data-placeholder="Select Department"
@@ -283,23 +277,27 @@
                                             <option value="Development">Development</option>
                                             <option value="QA/QC">QA/QC</option>
                                             <option value="HTML">HTML</option>
-
                                         </select> 
                                     </div>
-
-
                                     <div class="form-group form-group-default form-group-default-select2">
                                         <label>Designation/Job Title</label>
                                         <select class="full-width" data-placeholder="select Designation"
                                         data-init-plugin="select2" ng-model='people_array.designation'>
-                                        <option value="Front-end Developer">Front-end Developer</option>
-                                        <option value="Grapic Designer">Grapic Designer</option>
-                                        <option value="Magento Developer">Magento Developer</option>
-
+                                        <option value="Accounts">Accounts</option>
+                                        <option value="Business Development Executive">Business Development Executive</option>
+                                        <option value="Jr. Designer">Jr. Designer</option>
+                                        <option value="Sr. Designer">Sr. Designer</option>
+                                        <option value="Jr. Developer">Jr. Developer</option>
+                                        <option value="Sr. Developer">Sr. Developer</option>
+                                        <option value="Jr. Front-end Developer">Jr. Front-end Developer</option>
+                                        <option value="Sr. Front-end Developer">Sr. Front-end Developer</option>
+                                        <option value="Jr. SEO Consultant">Jr. SEO Consultant</option>
+                                        <option value="Sr. SEO Consultant">Sr. SEO Consultant</option>
+                                        <option value="Project Manager">Project Manager</option>
+                                        <option value="Human Resource">Human Resource</option>
+                                        <option value="System Admin">System Admin</option>
                                     </select>
                                 </div>
-
-
                                 <div class="form-group form-group-default form-group-default-select2">
                                     <label>Management Level</label>
                                     <select class="full-width" data-placeholder="select Designation"
@@ -307,6 +305,14 @@
                                     <option value="M1">M1</option>
                                     <option value="M2">M2</option>
                                     <option value="M3">M3</option>
+                                    <option value="M4">M4</option>
+                                    <option value="M5">M5</option>
+                                    <option value="M6">M6</option>
+                                    <option value="M7">M7</option>
+                                    <option value="M8">M8</option>
+                                    <option value="M9">M9</option>
+                                    <option value="M10">M10</option>
+                                    <option value="M11">M11</option>
                                 </select>
                             </div>
                         </div>
@@ -318,13 +324,13 @@
                                 <input type="text"  name="join_date" class="form-control" placeholder="Pick a date"
                                 id="joining-date" ng-model='people_array.join_date'>
                                 <span class="input-group-addon">
-                                  <i class="fa fa-calendar"></i>
-                              </span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div id="menu4" class="tab-pane slide-left">
+                                    <i class="fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="menu4" class="tab-pane slide-left">
                     <div ng-repeat="education in educations">
                         <div class="row">
                             <div class="col-sm-6">

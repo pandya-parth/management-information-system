@@ -25,22 +25,13 @@
                             <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                         </div>
                         <div class="col-xs-4" ng-cloak ng-show="task_categories.length>0">
-                            <select class=" full-width" data-init-plugin="select2" ng-model='pageSize'>
-                                <option value="5">5</option>
-                                <option value="10">10</option>
-                                <option value="20">20</option>
-                                <option value="30">30</option>
-                                <option value="40">40</option>
-                                <option value="50">50</option>
-                                <option value="60">60</option>
-                                <option value="70">70</option>
-                                <option value="80">80</option>
-                                <option value="90">90</option>
-                                <option value="100">100</option>
-                            </select>
+                            <form name="form" novalidate>
+                                <input type="text" name="pageSize" ng-model='pageSize' class="form-control" ng-pattern="/^(0|[1-9][0-9]*)$/" placeholder="Record Per Page">
+                                <span class="error" ng-show="form.pageSize.$error.pattern" >* Not a valid number !</span>
+                            </form>
                         </div>
                         <div class="col-xs-4">
-                            <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add
+                            <button id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add
                                 Task Category
                             </button>
                         </div>
@@ -59,7 +50,6 @@
                         current-page="currentPage" ng-show="task_categories.length != 0">
                         <!-- row 1 -->
                         <div ng-cloak class="row border_class">
-
                             <div ng-cloak class="datas people_name box_real">
                                 {% category.name ? category.name : '-' %}
                             </div>

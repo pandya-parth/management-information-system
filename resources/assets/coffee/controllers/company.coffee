@@ -3,7 +3,6 @@ angular.module 'mis'
 	.controller 'companyCtrl', ($scope, company, $timeout,prompt)->
 		$scope.loading = true
 		$scope.currentPage = 1
-		$scope.pageSize = 5
 		$scope.edit = false
 
 		uploader = new (plupload.Uploader)(

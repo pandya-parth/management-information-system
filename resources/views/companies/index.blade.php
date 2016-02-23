@@ -23,26 +23,17 @@
                     </div>
                     <div class="pull-right text-right">
                         <div class="row">
-                            <div class="col-xs-5" ng-cloak ng-show="companies.length>0">
+                            <div class="col-xs-4" ng-cloak ng-show="companies.length>0">
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
-                            <div class="col-xs-3" ng-cloak ng-show="companies.length>0">
-                                <select class=" full-width" data-init-plugin="select2" ng-model='pageSize'>
-                                    <option value="5">5</option>
-                                    <option value="10">10</option>
-                                    <option value="20">20</option>
-                                    <option value="30">30</option>
-                                    <option value="40">40</option>
-                                    <option value="50">50</option>
-                                    <option value="60">60</option>
-                                    <option value="70">70</option>
-                                    <option value="80">80</option>
-                                    <option value="90">90</option>
-                                    <option value="100">100</option>
-                                </select>
+                            <div class="col-xs-4" ng-cloak ng-show="companies.length>0">
+                                <form name="form" novalidate>
+                                    <input type="text" name="pageSize" ng-model='pageSize' class="form-control" ng-pattern="/^(0|[1-9][0-9]*)$/" placeholder="Record Per Page">
+                                    <span class="error" ng-show="form.pageSize.$error.pattern" >* Not a valid number !</span>
+                                </form>
                             </div>
                             <div class="col-xs-4">
-                                <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add Company</button>
+                                <button id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add Company</button>
                             </div>
                         </div>
                     </div>
@@ -68,8 +59,6 @@
                             <div class="datas people_id_pic">
                                 <div ng-cloak class="pic" ng-if="company.logo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
                                 <div ng-cloak class="pic" ng-if="company.logo!=''"><img ng-src={!! asset("uploads/company-thumb/{%company.logo%}") !!} /></div>
-
-
                             </div>
                             <div ng-cloak class="datas people_name box_real">
                                 {% company.name ? company.name : '-' %}
@@ -90,10 +79,8 @@
                             </div>
                         </div>
                         <!-- row 1 complete -->
-
                     </div>
                 </div>
-
                 <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="companies.length==0">
                     <div style="text-align:center;">
                         <img src="{!! asset('img/noCompany.png') !!}" style=" width:100px; height:100px; " />
@@ -200,7 +187,8 @@ aria-hidden="true">
                                     <div class="form-group form-group-default">
                                         <label>Phone</label>
                                         <input id="appName" type="text" name="phone" class="form-control"
-                                        placeholder="Phone" ng-model='company.phone'>
+                                        placeholder="Phone" ng-model='company.phone' ng-pattern="/^\d{10}$/">
+                                        <span class="error" ng-show="submitted && Companies.phone.$error.pattern">Not valid number!</span>
                                     </div>
                                 </div>
                             </div>

@@ -3,10 +3,10 @@ angular.module 'mis'
 	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout,prompt,$window)->
 		$scope.loading = true
 		$scope.currentPage = 1
-		$scope.pageSize = 5
 		$scope.edit = false
 		currentUrl = $window.location.href
 		pId = currentUrl.split('/')[4]||"Undefined"
+		$scope.Pro_Id = pId
 		$scope.educations = [
 			qualification: ''
 			collage: ''
