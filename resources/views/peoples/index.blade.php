@@ -140,15 +140,17 @@
                                     <div class="col-md-4">
                                         <div class="form-group form-group-default">
                                             <label>First Name </label>
-                                            <input type="text" name="fname" class="form-control" placeholder="First Name" ng-model='people_array.fname' required>
+                                            <input type="text" name="fname" class="form-control" placeholder="First Name" ng-model='people_array.fname' required ng-pattern="/^(\D)+$/">
                                             <span class="error" ng-show="submitted && people.fname.$error.required">* Please enter First Name</span>
+                                            <span class="error" ng-show="submitted && people.fname.$error.pattern">* Please enter only text</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group form-group-default">
                                             <label>Last Name</label>
-                                            <input type="text" name="lname" class="form-control" placeholder="Last Name" ng-model='people_array.lname' required>
+                                            <input type="text" name="lname" class="form-control" placeholder="Last Name" ng-model='people_array.lname' required ng-pattern="/^(\D)+$/">
                                             <span class="error" ng-show="submitted && people.lname.$error.required">* Please enter Last Name </span>
+                                            <span class="error" ng-show="submitted && people.fname.$error.pattern">* Please enter only text</span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -164,15 +166,17 @@
                                     <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>Mobile</label>
-                                            <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required>
+                                            <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required ng-pattern="/^\d{10}$/">
                                             <span class="error" ng-show="submitted && people.mobile.$error.required">* Please enter Mobile Number </span>
+                                            <span class="error" ng-show="submitted && people.mobile.$error.pattern">Not valid number!</span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>Phone</label>
-                                            <input type="text" name="phone" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required>
+                                            <input type="text" name="phone" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required ng-pattern="/^\d{10}$/">
                                             <span class="error" ng-show="submitted && people.phone.$error.required">* Please enter Phone Number </span>
+                                            <span class="error" ng-show="submitted && people.phone.$error.pattern">Not valid number!</span>
                                         </div>
                                     </div>
                                 </div>

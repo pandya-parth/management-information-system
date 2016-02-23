@@ -153,9 +153,6 @@ angular.module 'mis'
 					), 500
 
 
-		
-
-
 		$scope.submitPeople = (form)->
 			$scope.loading = true
 			$scope.submitted = true
