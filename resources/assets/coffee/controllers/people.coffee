@@ -97,6 +97,13 @@ angular.module 'mis'
 				)
 			else
 				angular.element('#addNewAppModal').modal('hide')
+				$scope.educations = [
+					qualification: ''
+					collage: ''
+					university: ''
+					passing_year: ''
+					percentage: ''
+				]
 				$timeout (->
 					$scope.submitted = false
 					$scope.edit = false
@@ -213,5 +220,7 @@ angular.module 'mis'
 		$scope.editPeople = (id)->
 			PEOPLE.edit(id).success (data)->
 				$scope.edit = true
-				$scope.people_array = data
+				$scope.people_array = data[0]
+				$scope.people_array.email = data[1]
+				$scope.educations = data[2]
 				angular.element('#addNewAppModal').modal('show')

@@ -142,7 +142,8 @@ class PeoplesController extends Controller
     {
 
         $people = People::findOrFail($id);
-       return response()->json($people);
+        $educations = UserEducation::where('user_id','=',$people->user_id)->get();
+        return response()->json(array($people,$people->user->email,$educations));
 
     }
 
@@ -157,6 +158,7 @@ class PeoplesController extends Controller
     public function update(Request $request, $id)
     {
          $people = People::find($id);
+         $input= Input::get('education');
          $people->update(Input::all());  
          return response()->json(['success'=>true]);      
     }

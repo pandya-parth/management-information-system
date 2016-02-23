@@ -90,9 +90,9 @@
                                         {% people.phone %}
                                     </div>
                                     <div class="datas people_action">
-                                        <a href="#" class="btn btn-success btn-sm" ng-click="editPeople(people.id)"><i class="fa fa-edit"></i></a>
-                                        <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                        <a href="#" class="btn btn-success btn-sm" ng-click="deletePeople(people.user_id)"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-success btn-sm" ng-click="editPeople(people.id)"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                        <a class="btn btn-success btn-sm" ng-click="deletePeople(people.user_id)"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </div>
                                 <!-- row 1 complete -->
@@ -323,14 +323,17 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
+                                    
                                     <label>Qualification</label>
-                                    <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-model="people_array.education[$index].qualification" >
+
+                                    <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-init="people_array.education[$index].qualification = education.qualification" ng-model="people_array.education[$index].qualification" >
+                                    <input type='hidden' name='id' ng-model='people_array.education.id'>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>Collage</label>
-                                    <input type="text" name="collage" class="form-control" placeholder="Collage" ng-model="people_array.education[$index].collage" >
+                                    <label>College</label>
+                                    <input type="text" name="college" class="form-control" placeholder="College" ng-init="people_array.education[$index].college = education.college" ng-model="people_array.education[$index].college" >
                                 </div>
                             </div>
                         </div>
@@ -338,24 +341,25 @@
                             <div class="col-sm-3">
                                 <div class="form-group form-group-default">
                                     <label>University</label>
-                                    <input type="text" name="university" class="form-control" placeholder="University" ng-model="people_array.education[$index].university" >
+                                    <input type="text" name="university" class="form-control" placeholder="University" ng-init="people_array.education[$index].university = education.university" ng-model="people_array.education[$index].university" >
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group form-group-default">
                                     <label>Passing Year</label>
-                                    <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-model="people_array.education[$index].passing_year" >
+                                    <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-init="people_array.education[$index].passing_year = education.passing_year" ng-model="people_array.education[$index].passing_year" >
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group form-group-default">
                                     <label>Percentage / Grade</label>
-                                    <input type="text" name="percentage" class="form-control" placeholder="Percentage / Grade" ng-model="people_array.education[$index].percentage" >
+                                    <input type="text" name="percentage" class="form-control" placeholder="Percentage / Grade" ng-init="people_array.education[$index].percentage = education.percentage" ng-model="people_array.education[$index].percentage" >
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first" ng-click="educations.splice($index, 1);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && edit==false" ng-click="educations.splice($index, 1);">REMOVE</a>
+                                     <a class="btn btn-danger" tooltip="Delete" ng-if="edit==true" ng-click="educations.splice($index, 1);">REMOVE</a>
                                 </div>
                             </div>
                         </div>
@@ -404,8 +408,8 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group form-group-default">
-                                <a class="btn btn-success" href="#" tooltip="Add" >ADD</a>
-                                <a class="btn btn-danger" href="#" tooltip="Delete" >REMOVE</a>
+                                <a class="btn btn-success" tooltip="Add" >ADD</a>
+                                <a class="btn btn-danger" tooltip="Delete" >REMOVE</a>
                             </div>
                         </div>
                     </div>
