@@ -10,6 +10,8 @@ use App\Http\Controllers\Controller;
 use App\People;
 use App\Project;
 use App\ProjectUser;
+use App\Department;
+use App\Designation;
 use App\User;
 use Illuminate\Support\Facades\Input;
 use Redirect;
@@ -29,7 +31,9 @@ class PeoplesController extends Controller
      */
     public function index()
     {
-        return view('peoples.index');   
+        $departments = Department::all();
+        $designations = Designation::all();
+        return view('peoples.index',compact('departments','designations'));   
     }
 
     public function getPeoples(Request $request)

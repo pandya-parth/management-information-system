@@ -73,8 +73,8 @@
                   {% milestone.due_date %}
                 </div>
                 <div class="datas people_action">
-                  <a href="#" class="btn btn-success btn-sm" ng-click="editMilestone(milestone.id)" ><i class="fa fa-edit"></i></a>
-                  <a href="#" class="btn btn-success btn-sm" ng-click="deleteMilestone(milestone.id)" ><i class="fa fa-trash"></i></a>
+                  <a class="btn btn-success btn-sm" ng-click="editMilestone(milestone.id)" ><i class="fa fa-edit"></i></a>
+                  <a class="btn btn-success btn-sm" ng-click="deleteMilestone(milestone.id)" ><i class="fa fa-trash"></i></a>
                 </div>
               </div>
               <!-- row 1 complete -->

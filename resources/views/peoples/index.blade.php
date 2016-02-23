@@ -52,9 +52,9 @@
                             <div class="row">
                                 <div class="col-lg-12 text-right">
                                     <div ng-cloak class="btn-toolbar" ng-show="peoples.length>0">
-                                        <a href="#" class="btn btn-success btn-sm btn-list-action btn-cons"><i class="fa fa-list-ul"></i></a>
-                                        <a href="#" class="btn btn-success btn-sm btn-grid-action btn-cons"><i class="fs-14 fa fa-bars"></i></a>
-                                        <a href="#" class="btn btn-success btn-sm btn-box-action btn-cons"><i class="fs-14 fa fa-th "></i></a>
+                                        <a class="btn btn-success btn-sm btn-list-action btn-cons"><i class="fa fa-list-ul"></i></a>
+                                        <a class="btn btn-success btn-sm btn-grid-action btn-cons"><i class="fs-14 fa fa-bars"></i></a>
+                                        <a class="btn btn-success btn-sm btn-box-action btn-cons"><i class="fs-14 fa fa-th "></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -272,30 +272,18 @@
                                             <label>Department</label>
                                             <select class="full-width" data-placeholder="Select Department"
                                             data-init-plugin="select2" ng-model='people_array.department'>
-                                            <option value="SEO">SEO</option>
-                                            <option value="Design">Design</option>
-                                            <option value="Development">Development</option>
-                                            <option value="QA/QC">QA/QC</option>
-                                            <option value="HTML">HTML</option>
-                                        </select> 
+                                            @foreach($departments as $department)
+                                                <option value="{!! $department->name !!}">{!! $department->name !!}</option>
+                                            @endforeach
+                                            </select> 
                                     </div>
                                     <div class="form-group form-group-default form-group-default-select2">
                                         <label>Designation/Job Title</label>
                                         <select class="full-width" data-placeholder="select Designation"
                                         data-init-plugin="select2" ng-model='people_array.designation'>
-                                        <option value="Accounts">Accounts</option>
-                                        <option value="Business Development Executive">Business Development Executive</option>
-                                        <option value="Jr. Designer">Jr. Designer</option>
-                                        <option value="Sr. Designer">Sr. Designer</option>
-                                        <option value="Jr. Developer">Jr. Developer</option>
-                                        <option value="Sr. Developer">Sr. Developer</option>
-                                        <option value="Jr. Front-end Developer">Jr. Front-end Developer</option>
-                                        <option value="Sr. Front-end Developer">Sr. Front-end Developer</option>
-                                        <option value="Jr. SEO Consultant">Jr. SEO Consultant</option>
-                                        <option value="Sr. SEO Consultant">Sr. SEO Consultant</option>
-                                        <option value="Project Manager">Project Manager</option>
-                                        <option value="Human Resource">Human Resource</option>
-                                        <option value="System Admin">System Admin</option>
+                                        @foreach($designations as $designation)
+                                                <option value="{!! $designation->name !!}">{!! $designation->name !!}</option>
+                                            @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group form-group-default form-group-default-select2">

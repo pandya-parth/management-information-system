@@ -54,8 +54,8 @@
                                 {% category.name ? category.name : '-' %}
                             </div>
                             <div class="datas people_action pull-right">
-                                <a href="#" class="btn btn-success btn-sm " ng-click="editCategory(category.id)" ><i class="fa fa-edit"></i></a>
-                                <a href="#" class="btn btn-success btn-sm " ng-click="deleteCategory(category.id)" ><i class="fa fa-trash"></i></a>
+                                <a class="btn btn-success btn-sm " ng-click="editCategory(category.id)" ><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-success btn-sm " ng-click="deleteCategory(category.id)" ><i class="fa fa-trash"></i></a>
                             </div>
                         </div>
                         <!-- row 1 complete -->

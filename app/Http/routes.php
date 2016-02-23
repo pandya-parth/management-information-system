@@ -31,8 +31,8 @@ Route::group(['middleware' => ['web','auth']], function () {
         return view('welcome');
     });
     Route::resource('/companies','CompaniesController');
-
-    
+    Route::resource('/designations','DesignationsController');
+    Route::resource('/departments','DepartmentsController');
     Route::resource('/projects','ProjectsController');
     Route::resource('/milestones','MilestonesController');
     Route::resource('/project-categories','ProjectCategoriesController');
@@ -56,6 +56,12 @@ Route::group(['middleware' => ['web','auth']], function () {
 Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('companies', 'CompaniesController@getCompanies');
     Route::get('company/{id}','CompaniesController@getCompany');
+
+    Route::get('designations', 'DesignationsController@getDesignations');
+    Route::get('designation/{id}','DesignationsController@getDesignation');
+
+    Route::get('departments', 'DepartmentsController@getDepartments');
+    Route::get('department/{id}','DepartmentsController@getDepartment');
 
     Route::get('milestones', 'MilestonesController@getMilestones');
     Route::get('milestone/{id}','MilestonesController@getMilestone');

@@ -52,22 +52,22 @@
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
 
-                      <a href="#" class="timer timer_button" ng-click="showLogModal($event)" id="timer_button">
+                      <a class="timer timer_button" ng-click="showLogModal($event)" id="timer_button">
                         <i class="glyphicon glyphicon-time"></i>
                       </a>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a href="#" class="timer timer_button"  id="view_button">
+                      <a class="timer timer_button"  id="view_button">
                         <i class="fa fa-eye"></i>
                       </a>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a href="#" class="timer timer_button"  id="view_button" ng-click="editTask(tsk.id)">
+                      <a class="timer timer_button"  id="view_button" ng-click="editTask(tsk.id)">
                         <i class="fa fa-edit"></i>
                       </a>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a href="#" class="timer timer_button"  id="view_button" ng-click="deleteTask(tsk.id)">
+                      <a class="timer timer_button"  id="view_button" ng-click="deleteTask(tsk.id)">
                         <i class="fa fa-trash"></i>
                       </a>
                     </div>
