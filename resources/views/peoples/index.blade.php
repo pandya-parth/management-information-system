@@ -28,15 +28,14 @@
                         ?>
                         <div class="pull-right text-right">
                             <div class="row">
-                                <div class="col-xs-5" ng-show="peoples.length>0">
+                                <div class="col-xs-4" ng-show="peoples.length>0">
                                     <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                                 </div>
-                                <div class="col-xs-3" ng-cloak ng-show="peoples.length>0">
-                                    <select class="cs-select cs-skin-slide" data-init-plugin="cs-select" ng-model='pageSize'>
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="20">20</option>
-                                    </select>
+                                <div class="col-xs-4" ng-cloak ng-show="peoples.length>0">
+                                    <form name="form" novalidate>
+                                        <input type="text" name="pageSize" ng-model='pageSize' class="form-control" ng-pattern="/^(0|[1-9][0-9]*)$/" placeholder="Record Per Page">
+                                        <span class="error" ng-show="form.pageSize.$error.pattern" >* Not a valid number !</span>
+                                    </form>
                                 </div>
                                 <div class="col-xs-4">
                                     <button id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add People</button>
@@ -229,52 +228,58 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="menu1" class="tab-pane slide-left">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-default">
-                                            <label>Address 1</label>
-                                            <input type="text" name="adrs1" class="form-control" placeholder="Address 1" ng-model='people_array.adrs1' >
-                                        </div>
+                     
+
+                                <div id="menu1" class="tab-pane slide-left">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Address 1</label>
+                                        <textarea id="appName" type="text" name="adrs1" class="form-control"
+                                        placeholder="Address 1" ng-model='people_array.adrs1'> </textarea>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-default">
-                                            <label>Address 2</label>
-                                            <input type="text" name="adrs2" class="form-control" placeholder="Address 2" ng-model='people_array.adrs2' >
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-default">
-                                            <label>City</label>
-                                            <input type="text" name="city" class="form-control" placeholder="City" ng-model='people_array.city' >
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-default">
-                                            <label>State</label>
-                                            <input type="text" name="state" class="form-control" placeholder="State" ng-model='people_array.state' >
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-default">
-                                            <label>Country</label>
-                                            <input type="text" name="country" class="form-control" placeholder="Country" ng-model='people_array.country' >
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group form-group-default">
-                                            <label>Zipcode</label>
-                                            <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" ng-model='people_array.zipcode' >
-                                        </div>
-                                        </div>
-                                    </div>
-                          
-                            
                                 </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Address 2</label>
+                                        <textarea id="appName" type="text" name="adrs2" class="form-control"
+                                        placeholder="Address 2" ng-model='people_array.adrs2'> </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>City</label>
+                                        <input id="appName" name="city" type="text" class="form-control"
+                                        placeholder="city" ng-model='people_array.city'>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Zipcode</label>
+                                        <input id="appName" name="zipcode" type="text" class="form-control"
+                                        placeholder="Zipcode" ng-model='people_array.zipcode' ng-pattern="/^(0|[1-9][0-9]*)$/">
+                                        <span class="error" ng-show="submitted && people.zipcode.$error.pattern">Not valid zipcode!</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>State</label>
+                                        <input id="appName" name="state" type="text" class="form-control"
+                                        placeholder="State" ng-model='people_array.state'>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-default">
+                                        <label>Country</label>
+                                        <input country-select data-ng-model="people_array.country">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                            
                             <div id="menu2" class="tab-pane slide-left">
                                 <div class="row">
