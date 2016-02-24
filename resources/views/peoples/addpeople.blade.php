@@ -19,7 +19,6 @@
                 <div class="panel-heading">
                     <div class="panel-title">
                         <h1> <b> People On This Project </b> </h1>
-
                     </div>
                     <div class="pull-right">
                         <div class="col-xs-4" ng-show="peoples.length > 0">
@@ -95,37 +94,31 @@
                             <input ng-model="query" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                         </div>
                     </div>
-                </br>
+                    </br>
+                    <div class="add_project_people">
+                        <ul class="row clearfix" data-toggle="buttons">
+                            <input type="text" name="project_id" value='{% Pro_Id %}' ng-model="project_people.project_id" id="{% Pro_Id %}">
 
-
-                <div class="add_project_people">
-
-                    <ul class="row clearfix" data-toggle="buttons">
-                        <input type="text" name="project_id" value='{% Pro_Id %}' ng-model="project_people.project_id">
-                        
-                        <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-repeat="people in peoples|filter:query">
-                            <div class="btn btn-primary">
-                                <label class="btn btn-success">
-                                    <input type="checkbox" name="user_id[]" value="{% people.user_id %}" id="{% people.user_id%}" class="check-with-label" ng-model="project_people.user_id" >
-
-
-                                </label>
-
-                                <div class="datas people_id_pic">
-                                    <div ng-cloak class="pic" ng-if="people.photo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
-                                    <div ng-cloak class="pic" ng-if="people.photo!=''"><img ng-src={!! asset("uploads/people-thumb/{%people.photo%}") !!} /></div>
-                                </div> 
-                                <div ng-cloak class="datas people_name box_real">
-                                    {% people.fname %} {% people.lname %}
+                            <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-repeat="people in peoples|filter:query">
+                                <div class="btn btn-primary">
+                                    <label class="btn btn-success">
+                                        <input type="checkbox" name="user_id[]" value="{% people.user_id %}" id="{% people.user_id%}" class="check-with-label" ng-model="project_people.user_id" >
+                                    </label>
+                                    <div class="datas people_id_pic">
+                                        <div ng-cloak class="pic" ng-if="people.photo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
+                                        <div ng-cloak class="pic" ng-if="people.photo!=''"><img ng-src={!! asset("uploads/people-thumb/{%people.photo%}") !!} /></div>
+                                    </div> 
+                                    <div ng-cloak class="datas people_name box_real">
+                                        {% people.fname %} {% people.lname %}
+                                    </div>
+                                    <div ng-cloak class="datas people_designation">
+                                        {% people.department %}
+                                    </div>
                                 </div>
-                                <div ng-cloak class="datas people_designation">
-                                    {% people.department %}
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
             <!-- /.modal-content -->
             <div class="modal-footer">
                 <button  type="button" class="btn btn-primary  btn-cons" ng-click="submitPeople(addPeople)">Add</button>
