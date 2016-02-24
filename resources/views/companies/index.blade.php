@@ -128,13 +128,11 @@ aria-hidden="true">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12" id="hidesiteurl1">
+                                <div class="col-sm-12" >
                                     <div class="form-group form-group-default" id="hidesiteurl">
                                         <label>Website</label>
-                                        <input id="appName" id="website" name="website" type="url" class="form-control"
-                                         ng-model='company.website' value="http://" required>
-                                        <span class="error"
-                                        ng-show="submitted && Companies.website.$error.required">* Please enter website</span>
+                                        <input id="website" name="website" type="url" class="form-control" ng-model='company.website' value="http://" required>
+                                        <span class="error" ng-show="submitted && Companies.website.$error.required">* Please enter website</span>
                                         <span class="error" ng-show="submitted && Companies.website.$error.url">* Please enter valid website url</span>
                                     </div>
                                 </div>

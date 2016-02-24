@@ -33,6 +33,7 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::resource('/companies','CompaniesController');
     Route::resource('/designations','DesignationsController');
     Route::resource('/departments','DepartmentsController');
+    Route::resource('/industries','IndustriesController');
     Route::resource('/projects','ProjectsController');
     Route::resource('/milestones','MilestonesController');
     Route::resource('/project-categories','ProjectCategoriesController');
@@ -67,6 +68,9 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
 
     Route::get('departments', 'DepartmentsController@getDepartments');
     Route::get('department/{id}','DepartmentsController@getDepartment');
+
+    Route::get('industries', 'IndustriesController@getIndustries');
+    Route::get('industry/{id}','IndustriesController@getIndustry');
 
     Route::get('milestones', 'MilestonesController@getMilestones');
     Route::get('milestone/{id}','MilestonesController@getMilestone');
