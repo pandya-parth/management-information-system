@@ -21,7 +21,6 @@
                         <h1> <b> People On This Project </b> </h1>
 
                     </div>
-                    {% project_peoples %}
                     <div class="pull-right">
                         <div class="col-xs-4" ng-show="peoples.length > 0">
                             <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">

@@ -161,7 +161,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>Mobile</label>
-                                            <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required ng-pattern="/^\d{10}$/">
+                                            <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required ng-pattern="/^(0|[1-9][0-9]*)$/">
                                             <span class="error" ng-show="submitted && people.mobile.$error.required">* Please enter Mobile Number </span>
                                             <span class="error" ng-show="submitted && people.mobile.$error.pattern">Not valid number!</span>
                                         </div>
@@ -169,7 +169,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>Phone</label>
-                                            <input type="text" name="phone" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required ng-pattern="/^\d{10}$/">
+                                            <input type="text" name="phone" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required ng-pattern="/^(0|[1-9][0-9]*)$/">
                                             <span class="error" ng-show="submitted && people.phone.$error.required">* Please enter Phone Number </span>
                                             <span class="error" ng-show="submitted && people.phone.$error.pattern">Not valid number!</span>
                                         </div>

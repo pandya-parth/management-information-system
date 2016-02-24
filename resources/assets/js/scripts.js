@@ -56,6 +56,18 @@
 
     });
 
+
+$('#hidesiteurl').click(function(e){
+          var url = $('#website').val();
+            if(url.substring(0,7) != "http://")
+            {
+                if(e.keyCode != 8)
+                {
+                    $(this).val( 'http://'+ url );
+                }
+            }
+          });
+
     
     $('.registerBtn').click(function() {
        $("#cat_id").val($(this).attr('data-value'));

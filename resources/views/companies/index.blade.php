@@ -128,12 +128,11 @@ aria-hidden="true">
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default">
+                                <div class="col-sm-12" id="hidesiteurl1">
+                                    <div class="form-group form-group-default" id="hidesiteurl">
                                         <label>Website</label>
-                                        <input id="appName" name="website" type="url" class="form-control"
-                                        placeholder="Website of Company" ng-model='company.website'
-                                        required>
+                                        <input id="appName" id="website" name="website" type="url" class="form-control"
+                                         ng-model='company.website' value="http://" required>
                                         <span class="error"
                                         ng-show="submitted && Companies.website.$error.required">* Please enter website</span>
                                         <span class="error" ng-show="submitted && Companies.website.$error.url">* Please enter valid website url</span>
@@ -187,7 +186,7 @@ aria-hidden="true">
                                     <div class="form-group form-group-default">
                                         <label>Phone</label>
                                         <input id="appName" type="text" name="phone" class="form-control"
-                                        placeholder="Phone" ng-model='company.phone' ng-pattern="/^\d{10}$/">
+                                        placeholder="Phone" ng-model='company.phone' ng-pattern="/^(0|[1-9][0-9]*)$/">
                                         <span class="error" ng-show="submitted && Companies.phone.$error.pattern">Not valid number!</span>
                                     </div>
                                 </div>
