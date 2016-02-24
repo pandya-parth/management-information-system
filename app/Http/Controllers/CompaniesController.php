@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Company;
+use App\Industry;
 use Illuminate\Support\Facades\Input;
 use Image;
 // use Former\Facades\Former;
@@ -21,7 +22,8 @@ class CompaniesController extends Controller
      */
     public function index()
     {
-        return view('companies.index',compact('companies'));   
+        $industries = Industry::all();
+        return view('companies.index',compact('industries'));   
     }
     
     public function getCompanies()

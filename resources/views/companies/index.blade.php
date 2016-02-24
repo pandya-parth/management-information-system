@@ -57,7 +57,7 @@
                         <!-- row 1 -->
                         <div ng-cloak class="row border_class">
                             <div class="datas people_id_pic">
-                                <div ng-cloak class="pic" ng-if="company.logo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
+                                <div ng-cloak class="pic" ng-if="company.logo==''"><img ng-src={!! asset("img/noIndustry.png") !!} /></div>
                                 <div ng-cloak class="pic" ng-if="company.logo!=''"><img ng-src={!! asset("uploads/company-thumb/{%company.logo%}") !!} /></div>
                             </div>
                             <div ng-cloak class="datas people_name box_real">
@@ -150,7 +150,7 @@ aria-hidden="true">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div  id="preview">
-                                        <img src="{!! asset('img/noPhoto.png')!!}" id="noimage" style="height:100px;width:100px;">
+                                        <img src="{!! asset('img/noIndustry.png')!!}" id="noimage" style="height:100px;width:100px;border-radius:100%;">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -174,8 +174,12 @@ aria-hidden="true">
                                 <div class="col-sm-12">
                                     <div class="form-group form-group-default">
                                         <label>Industry</label>
-                                        <input id="appName" name="industry" type="text" class="form-control"
-                                        placeholder="Industry" ng-model='company.industry'>
+                                        <select class="full-width" data-placeholder="Select Industry"
+                                            data-init-plugin="select2" ng-model='company.industry'>
+                                            @foreach($industries as $industry)
+                                                    <option value="{!! $industry->name !!}">{!! $industry->name !!}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>

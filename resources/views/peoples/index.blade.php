@@ -231,36 +231,51 @@
                             </div>
                             <div id="menu1" class="tab-pane slide-left">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>Address 1</label>
                                             <input type="text" name="adrs1" class="form-control" placeholder="Address 1" ng-model='people_array.adrs1' >
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Address 2</label>
+                                            <input type="text" name="adrs2" class="form-control" placeholder="Address 2" ng-model='people_array.adrs2' >
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>City</label>
                                             <input type="text" name="city" class="form-control" placeholder="City" ng-model='people_array.city' >
                                         </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>State</label>
+                                            <input type="text" name="state" class="form-control" placeholder="State" ng-model='people_array.state' >
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>Country</label>
                                             <input type="text" name="country" class="form-control" placeholder="Country" ng-model='people_array.country' >
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group form-group-default">
-                                            <label>Address 2</label>
-                                            <input type="text" name="adrs2" class="form-control" placeholder="Address 2" ng-model='people_array.adrs2' >
-                                        </div>
-                                        <div class="form-group form-group-default">
-                                            <label>State</label>
-                                            <input type="text" name="state" class="form-control" placeholder="State" ng-model='people_array.state' >
-                                        </div>
+                                    <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>Zipcode</label>
                                             <input type="text" name="zipcode" class="form-control" placeholder="Zipcode" ng-model='people_array.zipcode' >
                                         </div>
+                                        </div>
                                     </div>
+                          
+                            
                                 </div>
-                            </div>
+                           
                             <div id="menu2" class="tab-pane slide-left">
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -268,64 +283,75 @@
                                             <label>PAN Number</label>
                                             <input type="text" name="pan_number" class="form-control" placeholder="Pan Number" ng-model='people_array.pan_number' >
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
                                         <div class="form-group form-group-default form-group-default-select2">
                                             <label>Department</label>
                                             <select class="full-width" data-placeholder="Select Department"
                                             data-init-plugin="select2" ng-model='people_array.department'>
                                             @foreach($departments as $department)
-                                                <option value="{!! $department->name !!}">{!! $department->name !!}</option>
+                                            <option value="{!! $department->name !!}">{!! $department->name !!}</option>
                                             @endforeach
                                             </select> 
+                                        </div>
                                     </div>
-                                    <div class="form-group form-group-default form-group-default-select2">
-                                        <label>Designation/Job Title</label>
-                                        <select class="full-width" data-placeholder="select Designation"
-                                        data-init-plugin="select2" ng-model='people_array.designation'>
-                                        @foreach($designations as $designation)
-                                                <option value="{!! $designation->name !!}">{!! $designation->name !!}</option>
-                                            @endforeach
-                                    </select>
                                 </div>
-                                <div class="form-group form-group-default form-group-default-select2">
-                                    <label>Management Level</label>
-                                    <select class="full-width" data-placeholder="select Designation"
-                                    data-init-plugin="select2" ng-model='people_array.management_level'>
-                                    <option value="M1">M1</option>
-                                    <option value="M2">M2</option>
-                                    <option value="M3">M3</option>
-                                    <option value="M4">M4</option>
-                                    <option value="M5">M5</option>
-                                    <option value="M6">M6</option>
-                                    <option value="M7">M7</option>
-                                    <option value="M8">M8</option>
-                                    <option value="M9">M9</option>
-                                    <option value="M10">M10</option>
-                                    <option value="M11">M11</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group form-group-default input-group col-md-12">
-                                <label>Joining Date</label>
-                                <input type="text"  name="join_date" class="form-control" placeholder="Pick a date"
-                                id="joining-date" ng-model='people_array.join_date'>
-                                <span class="input-group-addon">
-                                    <i class="fa fa-calendar"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default form-group-default-select2">
+                                            <label>Designation/Job Title</label>
+                                            <select class="full-width" data-placeholder="select Designation"
+                                            data-init-plugin="select2" ng-model='people_array.designation'>
+                                            @foreach($designations as $designation)
+                                            <option value="{!! $designation->name !!}">{!! $designation->name !!}</option>
+                                            @endforeach
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default form-group-default-select2">
+                                            <label>Management Level</label>
+                                            <select class="full-width" data-placeholder="select Designation"
+                                            data-init-plugin="select2" ng-model='people_array.management_level'>
+                                            <option value="M1">M1</option>
+                                            <option value="M2">M2</option>
+                                            <option value="M3">M3</option>
+                                            <option value="M4">M4</option>
+                                            <option value="M5">M5</option>
+                                            <option value="M6">M6</option>
+                                            <option value="M7">M7</option>
+                                            <option value="M8">M8</option>
+                                            <option value="M9">M9</option>
+                                            <option value="M10">M10</option>
+                                            <option value="M11">M11</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default input-group col-md-12">
+                                            <label>Joining Date</label>
+                                            <input type="text"  name="join_date" class="form-control" placeholder="Pick a date"
+                                            id="joining-date" ng-model='people_array.join_date'>
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                 </div>
                 <div id="menu4" class="tab-pane slide-left">
                     <div ng-repeat="education in educations">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    
-                                    <label>Qualification</label>
 
+                                    <label>Qualification</label>
                                     <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-init="people_array.education[$index].qualification = education.qualification" ng-model="people_array.education[$index].qualification" >
                                     <input type='hidden' name='id' ng-model='people_array.education.id'>
                                 </div>
@@ -359,7 +385,7 @@
                             <div class="col-sm-3">
                                 <div class="form-group">
                                     <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && edit==false" ng-click="educations.splice($index, 1);">REMOVE</a>
-                                     <a class="btn btn-danger" tooltip="Delete" ng-if="edit==true" ng-click="educations.splice($index, 1);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="edit==true" ng-click="educations.splice($index, 1);">REMOVE</a>
                                 </div>
                             </div>
                         </div>
