@@ -232,7 +232,8 @@ aria-hidden="true">
                                     <div class="form-group form-group-default">
                                         <label>Zipcode</label>
                                         <input id="appName" name="zipcode" type="text" class="form-control"
-                                        placeholder="Zipcode" ng-model='company.zipcode'>
+                                        placeholder="Zipcode" ng-model='company.zipcode' ng-pattern="/^(0|[1-9][0-9]*)$/">
+                                        <span class="error" ng-show="submitted && Companies.zipcode.$error.pattern">Not valid zipcode!</span>
                                     </div>
                                 </div>
                             </div>
