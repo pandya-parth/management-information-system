@@ -159,7 +159,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>Mobile</label>
                                             <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required ng-pattern="/^(0|[1-9][0-9]*)$/">
@@ -167,7 +167,7 @@
                                             <span class="error" ng-show="submitted && people.mobile.$error.pattern">Not valid number!</span>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group form-group-default">
                                             <label>Phone</label>
                                             <input type="text" name="phone" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required ng-pattern="/^(0|[1-9][0-9]*)$/">
@@ -175,20 +175,7 @@
                                             <span class="error" ng-show="submitted && people.phone.$error.pattern">Not valid number!</span>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                            <div id="filelist">Attach your doc..</div>
-                                            <div id="progressbar"></div>
-                                            <br />
-                                            <div class="form-group">
-                                                <div class="col-lg-6 clearfix">
-                                                    <div id="container">
-                                                        <a id="pickfiles" href="javascript:;">Attach</a>
-                                                    </div>  
-                                                </div>  
-                                            </div>
-                                            <input type="hidden" name='photo' id="photo"
-                                            ng-modal='people_array.photo'>
-                                    </div>
+                                    
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 ">
@@ -417,50 +404,62 @@
                         </div>
                     </div>
                 </div>
+
+
                 <div id="menu5" class="tab-pane slide-left">
-                    <div class="row">
-                        <div class="col-sm-4">
+                    <div ng-repeat="experience in experiences">
+                        <div class="row">
+                            <div class="col-sm-4">
                             <div class="form-group form-group-default">
                                 <label>Company Name</label>
-                                <input type="text" name="company_name[]" class="form-control" placeholder="Company Name" ng-model='company_name' >
+                                <input type="text" name="company_name[]" class="form-control" placeholder="Company Name" ng-init="people_array.experience[$index].company_name = experience.company_name" ng-model="people_array.experience[$index].company_name">
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group form-group-default input-group col-md-12">
                                 <label>From</label>
-                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-model='from'>
+                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-init="people_array.experience[$index].from = experience.from" ng-model="people_array.experience[$index].from">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group form-group-default input-group col-md-12">
                                 <label>To</label>
-                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-model='to'>
+                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-init="people_array.experience[$index].to = experience.to" ng-model="people_array.experience[$index].to">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-4">
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
                             <div class="form-group form-group-default">
                                 <label>Salary</label>
-                                <input type="text" name="salary[]" class="form-control" placeholder="Salary" ng-model='salary' >
+                                <input type="text" name="salary[]" class="form-control" placeholder="Salary" ng-init="people_array.experience[$index].salary = experience.salary" ng-model="people_array.experience[$index].salary" >
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group form-group-default">
                                 <label>Reason </label>
-                                <input type="text" name="reason[]" class="form-control" placeholder="Reason for leaving previous job" ng-model='Reason' >
+                                <input type="text" name="reason[]" class="form-control" placeholder="Reason for leaving previous job" ng-init="people_array.experience[$index].reason = experience.reason" ng-model="people_array.experience[$index].reason" >
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="form-group form-group-default">
-                                <a class="btn btn-success" tooltip="Add" >ADD</a>
-                                <a class="btn btn-danger" tooltip="Delete" >REMOVE</a>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && edit==false" ng-click="experiences.splice($index, 1);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="edit==true" ng-click="experiences.splice($index, 1);">REMOVE</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <a class="btn btn-success" tooltip="Add" ng-click="nextItem($event)">ADD</a>
+                        </div>
+                    </div>
                 </div>
+
+
+                
                 <div id="menu3" class="tab-pane slide-left">
                     <div class="row">
                         <div class="col-md-12">

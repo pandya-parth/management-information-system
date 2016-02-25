@@ -35,6 +35,8 @@
     @include('shared.company_list')
   @elseif(Request::segment(1) == 'projects' && Request::segment(2) == '')
     @include('shared.project_list')
+  @elseif(Request::segment(1) == 'projects' && Request::segment(3) == '')
+    @include('shared.project_detail')
   @elseif(Request::segment(1) == 'companies')
     @include('shared.industry_list')
   @elseif(Request::segment(1)=='projects' && Request::segment(3) == 'tasks')

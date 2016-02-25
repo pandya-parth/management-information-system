@@ -50,7 +50,27 @@
                 <p> Project Detail </p>
               </li>
 
+              {!! Request::segment(2) !!}
 
+      <li>
+        <ul>
+          @foreach($project_categories as $project_cat)
+            <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $project_cat->name !!}</a></br></span>
+                    
+
+                    @foreach($projects as $project)
+                      
+                      @if($project->category_id == $project_cat->id)
+                      
+                        <span style="padding:0 0 0 20px;" ><a style="padding:0 0 0 20px;" >{!! $project->name !!}</a></span></br>
+                      
+                      @endif
+                      
+                    @endforeach
+            
+          @endforeach
+        </ul>
+      </li>   
        
         
           

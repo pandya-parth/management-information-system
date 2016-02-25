@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Response;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\People;
@@ -20,6 +19,7 @@ use Validator;
 use Image;
 use Hash;
 use App\UserEducation;
+use App\UserExperience;
 use Mail;
 
 class PeoplesController extends Controller
@@ -110,6 +110,14 @@ class PeoplesController extends Controller
                     $education->user_id=$user->id;
                     $education->save();
                 }
+
+            $input= Input::get('experience');
+             
+                foreach ($input as $key => $value) {
+                    $experience = new UserExperience($value);
+                    $experience->user_id=$user->id;
+                    $experience->save();
+                }
             
             return response()->json(['success'=>true]);
     }
@@ -143,7 +151,8 @@ class PeoplesController extends Controller
 
         $people = People::findOrFail($id);
         $educations = UserEducation::where('user_id','=',$people->user_id)->get();
-        return response()->json(array($people,$people->user->email,$educations));
+        $experiences = UserExperience::where('user_id','=',$people->user_id)->get();
+        return response()->json(array($people,$people->user->email,$educations,$experiences));
 
     }
 

@@ -41,8 +41,8 @@ class ViewComposerServiceProvider extends ServiceProvider
 
         view()->composer('shared.project_detail', function($view)
         {
-            $view->with('task_categories', TaskCategory::all());
-            $view->with('tasks', Task::all());
+            $view->with('projects', Project::all());
+            $view->with('project_categories', ProjectCategory::all());
         });
 
         view()->composer('shared.task_list', function($view)

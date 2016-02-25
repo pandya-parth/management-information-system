@@ -14,6 +14,13 @@ angular.module 'mis'
 			passing_year: ''
 			percentage: ''
 		]
+		$scope.experiences = [
+			company_name: ''
+			from: ''
+			to: ''
+			salary: ''
+			reason: ''
+		]
 
 		$scope.newItem = ($event) ->
 			$scope.educations.push(
@@ -22,6 +29,16 @@ angular.module 'mis'
 				university: ''
 				passing_year: ''
 				percentage: ''
+			)
+			$event.preventDefault()
+
+		$scope.nextItem = ($event) ->
+			$scope.experiences.push(
+				company_name: ''
+				from: ''
+				to: ''
+				salary: ''
+				reason: ''
 			)
 			$event.preventDefault()
 
@@ -103,6 +120,13 @@ angular.module 'mis'
 					university: ''
 					passing_year: ''
 					percentage: ''
+				]
+				$scope.experiences = [
+					company_name: ''
+					from: ''
+					to: ''
+					salary: ''
+					reason: ''
 				]
 				$timeout (->
 					$scope.submitted = false
@@ -223,4 +247,5 @@ angular.module 'mis'
 				$scope.people_array = data[0]
 				$scope.people_array.email = data[1]
 				$scope.educations = data[2]
+				$scope.experiences = data[3]
 				angular.element('#addNewAppModal').modal('show')
