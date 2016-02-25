@@ -46,7 +46,11 @@
       </li>
 
       
-       
+        <li class="">
+                <p> Project Detail </p>
+              </li>
+
+
        
         
           

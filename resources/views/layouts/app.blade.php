@@ -28,8 +28,23 @@
     </script>
 </head>
 <body ng-controller="BodyCtrl" class="fixed-header" id="app-layout">
+
+
+
+  @if(Request::segment(1) == '')
+    @include('shared.company_list')
+  @elseif(Request::segment(1) == 'projects' && Request::segment(2) == '')
+    @include('shared.project_list')
+  @elseif(Request::segment(1) == 'companies')
+    @include('shared.industry_list')
+  @elseif(Request::segment(1)=='projects' && Request::segment(3) == 'tasks')
+    @include('shared.task_list')
+  @else
     @include('shared.left_sidebar')
-    
+  @endif
+
+
+
     <div class="page-container">
        @include('shared.header')
 

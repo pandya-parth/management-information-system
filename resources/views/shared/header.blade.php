@@ -37,6 +37,8 @@
         <li><a href="{!! url('industries') !!}">Industry</a></li>
         <li><a href="{!! url('people') !!}">People</a></li>
         <li><a href="{!! url('projects') !!}">Project</a></li>
+        <li><a href="{!! url('/project-categories') !!}">PC</a></li>
+        <li><a href="{!! url('/task-categories') !!}">TC</a></li>
       </ul>
 
       <div class=" pull-right">

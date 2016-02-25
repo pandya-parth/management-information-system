@@ -73,7 +73,7 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('projects.view');
     }
 
     /**

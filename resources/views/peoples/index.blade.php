@@ -3,6 +3,7 @@
 @section('content')
 <div ng-controller="PeopleCtrl">
     <div class= "content">
+       
         <!-- START CONTAINER FLUID -->
         <div class="container-fluid container-fixed-lg">
             <div class="inner">
@@ -21,6 +22,7 @@
                 <div class="panel-heading">
                     <div class="panel-title">People Listing
                     </div>
+
                     <?php
                     $marital_statuses = array('maried'=>'maried',
                         'single'=>'single',
@@ -157,7 +159,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group form-group-default">
                                             <label>Mobile</label>
                                             <input type="text" name="mobile" class="form-control" placeholder="Mobile Number" ng-model='people_array.mobile' required ng-pattern="/^(0|[1-9][0-9]*)$/">
@@ -165,13 +167,27 @@
                                             <span class="error" ng-show="submitted && people.mobile.$error.pattern">Not valid number!</span>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <div class="form-group form-group-default">
                                             <label>Phone</label>
                                             <input type="text" name="phone" class="form-control" placeholder="Phone Number" ng-model='people_array.phone' required ng-pattern="/^(0|[1-9][0-9]*)$/">
                                             <span class="error" ng-show="submitted && people.phone.$error.required">* Please enter Phone Number </span>
                                             <span class="error" ng-show="submitted && people.phone.$error.pattern">Not valid number!</span>
                                         </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                            <div id="filelist">Attach your doc..</div>
+                                            <div id="progressbar"></div>
+                                            <br />
+                                            <div class="form-group">
+                                                <div class="col-lg-6 clearfix">
+                                                    <div id="container">
+                                                        <a id="pickfiles" href="javascript:;">Attach</a>
+                                                    </div>  
+                                                </div>  
+                                            </div>
+                                            <input type="hidden" name='photo' id="photo"
+                                            ng-modal='people_array.photo'>
                                     </div>
                                 </div>
                                 <div class="row">

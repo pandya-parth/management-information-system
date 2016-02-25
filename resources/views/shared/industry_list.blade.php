@@ -44,14 +44,24 @@
         </a>
         <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
       </li>
-
-      
-       
-       
-        
-          
-         
+      <li>
+        <ul>
+          @foreach($industries as $industry)
+            <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $industry->name !!}</a></br></span>
+                    @foreach($companies as $company)
+                      
+                      @if($company->industry == $industry->name)
+                      
+                        <span style="padding:0 0 0 20px;" ><a style="padding:0 0 0 20px;" >{!! $company->name !!}</a></span></br>
+                      
+                      @endif
+                      
+                    @endforeach
+            
+          @endforeach
         </ul>
+      </li>     
+       </ul>
         <div class="clearfix"></div>
       </div>
       <!-- END SIDEBAR MENU -->

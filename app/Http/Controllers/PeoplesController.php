@@ -29,7 +29,7 @@ class PeoplesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $departments = Department::all();
         $designations = Designation::all();

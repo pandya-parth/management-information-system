@@ -44,13 +44,36 @@
         </a>
         <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
       </li>
+      <li>
+        <ul>
+          @foreach($task_categories as $task_cat)
+            <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $task_cat->name !!}</a></br></span>
+                    @foreach($tasks as $task)
+                      
 
-      
-       
-       
-        
-          
-         
+                      
+                    @endforeach
+            
+          @endforeach
+        </ul>
+      </li>     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </ul>
         <div class="clearfix"></div>
       </div>
