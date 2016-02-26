@@ -1,16 +1,25 @@
 angular.module 'mis'
 
-	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout,prompt)->
+	.controller 'PeopleCtrl', ($scope, PEOPLE, $timeout,prompt,$window)->
 		$scope.loading = true
 		$scope.currentPage = 1
-		$scope.pageSize = 5
 		$scope.edit = false
+		currentUrl = $window.location.href
+		pId = currentUrl.split('/')[4]||"Undefined"
+		$scope.Pro_Id = pId
 		$scope.educations = [
 			qualification: ''
 			collage: ''
 			university: ''
 			passing_year: ''
 			percentage: ''
+		]
+		$scope.experiences = [
+			company_name: ''
+			from: ''
+			to: ''
+			salary: ''
+			reason: ''
 		]
 
 		$scope.newItem = ($event) ->
@@ -20,6 +29,16 @@ angular.module 'mis'
 				university: ''
 				passing_year: ''
 				percentage: ''
+			)
+			$event.preventDefault()
+
+		$scope.nextItem = ($event) ->
+			$scope.experiences.push(
+				company_name: ''
+				from: ''
+				to: ''
+				salary: ''
+				reason: ''
 			)
 			$event.preventDefault()
 
@@ -54,11 +73,9 @@ angular.module 'mis'
 				uploader.refresh()
 			)
 		
-		PEOPLE.get().success (data)->
+		PEOPLE.get(pId).success (data)->
 			$scope.peoples = data
 			$scope.loading = false
-
-		
 
 		$scope.cancelAll = ->
 			angular.element('#addNewAppModal').modal('hide')
@@ -97,6 +114,20 @@ angular.module 'mis'
 				)
 			else
 				angular.element('#addNewAppModal').modal('hide')
+				$scope.educations = [
+					qualification: ''
+					collage: ''
+					university: ''
+					passing_year: ''
+					percentage: ''
+				]
+				$scope.experiences = [
+					company_name: ''
+					from: ''
+					to: ''
+					salary: ''
+					reason: ''
+				]
 				$timeout (->
 					$scope.submitted = false
 					$scope.edit = false
@@ -130,7 +161,7 @@ angular.module 'mis'
 						timeout: 2000
 						type: 'success').show()
 
-					PEOPLE.get().success (getData)->
+					PEOPLE.get(pId).success (getData)->
 						$scope.peoples = getData
 						$scope.loading = false
 			else
@@ -147,7 +178,7 @@ angular.module 'mis'
 							timeout: 2000
 							type: 'success').show()
 
-						PEOPLE.get().success (getData)->
+						PEOPLE.get(pId).success (getData)->
 							$scope.peoples = getData
 							$scope.loading = false
 					), 500
@@ -163,13 +194,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
-<<<<<<< HEAD
-				alert $scope.people_array1
-				PEOPLE.addPeople($scope.people).success (data)->
-=======
-				alert $scope.user_id
 				PEOPLE.addPeople($scope.project_people).success (data)->
->>>>>>> 97d6f56e577b8f1bcd8e0383739f93c02eb41798
 					$scope.submitted = false
 					$scope.project_people = {}
 					angular.element('#addNewAppModal').modal('hide')
@@ -180,7 +205,7 @@ angular.module 'mis'
 						timeout: 2000
 						type: 'success').show()
 
-					PEOPLE.getPeople(pId).success (getData)->
+					PEOPLE.getProjectPeople(pId).success (getData)->
 						$scope.project_peoples = getData
 						$scope.loading = false
 			else
@@ -197,7 +222,7 @@ angular.module 'mis'
 							timeout: 2000
 							type: 'success').show()
 
-						PEOPLE.getPeople(pId).success (getData)->
+						PEOPLE.getProjectPeople(pId).success (getData)->
 							$scope.project_peoples = getData
 							$scope.loading = false
 					), 500			
@@ -221,5 +246,6 @@ angular.module 'mis'
 				$scope.edit = true
 				$scope.people_array = data[0]
 				$scope.people_array.email = data[1]
-				$scope.educations=data[2]
+				$scope.educations = data[2]
+				$scope.experiences = data[3]
 				angular.element('#addNewAppModal').modal('show')

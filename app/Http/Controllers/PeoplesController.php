@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Response;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\People;
 use App\Project;
 use App\ProjectUser;
+use App\Department;
+use App\Designation;
 use App\User;
 use Illuminate\Support\Facades\Input;
 use Redirect;
@@ -18,6 +19,7 @@ use Validator;
 use Image;
 use Hash;
 use App\UserEducation;
+use App\UserExperience;
 use Mail;
 
 class PeoplesController extends Controller
@@ -27,9 +29,11 @@ class PeoplesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('peoples.index');   
+        $departments = Department::all();
+        $designations = Designation::all();
+        return view('peoples.index',compact('departments','designations'));   
     }
 
     public function getPeoples(Request $request)
@@ -97,28 +101,24 @@ class PeoplesController extends Controller
             $user_profile->linkedin = Input::get('linkedin');
             $user_profile->twitter = Input::get('twitter');
             $user_profile->website = Input::get('website');
-
             $user_profile->save();
             
-            
-            
-             $input= Input::get('education');
+            $input= Input::get('education');
              
                 foreach ($input as $key => $value) {
                     $education = new UserEducation($value);
                     $education->user_id=$user->id;
                     $education->save();
                 }
-                    
+
+            $input= Input::get('experience');
              
-                
-
+                foreach ($input as $key => $value) {
+                    $experience = new UserExperience($value);
+                    $experience->user_id=$user->id;
+                    $experience->save();
+                }
             
-
-
-
-       
-
             return response()->json(['success'=>true]);
     }
 
@@ -150,9 +150,9 @@ class PeoplesController extends Controller
     {
 
         $people = People::findOrFail($id);
-        $UserEducation = UserEducation::where('user_id','=',$people->user_id)->get();
-        
-        return response()->json(array($people,$people->user->email,$UserEducation));
+        $educations = UserEducation::where('user_id','=',$people->user_id)->get();
+        $experiences = UserExperience::where('user_id','=',$people->user_id)->get();
+        return response()->json(array($people,$people->user->email,$educations,$experiences));
 
     }
 
@@ -167,6 +167,7 @@ class PeoplesController extends Controller
     public function update(Request $request, $id)
     {
          $people = People::find($id);
+         $input= Input::get('education');
          $people->update(Input::all());  
          return response()->json(['success'=>true]);      
     }
@@ -190,15 +191,28 @@ class PeoplesController extends Controller
 
     public function getProjectPeople(Request $request,$id)
     {
-        $allPeople =  ProjectUser::find($id);
+        $allPeople =  ProjectUser::whereProjectId($id)->get();
         return view('peoples.addpeople',compact('allPeople'));
+
+
     }
 
     public function postProjectPeople(Request $request)
     {
         $addpeople=ProjectUser::create(Input::all());
-        $addpeople->peoples()->attach($request->get('user_id'));
+        $addpeople->project_id = ProjectUser::peoples()->attach($request->get('project_id'));
+        $addpeople->user_id = ProjectUser::peoples()->attach($request->get('user_id'));
         $addpeople->save();
         return response()->json(['success'=>true]);
+    }
+
+    public function updateProjectPeople(Request $request,$id)
+    {
+       //
+    }
+
+    public function destroyProjectPeople(Request $request)
+    {
+        //
     }
 }
