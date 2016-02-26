@@ -3,13 +3,15 @@
 @section('content')
 <div ng-controller="TasksCtrl">
   <div class="content">
+    
     <!-- START CONTAINER FLUID -->
     <div class="container-fluid container-fixed-lg">
       <!-- START PANEL -->
       <div class="inner">
         <!-- START BREADCRUMB -->
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{!!url('/projects/{% Pro_Id %}/tasks')!!}">Task</a></li>
+          <li class="active"><a href="{!!url('/projects/{% Pro_Id %}')!!}">Overview</a></li>
+          <li><a href="{!!url('/projects/{% Pro_Id %}/tasks')!!}">Task</a></li>
           <li><a href="{!! url('/projects/{% Pro_Id %}/milestones') !!}">Milestone</a></li>
           <li><a href="{!! url('/project/{% Pro_Id %}/people') !!}">People</a></li>
         </ul>
@@ -19,6 +21,7 @@
         <div class="panel-heading">
           <div class="panel-title">
             <h4>Tasks</h4>
+            
           </div>
           <div class="pull-right">
             <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
@@ -41,14 +44,9 @@
               <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
-
-
-
-
-
                     <span class="taskBubble">hello 2</span>
                     <div class="taskInner" style="padding: 0 0 0 50px;">
-                   
+
                       <div class="checkbox check-success">
                         <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
                         {% task.status[$index] %}
@@ -56,33 +54,29 @@
                       </div>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      
-                      <a href="#" class="timer timer_button" ng-click="showLogModal($event)" id="timer_button">
+
+                      <a class="timer timer_button" ng-click="showLogModal($event)" id="timer_button">
                         <i class="glyphicon glyphicon-time"></i>
                       </a>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a href="#" class="timer timer_button"  id="view_button">
+                      <a class="timer timer_button"  id="view_button">
                         <i class="fa fa-eye"></i>
                       </a>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a href="#" class="timer timer_button"  id="view_button" ng-click="editTask(tsk.id)">
+                      <a class="timer timer_button"  id="view_button" ng-click="editTask(tsk.id)">
                         <i class="fa fa-edit"></i>
                       </a>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a href="#" class="timer timer_button"  id="view_button" ng-click="deleteTask(tsk.id)">
+                      <a class="timer timer_button"  id="view_button" ng-click="deleteTask(tsk.id)">
                         <i class="fa fa-trash"></i>
                       </a>
                     </div>
-                  
 
-
-
-
-                </div>
-                  <button ng-click="showModal($event)" type="button" class="btn btn-primary btn-cons task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button>
+                  </div>
+                  <button ng-click="showModal($event)" type="button" class="btn button_color task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button>
                 </div>
               </div>
             </div>
@@ -129,7 +123,7 @@
                         <label>Add People</label>
                         <select class=" full-width" data-init-plugin="select2" id="user_ids" multiple name="user_id" ng-model="task.user_id">
                           @foreach($users as $user)
-                          <option value="{!! $user->id !!}">{!! $user->email !!}</option>
+                          <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
                           @endforeach
                         </select>
                       </div>

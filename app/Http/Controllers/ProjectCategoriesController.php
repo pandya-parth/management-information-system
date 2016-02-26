@@ -23,7 +23,7 @@ class ProjectCategoriesController extends Controller
      */
     public function index()
     {
-        return view('project_categories.index',compact('categories'));   
+        return view('project_categories.index');   
     }
 
     public function getProjectCategories()

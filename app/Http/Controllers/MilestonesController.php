@@ -24,9 +24,8 @@ class MilestonesController extends Controller
     { 
         $milestones=Project::find($id);
         $projects=Project::all();
-        $peoples=People::all();
-        $users = User::all();
-        return view('milestones/index',compact('milestones','projects','peoples','id','users'));
+        $users=People::with('user')->get();
+        return view('milestones/index',compact('milestones','projects','id','users'));
     }
 
 

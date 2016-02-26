@@ -31,11 +31,14 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="{!! url('/') !!}">Home</a></li>
-        
         <li><a href="{!! url('companies') !!}">Company</a></li>
+        <li><a href="{!! url('departments') !!}">Department</a></li>
+        <li><a href="{!! url('designations') !!}">Designation</a></li>
+        <li><a href="{!! url('industries') !!}">Industry</a></li>
         <li><a href="{!! url('people') !!}">People</a></li>
         <li><a href="{!! url('projects') !!}">Project</a></li>
-          
+        <li><a href="{!! url('/project-categories') !!}">PC</a></li>
+        <li><a href="{!! url('/task-categories') !!}">TC</a></li>
       </ul>
 
       <div class=" pull-right">

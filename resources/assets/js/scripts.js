@@ -7,7 +7,7 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $('#birth-date,#joining-date,#people_from,#people_to,#start-date,#end-date,#task-start-date,#task-due-date,#milestone-due-date,#log-date').datepicker({
+        $('#birth-date,#joining-date,#people_from,#people_to,#start-date,#end-date,#task-start-date,#task-due-date,#milestone-due-date,#log-date,#people_from,#people_to').datepicker({
             autoclose: true
         });
         $('#logTimer').timepicker();
@@ -55,6 +55,18 @@
         })
 
     });
+
+
+    $('#hidesiteurl').click(function(e){
+          var url = $('#website').val();
+            if(url.substring(0,7) != "http://")
+            {
+                if(e.keyCode != 8)
+                {
+                    $(this).val( 'http://'+ url );
+                }
+            }
+          });
 
     
     $('.registerBtn').click(function() {

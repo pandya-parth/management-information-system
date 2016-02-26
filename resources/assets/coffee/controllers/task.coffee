@@ -3,7 +3,6 @@ angular.module 'mis'
 	.controller 'TasksCtrl', ($scope, task, $timeout, $window, prompt)->
 		$scope.loading = true
 		$scope.currentPage = 1
-		$scope.pageSize = 5
 		$scope.edit = false
 		currentUrl = $window.location.href
 		pId = currentUrl.split('/')[4]||"Undefined"

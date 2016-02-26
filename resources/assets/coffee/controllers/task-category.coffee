@@ -3,7 +3,6 @@ angular.module 'mis'
 .controller 'TaskCategoryCtrl', ($scope, taskCategory, $timeout,prompt)->
 	$scope.loading = true
 	$scope.currentPage = 1
-	$scope.pageSize = 5
 	$scope.edit = false
 	taskCategory.get().success (data)->
 		$scope.task_categories = data

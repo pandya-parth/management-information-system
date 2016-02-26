@@ -15,10 +15,10 @@ angular.module 'mis'
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 					data: $.param(formData)
 
-			addPeople: (formData)->
+			addPeople: (formData,pId)->
 				$http
 					method: 'POST'
-					url: '/project/' + formData.id + '/people'
+					url: '/project/' + pId + '/people', params: project_id: pId
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 

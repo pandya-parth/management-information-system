@@ -3,7 +3,6 @@ angular.module 'mis'
 	.controller 'ProjectCategoryCtrl', ($scope, projectCategory, prompt, $timeout)->
 		$scope.loading = true
 		$scope.currentPage = 1
-		$scope.pageSize = 5
 		$scope.edit = false
 		projectCategory.get().success (data)->
 			$scope.categories = data
