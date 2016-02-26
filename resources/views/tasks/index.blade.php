@@ -3,7 +3,7 @@
 @section('content')
 <div ng-controller="TasksCtrl">
   <div class="content">
-    {!! Request::segment('3') !!}
+    
     <!-- START CONTAINER FLUID -->
     <div class="container-fluid container-fixed-lg">
       <!-- START PANEL -->

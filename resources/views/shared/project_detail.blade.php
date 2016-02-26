@@ -47,22 +47,25 @@
 
       
         <li class="">
-                <p> Project Detail </p>
+                <p style="font-size:20px;padding:0 0 0 30px;color:#fff;"><span> Project Detail </span></p><hr/>
               </li>
 
-              {!! Request::segment(2) !!}
+              
 
       <li>
         <ul>
           @foreach($project_categories as $project_cat)
-            <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $project_cat->name !!}</a></br></span>
+            
                     
 
                     @foreach($projects as $project)
                       
-                      @if($project->category_id == $project_cat->id)
-                      
-                        <span style="padding:0 0 0 20px;" ><a style="padding:0 0 0 20px;" >{!! $project->name !!}</a></span></br>
+                      @if($project->category_id == $project_cat->id  && $project->id == Request::segment(2))
+
+                      <label style="color:#fff;">Project Name</label></br>
+                        <span><a style="padding:0 0 0 20px;font-size:20px;color:#10cfbd;" >{!! $project->name !!}</a></span></br>
+                      <label style="color:#fff;">Project Category</label><br>
+                        <span><a style="padding:0 0 0 20px;font-size:20px;color:#10cfbd;" >{!! $project_cat->name !!}</a></span></br>
                       
                       @endif
                       

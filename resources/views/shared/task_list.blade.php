@@ -47,31 +47,12 @@
       <li>
         <ul>
           @foreach($task_categories as $task_cat)
-            <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $task_cat->name !!}</a></br></span>
-                    @foreach($tasks as $task)
-                      
-
-                      
-                    @endforeach
+            <span><i class="fa fa-tasks"></i><a href="{!! url('task-categories/{task_cat->id}') !!}" style="padding:0 0 0 20px;" >{!! $task_cat->name !!}</a></br></span>
+                    
             
           @endforeach
         </ul>
       </li>     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         </ul>
