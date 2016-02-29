@@ -20,4 +20,9 @@ class TaskCategory extends Model implements SluggableInterface
     ]; 
 
     protected $fillable = ['name'];
+
+    public function tasks()
+	{
+		return $this->hasMany('Task','category_id');
+	}
 }

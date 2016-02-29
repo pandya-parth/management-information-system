@@ -8,6 +8,10 @@ angular.module 'mis'
 		$scope.task_categories = data
 		$scope.loading = false
 
+	taskCategory.getTask().success (data)->
+		$scope.tasks = data
+		$scope.loading = false
+
 	$scope.cancelAll = ->
 		angular.element('#addNewAppModal').modal('hide')
 		$timeout (->

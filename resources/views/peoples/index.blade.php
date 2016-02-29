@@ -361,7 +361,8 @@
 
                                     <label>Qualification</label>
                                     <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-init="people_array.education[$index].qualification = education.qualification" ng-model="people_array.education[$index].qualification" >
-                                    <input type='hidden' name='id' ng-model='people_array.education.id'>
+                                    <input type="hidden" name="id" class="form-control"  ng-init="people_array.education[$index].id = education.id" >
+                                    
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -413,6 +414,7 @@
                             <div class="form-group form-group-default">
                                 <label>Company Name</label>
                                 <input type="text" name="company_name[]" class="form-control" placeholder="Company Name" ng-init="people_array.experience[$index].company_name = experience.company_name" ng-model="people_array.experience[$index].company_name">
+                                <input type="hidden" name="id" ng-init="people_array.experience[$index].id = experience.id" ng-model="people_array.experience[$index].id">
                             </div>
                         </div>
                         <div class="col-sm-4">

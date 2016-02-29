@@ -1,9 +1,12 @@
 angular.module 'mis'
 
-	.controller 'ProjectCtrl', ($scope, PROJECT, $timeout, prompt)->
+	.controller 'ProjectCtrl', ($scope, PROJECT, $timeout, prompt,$window)->
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.edit = false
+		currentUrl = $window.location.href
+		pId = currentUrl.split('/')[4]||"Undefined"
+		$scope.Pro_Id = pId
 		PROJECT.get().success (data)->
 			$scope.projects = data
 			$scope.loading = false

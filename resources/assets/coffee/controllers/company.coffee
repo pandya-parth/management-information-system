@@ -39,6 +39,15 @@ angular.module 'mis'
 			$scope.companies = data
 			$scope.loading = false
 
+		$scope.cancelAll = ->
+			angular.element('#addNewAppModal').modal('hide')
+			$timeout (->
+				$scope.submitted = false
+				$scope.edit = false
+				$scope.people_array = {}
+			), 1000
+			return
+
 		$scope.clearAll = (form)->
 			$scope.options =
 				title: 'You have changes.'
@@ -63,7 +72,10 @@ angular.module 'mis'
 					angular.element('#addNewAppModal').modal('hide')
 					$scope.submitted = false
 					$scope.edit = false
-					$scope.company = {}					
+					$scope.company = {}		
+					myEl = angular.element(document.querySelector('#fileadded'))
+					myEl.remove()
+					angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")			
 				)
 			else
 				angular.element('#addNewAppModal').modal('hide')
@@ -71,6 +83,9 @@ angular.module 'mis'
 					$scope.submitted = false
 					$scope.edit = false
 					$scope.company = {}
+					myEl = angular.element(document.querySelector('#fileadded'))
+					myEl.remove()
+					angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
 					), 1000
 			return
 
@@ -87,6 +102,9 @@ angular.module 'mis'
 				company.save($scope.company).success (data)->
 					$scope.submitted = false
 					$scope.company = {}
+					myEl = angular.element(document.querySelector('#fileadded'))
+					myEl.remove()
+					angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
 					angular.element('#addNewAppModal').modal('hide')
 					angular.element('body').pgNotification(
 						style: 'flip'

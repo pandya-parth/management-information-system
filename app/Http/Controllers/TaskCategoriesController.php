@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\TaskCategory;
+use App\Task;
 use Illuminate\Support\Facades\Input;
 
 
@@ -62,7 +63,11 @@ class TaskCategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        
+
+        $task_category = TaskCategory::find($id);
+        $tasks = Task::where('category_id','=',$task_category->id)->get();
+        return view('task_categories.view',compact('task_category','tasks'));
     }
 
     /**

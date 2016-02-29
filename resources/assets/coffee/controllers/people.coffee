@@ -110,7 +110,10 @@ angular.module 'mis'
 					angular.element('#addNewAppModal').modal('hide')
 					$scope.submitted = false
 					$scope.edit = false
-					$scope.people_array = {}					
+					$scope.people_array = {}	
+					myEl = angular.element(document.querySelector('#fileadded'))
+					myEl.remove()
+					angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
 				)
 			else
 				angular.element('#addNewAppModal').modal('hide')
@@ -132,6 +135,9 @@ angular.module 'mis'
 					$scope.submitted = false
 					$scope.edit = false
 					$scope.people_array = {}
+					myEl = angular.element(document.querySelector('#fileadded'))
+					myEl.remove()
+					angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
 					), 1000
 			return
 

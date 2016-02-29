@@ -50,7 +50,7 @@ class Task extends Model implements SluggableInterface
     
     public function category()
     {
-        return $this->belongsToMany('App\TaskCategory');
+        return $this->belongsTo('App\TaskCategory');
     }
 
    public function project()

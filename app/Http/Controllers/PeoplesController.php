@@ -166,9 +166,40 @@ class PeoplesController extends Controller
 
     public function update(Request $request, $id)
     {
-         $people = People::find($id);
-         $input= Input::get('education');
-         $people->update(Input::all());  
+         $people = People::findOrFail($id);
+         $input=Input::get('education');
+         foreach($input as $value)
+         {
+            if($value['id']=='')
+            {
+                    $education = new UserEducation($value);
+                    $education->user_id=$people->user_id;
+                    $education->save();
+            }
+            else
+            {
+                $up=UserEducation::find($value['id']);
+                $up->update($value);
+            }
+         }
+
+         //Experience
+         $input=Input::get('experience');
+         foreach($input as $value)
+         {
+            if($value['id']=='')
+            {
+                    $experience = new UserExperience($value);
+                    $experience->user_id=$people->user_id;
+                    $experience->save();
+            }
+            else
+            {
+                $up=UserExperience::find($value['id']);
+                $up->update($value);
+            }
+         }
+         $people->update(Input::all()); 
          return response()->json(['success'=>true]);      
     }
 

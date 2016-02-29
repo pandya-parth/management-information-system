@@ -73,7 +73,8 @@ class ProjectsController extends Controller
      */
     public function show($id)
     {
-        return view('projects.view');
+        $project = Project::find($id);
+        return view('projects.view',compact('project'));
     }
 
     /**

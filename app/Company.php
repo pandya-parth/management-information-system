@@ -47,6 +47,11 @@ class Company extends Model
 			upload_delete($this->logo,'company',array('original','thumb','medium'));
 		}
 
+		public function projects()
+	{
+		return $this->hasMany('Project','client_id');
+	}
+
 
 }
 Event::listen('eloquent.deleting:Company', function($model) {

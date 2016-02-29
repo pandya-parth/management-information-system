@@ -73,6 +73,16 @@ class Project extends Model  implements SluggableInterface
         return $this->hasMany('App\Milestone');
     }
 
+    public function company()
+    {
+        return $this->belongsTo('App\Company','client_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\ProjectCategory');
+    }
+
     
 
   // }
