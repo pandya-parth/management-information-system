@@ -75,8 +75,8 @@
                                 <!-- row 1 -->
                                 <div ng-cloak class="row border_class">
                                     <div class="datas people_id_pic">
-                                        <div ng-cloak class="pic" ng-if="people.photo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
-                                        <div ng-cloak class="pic" ng-if="people.photo!=''"><img ng-src={!! asset("uploads/people-thumb/{%people.photo%}") !!} /></div>
+                                        <div ng-cloak class="pic" ng-if="people.photo == ''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
+                                        <div ng-cloak class="pic" ng-if="people.photo != ''"><img ng-src={!! asset("uploads/people-thumb/{%people.photo%}") !!} /></div>
                                     </div> 
                                     <div ng-cloak class="datas people_name box_real">
                                         {% people.fname %} {% people.lname %}

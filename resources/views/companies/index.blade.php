@@ -52,132 +52,131 @@
                                 <div class="datas people_action">Action</div>
                             </div>
                         </div>
-                        <div class="data_area list_view " dir-paginate="company in companies| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
-                        current-page="currentPage" ng-if="companies.length != 0">
-                        <!-- row 1 -->
-                        <div ng-cloak class="row border_class">
-                            <div class="datas people_id_pic">
-                                        <div ng-cloak class="pic" ng-if="company.logo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
-                                        <div ng-cloak class="pic" ng-if="company.logo!=''"><img ng-src={!! asset("uploads/company-thumb/{%company.logo%}") !!} /></div>
-                                    </div>
-                            <div ng-cloak class="datas people_name box_real">
-                                {% company.name ? company.name : '-' %}
+                        <div class="data_area list_view " dir-paginate="company in companies| orderBy:'-id' | filter:q | itemsPerPage: pageSize| orderBy:'-id'" current-page="currentPage">
+                            <!-- row 1 -->
+                            <div ng-cloak class="row border_class">
+                                <div class="datas people_id_pic">
+                                    <div ng-cloak class="pic" ng-if="company.logo =='' "><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
+                                    <div ng-cloak class="pic" ng-if="company.logo!=''"><img ng-src={!! asset("uploads/company-thumb/{%company.logo%}") !!} /></div>
+                                </div>
+                                <div ng-cloak class="datas people_name box_real">
+                                    {% company.name ? company.name : '-' %}
+                                </div>
+                                <div ng-cloak class="datas people_designation">
+                                    {% company.website %}
+                                </div>
+                                <div ng-cloak class="datas people_email">
+                                    <a href="{% company.email %}" target="_blank">{% company.email %}</a>
+                                </div>
+                                <div ng-cloak class="datas people_phone">
+                                    {% company.phone %}
+                                </div>
+                                <div class="datas people_action">
+                                    <a href="#" class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                    <a href="#" class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
+                                </div>
                             </div>
-                            <div ng-cloak class="datas people_designation">
-                                {% company.website %}
-                            </div>
-                            <div ng-cloak class="datas people_email">
-                                <a href="{% company.email %}" target="_blank">{% company.email %}</a>
-                            </div>
-                            <div ng-cloak class="datas people_phone">
-                                {% company.phone %}
-                            </div>
-                            <div class="datas people_action">
-                                <a href="#" class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
-                                <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                <a href="#" class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
-                            </div>
+                            <!-- row 1 complete -->
                         </div>
-                        <!-- row 1 complete -->
+                    </div>
+                    <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="companies.length==0">
+                        <div style="text-align:center;">
+                            <img src="{!! asset('img/noCompany.png') !!}" style=" width:100px; height:100px; " />
+                            <p><h3>No company found</h3></p>
+                        </div>
                     </div>
                 </div>
-                <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="companies.length==0">
-                    <div style="text-align:center;">
-                        <img src="{!! asset('img/noCompany.png') !!}" style=" width:100px; height:100px; " />
-                        <p><h3>No company found</h3></p>
-                    </div>
-                </div>
+                <dir-pagination-controls boundary-links="true"
+                on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
             </div>
-            <dir-pagination-controls boundary-links="true"
-            on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+            <!-- END PANEL -->
         </div>
-        <!-- END PANEL -->
+        <!-- END CONTAINER FLUID -->
     </div>
-    <!-- END CONTAINER FLUID -->
-</div>
-<!-- MODAL STICK UP  -->
-<div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog"
-aria-labelledby="addNewAppModal"
-aria-hidden="true">
-<div class="modal-dialog">
-    <div class="modal-content">
-        <div class="modal-header clearfix ">
-            <button type="button" class="close" ng-click="cancelAll()" data-dismiss="modal" aria-hidden="true"><i
-                class="pg-close fs-14"></i>
-            </button>
-            <h4 class="p-b-5" ng-bind="edit==false ? 'Add New Company' : 'Edit Company'">
-            </div>
-            <form name="Companies" class='p-t-15 country' role='form' novalidate>
-                <div class="modal-body">
-                    <ul class="nav nav-tabs nav-tabs-fillup">
-                        <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
-                        <li><a data-toggle="tab" href="#menu1">Industry</a></li>
-                        <li><a data-toggle="tab" href="#menu2">Address</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="home" class="tab-pane slide-left active">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default">
-                                        <label>name</label>
-                                        <input id="appName" type="text" name="name" class="form-control"
-                                        placeholder="Name of Company" ng-model='company.name' required>
-                                        <span class="error"
-                                        ng-show="submitted && Companies.name.$error.required">* Please enter company name</span>
+    <!-- MODAL STICK UP  -->
+    <div class="modal fade stick-up" id="addNewAppModal" tabindex="-1" role="dialog"
+    aria-labelledby="addNewAppModal"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header clearfix ">
+                <button type="button" class="close" ng-click="cancelAll()" data-dismiss="modal" aria-hidden="true"><i
+                    class="pg-close fs-14"></i>
+                </button>
+                <h4 class="p-b-5" ng-bind="edit==false ? 'Add New Company' : 'Edit Company'">
+                </div>
+                <form name="Companies" class='p-t-15 country' role='form' novalidate>
+                    <div class="modal-body">
+                        <ul class="nav nav-tabs nav-tabs-fillup">
+                            <li class="active"><a data-toggle="tab" href="#home">Description</a></li>
+                            <li><a data-toggle="tab" href="#menu1">Industry</a></li>
+                            <li><a data-toggle="tab" href="#menu2">Address</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="home" class="tab-pane slide-left active">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default">
+                                            <label>name</label>
+                                            <input id="appName" type="text" name="name" class="form-control"
+                                            placeholder="Name of Company" ng-model='company.name' required>
+                                            <span class="error"
+                                            ng-show="submitted && Companies.name.$error.required">* Please enter company name</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12" >
-                                    <div class="form-group form-group-default" id="hidesiteurl">
-                                        <label>Website</label>
-                                        <input id="website" name="website" type="url" class="form-control" ng-model='company.website' value="http://" required>
-                                        <span class="error" ng-show="submitted && Companies.website.$error.required">* Please enter website</span>
-                                        <span class="error" ng-show="submitted && Companies.website.$error.url">* Please enter valid website url</span>
+                                <div class="row">
+                                    <div class="col-sm-12" >
+                                        <div class="form-group form-group-default" id="hidesiteurl">
+                                            <label>Website</label>
+                                            <input id="website" name="website" type="url" class="form-control" ng-model='company.website' value="http://" required>
+                                            <span class="error" ng-show="submitted && Companies.website.$error.required">* Please enter website</span>
+                                            <span class="error" ng-show="submitted && Companies.website.$error.url">* Please enter valid website url</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Email</label>
-                                        <input type="text" name="email" class="form-control" placeholder="Email" ng-model='company.email' required ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'>
-                                        <span class="error" ng-show="submitted && Companies.email.$error.required">* Please enter Email </span>
-                                        <span class="error" ng-show="submitted && Companies.email.$error.pattern">* Please enter valid email</span>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default">
+                                            <label>Email</label>
+                                            <input type="text" name="email" class="form-control" placeholder="Email" ng-model='company.email' required ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'>
+                                            <span class="error" ng-show="submitted && Companies.email.$error.required">* Please enter Email </span>
+                                            <span class="error" ng-show="submitted && Companies.email.$error.pattern">* Please enter valid email</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div  id="preview">
-                                        <img src="{!! asset('img/noIndustry.png')!!}" id="noimage" style="height:100px;width:100px;border-radius:100%;">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div  id="preview">
+                                            <img src="{!! asset('img/noIndustry.png')!!}" id="noimage" style="height:100px;width:100px;border-radius:100%;">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div id="filelist">Upload logo from here..</div>
-                                    <div id="progressbar"></div>
-                                    <br />
-                                    <div class="form-group">
-                                        <div class="col-lg-6 clearfix">
-                                            <div id="container">
-                                                <a id="pickfiles" href="javascript:;">Upload Logo</a>
+                                    <div class="col-md-6">
+                                        <div id="filelist">Upload logo from here..</div>
+                                        <div id="progressbar"></div>
+                                        <br />
+                                        <div class="form-group">
+                                            <div class="col-lg-6 clearfix">
+                                                <div id="container">
+                                                    <a id="pickfiles" href="javascript:;">Upload Logo</a>
+                                                </div>  
                                             </div>  
-                                        </div>  
+                                        </div>
+                                        <input type="hidden" name='logo' id="logo"
+                                        ng-modal='company.logo'>
                                     </div>
-                                    <input type="hidden" name='logo' id="logo"
-                                    ng-modal='company.logo'>
                                 </div>
                             </div>
-                        </div>
-                        <div id="menu1" class="tab-pane slide-left">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Industry</label>
-                                        <select class="full-width" data-placeholder="Select Industry"
+                            <div id="menu1" class="tab-pane slide-left">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group form-group-default">
+                                            <label>Industry</label>
+                                            <select class="full-width" data-placeholder="Select Industry"
                                             data-init-plugin="select2" ng-model='company.industry'>
                                             @foreach($industries as $industry)
-                                                    <option value="{!! $industry->name !!}">{!! $industry->name !!}</option>
+                                            <option value="{!! $industry->name !!}">{!! $industry->name !!}</option>
                                             @endforeach
                                         </select>
                                     </div>

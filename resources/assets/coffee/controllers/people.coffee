@@ -152,7 +152,6 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
-
 				PEOPLE.save($scope.people_array).success (data)->
 					$scope.submitted = false
 					$scope.people_array = {}

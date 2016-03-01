@@ -29,13 +29,13 @@
           <div class="clearfix"></div>
         </div>
         <div ng-cloak class="panel-body" >
-        <div>{!! $project->company->name !!}</div>
-        <div>{!! $project->category->name !!}</div>
-        <div>{!! $project->description !!}</div>
-        <div>{!! $project->price_types !!}</div>
-        <div>{!! $project->status !!}</div>
-        <div>{!! $project->start_date !!}</div>
-        <div>{!! $project->end_date !!}</div>
+        <div> <b> Company: </b>  {!! $project->company->name !!}</div><hr />
+        <div> <b> category: </b>  {!! $project->category->name !!}</div><hr />
+        <div> <b> Description: </b>  {!! $project->description !!}</div><hr />
+        <div> <b> Price Types: </b>  {!! $project->price_types !!}</div><hr />
+        <div> <b> Status: </b>  {!! $project->status !!}</div><hr />
+        <div> <b> Start Date: </b>  {!! $project->start_date !!}</div><hr />
+        <div> <b> End Date: </b>  {!! $project->end_date !!}</div>
     </div>
   </div>
 

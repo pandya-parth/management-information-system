@@ -50,8 +50,20 @@ class CompaniesController extends Controller
      */
     public function store(Request $request)
     {
-        $input= Input::all();
-        $companies=Company::create($input);
+        $companies = new Company;
+        $companies->name = Input::get('name');
+        $companies->logo = Input::get('logo');
+        $companies->website = Input::get('website');
+        $companies->email = Input::get('email');
+        $companies->industry = Input::get('industry');
+        $companies->phone = Input::get('phone');
+        $companies->fax = Input::get('fax');
+        $companies->adrs1 = Input::get('adrs1');
+        $companies->adrs2 = Input::get('adrs2');
+        $companies->city = Input::get('city');
+        $companies->state = Input::get('state');
+        $companies->country = Input::get('country');
+        $companies->zipcode = Input::get('zipcode');
         $companies->save();
         return response()->json(['success'=>true]);
 

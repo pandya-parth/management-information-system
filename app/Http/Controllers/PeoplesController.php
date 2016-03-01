@@ -167,6 +167,7 @@ class PeoplesController extends Controller
     public function update(Request $request, $id)
     {
          $people = People::findOrFail($id);
+         # education
          $input=Input::get('education');
          foreach($input as $value)
          {
