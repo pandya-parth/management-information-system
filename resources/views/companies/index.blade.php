@@ -56,7 +56,7 @@
                             <!-- row 1 -->
                             <div ng-cloak class="row border_class">
                                 <div class="datas people_id_pic">
-                                    <div ng-cloak class="pic" ng-if="company.logo =='' "><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
+                                    <div ng-cloak class="pic" ng-if="company.logo =='' "><img ng-src={!! asset("img/noIndustry.png") !!} /></div>
                                     <div ng-cloak class="pic" ng-if="company.logo!=''"><img ng-src={!! asset("uploads/company-thumb/{%company.logo%}") !!} /></div>
                                 </div>
                                 <div ng-cloak class="datas people_name box_real">

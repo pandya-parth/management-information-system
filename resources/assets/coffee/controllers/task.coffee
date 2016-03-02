@@ -26,7 +26,8 @@ angular.module 'mis'
 			angular.element('#addNewAppModal').modal('show')
 			return
 
-		$scope.showLogModal = (event) ->
+		$scope.showLogModal = (event,id) ->
+			alert task_id = id
 			angular.element('#logTimeModal').modal('show')
 			return
 
@@ -180,6 +181,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
+				$scope.logtime.task_id = task_id
 				task.savelog($scope.logtime).success (data)->
 					$scope.submitted = false
 					$scope.logtime = {}

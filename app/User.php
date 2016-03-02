@@ -53,7 +53,7 @@ class User extends Authenticatable
     }        
     public function people()
     {
-        return $this->hasOne('App\People');
+        return $this->hasOne('App\People','user_id');
     }
 
 

@@ -49,13 +49,13 @@
 
                       <div class="checkbox check-success">
                         <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
-                        
+                        {% task.status[$index] %}
                         <label for="{% tsk.id %}" class="label-for-check task_name" style="width:700px;">{% tsk.name %}</label>
                       </div>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
 
-                      <a class="timer timer_button" ng-click="showLogModal($event)" id="timer_button">
+                      <a class="timer timer_button" ng-click="showLogModal($event,tsk.id)" id="timer_button">
                         <i class="glyphicon glyphicon-time"></i>
                       </a>
                     </div>
@@ -123,7 +123,7 @@
                         <label>Add People</label>
                         <select class=" full-width" data-init-plugin="select2" id="user_ids" multiple name="user_id" ng-model="task.user_id">
                           @foreach($users as $user)
-                          <option value="{!! $user->id !!}">{!! $user->email !!}</option>
+                          <option value="{!! $user->user_id !!}">{!! $user->fname !!}</option>
                           @endforeach
                         </select>
                       </div>
@@ -201,6 +201,7 @@
           <button type="button" class="close" ng-click="logCancel()" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
           </button>
           <h4 class="p-b-5"><h4>Log time on this task</h4></h4>
+
         </div>
         <form name="Logtime" class='p-t-15' role='form' novalidate>
           <div class="modal-body">
@@ -209,13 +210,13 @@
               <div class="tab-content">
                 <div class="tab-pane slide-left active" id="loghome">
                   <div class=" row ">
+                    <input type="hidden" name="task_id"  ng-model="logtime.task_id">
                     <div class="col-md-6">
-                      <input type="hidden" name="task_id"  ng-model="logtime.project_id">
                       <div class="form-group form-group-default form-group-default-select2">
                         <label>Who</label>
                         <select class="form-control input-group form-group form-group-default" id="user_ids"  name="user_id" ng-model="logtime.user_id" >
                           @foreach($users as $user)
-                          <option value="{!! $user->id !!}">{!! $user->email !!}</option>
+                          <option value="{!! $user->user_id !!}">{!! $user->fname !!}</option>
                           @endforeach
                         </select>
                       </div>
