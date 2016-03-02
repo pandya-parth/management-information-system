@@ -182,7 +182,6 @@ angular.module 'mis'
 			if $scope.edit == false
 				task.savelog($scope.logtime).success (data)->
 					$scope.submitted = false
-					alert $scope.logtime.hour = parseFloat($scope.logtime.start_time) - parseFloat($scope.logtime.end_time);
 					$scope.logtime = {}
 					angular.element('#logTimeModal').modal('hide')
 					angular.element('body').pgNotification(

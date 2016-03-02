@@ -49,7 +49,7 @@
 
                       <div class="checkbox check-success">
                         <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
-                        {% task.status[$index] %}
+                        
                         <label for="{% tsk.id %}" class="label-for-check task_name" style="width:700px;">{% tsk.name %}</label>
                       </div>
                     </div>
@@ -123,7 +123,7 @@
                         <label>Add People</label>
                         <select class=" full-width" data-init-plugin="select2" id="user_ids" multiple name="user_id" ng-model="task.user_id">
                           @foreach($users as $user)
-                          <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
+                          <option value="{!! $user->id !!}">{!! $user->email !!}</option>
                           @endforeach
                         </select>
                       </div>
@@ -210,6 +210,7 @@
                 <div class="tab-pane slide-left active" id="loghome">
                   <div class=" row ">
                     <div class="col-md-6">
+                      <input type="hidden" name="task_id"  ng-model="logtime.project_id">
                       <div class="form-group form-group-default form-group-default-select2">
                         <label>Who</label>
                         <select class="form-control input-group form-group form-group-default" id="user_ids"  name="user_id" ng-model="logtime.user_id" >

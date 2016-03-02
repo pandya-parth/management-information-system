@@ -29,7 +29,7 @@ class TasksController extends Controller
         $projects=Project::all();
         $taskCategories=TaskCategory::all();
         $peoples=People::all();
-        $users=People::with('user')->get();
+        $users=User::all();
         return view('tasks/index',compact('tasks','projects','taskCategories','peoples','id','users'));
     }
 
