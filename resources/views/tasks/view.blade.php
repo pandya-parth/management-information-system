@@ -11,6 +11,7 @@
         <div class="panel-heading">
           <div class="panel-title">
             <h4>Log Time</h4>
+            
             </div>
           
           <div class="clearfix"></div>
@@ -21,7 +22,7 @@
         <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
 
 
-                <div ng-cloak class="grid_list_view" ng-show="logtimes.length>0">
+                <div  class="grid_list_view" >
                             <div class="head list_view border_class">
                                 <div class="row">
                                     <div class="datas people_name">Date</div>
@@ -32,24 +33,34 @@
                                     <div class="datas people_phone">Total Time</div>
                                 </div>
                             </div>
-                            <div class="data_area list_view " ng-repeat="logtime in logtimes"
-                            current-page="currentPage" ng-if="logtimes.length != 0">
+                            <div class="data_area list_view " current-page="currentPage" >
                                 <!-- row 1 -->
-                                <div ng-cloak class="row border_class">
-                                
+                                @foreach($logs as $log)
+                                <div class="row border_class">
+                                {!! $log->date !!}
                                </div>
+                               <div class="row border_class">
+                                {!! $log->user_id !!}
+                               </div>
+                               <div class="row border_class">
+                                {!! $log->description !!}
+                               </div>
+                               <div class="row border_class">
+                                {!! $log->start_time !!}
+                               </div>
+                               <div class="row border_class">
+                                {!! $log->end_time !!}
+                               </div>
+                               
+                                
+                               @endforeach
                                <!-- row 1 complete -->
                                
 
                             </div>
                        </div>
     
-                <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="logtimes.length==0">
-                            <div style="text-align:center;">
-                                <img src="{!! asset('img/noCompany.png') !!}" style=" width:100px; height:100px; " />
-                                <p><h3>No match found</h3></p>
-                            </div>
-                        </div>
+                
             </div>
       </div>
       <!-- END PANEL -->

@@ -20,7 +20,8 @@
       <div class="panel panel-transparent">
         <div class="panel-heading">
           <div class="panel-title">
-            <h4>Tasks</h4>            
+            <h4>Tasks</h4>   
+                    
           </div>
           <div class="pull-right">
             <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>

@@ -105,10 +105,12 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show(Request $request,$id)
     {
-$users=People::with('user')->get();
-        return view('tasks.view',compact('users'));
+        $project = Project::find($id); 
+        $task = Task::where('project_id','=',$project->id)->get();
+        $logs = LogTime::with('task')->get();
+        return view('tasks.view',compact('logs'));
 
     }
 

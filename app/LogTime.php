@@ -23,4 +23,9 @@ class LogTime extends Model
             $this->attributes['user_id'] = Auth::user()->id;
         }
     }
+
+    public function task()
+    {
+        return $this->belongsTo('App\Task');
+    }
 }
