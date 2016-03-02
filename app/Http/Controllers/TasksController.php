@@ -47,11 +47,7 @@ class TasksController extends Controller
 
     public function getLogtimes($id)
     {
-        $logtimes = Logtime::whereTaskId($id)->get();
-       
-       
-       return view('tasks.view',compact('logtimes'));
-
+        //
     }
 
     /**
@@ -111,8 +107,8 @@ class TasksController extends Controller
      */
     public function show(Request $request)
     {
-
-        return view('tasks.view');
+$users=People::with('user')->get();
+        return view('tasks.view',compact('users'));
 
     }
 

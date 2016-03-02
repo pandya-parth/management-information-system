@@ -10,7 +10,7 @@ class LogTime extends Model
 
     public $timestamps = true;
 
-    protected $fillable = ['user_id','date','start_time','end_time','hour','minute','description','billable'];
+    protected $fillable = ['user_id','task_id','date','start_time','end_time','hour','minute','description','billable'];
 
     public function setUserIdAttribute($value)
     {   

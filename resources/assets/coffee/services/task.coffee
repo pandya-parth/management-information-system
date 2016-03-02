@@ -5,8 +5,7 @@ angular.module 'mis'
 			get:(pId)->
 				$http.get '/api/tasks', params: project_id: pId
 
-			getLog:(tId) ->
-				$http.get '/api/logtimes', params: task_id: tId
+			
 
 			getCat:->
 				$http.get '/api/task-categories'

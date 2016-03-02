@@ -11,10 +11,7 @@ angular.module 'mis'
 			$scope.tasks = data
 			$scope.loading = false
 
-		task.getLog(tId).success (data)->
-			$scope.logs = data
-			$scope.loading = false
-
+		
 		task.getCat().success (data)->
 			$scope.taskcategories = data
 			$scope.loading = false
@@ -27,7 +24,7 @@ angular.module 'mis'
 			return
 
 		$scope.showLogModal = (event,id) ->
-			alert task_id = id
+			$scope.task_id = id
 			angular.element('#logTimeModal').modal('show')
 			return
 
@@ -181,7 +178,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
-				$scope.logtime.task_id = task_id
+				$scope.logtime.task_id = $scope.task_id
 				task.savelog($scope.logtime).success (data)->
 					$scope.submitted = false
 					$scope.logtime = {}

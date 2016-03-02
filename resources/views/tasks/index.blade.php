@@ -20,8 +20,7 @@
       <div class="panel panel-transparent">
         <div class="panel-heading">
           <div class="panel-title">
-            <h4>Tasks</h4>
-            
+            <h4>Tasks</h4>            
           </div>
           <div class="pull-right">
             <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
@@ -49,7 +48,6 @@
 
                       <div class="checkbox check-success">
                         <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
-                        {% task.status[$index] %}
                         <label for="{% tsk.id %}" class="label-for-check task_name" style="width:700px;">{% tsk.name %}</label>
                       </div>
                     </div>
@@ -60,17 +58,17 @@
                       </a>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a class="timer timer_button"  id="view_button">
+                      <a href="{!!url('/projects/{% tsk.project_id %}/tasks/{%tsk.id%}')!!}" class="timer timer_button"  id="view_button1">
                         <i class="fa fa-eye"></i>
                       </a>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a class="timer timer_button"  id="view_button" ng-click="editTask(tsk.id)">
+                      <a class="timer timer_button"  id="view_button2" ng-click="editTask(tsk.id)">
                         <i class="fa fa-edit"></i>
                       </a>
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a class="timer timer_button"  id="view_button" ng-click="deleteTask(tsk.id)">
+                      <a class="timer timer_button"  id="view_button3" ng-click="deleteTask(tsk.id)">
                         <i class="fa fa-trash"></i>
                       </a>
                     </div>
