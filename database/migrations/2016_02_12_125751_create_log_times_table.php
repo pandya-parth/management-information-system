@@ -22,7 +22,7 @@ class CreateLogTimesTable extends Migration
             $table->string('hour')->nullable();
             $table->string('minute')->nullable();
             $table->string('description')->nullable();
-            $table->boolean('billable')->nullable();
+            $table->boolean('billable')->default(false)->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');

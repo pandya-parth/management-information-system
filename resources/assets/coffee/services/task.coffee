@@ -50,6 +50,6 @@ angular.module 'mis'
 			destroy: (pId,id)->
 				$http.delete('/projects/'+ pId + '/tasks/' + id)
 
-			destroylog: (pId,tId,id)->
-				$http.delete('/projects/' + pId + '/tasks/' + tId + '/logtimes/' + id)
+			destroylog: (id)->
+				$http.delete('/logtimes/' + id)
 		}

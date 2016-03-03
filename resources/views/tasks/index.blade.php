@@ -270,8 +270,8 @@
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="checkbox check-success  ">
-                        <input type="checkbox" name="billable" value="1" id="billable">
-                        <label for="billable">Billable</label>
+                        <input type="checkbox" name="billable" ng-model="logtime.billable" id="k">
+                        <label for="k">Billable</label>
                       </div>
                     </div>
                   </div>

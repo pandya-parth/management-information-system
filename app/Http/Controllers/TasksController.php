@@ -45,9 +45,9 @@ class TasksController extends Controller
         return response()->json($tasks); 
     }
 
-    public function getLogtimes()
+    public function getLogtimes(Request $request)
     {
-        $logs = LogTime::all();
+        $logs = LogTime::whereTaskId($request->get('task_id'))->get();
         return response()->json($logs);
     }
 
@@ -93,7 +93,6 @@ class TasksController extends Controller
         $differenceInHours += 24; 
         }
         $logtimes=LogTime::create(Input::all());
-        $logtimes->billable = false;
         $logtimes->hour = $differenceInHours;
         $logtimes->minute = $differenceInMinutes;
         $logtimes->save();
@@ -108,10 +107,11 @@ class TasksController extends Controller
      */
     public function show(Request $request,$id)
     {
+        $users = People::with('user')->get();
         $project = Project::find($id); 
         $task = Task::where('project_id','=',$project->id)->get();
         $logs = LogTime::with('task')->get();
-        return view('tasks.view',compact('logs'));
+        return view('tasks.view',compact('logs','users'));
 
     }
 
@@ -187,7 +187,6 @@ class TasksController extends Controller
     }
     public function logDestroy($id)
     {
-     
         $logtime = Logtime::find($id);
         $logtime->delete();    
         return response()->json(['success'=>true]);

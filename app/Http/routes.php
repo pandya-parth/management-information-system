@@ -48,8 +48,8 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::get('change-password', 'UserController@changePassword');
 
     Route::post('/logtimes','TasksController@logStore');
-    Route::post('/logtimes/{id}','TasksController@logUpdate');
-    Route::get('/projects/{q}/tasks/{w}/logtimes/{id}','TasksController@logDestroy');
+    Route::put('/logtimes/{id}','TasksController@logUpdate');
+    Route::delete('/logtimes/{id}','TasksController@logDestroy');
 
     
 });

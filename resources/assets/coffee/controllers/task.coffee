@@ -236,11 +236,10 @@ angular.module 'mis'
 				$scope.task = data
 				angular.element('#addNewAppModal').modal('show')
 
-		$scope.deleteLog = (id)-> 
-			alert id
+		$scope.deleteLog = (lid)-> 
 			$scope.loading = true
-			task.destroylog(id).success (data)->
-				task.show(pId,tId).success (getData)->
+			task.destroylog(lid).success (data)->
+				task.show(tId).success (getData)->
 					$scope.logs = getData
 					$scope.loading = false
 				angular.element('body').pgNotification(
@@ -251,7 +250,9 @@ angular.module 'mis'
 						type: 'success').show()
 
 		$scope.editLog = (id)->
+			$scope.task_id = id
+			angular.element('#logTimeModal').modal('show')
 			task.editlog(id).success (data)->
 				$scope.edit = true
-				$scope.log = data
+				$scope.logtime = data
 				angular.element('#addNewAppModal').modal('show')

@@ -20,5 +20,35 @@ class UserTableSeeder extends Seeder
         	  'roles'=>'admin',
         	  'active'=>1,
         	]);
+        User::create(
+            ['email' => 'kajal@gmail.com',
+              'password'=>bcrypt('admin123'),
+              'roles'=>'admin',
+              'active'=>1,
+            ]);
+        User::create(
+            ['email' => 'baldev@gmail.com',
+              'password'=>bcrypt('admin123'),
+              'roles'=>'admin',
+              'active'=>1,
+            ]);
+        User::create(
+            ['email' => 'ravi@gmail.com',
+              'password'=>bcrypt('admin123'),
+              'roles'=>'admin',
+              'active'=>1,
+            ]);
+        User::create(
+            ['email' => 'nirav@gmail.com',
+              'password'=>bcrypt('admin123'),
+              'roles'=>'admin',
+              'active'=>1,
+            ]);
+        User::create(
+            ['email' => 'bijal@gmail.com',
+              'password'=>bcrypt('admin123'),
+              'roles'=>'admin',
+              'active'=>1,
+            ]);
     }
 }
