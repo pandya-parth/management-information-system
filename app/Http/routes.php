@@ -49,7 +49,7 @@ Route::group(['middleware' => ['web','auth']], function () {
 
     Route::post('/logtimes','TasksController@logStore');
     Route::post('/logtimes/{id}','TasksController@logUpdate');
-    Route::get('/logtimes/{id}','TasksController@logDestroy');
+    Route::get('/projects/{q}/tasks/{w}/logtimes/{id}','TasksController@logDestroy');
 
     
 });
@@ -83,7 +83,7 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('milestones', 'MilestonesController@getMilestones');
     Route::get('milestone/{id}','MilestonesController@getMilestone');    
 
-    Route::get('logtimes/{id}', 'TasksController@getLogtimes');
+    Route::get('logtimes', 'TasksController@getLogtimes');
     Route::get('logtime/{id}','TasksController@getLogtime');    
 
     Route::get('people', 'PeoplesController@getPeoples');

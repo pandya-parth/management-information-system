@@ -20,6 +20,7 @@
         <div class="panel-heading">
           <div class="panel-title">
             Milestones
+
           </div>
           <div class="pull-right text-right">
             <div class="row">
@@ -109,12 +110,12 @@
         </div>
         <form name="Milestone" class='p-t-15' role='form' novalidate>
           <div class="modal-body">
-            <ul class="nav nav-tabs nav-tabs-fillup">
-              <li class="active"><a data-toggle="tab" href="#home">General</a></li>
-              <li><a data-toggle="tab" href="#menu1">User</a></li>
-            </ul>
+            
             <div class="tab-content">
               <div id="home" class="tab-pane slide-left active">
+                {!! $time->format('M Y')!!}</br>
+                {!! $time->format('d')!!}</br>
+                {!! $time->format('l')!!}
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group form-group-default">
@@ -126,6 +127,7 @@
                     </div>
                   </div>
                 </div>
+
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group form-group-default">
@@ -137,6 +139,35 @@
                     </div>
                   </div>
                 </div>
+
+
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group form-group-default input-group col-md-12">
+                      <label>Due Date</label>
+                      <input type="text" id="milestone-due-date" name="due_date" class="form-control" placeholder="Pick a due date" id="milestone-due-date" ng-model='milestone.due_date'>
+                      <span class="input-group-addon">
+                        <i class="fa fa-calendar"></i>
+                      </span>
+                    </div>
+                  </div>
+                
+                  <div class="col-md-6">
+                    <div class="form-group form-group-default form-group-default-select2">
+                      <label>Assign to.</label>
+                      <select class=" full-width" data-init-plugin="select2" id="user_ids" multiple name="user_id" ng-model="milestone.user_id">
+                        @foreach($users as $user)
+                        <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group form-group-default">
@@ -149,31 +180,6 @@
                     <input type="hidden" name="project_id"  ng-model="milestone.project_id">
                   </div>
                 </div>
-              </div>
-              <div id="menu1" class="tab-pane slide-left">
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="form-group form-group-default input-group col-md-12">
-                      <label>Due Date</label>
-                      <input type="text" id="milestone-due-date" name="due_date" class="form-control" placeholder="Pick a due date" id="milestone-due-date" ng-model='milestone.due_date'>
-                      <span class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class=" row ">
-                  <div class="col-md-12">
-                    <div class="form-group form-group-default form-group-default-select2">
-                      <label>Assign to.</label>
-                      <select class=" full-width" data-init-plugin="select2" id="user_ids" multiple name="user_id" ng-model="milestone.user_id">
-                        @foreach($users as $user)
-                        <option value="{!! $user->id !!}">{!! $user->fname !!}</option>
-                        @endforeach
-                      </select>
-                    </div>
-                  </div>
-                </div>
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="checkbox check-success  ">
@@ -183,6 +189,7 @@
                   </div>
                 </div>
               </div>
+              
             </div>
           </div>
           <div class="modal-footer">

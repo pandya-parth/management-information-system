@@ -21,44 +21,50 @@
 
         <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
 
-
-                <div  class="grid_list_view" >
-                            <div class="head list_view border_class">
-                                <div class="row">
-                                    <div class="datas people_name">Date</div>
-                                    <div class="datas people_name">Who</div>
-                                    <div class="datas people_name">Description</div>
-                                    <div class="datas people_designation">Start Time</div>
-                                    <div class="datas people_email">End Time</div>
-                                    <div class="datas people_phone">Total Time</div>
-                                </div>
+                 <div ng-cloak class="grid_list_view" ng-show="logs.length>0">
+                        <div class="head list_view border_class">
+                            <div class="row">
+                                <div class="datas people_name">Date</div>
+                                <div class="datas people_name">Who</div>
+                                <div class="datas people_name">Description</div>
+                                <div class="datas people_name">start Time</div>
+                                <div class="datas people_name">End Time</div>
+                                <div class="datas people_action pull-right">Action</div>
                             </div>
-                            <div class="data_area list_view " current-page="currentPage" >
-                                <!-- row 1 -->
-                                @foreach($logs as $log)
-                                <div class="row border_class">
-                                {!! $log->date !!}
-                               </div>
-                               <div class="row border_class">
-                                {!! $log->user_id !!}
-                               </div>
-                               <div class="row border_class">
-                                {!! $log->description !!}
-                               </div>
-                               <div class="row border_class">
-                                {!! $log->start_time !!}
-                               </div>
-                               <div class="row border_class">
-                                {!! $log->end_time !!}
-                               </div>
-                               
-                                
-                               @endforeach
-                               <!-- row 1 complete -->
-                               
-
+                        </div>
+                        <div class="data_area list_view " dir-paginate="log in logs| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
+                        current-page="currentPage" ng-show="logs.length != 0">
+                        <!-- row 1 -->
+                        <div ng-cloak class="row border_class">
+                            <div ng-cloak class="datas people_name box_real">
+                                {% log.date ? log.date : '-' %}
                             </div>
-                       </div>
+                            <div ng-cloak class="datas people_name box_real">
+                                {% log.user_id ? log.user_id : '-' %}
+                            </div>
+                            <div ng-cloak class="datas people_name box_real">
+                                {% log.description ? log.description : '-' %}
+                            </div>
+                            <div ng-cloak class="datas people_name box_real">
+                                {% log.start_time ? log.start_time : '-' %}
+                            </div>
+                            <div ng-cloak class="datas people_name box_real">
+                                {% log.end_time ? log.end_time : '-' %}
+                            </div>
+                            <div class="datas people_action pull-right">
+                                <a class="btn btn-success btn-sm" ng-click="editLog(log.id)" ><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-success btn-sm" ng-click="deleteLog(log.id)" ><i class="fa fa-trash"></i></a>
+                            </div>
+                        </div>
+                        <!-- row 1 complete -->
+                    </div>
+                </div>
+                <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="categories.length==0">
+                    <div style="text-align:center;">
+                        <img src="{!! asset('img/noTasks.png') !!}"  />
+                        <p><h3>No project category found</h3></p>
+                    </div>
+                </div>
     
                 
             </div>

@@ -7,11 +7,15 @@ angular.module 'mis'
 		currentUrl = $window.location.href
 		pId = currentUrl.split('/')[4]||"Undefined"
 		tId = currentUrl.split('/')[6]||"Undefined"
+
 		task.get(pId).success (data)->
 			$scope.tasks = data
 			$scope.loading = false
 
-		
+		task.show(tId).success (data)->
+			$scope.logs = data
+			$scope.loading = false
+
 		task.getCat().success (data)->
 			$scope.taskcategories = data
 			$scope.loading = false
@@ -190,8 +194,8 @@ angular.module 'mis'
 						timeout: 2000
 						type: 'success').show()
 
-					task.getlog().success (getData)->
-						$scope.logtimes = getData
+					task.show(tId).success (data)->
+						$scope.logs = data
 						$scope.loading = false
 			else
 				task.updatelog($scope.logtime).success (data)->
@@ -207,8 +211,8 @@ angular.module 'mis'
 							timeout: 2000
 							type: 'success').show()
 
-						task.getlog().success (getData)->
-							$scope.logtimes = getData
+						task.show(tId).success (data)->
+							$scope.logs = data
 							$scope.loading = false
 					), 500
 
@@ -230,4 +234,24 @@ angular.module 'mis'
 			task.edit(id).success (data)->
 				$scope.edit = true
 				$scope.task = data
+				angular.element('#addNewAppModal').modal('show')
+
+		$scope.deleteLog = (id)-> 
+			alert id
+			$scope.loading = true
+			task.destroylog(id).success (data)->
+				task.show(pId,tId).success (getData)->
+					$scope.logs = getData
+					$scope.loading = false
+				angular.element('body').pgNotification(
+						style: 'flip'
+						message: 'Record deleted successfully.'
+						position: 'top-right'
+						timeout: 2000
+						type: 'success').show()
+
+		$scope.editLog = (id)->
+			task.editlog(id).success (data)->
+				$scope.edit = true
+				$scope.log = data
 				angular.element('#addNewAppModal').modal('show')

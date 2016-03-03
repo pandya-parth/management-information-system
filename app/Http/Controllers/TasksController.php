@@ -23,7 +23,7 @@ class TasksController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index(Request $request,$id)
     { 
         $tasks=Project::find($id);
         $projects=Project::all();
@@ -45,9 +45,10 @@ class TasksController extends Controller
         return response()->json($tasks); 
     }
 
-    public function getLogtimes($id)
+    public function getLogtimes()
     {
-        //
+        $logs = LogTime::all();
+        return response()->json($logs);
     }
 
     /**
@@ -186,6 +187,7 @@ class TasksController extends Controller
     }
     public function logDestroy($id)
     {
+     
         $logtime = Logtime::find($id);
         $logtime->delete();    
         return response()->json(['success'=>true]);

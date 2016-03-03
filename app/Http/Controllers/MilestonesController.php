@@ -12,6 +12,7 @@ use App\User;
 use App\Project;
 use App\People;
 use Redirect;
+use Carbon\Carbon;
 
 class MilestonesController extends Controller
 {
@@ -22,10 +23,11 @@ class MilestonesController extends Controller
      */
     public function index($id)
     { 
+        $time = Carbon::now();
         $milestones=Project::find($id);
         $projects=Project::all();
         $users=People::with('user')->get();
-        return view('milestones/index',compact('milestones','projects','id','users'));
+        return view('milestones/index',compact('milestones','projects','id','users','time'));
     }
 
 

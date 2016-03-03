@@ -17,6 +17,9 @@ angular.module 'mis'
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 
+			show: (tId)->
+				$http.get '/api/logtimes', params: task_id: tId
+
 			savelog: (formData)->
 				$http
 					method: 'POST'
@@ -47,6 +50,6 @@ angular.module 'mis'
 			destroy: (pId,id)->
 				$http.delete('/projects/'+ pId + '/tasks/' + id)
 
-			destroylog: (id)->
-				$http.delete('/logtimes/' + id)
+			destroylog: (pId,tId,id)->
+				$http.delete('/projects/' + pId + '/tasks/' + tId + '/logtimes/' + id)
 		}
