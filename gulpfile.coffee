@@ -57,6 +57,9 @@ elixir (mix)->
       bowerPath('angular-utils-pagination', 'dirPagination.js')
       bowerPath('angular-prompt', 'dist', 'angular-prompt.js')
       bowerPath('angular-country-select','dist','angular-country-select.js')
+      bowerPath('angular-bootstrap','ui-bootstrap-tpls.js')
+      bowerPath('angular-resource','angular-resource.js')
+      bowerPath('moment','moment.js')
       'scripts.js'
     ], 'public/js/vendor.js'
 

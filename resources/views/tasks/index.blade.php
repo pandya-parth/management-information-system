@@ -230,6 +230,26 @@
                     </div>
                   </div>
                   <div class=" row ">
+
+
+
+                    <div class="timepicker">
+                      <span class="timepicker-title label label-primary">Clock In</span>
+                      <timepicker ng-model="logtime.start_time" hour-step="1" minute-step="1" show-meridian="true">
+                      </timepicker> 
+                    </div>
+                    <div class="timepicker">
+                      <span class="timepicker-title label label-primary">Clock Out</span>
+                      <timepicker ng-model="logtime.end_time" hour-step="1" minute-step="1" show-meridian="true">
+                      </timepicker>
+                    </div>
+
+
+
+
+
+
+
                     <div class="col-md-4">
                       <div class="form-group  input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
                         <input type="text" class="form-control" id="from_time" name="start_time" ng-model="logtime.start_time" placeholder="Start Time" required>
@@ -250,7 +270,7 @@
                     </div>
                     <div class="col-md-2">
                       <div class="form-group form-group-default">
-                        <input id="hour" type="text" name="hour" class="form-control"  ng-model='logtime.hour' placeholder="Hour">
+                        <input id="hour" type="text" name="hour" class="form-control" value="{!!$differenceInMinutes!!}"  ng-model='logtime.hour' placeholder="Hour">
                       </div>
                     </div>
                     <div class="col-md-2">
