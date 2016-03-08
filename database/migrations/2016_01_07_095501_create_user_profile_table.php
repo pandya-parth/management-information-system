@@ -25,6 +25,7 @@ class CreateUserProfileTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('country')->nullable();
+            $table->string('zipcode')->nullable();
             $table->dateTime('dob')->nullable();
             $table->string('gender')->nullable();
             $table->string('marital_status')->nullable();

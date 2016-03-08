@@ -56,8 +56,8 @@
                             <!-- row 1 -->
                             <div ng-cloak class="row border_class">
                                 <div class="datas people_id_pic">
-                                    <div ng-cloak class="pic" ng-if="company.logo =='' "><img ng-src={!! asset("img/noIndustry.png") !!} /></div>
-                                    <div ng-cloak class="pic" ng-if="company.logo!=''"><img ng-src={!! asset("uploads/company-thumb/{%company.logo%}") !!} /></div>
+                                    <div ng-cloak class="pic" ng-if="company.logo ==null "><img ng-src={!! asset("img/noIndustry.png") !!} /></div>
+                                    <div ng-cloak class="pic" ng-if="company.logo!=null"><img ng-src={!! asset("uploads/company-thumb/{%company.logo%}") !!} /></div>
                                 </div>
                                 <div ng-cloak class="datas people_name box_real">
                                     {% company.name ? company.name : '-' %}
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="datas people_action">
                                     <a href="#" class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                    <a href="{!!url('/companies/{%company.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                     <a href="#" class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
                                 </div>
                             </div>
@@ -174,12 +174,16 @@
                                         <div class="form-group form-group-default">
                                             <label>Industry</label>
                                             <select class="full-width" data-placeholder="Select Industry"
-                                            data-init-plugin="select2" ng-model='company.industry'>
+                                            data-init-plugin="select2" ng-model='company.industry_id' name="industry_id" required>
+                                            <option >-- Select One --</option>
                                             @foreach($industries as $industry)
                                             <option value="{!! $industry->id !!}">{!! $industry->name !!}</option>
                                             @endforeach
                                         </select>
+                                        <span class="error" ng-show="submitted && Companies.industry_id.$error.required">* Please select Industry. </span>
                                     </div>
+                                    
+                                    
                                 </div>
                             </div>
                             <div class="row">

@@ -131,7 +131,9 @@ class PeoplesController extends Controller
 
     public function show($id)
     {
-        //
+        $people = People::find($id);
+        $projects = ProjectUser::where('user_id','=',$people->user_id)->get();
+        return view('peoples.view',compact('people','projects'));
     }
 
     /**

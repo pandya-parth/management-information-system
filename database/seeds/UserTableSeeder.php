@@ -64,9 +64,32 @@ class UserTableSeeder extends Seeder
 
         DB::table('user_profile')->delete();
 
-  
         People::create(
           ['user_id' =>1,
+            'fname' =>'nicole',
+            'lname' =>'cross',
+            'mobile' =>'544454545',
+            'phone' =>'5424545454',
+            'adrs1' =>'sdsdsdsd',
+            'adrs2' =>'sdsdsdsd',
+            'city' =>'sdsdsdsd',
+            'state' =>'sdsdsdsd',
+            'country' =>'IN',
+            'gender' =>'male',
+            'pan_number' =>'5454545',
+            'department' =>1,
+            'designation' =>1,
+            'google' =>'sdsdsdsd',
+            'facebook' =>'sdsdsdsd',
+            'website' =>'sdsdsdsd',
+            'skype' =>'sdsdsdsd',
+            'linkedin' =>'sdsdsdsd',
+            'twitter' =>'sdsdsdsd',
+          ]);
+
+  
+        People::create(
+          ['user_id' =>2,
             'fname' =>'kajal',
             'lname' =>'kanzaria',
             'mobile' =>'544454545',
@@ -89,7 +112,7 @@ class UserTableSeeder extends Seeder
           ]);
 
         People::create(
-          ['user_id' =>2,
+          ['user_id' =>3,
             'fname' =>'baldev',
             'lname' =>'parmar',
             'mobile' =>'544454545',
@@ -112,7 +135,7 @@ class UserTableSeeder extends Seeder
           ]);
 
         People::create(
-          ['user_id' =>3,
+          ['user_id' =>4,
             'fname' =>'ravi',
             'lname' =>'mehta',
             'mobile' =>'544454545',
@@ -135,7 +158,7 @@ class UserTableSeeder extends Seeder
           ]);
 
         People::create(
-          ['user_id' =>4,
+          ['user_id' =>5,
             'fname' =>'nirav',
             'lname' =>'panchal',
             'mobile' =>'544454545',
@@ -158,7 +181,7 @@ class UserTableSeeder extends Seeder
           ]);
 
         People::create(
-          ['user_id' =>5,
+          ['user_id' =>6,
             'fname' =>'bijal',
             'lname' =>'gajjar',
             'mobile' =>'544454545',
@@ -184,91 +207,91 @@ class UserTableSeeder extends Seeder
 
   
         ProjectCategory::create(
-            ['name' => 'one',
-            'slug' => 'one',
+            ['name' => 'pcone',
+            'slug' => 'pcone',
               ]);
 
         ProjectCategory::create(
-            ['name' => 'two',
-            'slug' => 'two',
+            ['name' => 'pctwo',
+            'slug' => 'pctwo',
               ]);
 
         ProjectCategory::create(
-            ['name' => 'three',
-            'slug' => 'three',
+            ['name' => 'pcthree',
+            'slug' => 'pcthree',
               ]);
 
         ProjectCategory::create(
-            ['name' => 'four',
-            'slug' => 'four',
+            ['name' => 'pcfour',
+            'slug' => 'pcfour',
               ]);
 
         ProjectCategory::create(
-            ['name' => 'five',
-            'slug' => 'onfivee',
+            ['name' => 'pcfive',
+            'slug' => 'pcfive',
               ]);
 
         DB::table('task_categories')->delete();
 
   
         TaskCategory::create(
-            ['name' => 'one',
-            'slug' => 'one',
+            ['name' => 'tcone',
+            'slug' => 'tcone',
               ]);
 
         TaskCategory::create(
-            ['name' => 'two',
-            'slug' => 'two',
+            ['name' => 'tctwo',
+            'slug' => 'tctwo',
               ]);
 
         TaskCategory::create(
-            ['name' => 'three',
-            'slug' => 'three',
+            ['name' => 'tcthree',
+            'slug' => 'tcthree',
               ]);
 
         TaskCategory::create(
-            ['name' => 'four',
-            'slug' => 'four',
+            ['name' => 'tcfour',
+            'slug' => 'tcfour',
               ]);
 
         TaskCategory::create(
-            ['name' => 'five',
-            'slug' => 'onfivee',
+            ['name' => 'tcfive',
+            'slug' => 'tcfive',
               ]);
         DB::table('departments')->delete();
 
   
         Department::create(
-          ['name' => 'one',
-            'slug' => 'one',
+          ['name' => 'depone',
+            'slug' => 'depone',
 
 
             ]);
 
         Department::create(
-          ['name' => 'two',
-            'slug' => 'two',
+          ['name' => 'deptwo',
+            'slug' => 'deptwo',
 
 
             ]);
 
         Department::create(
-          ['name' => 'three',
-            'slug' => 'three',
+          ['name' => 'depthree',
+            'slug' => 'depthree',
 
 
             ]);
 
         Department::create(
-          ['name' => 'four',
-            'slug' => 'four',
+          ['name' => 'depfour',
+            'slug' => 'depfour',
 
 
             ]);
 
         Department::create(
-          ['name' => 'five',
-          'slug' => 'five',
+          ['name' => 'depfive',
+          'slug' => 'depfive',
 
 
             ]);
@@ -277,63 +300,63 @@ class UserTableSeeder extends Seeder
 
   
         Designation::create(
-          ['name' => 'one',
-          'slug' => 'one',
+          ['name' => 'desone',
+          'slug' => 'desone',
             ]);
 
         Designation::create(
-          ['name' => 'two',
-          'slug' => 'two',
+          ['name' => 'destwo',
+          'slug' => 'destwo',
             ]);
 
         Designation::create(
-          ['name' => 'three',
-          'slug' => 'three',
+          ['name' => 'desthree',
+          'slug' => 'desthree',
             ]);
 
         Designation::create(
-          ['name' => 'four',
-          'slug' => 'four',
+          ['name' => 'desfour',
+          'slug' => 'desfour',
             ]);
 
         Designation::create(
-          ['name' => 'five',
-          'slug' => 'five',
+          ['name' => 'desfive',
+          'slug' => 'desfive',
             ]);
 
         DB::table('industries')->delete();
 
   
         Industry::create(
-          ['name' => 'one',
-            'slug' => 'one',
+          ['name' => 'indone',
+            'slug' => 'indone',
             ]);
 
         Industry::create(
-          ['name' => 'two',
-            'slug' => 'two',
+          ['name' => 'indtwo',
+            'slug' => 'indtwo',
             ]);
 
         Industry::create(
-          ['name' => 'three',
-            'slug' => 'three',
+          ['name' => 'indthree',
+            'slug' => 'indthree',
             ]);
 
         Industry::create(
-          ['name' => 'four',
-            'slug' => 'four',
+          ['name' => 'indfour',
+            'slug' => 'indfour',
             ]);
 
         Industry::create(
-          ['name' => 'five',
-            'slug' => 'onfivee',
+          ['name' => 'indfive',
+            'slug' => 'indfive',
             ]);
 
 
         DB::table('companies')->delete();
 
   
-        Company::create([  'name' => 'fdfdff',
+        Company::create([  'name' => 'company1',
                         'website' => 'http://www.google.com',
                         'email' => 'kajal@gmail.com',
                         'industry_id' => '1',
@@ -346,7 +369,7 @@ class UserTableSeeder extends Seeder
                         'country' => 'IN',
                         'zipcode' => '5596898985',]);
 
-        Company::create([  'name' => 'fdwewewefdff',
+        Company::create([  'name' => 'company2',
                         'website' => 'http://www.google.com',
                         'email' => 'bldev@gmail.com',
                         'industry_id' => '2',
@@ -359,7 +382,7 @@ class UserTableSeeder extends Seeder
                         'country' => 'IN',
                         'zipcode' => '5596898985',]);
 
-        Company::create([  'name' => 'fdfsdsasasasdff',
+        Company::create([  'name' => 'company3',
                         'website' => 'http://www.google.com',
                         'email' => 'ravi@gmail.com',
                         'industry_id' => '3',
@@ -372,7 +395,7 @@ class UserTableSeeder extends Seeder
                         'country' => 'IN',
                         'zipcode' => '5596898985',]);
 
-        Company::create([  'name' => 'aaaaddsd',
+        Company::create([  'name' => 'company4',
                         'website' => 'http://www.google.com',
                         'email' => 'nirav@gmail.com',
                         'industry_id' => '4',
@@ -385,7 +408,7 @@ class UserTableSeeder extends Seeder
                         'country' => 'IN',
                         'zipcode' => '5596898985',]);
 
-        Company::create([  'name' => 'aasdtryr',
+        Company::create([  'name' => 'company5',
                         'website' => 'http://www.google.com',
                         'email' => 'bijal@gmail.com',
                         'industry_id' => '5',
@@ -403,40 +426,40 @@ class UserTableSeeder extends Seeder
   
         Project::create([  'category_id' => '1',
                         'client_id' => '1',
-                        'name' => 'fdfdf',
-                        'slug' => 'fdfdf',
+                        'name' => 'projectone',
+                        'slug' => 'projectone',
                         'description' => 'fgfgfgg',
                         'notes' => 'gfgfgfg',
                         ]);
 
         Project::create([  'category_id' => '2',
                         'client_id' => '2',
-                        'name' => 'qqweqwq',
-                        'slug' => 'qqweqwq',
+                        'name' => 'projecttwo',
+                        'slug' => 'projecttwo',
                         'description' => 'fgfgfg',
                         'notes' => 'fgfgfgfgf',
                         ]);
 
         Project::create([  'category_id' => '3',
                         'client_id' => '3',
-                        'name' => 'dsdsdsd',
-                        'slug' => 'dsdsdsd',
+                        'name' => 'projectthree',
+                        'slug' => 'projectthree',
                         'description' => 'fgfgfgf',
                         'notes' => 'gfgfgfgfg',
                         ]);
 
         Project::create([  'category_id' => '4',
                         'client_id' => '4',
-                        'name' => 'jjjjhjhjgy',
-                        'slug' => 'jjjjhjhjgy',
+                        'name' => 'projectfour',
+                        'slug' => 'projectfour',
                         'description' => 'fgfgfgfg',
                         'notes' => 'fgfgfg',
                         ]);
 
         Project::create([  'category_id' => '5',
                         'client_id' => '5',
-                        'name' => 'jkjkjkjk',
-                        'slug' => 'jkjkjkjk',
+                        'name' => 'projectfive',
+                        'slug' => 'projectfive',
                         'description' => 'gfgfgfgfgg',
                         'notes' => 'gfgfgfgf',
                         ]);
@@ -447,40 +470,40 @@ class UserTableSeeder extends Seeder
         Task::create(
             ['project_id' => '1',
               'category_id'=>'1',
-              'name'=>'fdfdfd',
-              'slug'=>'fdfdfd',
+              'name'=>'taskone',
+              'slug'=>'taskone',
               'notes' => 'dasedasedskjhvjhvghv'
             ]);
 
         Task::create(
             ['project_id' => '2',
               'category_id'=>'2',
-              'name'=>'fdfdfd',
-              'slug'=>'fdfdfd',
+              'name'=>'tasktwo',
+              'slug'=>'tasktwo',
               'notes' => 'dasedasedskjhvjhvghv'
             ]);
 
         Task::create(
             ['project_id' => '3',
               'category_id'=>'3',
-              'name'=>'fdfdfd',
-              'slug'=>'fdfdfd',
+              'name'=>'taskthree',
+              'slug'=>'taskthree',
               'notes' => 'dasedasedskjhvjhvghv'
             ]);
 
         Task::create(
             ['project_id' => '4',
               'category_id'=>'4',
-              'name'=>'fdfdfd',
-              'slug'=>'fdfdfd',
+              'name'=>'taskfour',
+              'slug'=>'taskfour',
               'notes' => 'dasedasedskjhvjhvghv'
             ]);
 
         Task::create(
             ['project_id' => '5',
               'category_id'=>'5',
-              'name'=>'fdfdfd',
-              'slug'=>'fdfdfd',
+              'name'=>'taskfive',
+              'slug'=>'taskfive',
               'notes' => 'dasedasedskjhvjhvghv'
             ]);
 
@@ -536,35 +559,35 @@ class UserTableSeeder extends Seeder
   
         Milestone::create(
             ['project_id' => '1',
-              'name'=>'dfdfd',
+              'name'=>'milestoneone',
               'description'=>'rffsdfsdfd',
               'notes'=>'rffsdfsdfd',
             ]);
 
         Milestone::create(
                     ['project_id' => '2',
-                      'name'=>'jjhjh',
+                      'name'=>'milestonetwo',
                       'description'=>'rffsdfsdfd',
                       'notes'=>'rffsdfsdfd',
                     ]);
 
         Milestone::create(
                     ['project_id' => '3',
-                      'name'=>'jjghj',
+                      'name'=>'milestonethree',
                       'description'=>'rffsdfsdfd',
                       'notes'=>'rffsdfsdfd',
                     ]);
 
         Milestone::create(
                     ['project_id' => '4',
-                      'name'=>'hghdfg',
+                      'name'=>'milestonefour',
                       'description'=>'rffsdfsdfd',
                       'notes'=>'rffsdfsdfd',
                     ]);
 
         Milestone::create(
                     ['project_id' => '5',
-                      'name'=>'nhnbng',
+                      'name'=>'milestonefive',
                       'description'=>'rffsdfsdfd',
                       'notes'=>'rffsdfsdfd',
                     ]);

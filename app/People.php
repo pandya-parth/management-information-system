@@ -10,7 +10,7 @@ use Event;
 class People extends Model
 {
 	protected $table='user_profile';
-	protected $fillable = ['fname','lname','mobile','gender','dob','phone','join_date','adrs1','adrs2','city','state','country','pan_number','department','designation','management_level','google','facebook','website','skype','linkedin','twitter','photo'];
+	protected $fillable = ['fname','lname','mobile','gender','dob','phone','join_date','adrs1','adrs2','city','state','country','zipcode','pan_number','department','designation','management_level','google','facebook','website','skype','linkedin','twitter','photo'];
 	public function setDobAttribute($value)
     {   
         if(!empty($value))

@@ -11,7 +11,11 @@
           <div class="panel-title">
             <h4>{!! $project_category->name !!}</h4>
             @foreach($projects as $project)
-            <span><a href="{!! url('/projects',$project->id)!!}"><p>{!! $project->name !!}</p></a></span></br>
+            <div>Project Name: <a href="{!! url('/projects',$project->id)!!}">{!! $project->name !!}</a></div></br>
+            <div>Description: {!! $project->description !!}</div></br>
+            <div>Start Date: {!! $project->start_date !!}</div></br>
+            <div>Status: {!! $project->status !!}</div></br>
+            <div>Company Name: {!! $project->company->name !!}</div></br><hr />
             @endforeach
           </div>
           <div class="pull-right">

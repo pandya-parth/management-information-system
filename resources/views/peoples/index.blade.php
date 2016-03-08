@@ -75,9 +75,9 @@
                                 <!-- row 1 -->
                                 <div ng-cloak class="row border_class">
                                     <div class="datas people_id_pic">
-                                        <div ng-cloak class="pic" ng-if="people.photo == ''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
-                                        <div ng-cloak class="pic" ng-if="people.photo != ''"><img ng-src={!! asset("uploads/people-thumb/{%people.photo%}") !!} /></div>
-                                    </div> 
+                                        <div ng-cloak class="pic" ng-if="people.photo == null"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
+                                        <div ng-cloak class="pic" ng-if="people.photo != null"><img ng-src={!! asset("uploads/people-thumb/{%people.photo%}") !!} /></div>
+                                    </div>
                                     <div ng-cloak class="datas people_name box_real">
                                         {% people.fname %} {% people.lname %}
                                     </div>
@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="datas people_action">
                                         <a class="btn btn-success btn-sm" ng-click="editPeople(people.id)"><i class="fa fa-edit"></i></a>
-                                        <a class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                        <a href="{!!url('/people/{%people.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-success btn-sm" ng-click="deletePeople(people.user_id)"><i class="fa fa-trash"></i></a>
                                     </div>
                                 </div>
