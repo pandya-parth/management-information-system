@@ -18,7 +18,7 @@ class CreateCompaniesTable extends Migration
             $table->string('logo')->nullable();
             $table->string('website')->nullable();
             $table->string('email')->nullable();
-            $table->string('industry')->nullable();
+            $table->integer('industry_id')->unsigned();
             $table->string('phone')->nullable();
             $table->string('fax')->nullable();
             $table->text('adrs1')->nullable();
@@ -28,6 +28,7 @@ class CreateCompaniesTable extends Migration
             $table->string('country')->nullable();
             $table->string('zipcode')->nullable();
             $table->timestamps();
+            $table->foreign('industry_id')->references('id')->on('industries')->onDelete('cascade');
         });
     }
 

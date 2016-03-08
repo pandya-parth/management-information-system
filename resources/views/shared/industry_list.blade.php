@@ -47,22 +47,26 @@
       <li>
         <ul>
           @foreach($industries as $industry)
-            <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $industry->name !!}</a></br></span>
-                    @foreach($companies as $company)
-                      
-                      @if($company->industry == $industry->name)
-                      
-                        <span style="padding:0 0 0 20px;" ><a style="padding:0 0 0 20px;" >{!! $company->name !!}</a></span></br>
-                      
-                      @endif
-                      
-                    @endforeach
-            
-          @endforeach
-        </ul>
-      </li>     
-       </ul>
-        <div class="clearfix"></div>
-      </div>
-      <!-- END SIDEBAR MENU -->
-    </nav>
+          <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $industry->name !!}</a> ({!! DB::table('companies')
+            ->where('industry_id', $industry->id)
+            ->groupBy('industry_id')
+            ->count()!!})</br></span>
+            <ol>
+              @foreach($companies as $company)
+
+              @if($company->industry_id == $industry->id)
+              <li>
+                <span ><a href="{!! url('/companies',$company->id)!!}" >{!! $company->name !!}</a></span>
+              </li>
+              @endif
+
+              @endforeach
+            </ol>
+            @endforeach
+          </ul>
+        </li>     
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <!-- END SIDEBAR MENU -->
+  </nav>

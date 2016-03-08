@@ -9,14 +9,9 @@
       <div class="panel panel-transparent">
         <div class="panel-heading">
           <div class="panel-title">
-            <h4>{!! $task_category->name !!}</h4>
-            @foreach($tasks as $task)
-            <p>{!! $task->name !!}</p></br>
-            <p>{!! $task->notes !!}</p></br>
-            <p>{!! $task->status !!}</p></br>
-            <p>{!! $task->priority !!}</p></br>
-            <p>{!! $task->start_date !!}</p></br>
-            <p>{!! $task->due_date !!}</p></br>
+            <h4>{!! $project_category->name !!}</h4>
+            @foreach($projects as $project)
+            <span><a href="{!! url('/projects',$project->id)!!}"><p>{!! $project->name !!}</p></a></span></br>
             @endforeach
           </div>
           <div class="pull-right">

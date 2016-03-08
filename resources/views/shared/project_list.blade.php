@@ -47,24 +47,32 @@
       <li>
         <ul>
           @foreach($project_categories as $project_cat)
-            <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $project_cat->name !!}</a></br></span>
-            @foreach($projects as $project)            
-                @if($project->category_id == $project_cat->id)                      
-                    <span style="padding:0 0 0 20px;" ><a style="padding:0 0 0 20px;" >{!! $project->name !!}</a></span></br>                      
-                @endif
+          <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $project_cat->name !!}</a> ({!! DB::table('projects')
+            ->where('category_id', $project_cat->id)
+            ->groupBy('category_id')
+            ->count()!!})</br></span>
+
+            <ol>
+              @foreach($projects as $project)
+
+              @if($project->category_id == $project_cat->id)
+              <li>
+                <span ><a href="{!! url('/projects',$project->id)!!}" >{!! $project->name !!}</a></span>
+              </li>
+              @endif
+
+              @endforeach
+            </ol>
             @endforeach
-          @endforeach
-        </ul>
-      </li>     
-       </ul>
-        <div class="clearfix"></div>
-      </div>
-      <!-- END SIDEBAR MENU -->
-    </nav>
+          </ul>
+        </li>     
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <!-- END SIDEBAR MENU -->
+  </nav>
+  // <?php
 
-    // <?php
-            
-    //           $query = $project::where($project->category_id,'=',$project_cat->id);
-    //           $count = count($query);
-
-    //         ?>
+//           $query = $project::where($project->category_id,'=',$project_cat->id);
+//           $count = count($query);
+//         ?>

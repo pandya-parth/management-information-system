@@ -8,7 +8,7 @@ use Event;
 
 class Company extends Model 
 {
-    protected $fillable = ['name','logo','website','email','industry','phone','fax','adrs1','adrs2','city','state','country','zipcode'];
+    protected $fillable = ['name','logo','website','email','industry_id','phone','fax','adrs1','adrs2','city','state','country','zipcode'];
 
     public function setLogoAttribute($file) {
 
@@ -51,6 +51,13 @@ class Company extends Model
 	{
 		return $this->hasMany('Project','client_id');
 	}
+
+	
+
+	public function industry()
+    {
+        return $this->belongsTo('App\Industry','industry_id');
+    }
 
 
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Company;
+use App\Project;
 use App\Industry;
 use Illuminate\Support\Facades\Input;
 use Image;
@@ -55,7 +56,7 @@ class CompaniesController extends Controller
         $companies->logo = Input::get('logo');
         $companies->website = Input::get('website');
         $companies->email = Input::get('email');
-        $companies->industry = Input::get('industry');
+        $companies->industry_id = Input::get('industry');
         $companies->phone = Input::get('phone');
         $companies->fax = Input::get('fax');
         $companies->adrs1 = Input::get('adrs1');
@@ -77,7 +78,9 @@ class CompaniesController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = Company::find($id);
+        $projects = Project::where('client_id','=',$company->id)->get();
+        return view('companies.view',compact('company','projects'));
     }
 
     /**

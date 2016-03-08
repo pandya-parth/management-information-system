@@ -45,8 +45,11 @@
                                         <div class="task_detail">
                                             <a href="{!!url('/projects/{% project.id %}')!!}" class="task_name"><h2>{% project.name %}</h2></a>
                                         </div>
+                                        <div class="datas people_action pull-right">
+                                            <a class="btn btn-success btn-sm" ng-click="editProject(project.id)" ><i class="fa fa-edit"></i></a>
+                                            <a class="btn btn-success btn-sm" ng-click="deleteProject(project.id)" ><i class="fa fa-trash"></i></a>
+                                        </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -124,7 +127,6 @@
                                             </select>
                                             <span class="error" ng-show="submitted && project.category_id.$error.required">* Please enter project category</span>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="row">
