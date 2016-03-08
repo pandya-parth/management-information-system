@@ -57,7 +57,7 @@
     });
 
 
-    $('#hidesiteurl').click(function(e){
+    $('#website').click(function(e){
           var url = $('#website').val();
             if(url.substring(0,7) != "http://")
             {

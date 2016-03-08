@@ -270,7 +270,7 @@
                     </div>
                     <div class="col-md-2">
                       <div class="form-group form-group-default">
-                        <input id="hour" type="text" name="hour" class="form-control" value="{!!$differenceInMinutes!!}"  ng-model='logtime.hour' placeholder="Hour">
+                        <input id="hour" type="text" name="hour" class="form-control"  ng-model='logtime.hour' placeholder="Hour">
                       </div>
                     </div>
                     <div class="col-md-2">

@@ -55,6 +55,7 @@
                             </div>
                             <div class="datas people_action pull-right">
                                 <a class="btn btn-success btn-sm " ng-click="editCategory(category.id)" ><i class="fa fa-edit"></i></a>
+                                <a href="{!!url('/task-categories/{%category.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                 <a class="btn btn-success btn-sm " ng-click="deleteCategory(category.id)" ><i class="fa fa-trash"></i></a>
                             </div>
                         </div>

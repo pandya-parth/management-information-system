@@ -8,6 +8,7 @@ use Response;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\ProjectCategory;
+use App\Project;
 use Illuminate\Support\Facades\Input;
 use Redirect;
 use Former\Facades\Former;
@@ -66,7 +67,9 @@ class ProjectCategoriesController extends Controller
      */
     public function show($id)
     {
-        //
+        $project_category = ProjectCategory::find($id);
+        $projects = Project::where('category_id','=',$project_category->id)->get();
+        return view('project_categories.view',compact('project_category','projects'));
     }
 
     /**

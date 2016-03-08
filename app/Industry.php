@@ -20,4 +20,9 @@ class Industry extends Model
         'separator'  => '-',
         'on_update'  => true,
     ];
+
+    public function companies()
+    {
+        return $this->hasMany('App\Company','industry_id');
+    }
 }

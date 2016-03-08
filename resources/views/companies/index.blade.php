@@ -130,7 +130,7 @@
                                     <div class="col-sm-12" >
                                         <div class="form-group form-group-default" id="hidesiteurl">
                                             <label>Website</label>
-                                            <input id="website" name="website" type="url" class="form-control" ng-model='company.website' value="http://" required>
+                                            <input id="website" name="website" type="url" class="form-control" ng-model='company.website' required>
                                             <span class="error" ng-show="submitted && Companies.website.$error.required">* Please enter website</span>
                                             <span class="error" ng-show="submitted && Companies.website.$error.url">* Please enter valid website url</span>
                                         </div>
@@ -176,7 +176,7 @@
                                             <select class="full-width" data-placeholder="Select Industry"
                                             data-init-plugin="select2" ng-model='company.industry'>
                                             @foreach($industries as $industry)
-                                            <option value="{!! $industry->name !!}">{!! $industry->name !!}</option>
+                                            <option value="{!! $industry->id !!}">{!! $industry->name !!}</option>
                                             @endforeach
                                         </select>
                                     </div>

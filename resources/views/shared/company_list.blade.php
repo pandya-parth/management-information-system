@@ -44,32 +44,32 @@
         </a>
         <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
       </li>
-
       <li>
         <ul>
           @foreach($companies as $company)
-            <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $company->name !!}</a></br></span>
-                    @foreach($projects as $project)
+          <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $company->name !!}</a> ({!! DB::table('projects')
+            ->where('client_id', $company->id)
+            ->groupBy('client_id')
+            ->count()!!})</br></span>
+            <ol>
+              @foreach($projects as $project)
+              @if($project->client_id == $company->id)
+              <li>
+                <span><a href="{!! url('/projects',$project->id)!!}">{!! $project->name !!}</a></span></br>
+              </li>
+              @endif
+              @endforeach
+            </ol>
+            @endforeach
+          </ul>
+        </li>
 
-                      @if($project->client_id == $company->id)
-                      
-                        <span style="padding:0 0 0 20px;" ><a style="padding:0 0 0 20px;" >{!! $project->name !!}</a></span></br>
-                      
-                      @endif
 
-                    @endforeach
-            
-          @endforeach
-        </ul>
-      </li>
-        
 
-       
-        
-          
-         
-        </ul>
-        <div class="clearfix"></div>
-      </div>
-      <!-- END SIDEBAR MENU -->
-    </nav>
+
+
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <!-- END SIDEBAR MENU -->
+  </nav>

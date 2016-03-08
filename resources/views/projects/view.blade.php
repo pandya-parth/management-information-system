@@ -29,8 +29,8 @@
           <div class="clearfix"></div>
         </div>
         <div ng-cloak class="panel-body" >
-        <div> <b> Company: </b>  {!! $project->company->name !!}</div><hr />
-        <div> <b> category: </b>  {!! $project->category->name !!}</div><hr />
+        <div> <b> Company: </b>  <a href="{!! url('/companies',$project->company->id)!!}">{!! $project->company->name !!}</a></div><hr />
+        <div> <b> category: </b>  <a href="{!! url('/project-categories',$project->category->id)!!}">{!! $project->category->name !!}</a></div><hr />
         <div> <b> Description: </b>  {!! $project->description !!}</div><hr />
         <div> <b> Price Types: </b>  {!! $project->price_types !!}</div><hr />
         <div> <b> Status: </b>  {!! $project->status !!}</div><hr />
