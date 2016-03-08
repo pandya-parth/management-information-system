@@ -1,5 +1,5 @@
 angular.module 'mis', [
-		'angularUtils.directives.dirPagination', 'ui.bootstrap', 'cgPrompt', 'angular-country-select','ngResource'	
+		'angularUtils.directives.dirPagination', 'ui.bootstrap', 'cgPrompt', 'angular-country-select'	
 	]
 
 	.config (paginationTemplateProvider)->
