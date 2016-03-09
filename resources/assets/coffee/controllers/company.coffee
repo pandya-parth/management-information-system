@@ -1,5 +1,4 @@
 angular.module 'mis'
-
 	.controller 'companyCtrl', ($scope, company, $timeout,prompt)->
 		$scope.loading = true
 		$scope.currentPage = 1
