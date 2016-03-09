@@ -55,22 +55,16 @@
       <li>
         <ul>
           @foreach($project_categories as $project_cat)
-            
-                    
-
-                    @foreach($projects as $project)
-                      
+                  @foreach($projects as $project)
                       @if($project->category_id == $project_cat->id  && $project->id == Request::segment(2))
-
                       <label style="color:#fff;">Project Name</label></br>
                         <span><a style="padding:0 0 0 20px;font-size:20px;color:#10cfbd;" >{!! $project->name !!}</a></span></br>
                       <label style="color:#fff;">Project Category</label><br>
                         <span><a style="padding:0 0 0 20px;font-size:20px;color:#10cfbd;" >{!! $project_cat->name !!}</a></span></br>
-                      
+                      <label style="color:#fff;">Status</label><br>
+                        <span><a style="padding:0 0 0 20px;font-size:20px;color:#10cfbd;" >{!! uswords($project->status) !!}</a></span></br>
                       @endif
-                      
                     @endforeach
-            
           @endforeach
         </ul>
       </li>   
