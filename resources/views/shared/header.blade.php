@@ -69,6 +69,8 @@
           </li>
           <li><a href="{!! url('/change-password')!!}"><i class="fa-key"></i> Change Password</a>
           </li>
+          <li><a href="{!! url('api/people', Auth::user()->people->id) !!}"><i class="pg-settings_small"></i> Change Profile</a>
+          </li>
           <li><a href="#"><i class="pg-signals"></i> Help</a>
           </li>
           <li class="bg-master-lighter">
