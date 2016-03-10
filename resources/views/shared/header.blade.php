@@ -45,12 +45,13 @@
       <div class="pull-left p-r-10 p-t-10 fs-16 font-heading">
         @if(Auth::check())
         <span class="semi-bold">@if(Auth::user()->people->fname==null)
-            {!! Auth::user()->email!!}
+           {!! Auth::user()->email!!}
           @else
-            {!! ucwords( Auth::user()->people->fname." ".Auth::user()->people->lname)!!}
-          @endif
+           {!! ucwords( Auth::user()->people->fname." ".Auth::user()->people->lname)!!}
+        @endif
         </span>
         @endif
+      
       </div>
       <div class="dropdown pull-right">
         <button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -50,34 +50,44 @@
               <div class="row">
                 <div class="datas people_id_pic">Logo</div>
                 <div class="datas people_name">Name</div>
-                <div class="datas people_designation">Description</div>
-                <div class="datas people_email">Notes</div>
-                <div class="datas people_phone">Due Date</div>
                 <div class="datas people_action">Action</div>
               </div>
             </div>
-            <div class="data_area list_view " dir-paginate="milestone in milestones| orderBy:'-id' | filter:q | itemsPerPage: pageSize" current-page="currentPage" ng-show="milestones.length != 0">
+            <div class="data_area list_view milestone-list" dir-paginate="milestone in milestones| orderBy:'-id' | filter:q | itemsPerPage: pageSize" current-page="currentPage" ng-show="milestones.length != 0">
               <!-- row 1 -->
-              <div ng-cloak class="row border_class">
-                <div class="datas people_id_pic">
-                  <div ng-cloak class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div>
+              <div ng-cloak class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <div class="msupcoming">
+                      <div class="msupcoming-header">{!! $time->format('M Y')!!}</div>
+                        <div class="msbody">
+                        <div class="msbodyday">{!! $time->format('d')!!}</div>
+                        <div class="msbodyweekday">{!! $time->format('l')!!}</div>
+                        </div>
+                  {{-- <div ng-cloak class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div> --}}
                 </div>
-                <div ng-cloak class="datas people_name box_real">
-                  {% milestone.name ? milestone.name : '-' %}
                 </div>
-                <div ng-cloak class="datas people_designation">
-                  {% milestone.description %}
-                </div>
-                <div ng-cloak class="datas people_email">
-                  <a href="hitesh@krishaweb.com" target="_blank">{% milestone.notes %}</a>
-                </div>
-                <div ng-cloak class="datas people_phone">
-                  {% milestone.due_date %}
-                </div>
-                <div class="datas people_action">
+
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <div ng-cloak class="msname">
+                  {{-- {% milestone.name ? milestone.name : '-' %} --}}
+                      <div class="checkbox check-success">
+                        <input type="checkbox" name="billable" ng-model="logtime.billable" id="k">
+                        <label for="k">
+                          <strong>Test 1</strong>
+                          <div class="user_name">Baldev P</div>
+                        </label>
+                      </div>
+                      <div class="milestone-tools">
                   <a class="btn btn-success btn-sm" ng-click="editMilestone(milestone.id)" ><i class="fa fa-edit"></i></a>
                   <a class="btn btn-success btn-sm" ng-click="deleteMilestone(milestone.id)" ><i class="fa fa-trash"></i></a>
+                      </div>
                 </div>
+                </div>                
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 text-right">
+                  <div class="msDaysAway">1 Day Away</div>
+                </div>
+              <div class="clearfix"></div>
               </div>
               <!-- row 1 complete -->
             </div>
@@ -113,9 +123,17 @@
             
             <div class="tab-content">
               <div id="home" class="tab-pane slide-left active">
-                {!! $time->format('M Y')!!}</br>
-                {!! $time->format('d')!!}</br>
-                {!! $time->format('l')!!}
+                <div class="row clearfix">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="msupcoming">
+                      <div class="msupcoming-header">{!! $time->format('M Y')!!}</div>
+                        <div class="msbody">
+                        <div class="msbodyday">{!! $time->format('d')!!}</div>
+                        <div class="msbodyweekday">{!! $time->format('l')!!}</div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group form-group-default">
@@ -140,7 +158,6 @@
                   </div>
                 </div>
 
-
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group form-group-default input-group col-md-12">
@@ -164,10 +181,6 @@
                   </div>
                 </div>
 
-
-
-
-                
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group form-group-default">
@@ -180,6 +193,7 @@
                     <input type="hidden" name="project_id"  ng-model="milestone.project_id">
                   </div>
                 </div>
+
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="checkbox check-success  ">
@@ -188,6 +202,10 @@
                     </div>
                   </div>
                 </div>
+
+                  </div>
+                </div>
+
               </div>
               
             </div>
