@@ -254,3 +254,64 @@ angular.module 'mis'
 				$scope.educations = data[2]
 				$scope.experiences = data[3]
 				angular.element('#addNewAppModal').modal('show')
+
+		$scope.removeEducation = (id, $index)->
+			$scope.options =
+				title: 'Remove Education'
+				message:'Are you sure you want to delete this education detail?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+
+			prompt($scope.options).then( ->					
+				PEOPLE.destroyEducation(id).success (data)->
+					$scope.educations.splice($index, 1)
+					angular.element('body').pgNotification(
+						style: 'flip'
+						message: 'Education deleted successfully.'
+						position: 'top-right'
+						timeout: 2000
+						type: 'success').show()
+			)
+
+		$scope.removeExperience = (id, $index)->
+			$scope.options =
+				title: 'Remove Experience'
+				message:'Are you sure you want to delete this experience detail?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+
+			prompt($scope.options).then( ->					
+				PEOPLE.destroyExperience(id).success (data)->
+					$scope.experiences.splice($index, 1)
+					angular.element('body').pgNotification(
+						style: 'flip'
+						message: 'Experience deleted successfully.'
+						position: 'top-right'
+						timeout: 2000
+						type: 'success').show()
+			) 
+

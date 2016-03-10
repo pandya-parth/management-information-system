@@ -169,40 +169,60 @@ class PeoplesController extends Controller
     public function update(Request $request, $id)
     {
          $people = People::findOrFail($id);
-         # education
-         $input=Input::get('education');
-         foreach($input as $value)
+         $people->update(Input::except(['user','email','education','experience']));
+         $educations = Input::get('education');
+         foreach($educations as $education)
          {
-            if($value['id']=='')
+            dd($education);
+            if($education['id']=='')
             {
-                    $education = new UserEducation($value);
-                    $education->user_id=$people->user_id;
-                    $education->save();
+                $education = new UserEducation;
+                $education->user_id = $people->user_id;
+                $education->qualification = $education['qualification'];
+                $education->college = $education['college'];
+                $education->university = $education['university'];
+                $education->passing_year = $education['passing_year'];
+                $education->percentage = $education['percentage'];
+                $education->save();
             }
             else
             {
-                $up=UserEducation::find($value['id']);
-                $up->update($value);
+                $education=UserEducation::find($education['id']);
+                $education->qualification = $education['qualification'];
+                $education->college = $education['college'];
+                $education->university = $education['university'];
+                $education->passing_year = $education['passing_year'];
+                $education->percentage = $education['percentage'];
+                $education->save();
             }
          }
 
          //Experience
-         $input=Input::get('experience');
-         foreach($input as $value)
+         $experiences=Input::get('experience');
+         foreach($experiences as $experience)
          {
-            if($value['id']=='')
+            if($experience['id']=='')
             {
-                    $experience = new UserExperience($value);
-                    $experience->user_id=$people->user_id;
-                    $experience->save();
+                $experience = new UserExperience;
+                $experience->user_id=$people->user_id;
+                $experience->company_name = $experience['company_name'];
+                $experience->from = $experience['from'];
+                $experience->to = $experience['to'];
+                $experience->salary = $experience['salary'];
+                $experience->reason = $experience['reason'];
+                $experience->save();
             }
             else
             {
-                $up=UserExperience::find($value['id']);
-                $up->update($value);
+                $experience=UserExperience::find($value['id']);
+                $experience->company_name = $experience['company_name'];
+                $experience->from = $experience['from'];
+                $experience->to = $experience['to'];
+                $experience->salary = $experience['salary'];
+                $experience->reason = $experience['reason'];
+                $experience->save();
             }
          }
-         $people->update(Input::all()); 
          return response()->json(['success'=>true]);      
     }
 
@@ -217,6 +237,22 @@ class PeoplesController extends Controller
     {
         $people = User::find($id);
         $people->delete();    
+
+        return response()->json(['success'=>true]);
+    }
+
+    public function educationDestroy($id)
+    {
+        $education = UserEducation::find($id);
+        $education->delete();
+
+        return response()->json(['success'=>true]);
+    }
+
+    public function experienceDestroy($id)
+    {
+        $experience = UserExperience::find($id);
+        $experience->delete();
 
         return response()->json(['success'=>true]);
     }

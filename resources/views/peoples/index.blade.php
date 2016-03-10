@@ -123,6 +123,7 @@
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
                 <form name='people' class='p-t-15' role='form' enctype="multipart/form-data" novalidate >
+                    <input type="hidden" name="user_id" ng-model="people_array.user_id" ng-if="edit==true">
                     <div class="modal-body">
                         <ul class="nav nav-tabs nav-tabs-fillup">
                             <li class="active"><a data-toggle="tab" href="#home">Personal</a></li>
@@ -393,8 +394,8 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && edit==false" ng-click="educations.splice($index, 1);">REMOVE</a>
-                                    <a class="btn btn-danger" tooltip="Delete" ng-if="edit==true" ng-click="educations.splice($index, 1);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && !education.id" ng-click="educations.splice($index, 1);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="education.id" ng-click="removeEducation(education.id, $index);">REMOVE</a>
                                 </div>
                             </div>
                         </div>
@@ -447,8 +448,8 @@
                         </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && edit==false" ng-click="experiences.splice($index, 1);">REMOVE</a>
-                                    <a class="btn btn-danger" tooltip="Delete" ng-if="edit==true" ng-click="experiences.splice($index, 1);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && !experience.id" ng-click="experiences.splice($index, 1);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="experience.id" ng-click="removeExperience(experience.id, $index);">REMOVE</a>
                                 </div>
                             </div>
                         </div>
