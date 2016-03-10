@@ -50,6 +50,7 @@
            {!! ucwords( Auth::user()->people->fname." ".Auth::user()->people->lname)!!}
         @endif
         </span>
+        @endif
       
       </div>
       <div class="dropdown pull-right">

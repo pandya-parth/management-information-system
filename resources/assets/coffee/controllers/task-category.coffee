@@ -74,7 +74,7 @@ angular.module 'mis'
 						style: 'flip'
 						message: 'Record saved successfully.'
 						position: 'top-right'
-						timeout: 2000
+						timeout: 25000
 						type: 'success').show()
 					taskCategory.get().success (getData)->
 						$scope.task_categories = getData
@@ -90,7 +90,7 @@ angular.module 'mis'
 							style: 'flip'
 							message: 'Record updated successfully.'
 							position: 'top-right'
-							timeout: 2000
+							timeout: 10000
 							type: 'success').show()
 						taskCategory.get().success (getData)->
 							$scope.task_categories = getData
