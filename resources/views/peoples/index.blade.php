@@ -394,8 +394,8 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && !education.id" ng-click="educations.splice($index, 1);">REMOVE</a>
-                                    <a class="btn btn-danger" tooltip="Delete" ng-if="education.id" ng-click="removeEducation(education.id, $index);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && !education.id" ng-click="removeEducationClone(education);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="education.id" ng-click="removeEducation(education);">REMOVE</a>
                                 </div>
                             </div>
                         </div>
@@ -414,7 +414,7 @@
                             <div class="col-sm-4">
                             <div class="form-group form-group-default">
                                 <label>Company Name</label>
-                                <input type="text" name="company_name[]" class="form-control" placeholder="Company Name" ng-init="people_array.experience[$index].company_name = experience.company_name" ng-model="people_array.experience[$index].company_name">
+                                <input type="text" name="company_name" class="form-control" placeholder="Company Name" ng-init="people_array.experience[$index].company_name = experience.company_name" ng-model="people_array.experience[$index].company_name">
                                 <input type="hidden" name="id" ng-init="people_array.experience[$index].id = experience.id" ng-model="people_array.experience[$index].id">
                             </div>
                         </div>
@@ -437,18 +437,18 @@
                             <div class="col-sm-4">
                             <div class="form-group form-group-default">
                                 <label>Salary</label>
-                                <input type="text" name="salary[]" class="form-control" placeholder="Salary" ng-init="people_array.experience[$index].salary = experience.salary" ng-model="people_array.experience[$index].salary" >
+                                <input type="text" name="salary" class="form-control" placeholder="Salary" ng-init="people_array.experience[$index].salary = experience.salary" ng-model="people_array.experience[$index].salary" >
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group form-group-default">
                                 <label>Reason </label>
-                                <input type="text" name="reason[]" class="form-control" placeholder="Reason for leaving previous job" ng-init="people_array.experience[$index].reason = experience.reason" ng-model="people_array.experience[$index].reason" >
+                                <input type="text" name="reason" class="form-control" placeholder="Reason for leaving previous job" ng-init="people_array.experience[$index].reason = experience.reason" ng-model="people_array.experience[$index].reason" >
                             </div>
                         </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && !experience.id" ng-click="experiences.splice($index, 1);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && !experience.id" ng-click="removeExperienceClone(experience);">REMOVE</a>
                                     <a class="btn btn-danger" tooltip="Delete" ng-if="experience.id" ng-click="removeExperience(experience.id, $index);">REMOVE</a>
                                 </div>
                             </div>

@@ -171,55 +171,53 @@ class PeoplesController extends Controller
          $people = People::findOrFail($id);
          $people->update(Input::except(['user','email','education','experience']));
          $educations = Input::get('education');
-         foreach($educations as $education)
+         foreach($educations as $e)
          {
-            dd($education);
-            if($education['id']=='')
+            if($e['id']=='')
             {
-                $education = new UserEducation;
+                $education = new UserEducation();
                 $education->user_id = $people->user_id;
-                $education->qualification = $education['qualification'];
-                $education->college = $education['college'];
-                $education->university = $education['university'];
-                $education->passing_year = $education['passing_year'];
-                $education->percentage = $education['percentage'];
+                $education->qualification = $e['qualification'];
+                $education->college = $e['college'];
+                $education->university = $e['university'];
+                $education->passing_year = $e['passing_year'];
+                $education->percentage = $e['percentage'];
                 $education->save();
             }
             else
-            {
-                $education=UserEducation::find($education['id']);
-                $education->qualification = $education['qualification'];
-                $education->college = $education['college'];
-                $education->university = $education['university'];
-                $education->passing_year = $education['passing_year'];
-                $education->percentage = $education['percentage'];
+            {  
+                $education = UserEducation::find($e['id']);
+                $education->qualification = $e['qualification'];
+                $education->college = $e['college'];
+                $education->university = $e['university'];
+                $education->passing_year = $e['passing_year'];
+                $education->percentage = $e['percentage'];
                 $education->save();
             }
          }
 
-         //Experience
          $experiences=Input::get('experience');
-         foreach($experiences as $experience)
+         foreach($experiences as $e)
          {
-            if($experience['id']=='')
+            if($e['id']=='')
             {
-                $experience = new UserExperience;
+                $experience = new UserExperience();
                 $experience->user_id=$people->user_id;
-                $experience->company_name = $experience['company_name'];
-                $experience->from = $experience['from'];
-                $experience->to = $experience['to'];
-                $experience->salary = $experience['salary'];
-                $experience->reason = $experience['reason'];
+                $experience->company_name = $e['company_name'];
+                $experience->from = $e['from'];
+                $experience->to = $e['to'];
+                $experience->salary = $e['salary'];
+                $experience->reason = $e['reason'];
                 $experience->save();
             }
             else
             {
-                $experience=UserExperience::find($value['id']);
-                $experience->company_name = $experience['company_name'];
-                $experience->from = $experience['from'];
-                $experience->to = $experience['to'];
-                $experience->salary = $experience['salary'];
-                $experience->reason = $experience['reason'];
+                $experience=UserExperience::find($e['id']);
+                $experience->company_name = $e['company_name'];
+                $experience->from = $e['from'];
+                $experience->to = $e['to'];
+                $experience->salary = $e['salary'];
+                $experience->reason = $e['reason'];
                 $experience->save();
             }
          }
