@@ -25,6 +25,10 @@ class MilestonesController extends Controller
     { 
         $time = Carbon::now();
         $milestones=Project::find($id);
+        $milestone=Milestone::find($id);
+        $t=$milestone->due_date;
+        
+
         $projects=Project::all();
         $users=People::with('user')->get();
         return view('milestones/index',compact('milestones','projects','id','users','time'));

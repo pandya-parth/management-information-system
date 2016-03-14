@@ -39,6 +39,11 @@
     <li><a href="{!! url('/project-categories') !!}">PC</a></li>
     <li><a href="{!! url('/task-categories') !!}">TC</a></li>
   </ul>
+   <div class=" pull-right">
+          <div class="header-inner">
+            <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs" data-toggle="quickview" data-toggle-element="#quickview"></a>
+          </div>
+        </div>
   <div class=" pull-right">
     <!-- START User Info-->
     <div class="visible-lg visible-md m-t-10">
@@ -86,3 +91,5 @@
     <!-- END User Info-->
   </div>
 </div>
+
+@include('shared.right_sidebar')

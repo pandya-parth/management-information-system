@@ -38,11 +38,18 @@
                     </li>
                     <li class="chat-user categories_p clearfix">
                       <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
+                        <i class="fa fa-angle-down fs-16 dropdown"></i>
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
                           <span class="text-master">B</span>
                           <span class="pill">2222</span>
                           </p>
                       </a>
+                       <ul class="log-indropdown">
+                      <li><a href="#" class="text-master">A1</a></li>
+                      <li><a href="#" class="text-master">A2</a></li>
+                      <li><a href="#" class="text-master">A3</a></li>
+                      <li><a href="#" class="text-master">A4</a></li>
+                      </ul>
                     </li>
                     <li class="chat-user categories_p clearfix">
                       <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">

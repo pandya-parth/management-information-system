@@ -65,8 +65,10 @@
                         <p><h3>No designation found</h3></p>
                     </div>
                 </div>
+                <div class="text-center">
+                    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                </div>
             </div>
-            <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
         </div>
         <!-- END PANEL -->
     </div>

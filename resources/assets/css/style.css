@@ -32,11 +32,13 @@ li.categories_p:hover{
 }
 .pill{
 	float: right;
-	color:#fff;
+	color:#757575;
 	background-color: rgb(43, 48, 59);
 	border-radius: 2px;
-	font-size: 11px;
+	font-size: 12px;
 	padding: 0 3px;
+	background-color: #FFF;
+	font-weight: 700;
 }
 li.categories_active{
 	background-color: #daeffd;
@@ -252,14 +254,17 @@ span.taskBubble{
 	color: #fff;
 	border-radius: 2px;
 	font-size: 12px;
-	line-height: 16px
+	line-height: 16px;
+	vertical-align:top;
+	display: inline-block;
 }
-a.task_name{
+span.task_name{
 	color: rgb(98, 98, 98);
     font-family: 'Segoe UI', Arial, sans-serif;
     font-size: 14px;
     margin: 0 10px 0;
     display: inline-block;
+    vertical-align:top;
 }
 a.timer{
     color: #10CFBD;
@@ -267,7 +272,10 @@ a.timer{
     vertical-align: middle;
 }
 .topTask{
-	padding: 0 0 0 30px;
+	padding: 0 0 0 0;
+}
+.topTask .label-for-check{
+	display: inline-block;
 }
 .topTask .taskInner{
 	display: inline-block;
@@ -396,15 +404,18 @@ form.country .modal-body{
 .add_project_people .row [class*='col-']:last-child{
 	padding: 0;
 }
-.strike{
+/*.strike{
 	text-decoration:line-through;
 }
 .strikethrough:checked + .strikeThis {
   text-decoration: line-through
 }
-.check-with-label:checked + .label-for-check {
+.check-with-label:checked + span.label {
   text-decoration:line-through;
 }
+*/
+
+
 
 .msupcoming{
 	border-radius: 3px;
@@ -470,3 +481,42 @@ form.country .modal-body{
 /*body > .pgn-wrapper{
 	z-index: -999 !important;
 }*/
+.company_sidebar{
+}
+.company_sidebar .list-view{
+	padding: 0 10px;
+}
+.company_sidebar li a{
+	width: 100% !important;
+	margin: 0 !important;
+}
+.company_sidebar li a:hover{
+	background-color: transparent;
+}
+.company_sidebar li a .dropdown{
+	position: absolute;
+	top: 10px;
+	left: 0;
+}
+.text-master{
+	color: #fff !important;
+}
+ul.log-indropdown{
+	padding: 0 0 0 20px;
+}
+.logo{
+	width: 125px;
+	height: 100px;
+	margin: 0;
+}
+.logo img{
+	max-width: 100%;
+}
+.sidebar-header-controls{
+	position: absolute;
+	top: 0;
+	right: 45px;
+}
+.menu-pin .sidebar-header-controls{
+	right: 20px;
+}

@@ -3,4 +3,4 @@ angular.module 'mis', [
 	]
 
 	.config (paginationTemplateProvider)->
-		paginationTemplateProvider.setPath('../html/dirPagination.tpl.html')
+		paginationTemplateProvider.setPath('/html/dirPagination.tpl.html')

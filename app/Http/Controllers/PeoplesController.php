@@ -68,12 +68,12 @@ class PeoplesController extends Controller
             $user->password = Hash::make($pass);
             $user->active = true;
             $user->save();
-            
-            // Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)  ], function($message) {
 
-            //                 $message->to('kajal@krishaweb.net');
-            //                 $message->subject('Thank You');
-            //             });
+            
+            Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)], function($message) {
+                            $message->to(Input::get('email'));
+                            $message->subject('Thank You');
+            });
 
             $user_profile = new People;
             $user_profile->user_id = $user->id;

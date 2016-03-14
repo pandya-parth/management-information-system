@@ -44,13 +44,14 @@
               <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
-                    <span class="taskBubble">hello 2</span>
-                    <div class="taskInner" style="padding: 0 0 0 50px;">
-
+                    
+                    <div class="taskInner">
                       <div class="checkbox check-success">
                         <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
-                        <label for="{% tsk.id %}" class="label-for-check task_name" style="width:700px;">{% tsk.name %}</label>
-                      </div>
+                       
+                        <span class="taskBubble">hello 2</span>
+                        <span class="task_name">11111</span>
+                      </div> 
                     </div>
                     <div class="task_detail" style="padding:0 0 0 50px;">
 
