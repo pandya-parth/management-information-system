@@ -1,3 +1,49 @@
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?59yqxu');
+    src:    url('../fonts/icomoon.eot?59yqxu#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?59yqxu') format('truetype'),
+        url('../fonts/icomoon.woff?59yqxu') format('woff'),
+        url('../fonts/icomoon.svg?59yqxu#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dashboard:before {
+    content: "\e900";
+}
+.icon-department:before {
+    content: "\e901";
+}
+.icon-designation:before {
+    content: "\e902";
+}
+.icon-Milestones:before {
+    content: "\e903";
+}
+.icon-project:before {
+    content: "\e904";
+}
+.icon-task:before {
+    content: "\e905";
+}
+
+
 .button_color{
 	color: #fff;
 	background-color: #F77975;
@@ -493,17 +539,10 @@ form.country .modal-body{
 .company_sidebar li a:hover{
 	background-color: transparent;
 }
-.company_sidebar li a .dropdown{
-	position: absolute;
-	top: 10px;
-	left: 0;
-}
 .text-master{
 	color: #fff !important;
 }
-ul.log-indropdown{
-	padding: 0 0 0 20px;
-}
+
 .logo{
 	width: 125px;
 	height: 100px;
@@ -520,3 +559,26 @@ ul.log-indropdown{
 .menu-pin .sidebar-header-controls{
 	right: 20px;
 }
+.company_sidebar ul li{
+	position: relative;
+}
+
+.company_sidebar ul li ul{
+	display: none;
+}
+
+i.navtogg{
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 12px;
+	left: 0;
+}
+
+i.icon-designation:before{
+	content: '\e902';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+}
+
