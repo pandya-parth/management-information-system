@@ -10,8 +10,7 @@
       <div class="inner">
         <!-- START BREADCRUMB -->
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{!!url('/projects/{% Pro_Id %}')!!}">Overview</a></li>
-          <li><a href="{!!url('/projects/{% Pro_Id %}/tasks')!!}">Task</a></li>
+           <li><a href="{!!url('/projects/{% Pro_Id %}/tasks')!!}">Task</a></li>
           <li><a href="{!! url('/projects/{% Pro_Id %}/milestones') !!}">Milestone</a></li>
           <li><a href="{!! url('/project/{% Pro_Id %}/people') !!}">People</a></li>
         </ul>

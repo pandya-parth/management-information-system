@@ -254,3 +254,77 @@ angular.module 'mis'
 				$scope.educations = data[2]
 				$scope.experiences = data[3]
 				angular.element('#addNewAppModal').modal('show')
+
+		$scope.removeEducationClone = (education)->
+			index = $scope.educations.indexOf(education); 
+			$scope.educations.splice(index, 1)
+			$scope.people_array.education = $scope.educations
+		$scope.removeEducation = (education)->
+			$scope.options =
+				title: 'Remove Education'
+				message:'Are you sure you want to delete this education detail?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+
+			prompt($scope.options).then( ->					
+				PEOPLE.destroyEducation(education.id).success (data)->
+					index = $scope.educations.indexOf(education); 
+					$scope.educations.splice(index, 1)
+					$scope.people_array.education = $scope.educations
+					angular.element('body').pgNotification(
+						style: 'flip'
+						message: 'Education deleted successfully.'
+						position: 'top-right'
+						timeout: 2000
+						type: 'success').show()
+			)
+
+		$scope.removeExperience = (experience)->
+			$scope.options =
+				title: 'Remove Experience'
+				message:'Are you sure you want to delete this experience detail?'
+				input:false
+				label:''
+				value:''
+				values:false
+				buttons:[
+					{
+						label: 'ok'
+						primary: true
+					}
+					{
+						label: 'Cancel'
+						cancel: true
+					}
+				]
+
+			prompt($scope.options).then( ->					
+				PEOPLE.destroyExperience(experience.id).success (data)->
+					index = $scope.experiences.indexOf(experience);
+					$scope.experiences.splice(index, 1)
+					$scope.people_array.experience = $scope.educations
+					angular.element('body').pgNotification(
+						style: 'flip'
+						message: 'Experience deleted successfully.'
+						position: 'top-right'
+						timeout: 2000
+						type: 'success').show()
+			)
+
+		$scope.removeExperienceClone = (experience)->
+			index = $scope.experiences.indexOf(experience); 
+			$scope.experiences.splice(index, 1)
+			$scope.people_array.experience = $scope.experiences 
+

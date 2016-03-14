@@ -42,4 +42,10 @@ angular.module 'mis'
 
 			destroy: (id)->
 				$http.delete('/people/' + id)
+
+			destroyEducation: (id)->
+				$http.delete('/education/' + id)
+
+			destroyExperience: (id)->
+				$http.delete('/experience/' + id)
 		}

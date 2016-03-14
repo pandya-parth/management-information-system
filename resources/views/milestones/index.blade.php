@@ -46,13 +46,7 @@
         </div>
         <div class="panel-body">
           <div ng-cloak class="grid_list_view" ng-show="milestones.length>0">
-            <div class="head list_view border_class">
-              <div class="row">
-                <div class="datas people_id_pic">Logo</div>
-                <div class="datas people_name">Name</div>
-                <div class="datas people_action">Action</div>
-              </div>
-            </div>
+            
             <div class="data_area list_view milestone-list" dir-paginate="milestone in milestones| orderBy:'-id' | filter:q | itemsPerPage: pageSize" current-page="currentPage" ng-show="milestones.length != 0">
               <!-- row 1 -->
               <div ng-cloak class="row">

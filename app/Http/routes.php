@@ -50,6 +50,8 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::post('/logtimes','TasksController@logStore');
     Route::put('/logtimes/{id}','TasksController@logUpdate');
     Route::delete('/logtimes/{id}','TasksController@logDestroy');
+    Route::delete('/education/{id}','PeoplesController@educationDestroy');
+    Route::delete('/experience/{id}','PeoplesController@experienceDestroy');
 
     
 });
