@@ -35,6 +35,7 @@
   </div>
   <!-- END SIDEBAR MENU HEADER-->
   <!-- START SIDEBAR MENU -->
+
   <div class="sidebar-menu">
     <!-- BEGIN SIDEBAR MENU ITEMS-->
     <ul class="menu-items">
@@ -42,31 +43,47 @@
         <a href="{!! url('/') !!}" class="detailed">
           <span class="title">Dashboard</span>
         </a>
-        <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
+        <span class="icon-thumbnail bg-success dashboard-icon"><i class="icon-dashboard"></i></span>
       </li>
       <li>
-        <ul>
-          @foreach($industries as $industry)
-          <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $industry->name !!}</a> ({!! DB::table('companies')
+        <div class="view company_sidebar">
+          <div  class="list-view boreded no-top-border">
+            <div class="list-view-group-container">
+              <ul>
+                @foreach($industries as $industry)
+                <!-- BEGIN Categories List  !-->
+                <li class="chat-user categories_p clearfix">
+                  <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                      <span>{!! strtoupper($industry->name) !!}</span>
+                      <span class="pill">{!! DB::table('companies')
             ->where('industry_id', $industry->id)
             ->groupBy('industry_id')
-            ->count()!!})</br></span>
-            <ol>
-              @foreach($companies as $company)
+            ->count()!!}</span>
+                    </p>
+                  </a>
+                  <i class="fa fa-angle-down fs-16 navtogg"></i>  
+                  <ul>
+                    @foreach($companies as $company)
 
               @if($company->industry_id == $industry->id)
-              <li>
-                <span ><a href="{!! url('/companies',$company->id)!!}" >{!! $company->name !!}</a></span>
-              </li>
-              @endif
+                    <li><a href="{!! url('/companies',$company->id)!!}" >{!! $company->name !!}</a></li>
+                    @endif
 
               @endforeach
-            </ol>
-            @endforeach
-          </ul>
-        </li>     
-      </ul>
-      <div class="clearfix"></div>
-    </div>
+                  </ul>
+                </li>
+                @endforeach
+                <!-- END Categories List  !-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+
+  
     <!-- END SIDEBAR MENU -->
   </nav>

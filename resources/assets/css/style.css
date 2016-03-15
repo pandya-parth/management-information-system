@@ -575,6 +575,27 @@ i.navtogg{
 	left: 0;
 }
 
+.dashboard-icon i.icon-dashboard:before{
+	content: '\e900';
+	font-family: 'icomoon';	
+	font-size: 15px;
+	position: absolute;
+	top: 13px;
+	left: 6px;
+}
+
+.dashboard-icon{
+	position: relative;
+}
+
+i.icon-department:before{
+	content: '\e901';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+
+}
+
 i.icon-designation:before{
 	content: '\e902';
 	font-family: 'icomoon';	
@@ -582,3 +603,20 @@ i.icon-designation:before{
 	color: #10cfbd;
 }
 
+i.icon-Milestones:before{
+	content: '\e903';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+}
+
+i.icon-task:before{
+	content: '\e905';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+}
+.login-wrapper .bg-pic > img{
+	width: 100% !important;
+	height: inherit !important;
+}

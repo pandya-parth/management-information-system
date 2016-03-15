@@ -35,12 +35,14 @@
     @include('shared.company_list')
   @elseif(Request::segment(1) == 'projects' && Request::segment(2) == '')
     @include('shared.project_list')
-  @elseif(Request::segment(1) == 'projects' && Request::segment(3) == '')
-    @include('shared.project_detail')
   @elseif(Request::segment(1) == 'companies')
     @include('shared.industry_list')
   @elseif(Request::segment(1)=='projects' && Request::segment(3) == 'tasks')
-    @include('shared.task_list')
+    @include('shared.project_detail')
+  @elseif(Request::segment(1)=='projects' && Request::segment(3) == 'milestones')
+    @include('shared.milestones')
+  @elseif(Request::segment(1)=='project' && Request::segment(3) == 'people')
+    @include('shared.project_detail')
   @else
     @include('shared.left_sidebar')
   @endif

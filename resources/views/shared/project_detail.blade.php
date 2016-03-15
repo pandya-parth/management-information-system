@@ -25,7 +25,9 @@
   <!-- END SIDEBAR MENU TOP TRAY CONTENT-->
   <!-- BEGIN SIDEBAR MENU HEADER-->
   <div class="sidebar-header">
-    <img src="{!! asset('img/logo_white.png')!!}" alt="logo" class="brand" data-src="{!! asset('img/logo_white.png')!!}" data-src-retina="{!! asset('img/logo_white_2x.png')!!}" width="78" height="22">
+    <div class="logo">
+      <img src="{!! asset('img/logo_white.png')!!}" alt="logo" class="brand" data-src="{!! asset('img/logo_white.png')!!}" data-src-retina="{!! asset('img/logo_white_2x.png')!!}">
+    </div>
     <div class="sidebar-header-controls">
       <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
       </button>
@@ -42,38 +44,56 @@
         <a href="{!! url('/') !!}" class="detailed">
           <span class="title">Dashboard</span>
         </a>
-        <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
+        <span class="icon-thumbnail bg-success dashboard-icon"><i class="icon-dashboard"></i></span>
       </li>
-
-      
-        <li class="">
-                <p style="font-size:20px;padding:0 0 0 30px;color:#fff;"><span> Project Detail </span></p><hr/>
-              </li>
-
-              
-
       <li>
-        <ul>
-          @foreach($project_categories as $project_cat)
-                  @foreach($projects as $project)
-                      @if($project->category_id == $project_cat->id  && $project->id == Request::segment(2))
-                      <label style="color:#fff;">Project Name</label></br>
-                        <span><a style="padding:0 0 0 20px;font-size:20px;color:#10cfbd;" >{!! $project->name !!}</a></span></br>
-                      <label style="color:#fff;">Project Category</label><br>
-                        <span><a style="padding:0 0 0 20px;font-size:20px;color:#10cfbd;" >{!! $project_cat->name !!}</a></span></br>
-                      <label style="color:#fff;">Status</label><br>
-                        <span><a style="padding:0 0 0 20px;font-size:20px;color:#10cfbd;" >{!! uswords($project->status) !!}</a></span></br>
-                      @endif
-                    @endforeach
+        <div class="view company_sidebar">
+          <div  class="list-view boreded no-top-border">
+            <div class="list-view-group-container">
+              <ul>
+                @foreach($project_categories as $project_cat)
+                @foreach($projects as $project)
+                @if($project->category_id == $project_cat->id  && $project->id == Request::segment(2))
+                <!-- BEGIN Categories List  !-->
+                <li class="chat-user categories_p clearfix">
+                  <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                      <span>{!! strtoupper($project->name) !!}</span></br>
+                                            
+                    </p>
+                  </a>
+                  
+                  
+                </li>
+                <li class="chat-user categories_p clearfix">
+                  <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                <span>{!! ucwords($project_cat->name) !!}</span></br>
+                </p>
+                  </a>
+                  
+                  
+                </li>
+                <li class="chat-user categories_p clearfix">
+                  <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                      <span>{!! ucwords($project->status) !!}</span></br>
+                      </p>
+                  </a>
+                  
+                  
+                </li>
+                @endif
+                @endforeach
           @endforeach
-        </ul>
-      </li>   
-       
-        
-          
-         
-        </ul>
-        <div class="clearfix"></div>
-      </div>
-      <!-- END SIDEBAR MENU -->
-    </nav>
+                <!-- END Categories List  !-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+  <!-- END SIDEBAR MENU -->
+</nav>

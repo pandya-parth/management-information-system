@@ -27,8 +27,8 @@ class MilestonesController extends Controller
         $projects=Project::all();
         $users=People::with('user')->get();
         $milestone = Milestone::find($id);
-        $date = $milestone->due_date;
-        return view('milestones/index',compact('projects','id','users','time','milestone','date'));
+
+        return view('milestones/index',compact('projects','id','users','time','milestone'));
     }
 
 

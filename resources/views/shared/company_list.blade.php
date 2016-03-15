@@ -26,8 +26,8 @@
   <!-- BEGIN SIDEBAR MENU HEADER-->
   <div class="sidebar-header">
     <div class="logo">
-    <img src="{!! asset('img/logo_white.png')!!}" alt="logo" class="brand" data-src="{!! asset('img/logo_white.png')!!}" data-src-retina="{!! asset('img/logo_white_2x.png')!!}">
-  </div>
+      <img src="{!! asset('img/logo_white.png')!!}" alt="logo" class="brand" data-src="{!! asset('img/logo_white.png')!!}" data-src-retina="{!! asset('img/logo_white_2x.png')!!}">
+    </div>
     <div class="sidebar-header-controls">
       <button type="button" class="btn btn-xs sidebar-slide-toggle btn-link m-l-20" data-pages-toggle="#appMenu"><i class="fa fa-angle-down fs-16"></i>
       </button>
@@ -44,121 +44,43 @@
         <a href="{!! url('/') !!}" class="detailed">
           <span class="title">Dashboard</span>
         </a>
-        <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
+        <span class="icon-thumbnail bg-success dashboard-icon"><i class="icon-dashboard"></i></span>
       </li>
       <li>
-          <div class="view company_sidebar">
-              <div  class="list-view boreded no-top-border">
-                <div class="list-view-group-container">
-
+        <div class="view company_sidebar">
+          <div  class="list-view boreded no-top-border">
+            <div class="list-view-group-container">
+              <ul>
+                @foreach($companies as $company)
+                <!-- BEGIN Categories List  !-->
+                <li class="chat-user categories_p clearfix">
+                  <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                      <span>{!! strtoupper($company->name) !!}</span>
+                      <span class="pill">{!! DB::table('projects')
+                      ->where('client_id', $company->id)
+                      ->groupBy('client_id')
+                      ->count()!!}</span>
+                    </p>
+                  </a>
+                  <i class="fa fa-angle-down fs-16 navtogg"></i>  
                   <ul>
-                    <!-- BEGIN Categories List  !-->
-                    <li class="chat-user categories_p clearfix">
-
-                      <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                      
-                        <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                          <span class="text-master">A</span>
-                          <span class="pill">1111</span>
-                          </p>
-                      </a>
-                    <i class="fa fa-angle-down fs-16 navtogg"></i>  
-                    <ul>
-                      <li><a href="#" class="text-master">A1</a></li>
-                      <li><a href="#" class="text-master">A2</a></li>
-                      <li><a href="#" class="text-master">A3</a></li>
-                      <li><a href="#" class="text-master">A4</a></li>
-                    </ul>
-                    </li>
-                    <li class="chat-user categories_p clearfix">
-                      <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                        <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                          <span class="text-master">B</span>
-                          <span class="pill">2222</span>
-                          </p>
-                      </a>
-                      <i class="fa fa-angle-down fs-16 navtogg"></i>
-                      <ul>
-                      <li><a href="#" class="text-master">A1</a></li>
-                      <li><a href="#" class="text-master">A2</a></li>
-                      <li><a href="#" class="text-master">A3</a></li>
-                      <li><a href="#" class="text-master">A4</a></li>
-                    </ul>
-                    </li>
-                    <li class="chat-user categories_p clearfix">
-                      <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                        <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                          <span class="text-master">C</span>
-                          <span class="pill">3333</span>
-                          </p>
-                      </a>
-                      <i class="fa fa-angle-down fs-16 navtogg"></i>
-                      <ul>
-                      <li><a href="#" class="text-master">A1</a></li>
-                      <li><a href="#" class="text-master">A2</a></li>
-                      <li><a href="#" class="text-master">A3</a></li>
-                      <li><a href="#" class="text-master">A4</a></li>
-                    </ul>                      
-                    </li>
-                    <li class="chat-user categories_p clearfix">
-                      <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                        <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                          <span class="text-master">D</span>
-                          <span class="pill">4444</span>
-                          </p>
-                      </a>
-                    </li>
-                    <li class="chat-user categories_p clearfix">
-                      <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                        <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                          <span class="text-master">E</span>
-                          <span class="pill">5555</span>
-                          </p>
-                      </a>
-                    </li>
-                    <li class="chat-user categories_p clearfix">
-                      <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                        <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                          <span class="text-master">F</span>
-                          <span class="pill">6666</span>
-                          </p>
-                      </a>
-                    </li>
-                    <!-- END Categories List  !-->
+                    @foreach($projects as $project)
+                    @if($project->client_id == $company->id)
+                    <li><a href="{!! url('/projects',$project->id)!!}">{!! ucwords($project->name) !!}</a></li>
+                    @endif
+                    @endforeach
                   </ul>
-                </div>
-                
-              </div>
+                </li>
+                @endforeach
+                <!-- END Categories List  !-->
+              </ul>
             </div>
-
-
-
-       {{-- <ul>
-          @foreach($companies as $company)
-          <span><i class="fa fa-book"></i><a style="padding:0 0 0 20px;" >{!! $company->name !!}</a> ({!! DB::table('projects')
-            ->where('client_id', $company->id)
-            ->groupBy('client_id')
-            ->count()!!})</br></span>
-            <ol>
-              @foreach($projects as $project)
-              @if($project->client_id == $company->id)
-              <li>
-                <span><a href="{!! url('/projects',$project->id)!!}">{!! $project->name !!}</a></span></br>
-              </li>
-              @endif
-              @endforeach
-            </ol>
-            @endforeach
-          </ul>
-          --}}
-        </li>
-
-
-
-
-
-      </ul>
-      <div class="clearfix"></div>
-    </div>
-    <!-- END SIDEBAR MENU -->
-  </nav>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+  <!-- END SIDEBAR MENU -->
+</nav>

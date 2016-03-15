@@ -8,7 +8,6 @@
       <div class="inner">
         <!-- START BREADCRUMB -->
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{!!url('/projects/{% Pro_Id %}')!!}">Overview</a></li>
           <li><a href="{!!url('/projects/{% Pro_Id %}/tasks')!!}">Task</a></li>
           <li><a href="{!! url('/projects/{% Pro_Id %}/milestones') !!}">Milestone</a></li>
           <li><a href="{!! url('/project/{% Pro_Id %}/people') !!}">People</a></li>
@@ -51,14 +50,13 @@
               <!-- row 1 -->
               <div ng-cloak class="row">
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                    <div class="msupcoming">
-                      <div class="msupcoming-header">{!! $time->format('M Y')!!}</div>
-                        <div class="msbody">
-                        <div class="msbodyday">{!! $time->format('d')!!}</div>
-                        <div class="msbodyweekday">{!! $time->format('l')!!}</div>
-                        </div>
-                  {{-- <div ng-cloak class="pic"><img src="{!! asset('img/noPhoto.png') !!}" /></div> --}}
-                </div>
+                  <div class="msupcoming">
+                    <div class="msupcoming-header">{!! $time->format('M Y')!!}</div>
+                    <div class="msbody">
+                      <div class="msbodyday">{!! $time->format('d')!!}</div>
+                      <div class="msbodyweekday">{!! $time->format('l')!!}</div>
+                    </div>
+                  </div>
                 </div>
 
                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
@@ -88,7 +86,7 @@
           </div>
           <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="milestones.length==0">
             <div style="text-align:center;">
-              <img src="{!! asset('img/noMilestone1.png') !!}" style=" width:100px; height:100px; " />
+              <i class="icon-Milestones"></i>
               <p><h3>No milestone found</h3></p>
             </div>
           </div>

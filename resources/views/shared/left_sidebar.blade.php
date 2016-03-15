@@ -42,7 +42,7 @@
         <a href="{!! url('/') !!}" class="detailed">
           <span class="title">Dashboard</span>
         </a>
-        <span class="icon-thumbnail bg-success"><i class="pg-home"></i></span>
+        <span class="icon-thumbnail bg-success dashboard-icon"><i class="icon-dashboard"></i></span>
       </li>
 
       

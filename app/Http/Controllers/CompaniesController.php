@@ -56,7 +56,7 @@ class CompaniesController extends Controller
         $companies->logo = Input::get('logo');
         $companies->website = Input::get('website');
         $companies->email = Input::get('email');
-        $companies->industry_id = Input::get('industry');
+        $companies->industry_id = Input::get('industry_id');
         $companies->phone = Input::get('phone');
         $companies->fax = Input::get('fax');
         $companies->adrs1 = Input::get('adrs1');

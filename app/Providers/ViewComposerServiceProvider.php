@@ -10,6 +10,8 @@ use App\Project;
 use App\TaskCategory;
 use App\ProjectCategory;
 use App\Industry;
+use App\Milestone;
+use Carbon\Carbon;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -45,10 +47,11 @@ class ViewComposerServiceProvider extends ServiceProvider
             $view->with('project_categories', ProjectCategory::all());
         });
 
-        view()->composer('shared.task_list', function($view)
+        view()->composer('shared.milestones', function($view)
         {
-            $view->with('task_categories', TaskCategory::all());
-            $view->with('tasks', Task::all());
+            $view->with('projects', Project::all());
+            $view->with('project_categories', ProjectCategory::all());
+            $view->with('milestones', Carbon::now());
         });
 
         view()->composer('shared.left_sidebar', function($view)
