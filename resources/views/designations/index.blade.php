@@ -59,9 +59,9 @@
                         <!-- row 1 complete -->
                     </div>
                 </div>
-                <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="designations.length==0">
+                <div ng-cloak class="col-md-12 sm-p-t-15"  ng-if="designations.length==0">
                     <div style="text-align:center;">
-                        <img src="{!! asset('img/noDesignation.png') !!}" />
+                        <i class="icon-designation"></i>
                         <p><h3>No designation found</h3></p>
                     </div>
                 </div>

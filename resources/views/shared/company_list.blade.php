@@ -50,19 +50,20 @@
           <div class="view company_sidebar">
               <div  class="list-view boreded no-top-border">
                 <div class="list-view-group-container">
-                 
+
                   <ul>
                     <!-- BEGIN Categories List  !-->
                     <li class="chat-user categories_p clearfix">
 
                       <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                      <i class="fa fa-angle-down fs-16 dropdown"></i>
+                      
                         <p class="p-l-10 col-xs-height col-middle col-xs-12">
                           <span class="text-master">A</span>
                           <span class="pill">1111</span>
                           </p>
                       </a>
-                    <ul class="log-indropdown">
+                    <i class="fa fa-angle-down fs-16 navtogg"></i>  
+                    <ul>
                       <li><a href="#" class="text-master">A1</a></li>
                       <li><a href="#" class="text-master">A2</a></li>
                       <li><a href="#" class="text-master">A3</a></li>
@@ -76,6 +77,13 @@
                           <span class="pill">2222</span>
                           </p>
                       </a>
+                      <i class="fa fa-angle-down fs-16 navtogg"></i>
+                      <ul>
+                      <li><a href="#" class="text-master">A1</a></li>
+                      <li><a href="#" class="text-master">A2</a></li>
+                      <li><a href="#" class="text-master">A3</a></li>
+                      <li><a href="#" class="text-master">A4</a></li>
+                    </ul>
                     </li>
                     <li class="chat-user categories_p clearfix">
                       <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
@@ -84,6 +92,13 @@
                           <span class="pill">3333</span>
                           </p>
                       </a>
+                      <i class="fa fa-angle-down fs-16 navtogg"></i>
+                      <ul>
+                      <li><a href="#" class="text-master">A1</a></li>
+                      <li><a href="#" class="text-master">A2</a></li>
+                      <li><a href="#" class="text-master">A3</a></li>
+                      <li><a href="#" class="text-master">A4</a></li>
+                    </ul>                      
                     </li>
                     <li class="chat-user categories_p clearfix">
                       <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">

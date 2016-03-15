@@ -82,12 +82,16 @@
         e.stopPropagation();
     })
 
-$(".dropdown").click(function() {          
-    $(".log-indropdown").slideToggle('slow');    
-    $(this).toggleClass('active');  
-});
-
+// $(".").click(function() {          
+//     $(".log-indropdown").slideToggle('slow');    
+//     $(this).toggleClass('active');  
+// });
  
+  $('.navtogg').click(function(){
+    $(this).next('ul').slideToggle();
+  });
+  
+
 $('.btn-list-action').click(function(){
     $('.grid_list_view .data_area').addClass('list_view');
     $('.grid_list_view .data_area').removeClass('grid_view');
