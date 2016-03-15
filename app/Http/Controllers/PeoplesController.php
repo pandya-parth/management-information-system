@@ -101,24 +101,64 @@ class PeoplesController extends Controller
             $user_profile->linkedin = Input::get('linkedin');
             $user_profile->twitter = Input::get('twitter');
             $user_profile->website = Input::get('website');
-            $user_profile->save();
+            $user_profile->save(Input::except(['user','email','education','experience']));
             
-            $input= Input::get('education');
-             
-                foreach ($input as $key => $value) {
-                    $education = new UserEducation($value);
-                    $education->user_id=$user->id;
-                    $education->save();
-                }
-
-            $input= Input::get('experience');
-             
-                foreach ($input as $key => $value) {
-                    $experience = new UserExperience($value);
-                    $experience->user_id=$user->id;
-                    $experience->save();
-                }
-            
+            $educations = Input::get('education');
+            if (is_array($educations) || is_object($educations))
+{
+                 foreach($educations as $e)
+                 {
+                    if($e['id']=='')
+                    {
+                        $education = new UserEducation();
+                        $education->user_id = $user->id;
+                        $education->qualification = $e['qualification'];
+                        $education->college = $e['college'];
+                        $education->university = $e['university'];
+                        $education->passing_year = $e['passing_year'];
+                        $education->percentage = $e['percentage'];
+                        $education->save();
+                    }
+                    else
+                    {  
+                        $education = UserEducation::find($e['id']);
+                        $education->qualification = $e['qualification'];
+                        $education->college = $e['college'];
+                        $education->university = $e['university'];
+                        $education->passing_year = $e['passing_year'];
+                        $education->percentage = $e['percentage'];
+                        $education->save();
+                    }
+                 }
+}
+            $experiences=Input::get('experience');
+            if (is_array($experiences) || is_object($experiences))
+{
+                 foreach($experiences as $e)
+                 {
+                    if($e['id']=='')
+                    {
+                        $experience = new UserExperience();
+                        $experience->user_id=$user->id;
+                        $experience->company_name = $e['company_name'];
+                        $experience->from = $e['from'];
+                        $experience->to = $e['to'];
+                        $experience->salary = $e['salary'];
+                        $experience->reason = $e['reason'];
+                        $experience->save();
+                    }
+                    else
+                    {
+                        $experience=UserExperience::find($e['id']);
+                        $experience->company_name = $e['company_name'];
+                        $experience->from = $e['from'];
+                        $experience->to = $e['to'];
+                        $experience->salary = $e['salary'];
+                        $experience->reason = $e['reason'];
+                        $experience->save();
+                    }
+                 }
+            }
             return response()->json(['success'=>true]);
     }
 
@@ -171,6 +211,8 @@ class PeoplesController extends Controller
          $people = People::findOrFail($id);
          $people->update(Input::except(['user','email','education','experience']));
          $educations = Input::get('education');
+         if (is_array($educations) || is_object($educations))
+{
          foreach($educations as $e)
          {
             if($e['id']=='')
@@ -195,9 +237,11 @@ class PeoplesController extends Controller
                 $education->save();
             }
          }
-
+}
          $experiences=Input::get('experience');
-         foreach($experiences as $e)
+         if (is_array($experiences) || is_object($experiences))
+{
+    foreach($experiences as $e)
          {
             if($e['id']=='')
             {
@@ -220,6 +264,7 @@ class PeoplesController extends Controller
                 $experience->reason = $e['reason'];
                 $experience->save();
             }
+         }
          }
          return response()->json(['success'=>true]);      
     }
