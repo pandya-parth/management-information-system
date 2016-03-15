@@ -72,9 +72,9 @@
                                     {% company.phone %}
                                 </div>
                                 <div class="datas people_action">
-                                    <a href="#" class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
+                                    <a class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
                                     <a href="{!!url('/companies/{%company.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
-                                    <a href="#" class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
+                                    <a class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
                                 </div>
                             </div>
                             <!-- row 1 complete -->
@@ -82,7 +82,7 @@
                     </div>
                     <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="companies.length==0">
                         <div style="text-align:center;">
-                            <img src="{!! asset('img/noCompany.png') !!}" style=" width:100px; height:100px; " />
+                            <i class="icon-company"></i>
                             <p><h3>No company found</h3></p>
                         </div>
                     </div>

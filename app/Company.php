@@ -29,7 +29,7 @@ class Company extends Model
 			if ($file == '') 
 			{
 				$this->deleteFile();
-				$this->attributes['logo'] = "";
+				$this->attributes['logo'] = NULL;
 
 			}
 		}

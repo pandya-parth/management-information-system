@@ -64,7 +64,7 @@
                 </div>
                 <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="task_categories.length==0">
                     <div style="text-align:center;">
-                        <i class="icon-task"></i>
+                        <i class="icon-tasklist"></i>
                         <p><h3>No task category found</h3></p>
                     </div>
                 </div>

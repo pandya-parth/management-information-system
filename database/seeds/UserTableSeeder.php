@@ -32,31 +32,31 @@ class UserTableSeeder extends Seeder
         	  'active'=>1,
         	]);
         User::create(
-            ['email' => 'kajal@gmail.com',
+            ['email' => 'one@gmail.com',
               'password'=>bcrypt('admin123'),
               'roles'=>'admin',
               'active'=>1,
             ]);
         User::create(
-            ['email' => 'baldev@gmail.com',
+            ['email' => 'two@gmail.com',
               'password'=>bcrypt('admin123'),
               'roles'=>'admin',
               'active'=>1,
             ]);
         User::create(
-            ['email' => 'ravi@gmail.com',
+            ['email' => 'three@gmail.com',
               'password'=>bcrypt('admin123'),
               'roles'=>'admin',
               'active'=>1,
             ]);
         User::create(
-            ['email' => 'nirav@gmail.com',
+            ['email' => 'four@gmail.com',
               'password'=>bcrypt('admin123'),
               'roles'=>'admin',
               'active'=>1,
             ]);
         User::create(
-            ['email' => 'bijal@gmail.com',
+            ['email' => 'five@gmail.com',
               'password'=>bcrypt('admin123'),
               'roles'=>'admin',
               'active'=>1,
@@ -90,8 +90,8 @@ class UserTableSeeder extends Seeder
   
         People::create(
           ['user_id' =>2,
-            'fname' =>'kajal',
-            'lname' =>'kanzaria',
+            'fname' =>'one',
+            'lname' =>'one',
             'mobile' =>'544454545',
             'phone' =>'5424545454',
             'adrs1' =>'sdsdsdsd',
@@ -113,8 +113,8 @@ class UserTableSeeder extends Seeder
 
         People::create(
           ['user_id' =>3,
-            'fname' =>'baldev',
-            'lname' =>'parmar',
+            'fname' =>'two',
+            'lname' =>'two',
             'mobile' =>'544454545',
             'phone' =>'5424545454',
             'adrs1' =>'sdsdsdsd',
@@ -136,8 +136,8 @@ class UserTableSeeder extends Seeder
 
         People::create(
           ['user_id' =>4,
-            'fname' =>'ravi',
-            'lname' =>'mehta',
+            'fname' =>'three',
+            'lname' =>'three',
             'mobile' =>'544454545',
             'phone' =>'5424545454',
             'adrs1' =>'sdsdsdsd',
@@ -159,8 +159,8 @@ class UserTableSeeder extends Seeder
 
         People::create(
           ['user_id' =>5,
-            'fname' =>'nirav',
-            'lname' =>'panchal',
+            'fname' =>'four',
+            'lname' =>'four',
             'mobile' =>'544454545',
             'phone' =>'5424545454',
             'adrs1' =>'sdsdsdsd',
@@ -182,8 +182,8 @@ class UserTableSeeder extends Seeder
 
         People::create(
           ['user_id' =>6,
-            'fname' =>'bijal',
-            'lname' =>'gajjar',
+            'fname' =>'five',
+            'lname' =>'five',
             'mobile' =>'544454545',
             'phone' =>'5424545454',
             'adrs1' =>'sdsdsdsd',
@@ -358,7 +358,7 @@ class UserTableSeeder extends Seeder
   
         Company::create([  'name' => 'company1',
                         'website' => 'http://www.google.com',
-                        'email' => 'kajal@gmail.com',
+                        'email' => 'company1@gmail.com',
                         'industry_id' => '1',
                         'phone' => '3353213123',
                         'fax' => '332323',
@@ -371,7 +371,7 @@ class UserTableSeeder extends Seeder
 
         Company::create([  'name' => 'company2',
                         'website' => 'http://www.google.com',
-                        'email' => 'bldev@gmail.com',
+                        'email' => 'company2@gmail.com',
                         'industry_id' => '2',
                         'phone' => '3353213123',
                         'fax' => '332323',
@@ -384,7 +384,7 @@ class UserTableSeeder extends Seeder
 
         Company::create([  'name' => 'company3',
                         'website' => 'http://www.google.com',
-                        'email' => 'ravi@gmail.com',
+                        'email' => 'company3@gmail.com',
                         'industry_id' => '3',
                         'phone' => '3353213123',
                         'fax' => '332323',
@@ -397,7 +397,7 @@ class UserTableSeeder extends Seeder
 
         Company::create([  'name' => 'company4',
                         'website' => 'http://www.google.com',
-                        'email' => 'nirav@gmail.com',
+                        'email' => 'company4@gmail.com',
                         'industry_id' => '4',
                         'phone' => '3353213123',
                         'fax' => '332323',
@@ -410,7 +410,7 @@ class UserTableSeeder extends Seeder
 
         Company::create([  'name' => 'company5',
                         'website' => 'http://www.google.com',
-                        'email' => 'bijal@gmail.com',
+                        'email' => 'company5@gmail.com',
                         'industry_id' => '5',
                         'phone' => '3353213123',
                         'fax' => '332323',

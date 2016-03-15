@@ -61,7 +61,7 @@
                 </div>
                 <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="industries.length==0">
                     <div style="text-align:center;">
-                        <img src="{!! asset('img/noIndustry.png') !!}" style="width:100px;" />
+                        <i class="icon-industry"></i>
                         <p><h3>No industry found</h3></p>
                     </div>
                 </div>

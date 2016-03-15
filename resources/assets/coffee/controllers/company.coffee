@@ -11,6 +11,7 @@ angular.module 'mis'
 				flash_swf_url : "../plupload/Moxie.swf "
 				silverlight_xap_url : "../plupload/Moxie.xap "
 				multi_selection: false,
+				max_file_size: '1mb',
 				init:
 					PostInit: ->
 						angular.element('#filelist').innerHTML = ''

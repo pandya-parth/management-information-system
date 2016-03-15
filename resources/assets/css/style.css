@@ -24,6 +24,21 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-company:before {
+    content: "\e906";
+}
+.icon-industry:before {
+    content: "\e907";
+}
+.icon-people:before {
+    content: "\e908";
+}
+.icon-projectcategory:before {
+    content: "\e909";
+}
+.icon-tasklist:before {
+    content: "\e90a";
+}
 .icon-dashboard:before {
     content: "\e900";
 }
@@ -610,8 +625,50 @@ i.icon-Milestones:before{
 	color: #10cfbd;
 }
 
+i.icon-project:before{
+	content: '\e904';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+}
+
 i.icon-task:before{
 	content: '\e905';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+}
+
+i.icon-company:before{
+	content: '\e906';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+}
+
+i.icon-industry:before{
+	content: '\e907';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+}
+
+i.icon-people:before{
+	content: '\e908';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+}
+
+i.icon-projectcategory:before{
+	content: '\e909';
+	font-family: 'icomoon';	
+	font-size: 100px;
+	color: #10cfbd;
+}
+
+i.icon-tasklist:before{
+	content: '\e90a';
 	font-family: 'icomoon';	
 	font-size: 100px;
 	color: #10cfbd;

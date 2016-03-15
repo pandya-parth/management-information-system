@@ -101,7 +101,7 @@
                         </div>
                         <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="peoples.length==0">
                             <div style="text-align:center;">
-                                <img src="{!! asset('img/noPeople.png') !!}" />
+                                <i class="icon-people"></i>
                                 <p><h3>No match found</h3></p>
                             </div>
                         </div>
