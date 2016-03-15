@@ -7,10 +7,9 @@
         // Replace onSearchSubmit() and onKeyEnter() with 
         // your logic to perform a search and display results
 
-        $('#birth-date,#joining-date,#people_from,#people_to,#start-date,#end-date,#task-start-date,#task-due-date,#milestone-due-date,#log-date').datepicker({
-            autoclose: true
-        });
-        $('#logTimer').timepicker();
+        // $('#birth-date,#joining-date,#people_from,#people_to,#start-date,#end-date,#task-start-date,#task-due-date,#milestone-due-date,#log-date').datepicker({
+        //     autoclose: true
+        // });
         $('pgn-warpper').css('display:none');
         $(".list-view-wrapper").scrollbar();
         $('[data-pages="search"]').search({
@@ -76,10 +75,6 @@
         $('.task_category').click(function() {
             $('#addNewAppModal').modal('show');
         });
-
-    $('#timepicker1').timepicker({
-        template: 'modal'
-    });
 
     $('.clockpicker').clockpicker();
     
