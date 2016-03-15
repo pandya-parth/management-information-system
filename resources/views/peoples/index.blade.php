@@ -421,14 +421,14 @@
                         <div class="col-sm-4">
                             <div class="form-group form-group-default input-group col-md-12">
                                 <label>From</label>
-                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-init="people_array.experience[$index].from = experience.from" ng-model="people_array.experience[$index].from">
+                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-datepicker ng-options="datepickerOptions" ng-init="people_array.experience[$index].from = experience.from" ng-model="people_array.experience[$index].from">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group form-group-default input-group col-md-12">
                                 <label>To</label>
-                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-init="people_array.experience[$index].to = experience.to" ng-model="people_array.experience[$index].to">
+                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-datepicker ng-options="datepickerOptions" ng-init="people_array.experience[$index].to = experience.to" ng-model="people_array.experience[$index].to">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>

@@ -34,8 +34,8 @@
     "angular-utils-pagination":"latest",
     "angular-prompt":"latest",
     "underscore": "1.8.3 - 2",
-    "angular-country-select":"latest"
-    
+    "angular-country-select":"latest",
+    "angular-bootstrap-datepicker":"latest"
   },
   "version": "3.3.6",
   "_release": "3.3.6",

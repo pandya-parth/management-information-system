@@ -22,6 +22,11 @@ angular.module 'mis'
 			reason: ''
 		]
 
+		$scope.datepickerOptions =
+		    format: 'yyyy-mm-dd'
+		    autoclose: true
+		    weekStart: 0
+
 		$scope.newItem = ($event) ->
 			$scope.educations.push(
 				qualification: ''
