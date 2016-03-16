@@ -59,35 +59,51 @@
                   <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
                     <p class="p-l-10 col-xs-height col-middle col-xs-12">
                       <span>{!! strtoupper($project->name) !!}</span></br>
-                                            
                     </p>
                   </a>
-                  
-                  
                 </li>
                 <li class="chat-user categories_p clearfix">
                   <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
                     <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                <span>{!! ucwords($project_cat->name) !!}</span></br>
-                </p>
+                      <span>{!! ucwords($project_cat->name) !!}</span></br>
+                    </p>
                   </a>
-                  
-                  
                 </li>
                 <li class="chat-user categories_p clearfix">
                   <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
                     <p class="p-l-10 col-xs-height col-middle col-xs-12">
                       <span>{!! ucwords($project->status) !!}</span></br>
-                      </p>
+                    </p>
                   </a>
-                  
-                  
+                </li>
+                <li class="chat-user categories_p clearfix">
+                  <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                      <span class="sidebar-people">PEOPLE</span>
+                    </p>
+                  </a>
                 </li>
                 @endif
                 @endforeach
-          @endforeach
+                @endforeach
                 <!-- END Categories List  !-->
               </ul>
+                <div class="people-img-list">
+                  <ol>
+                      <li class="clearfix">
+                        <span>Hingrajiya Dilipbhai Frontend</span>
+                        <div class="pic"><img src={!! asset("img/noIndustry.png") !!} /></div>
+                      </li>
+                      <li class="clearfix">
+                        <span>Hingrajiya Dilipbhai Frontend</span>
+                        <div class="pic"><img src={!! asset("img/noIndustry.png") !!} /></div>
+                      </li>
+                      <li class="clearfix">
+                        <span>Hingrajiya Dilipbhai Frontend</span>
+                        <div class="pic"><img src={!! asset("img/noIndustry.png") !!} /></div>
+                      </li>
+                  </ol>
+                </div>              
             </div>
           </div>
         </div>

@@ -58,7 +58,6 @@
     content: "\e905";
 }
 
-
 .button_color{
 	color: #fff;
 	background-color: #F77975;
@@ -177,32 +176,7 @@ ul.log-indropdown{
 .people_id_pic{}
 .pic{display: inline-block; vertical-align: middle; margin-right:10px;}
 .pic_id{display: inline-block; margin-bottom: 10px}
-
-.modal-body .pic img{
-	border-radius: 100px;
-	width: 100px;
-	height: 100px;
-	border: 1px solid #d1d1d1
-}
-.pic img{
-	border-radius: 100px;
-	width: 40px;
-	height: 40px;
-	border: 1px solid #d1d1d1
-}
-.modal-body .checkbox label::after{
-	left: 0;
-}
-.modal-body .checkbox.check-success{
-	position: absolute;
-	top:0;
-	left: 20px;
-}
-.modal-body .add_project_people li{
-	float: none;
-	display: inline-block;
-	width: 16%;
-}
+.pic img{border-radius: 100px; width: 40px; height: 40px; border: 1px solid #d1d1d1}
 
 .people_name{}
 .people_designation{}
@@ -224,7 +198,7 @@ ul.log-indropdown{
 .grid_list_view .data_area.list_view .row .datas{
 	display: table-cell;
 	vertical-align: middle;
-/*	height: 50px;*/
+	height: 50px;
 }
 .grid_list_view .data_area.list_view .row .people_id_pic .pic{
 display: inline-block;
@@ -315,17 +289,14 @@ span.taskBubble{
 	color: #fff;
 	border-radius: 2px;
 	font-size: 12px;
-	line-height: 16px;
-	vertical-align:top;
-	display: inline-block;
+	line-height: 16px
 }
-span.task_name{
+a.task_name{
 	color: rgb(98, 98, 98);
     font-family: 'Segoe UI', Arial, sans-serif;
     font-size: 14px;
     margin: 0 10px 0;
     display: inline-block;
-    vertical-align:top;
 }
 a.timer{
     color: #10CFBD;
@@ -333,10 +304,7 @@ a.timer{
     vertical-align: middle;
 }
 .topTask{
-	padding: 0 0 0 0;
-}
-.topTask .label-for-check{
-	display: inline-block;
+	padding: 0 0 0 30px;
 }
 .topTask .taskInner{
 	display: inline-block;
@@ -428,55 +396,36 @@ form.country .modal-body{
 	z-index: 10;
 	padding: 0;
 }
-.add_project_people ul li .btn.btn-primary.active{
-	box-shadow: none;
-}
-.add_project_people ul li .btn.btn-primary:focus{
-	box-shadow: none;
-}
 .add_project_people ul li .btn.active label.btn{
 	background-color: #5B4D91;
 }
 .add_project_people ul li .btn.btn-primary{
 	width:100%;
-	background-color:transparent;
+	background-color: #40D9CA;
 	border: none;
-	color: #000;
-}
-.add_project_people ul li .btn.active, .btn:active{
-	box-shadow: none;
 }
 .add_project_people ul li .people_id_pic{
 	text-align: center;
+	min-height: 120px;
 }
-.add_project_people ul li .people_name{
-	font-weight: 400;
-}
-.add_project_people ul li .people_designation{
-	color:#808080;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 10px;
-}
-
 .add_project_people .row [class*='col-']:first-child{
 	padding: 0;
 }
 .add_project_people .row [class*='col-']:last-child{
 	padding: 0;
 }
-/*.strike{
+.strike{
 	text-decoration:line-through;
 }
 .strikethrough:checked + .strikeThis {
   text-decoration: line-through
 }
-.check-with-label:checked + span.label {
+.check-with-label:checked + .label-for-check {
   text-decoration:line-through;
 }
-*/
 
 
+/***** Changes on 16/3/16 *****/
 
 .msupcoming{
 	border-radius: 3px;
@@ -539,9 +488,6 @@ form.country .modal-body{
 	border-radius: 3px;
 	padding:2px 5px 2px 20px;
 }
-/*body > .pgn-wrapper{
-	z-index: -999 !important;
-}*/
 .company_sidebar{
 }
 .company_sidebar .list-view{
@@ -553,6 +499,9 @@ form.country .modal-body{
 }
 .company_sidebar li a:hover{
 	background-color: transparent;
+}
+.company_sidebar li > ul li:hover > a{
+	color: #000 !important;
 }
 .text-master{
 	color: #fff !important;
@@ -577,11 +526,9 @@ form.country .modal-body{
 .company_sidebar ul li{
 	position: relative;
 }
-
 .company_sidebar ul li ul{
 	display: none;
 }
-
 i.navtogg{
 	width: 15px;
 	height: 15px;
@@ -589,7 +536,6 @@ i.navtogg{
 	top: 12px;
 	left: 0;
 }
-
 .dashboard-icon i.icon-dashboard:before{
 	content: '\e900';
 	font-family: 'icomoon';	
@@ -598,7 +544,6 @@ i.navtogg{
 	top: 13px;
 	left: 6px;
 }
-
 .dashboard-icon{
 	position: relative;
 }
@@ -677,3 +622,171 @@ i.icon-tasklist:before{
 	width: 100% !important;
 	height: inherit !important;
 }
+.company_form{}
+#company_form label{
+	display: block;
+}
+#company_form .input-group{
+	display: block;
+	margin:  0 0 20px;
+}
+#company_form .view_input{
+	width: 60%;
+	line-height: 40px;
+	background-color: #2B6A94;
+	border: solid 1px #ccc;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	font-size: 14px;
+	color:rgb(255, 255,255);
+	font-weight: normal;
+	padding: 0 0 0 15px;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;	
+}
+#company_form .view_input:hover{
+	background-color: #DAEFFD;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  color:rgb(68, 68,68);
+}
+.company-logo {
+	text-align: center;
+}
+.company-logo {}
+.company-logo .pic img{
+	width: 100px;
+	height: 100px;
+	/*border-radius:0;*/
+}
+.company-logo .pic span{
+	font-size: 18px;
+	margin-left: 5px;
+	color: #10cfbd;
+}
+
+
+
+.add_project_people{
+	margin: 0;
+	padding: 0;
+}
+.add_project_people .row{
+	margin-left: -10px;
+	margin-right: -10px;
+}
+.add_project_people ul{
+	margin: 0;
+	padding: 0;
+}
+.add_project_people ul li{
+	list-style: none;
+	margin: 0 14px 30px;
+    border-radius: 5px;
+    position: relative;
+    padding: 0;
+}
+.add_project_people ul li label.btn input[type="checkbox"]{
+	display: none;
+}
+.add_project_people ul li label.btn{
+	position: absolute;
+	background-color: #10CFBD;
+	width: 15px;
+	height:15px;
+	left:-10px;
+	top: -10px;
+	z-index: 10;
+	padding: 0;
+}
+.add_project_people ul li .btn.btn-primary.active{
+	box-shadow: none !important;
+	outline-offset:0 !important;
+}
+.add_project_people ul li .btn.btn-primary:focus{
+	box-shadow: none !important;
+	outline-offset:0 !important;
+}
+.add_project_people ul li .btn.active label.btn{
+	background-color: #5B4D91;
+}
+.add_project_people ul li .btn.btn-primary{
+	width:100%;
+	background-color:transparent;
+	border: none;
+	color: #000;
+	box-shadow: none !important;
+}
+.add_project_people ul li .btn.active, .btn:active{
+	box-shadow: none;
+}
+.add_project_people ul li .people_id_pic{
+	text-align: center;
+}
+.add_project_people ul li .people_name{
+	font-weight: 400;
+}
+.add_project_people ul li .people_designation{
+	color:#808080;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.add_project_people .row [class*='col-']:first-child{
+	padding: 0;
+}
+.add_project_people .row [class*='col-']:last-child{
+	padding: 0;
+}
+.modal-body .pic img{
+	border-radius: 100px;
+	width: 100px;
+	height: 100px;
+	border: 1px solid #d1d1d1
+}
+.modal-body .checkbox label::after{
+	left: 0;
+}
+.modal-body .checkbox.check-success{
+	position: absolute;
+	top:0;
+	left: 20px;
+}
+.sidebar-people{
+	display: block;	
+}
+.people-img-list{
+
+}
+.people-img-list ol{
+	margin: 0;
+	padding: 0;
+
+}
+.people-img-list ol li{
+	color: #fff;
+	text-align: left;
+	margin: 0 0 15px 20px;
+	padding: 0;
+}
+.people-img-list ol li:hover{
+	background-color: transparent;
+}
+.people-img-list ol li span{
+	padding-top: 10px;
+	width: 71%;
+	float: left;
+	word-break:break-all;
+	white-space: normal;
+}
+.people-img-list ol li .pic{
+	float: left;
+	width: 17%;
+}
+

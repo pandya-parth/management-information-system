@@ -207,91 +207,91 @@ class UserTableSeeder extends Seeder
 
   
         ProjectCategory::create(
-            ['name' => 'pcone',
-            'slug' => 'pcone',
+            ['name' => 'pc1',
+            'slug' => 'pc1',
               ]);
 
         ProjectCategory::create(
-            ['name' => 'pctwo',
-            'slug' => 'pctwo',
+            ['name' => 'pc2',
+            'slug' => 'pc2',
               ]);
 
         ProjectCategory::create(
-            ['name' => 'pcthree',
-            'slug' => 'pcthree',
+            ['name' => 'pc3',
+            'slug' => 'pc3',
               ]);
 
         ProjectCategory::create(
-            ['name' => 'pcfour',
-            'slug' => 'pcfour',
+            ['name' => 'pc4',
+            'slug' => 'pc4',
               ]);
 
         ProjectCategory::create(
-            ['name' => 'pcfive',
-            'slug' => 'pcfive',
+            ['name' => 'pc5',
+            'slug' => 'pc5',
               ]);
 
         DB::table('task_categories')->delete();
 
   
         TaskCategory::create(
-            ['name' => 'tcone',
-            'slug' => 'tcone',
+            ['name' => 'tc1',
+            'slug' => 'tc1',
               ]);
 
         TaskCategory::create(
-            ['name' => 'tctwo',
-            'slug' => 'tctwo',
+            ['name' => 'tc2',
+            'slug' => 'tc2',
               ]);
 
         TaskCategory::create(
-            ['name' => 'tcthree',
-            'slug' => 'tcthree',
+            ['name' => 'tc3',
+            'slug' => 'tc3',
               ]);
 
         TaskCategory::create(
-            ['name' => 'tcfour',
-            'slug' => 'tcfour',
+            ['name' => 'tc4',
+            'slug' => 'tc4',
               ]);
 
         TaskCategory::create(
-            ['name' => 'tcfive',
-            'slug' => 'tcfive',
+            ['name' => 'tc5',
+            'slug' => 'tc5',
               ]);
         DB::table('departments')->delete();
 
   
         Department::create(
-          ['name' => 'depone',
-            'slug' => 'depone',
+          ['name' => 'dep1',
+            'slug' => 'dep1',
 
 
             ]);
 
         Department::create(
-          ['name' => 'deptwo',
-            'slug' => 'deptwo',
+          ['name' => 'dep2',
+            'slug' => 'dep2',
 
 
             ]);
 
         Department::create(
-          ['name' => 'depthree',
-            'slug' => 'depthree',
+          ['name' => 'dep3',
+            'slug' => 'dep3',
 
 
             ]);
 
         Department::create(
-          ['name' => 'depfour',
-            'slug' => 'depfour',
+          ['name' => 'dep4',
+            'slug' => 'dep4',
 
 
             ]);
 
         Department::create(
-          ['name' => 'depfive',
-          'slug' => 'depfive',
+          ['name' => 'dep5',
+          'slug' => 'dep5',
 
 
             ]);
@@ -310,18 +310,18 @@ class UserTableSeeder extends Seeder
             ]);
 
         Designation::create(
-          ['name' => 'desthree',
-          'slug' => 'desthree',
+          ['name' => 'des3',
+          'slug' => 'des3',
             ]);
 
         Designation::create(
-          ['name' => 'desfour',
-          'slug' => 'desfour',
+          ['name' => 'des4',
+          'slug' => 'des4',
             ]);
 
         Designation::create(
-          ['name' => 'desfive',
-          'slug' => 'desfive',
+          ['name' => 'des5',
+          'slug' => 'des5',
             ]);
 
         DB::table('industries')->delete();
@@ -338,18 +338,18 @@ class UserTableSeeder extends Seeder
             ]);
 
         Industry::create(
-          ['name' => 'indthree',
-            'slug' => 'indthree',
+          ['name' => 'ind3',
+            'slug' => 'ind3',
             ]);
 
         Industry::create(
-          ['name' => 'indfour',
-            'slug' => 'indfour',
+          ['name' => 'ind4',
+            'slug' => 'ind4',
             ]);
 
         Industry::create(
-          ['name' => 'indfive',
-            'slug' => 'indfive',
+          ['name' => 'ind5',
+            'slug' => 'ind5',
             ]);
 
 
@@ -442,24 +442,24 @@ class UserTableSeeder extends Seeder
 
         Project::create([  'category_id' => '3',
                         'client_id' => '3',
-                        'name' => 'projectthree',
-                        'slug' => 'projectthree',
+                        'name' => 'project3',
+                        'slug' => 'project3',
                         'description' => 'fgfgfgf',
                         'notes' => 'gfgfgfgfg',
                         ]);
 
         Project::create([  'category_id' => '4',
                         'client_id' => '4',
-                        'name' => 'projectfour',
-                        'slug' => 'projectfour',
+                        'name' => 'project4',
+                        'slug' => 'project4',
                         'description' => 'fgfgfgfg',
                         'notes' => 'fgfgfg',
                         ]);
 
         Project::create([  'category_id' => '5',
                         'client_id' => '5',
-                        'name' => 'projectfive',
-                        'slug' => 'projectfive',
+                        'name' => 'project5',
+                        'slug' => 'project5',
                         'description' => 'gfgfgfgfgg',
                         'notes' => 'gfgfgfgf',
                         ]);
@@ -486,24 +486,24 @@ class UserTableSeeder extends Seeder
         Task::create(
             ['project_id' => '3',
               'category_id'=>'3',
-              'name'=>'taskthree',
-              'slug'=>'taskthree',
+              'name'=>'task3',
+              'slug'=>'task3',
               'notes' => 'dasedasedskjhvjhvghv'
             ]);
 
         Task::create(
             ['project_id' => '4',
               'category_id'=>'4',
-              'name'=>'taskfour',
-              'slug'=>'taskfour',
+              'name'=>'task4',
+              'slug'=>'task4',
               'notes' => 'dasedasedskjhvjhvghv'
             ]);
 
         Task::create(
             ['project_id' => '5',
               'category_id'=>'5',
-              'name'=>'taskfive',
-              'slug'=>'taskfive',
+              'name'=>'task5',
+              'slug'=>'task5',
               'notes' => 'dasedasedskjhvjhvghv'
             ]);
 
@@ -559,35 +559,35 @@ class UserTableSeeder extends Seeder
   
         Milestone::create(
             ['project_id' => '1',
-              'name'=>'milestoneone',
+              'name'=>'milestone1',
               'description'=>'rffsdfsdfd',
               'notes'=>'rffsdfsdfd',
             ]);
 
         Milestone::create(
                     ['project_id' => '2',
-                      'name'=>'milestonetwo',
+                      'name'=>'milestone2',
                       'description'=>'rffsdfsdfd',
                       'notes'=>'rffsdfsdfd',
                     ]);
 
         Milestone::create(
                     ['project_id' => '3',
-                      'name'=>'milestonethree',
+                      'name'=>'milestone3',
                       'description'=>'rffsdfsdfd',
                       'notes'=>'rffsdfsdfd',
                     ]);
 
         Milestone::create(
                     ['project_id' => '4',
-                      'name'=>'milestonefour',
+                      'name'=>'milestone4',
                       'description'=>'rffsdfsdfd',
                       'notes'=>'rffsdfsdfd',
                     ]);
 
         Milestone::create(
                     ['project_id' => '5',
-                      'name'=>'milestonefive',
+                      'name'=>'milestone5',
                       'description'=>'rffsdfsdfd',
                       'notes'=>'rffsdfsdfd',
                     ]);
