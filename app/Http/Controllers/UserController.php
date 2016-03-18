@@ -43,11 +43,18 @@ class UserController extends Controller
     {
         $departments = Department::all();
         $designations = Designation::all();
+        
         return view('auth/change-profile',compact('departments','designations'));
     }
 
     public function postAccount()
     {
+        $id = Auth::user()->id;
+        $user = User::find($id);
+        $user->fname = Input::get('fname');
+        $user->email = Input::get('email');
+        $user->save();
+        return view('auth/change-profile');
 
     }
 }
