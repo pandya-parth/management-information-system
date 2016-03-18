@@ -47,16 +47,6 @@
                     <div class="taskInner">
 
 
-                      {{-- <div class="checkbox check-success">
-                        <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
-                       <label for="{% tsk.id %}"></label>
-                        <span class="taskBubble">hello 2</span>
-                        <span class="task_name">11111</span>
-                      </div> --}} 
-                    
-
-
-
                     <div class="checkbox check-success">
                         <input type="checkbox" name="status[]" ng-model="task.status[$index]" id="checkbox">
                         <label for="checkbox">
