@@ -22,6 +22,10 @@ angular.module 'mis'
 
 		$scope.Pro_Id = pId	
 
+		$scope.task = (id,completed)->
+			task.completed(id, completed).success (data)->
+				console.log data
+
 		$scope.showModal = (event) ->
 			$scope.task.category_id = event.target.id
 			angular.element('#addNewAppModal').modal('show')

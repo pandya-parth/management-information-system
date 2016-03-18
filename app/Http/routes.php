@@ -42,7 +42,9 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::resource('/people','PeoplesController');    
 
     Route::get('project/{id}/people','PeoplesController@getProjectPeople');
-    Route::post('project/{id}/people','PeoplesController@postProjectPeople');    
+    Route::post('project/{id}/people','PeoplesController@postProjectPeople');
+
+    Route::post('task-status','TasksController@postTaskStatus');   
         
     Route::post('change-password', 'UserController@updatePassword');
     Route::get('change-password', 'UserController@changePassword');

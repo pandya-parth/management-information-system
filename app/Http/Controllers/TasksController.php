@@ -51,6 +51,14 @@ class TasksController extends Controller
         return response()->json($logs);
     }
 
+    public function postTaskStatus(Request $request)
+    {
+        $task = Task::find(Input::get('id'));
+        $task->completed = Input::get('completed');
+        $task->save();
+        return response()->json(['success'=>true]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -52,4 +52,14 @@ angular.module 'mis'
 
 			destroylog: (id)->
 				$http.delete('/logtimes/' + id)
+
+			completed: (id, status)->
+				$http
+					method: 'POST'
+					url: '/task-status'
+					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
+					data: $.param(
+						id: id
+						completed: status
+						)
 		}
