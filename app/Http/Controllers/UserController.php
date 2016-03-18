@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\userPasswordRequest;
 use App\Http\Controllers\Controller;
 use User;
+use App\People;
 use App\Department;
 use App\Designation;
 use Auth;
@@ -43,14 +44,14 @@ class UserController extends Controller
     {
         $departments = Department::all();
         $designations = Designation::all();
-        
+        dd($user = People::find($id));
         return view('auth/change-profile',compact('departments','designations'));
     }
 
     public function postAccount()
     {
-        $id = Auth::user()->id;
-        $user = User::find($id);
+        $id = Auth::user()->people->id;
+        $user = People::find($id);
         $user->fname = Input::get('fname');
         $user->email = Input::get('email');
         $user->save();

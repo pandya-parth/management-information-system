@@ -45,13 +45,30 @@
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
                     
                     <div class="taskInner">
-                      <div class="checkbox check-success">
+
+
+                      {{-- <div class="checkbox check-success">
                         <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
-                       
+                       <label for="{% tsk.id %}"></label>
                         <span class="taskBubble">hello 2</span>
                         <span class="task_name">11111</span>
-                      </div> 
+                      </div> --}} 
+                    
+
+
+
+                    <div class="checkbox check-success">
+                        <input type="checkbox" name="status[]" ng-model="task.status[$index]" id="checkbox">
+                        <label for="checkbox">
+                          <span class="taskBubble">hello 2</span>
+                           <span class="task_name">11111</span>
+                        </label>
+                      </div>
                     </div>
+
+
+
+
                     <div class="task_detail" style="padding:0 0 0 50px;">
 
                       <a class="timer timer_button" ng-click="showLogModal($event,tsk.id)" id="timer_button">
