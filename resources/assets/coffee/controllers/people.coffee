@@ -22,11 +22,6 @@ angular.module 'mis'
 			reason: ''
 		]
 
-		$scope.datepickerOptions =
-		    format: 'yyyy-mm-dd'
-		    autoclose: true
-		    weekStart: 0
-
 		$scope.newItem = ($event) ->
 			$scope.educations.push(
 				qualification: ''
@@ -332,4 +327,3 @@ angular.module 'mis'
 			index = $scope.experiences.indexOf(experience); 
 			$scope.experiences.splice(index, 1)
 			$scope.people_array.experience = $scope.experiences 
-
