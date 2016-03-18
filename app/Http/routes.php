@@ -47,6 +47,9 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::post('change-password', 'UserController@updatePassword');
     Route::get('change-password', 'UserController@changePassword');
 
+    Route::post('change-profile', 'UserController@postAccount');
+    Route::get('change-profile', 'UserController@getAccount');
+
     Route::post('/logtimes','TasksController@logStore');
     Route::put('/logtimes/{id}','TasksController@logUpdate');
     Route::delete('/logtimes/{id}','TasksController@logDestroy');
