@@ -72,7 +72,7 @@ class TasksController extends Controller
     {
         $tasks=Task::create(Input::all());
         $tasks->users()->attach($request->get('user_id'));
-        $tasks->status = false;
+        $tasks->completed = false;
         $tasks->save();
         return response()->json(['success'=>true]);
         

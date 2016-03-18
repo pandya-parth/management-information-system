@@ -20,6 +20,7 @@ class CreateMilestonesTable extends Migration
             $table->string('notes')->nullable();
             $table->dateTime('due_date')->nullable();
             $table->boolean('reminder')->nullable();
+            $table->boolean('completed')->default(false)->nullable();
             $table->timestamps();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });

@@ -11,6 +11,7 @@ use App\Designation;
 use Auth;
 use Hash;
 use Redirect;
+use Illuminate\Support\Facades\Input;
 class UserController extends Controller
 {
     public function changePassword()
@@ -44,14 +45,13 @@ class UserController extends Controller
     {
         $departments = Department::all();
         $designations = Designation::all();
-        dd($user = People::find($id));
+        $user = People::find(Auth::user()->people->id);
         return view('auth/change-profile',compact('departments','designations'));
     }
 
     public function postAccount()
     {
-        $id = Auth::user()->people->id;
-        $user = People::find($id);
+        $user = People::find(Auth::user()->people->id);
         $user->fname = Input::get('fname');
         $user->email = Input::get('email');
         $user->save();

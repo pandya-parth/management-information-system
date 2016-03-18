@@ -12,7 +12,7 @@
                     'single'=>'single',
                     'other'=>'other');
                     ?>
-                    <form name='form' action="url('change-profile')" class='p-t-15' role='form'>
+                    <form name='form' action="url('change-profile')" class='p-t-15' role='form' method="PATCH">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">

@@ -16,7 +16,6 @@ elixir (mix)->
       'pages-icons.css'
       'pages.css'
       'windows.chrome.fix.css'
-      'datepicker3.css'
       'style.css'
       'jquery-clockpicker.min.css'
     ], 'public/css/vendor.css'
@@ -31,6 +30,7 @@ elixir (mix)->
       'modernizr.custom.js'
       'jquery-ui.min.js'
       bowerPath('bootstrap','dist','js','bootstrap.min.js')
+      
       'jquery.unveil.min.js'
       'jquery.bez.min.js'
       'jquery.ioslist.min.js'
@@ -46,17 +46,14 @@ elixir (mix)->
       'lodash.min.js'
       'pages.min.js'
       'datatables.js'
-      'bootstrap-datepicker.js'
       'jquery-clockpicker.min.js'
       'plupload.full.min.js'
       bowerPath('angular', 'angular.min.js')
       bowerPath('underscore', 'underscore.js')
-      bowerPath('angular-bootstrap', 'ui-bootstrap-tpls.js')
       bowerPath('angular-utils-pagination', 'dirPagination.js')
       bowerPath('angular-prompt', 'dist', 'angular-prompt.js')
       bowerPath('angular-country-select','dist','angular-country-select.js')
       bowerPath('angular-bootstrap','ui-bootstrap-tpls.js')
-      bowerPath('angular-bootstrap-datepicker','dist','angular-bootstrap-datepicker.js')
       'scripts.js'
     ], 'public/js/vendor.js'
 
