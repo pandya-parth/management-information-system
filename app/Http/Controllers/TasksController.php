@@ -12,6 +12,7 @@ use App\LogTime;
 use App\User;
 use App\Project;
 use App\TaskCategory;
+use App\TaskUser;
 use App\People;
 use Redirect;
 use Auth;
@@ -190,5 +191,14 @@ class TasksController extends Controller
         $logtime = Logtime::find($id);
         $logtime->delete();    
         return response()->json(['success'=>true]);
+    }
+
+    public function everything()
+    {
+
+        $tasks = Task::with('user')->get();
+        $task_categories = TaskCategory::all();
+        $task_user = TaskUser::all();
+        return view('tasks/everything',compact('tasks','task_categories'));
     }
 }

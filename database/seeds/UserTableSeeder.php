@@ -34,31 +34,31 @@ class UserTableSeeder extends Seeder
         User::create(
             ['email' => 'one@gmail.com',
               'password'=>bcrypt('admin123'),
-              'roles'=>'admin',
+              'roles'=>'employee',
               'active'=>1,
             ]);
         User::create(
             ['email' => 'two@gmail.com',
               'password'=>bcrypt('admin123'),
-              'roles'=>'admin',
+              'roles'=>'employee',
               'active'=>1,
             ]);
         User::create(
             ['email' => 'three@gmail.com',
               'password'=>bcrypt('admin123'),
-              'roles'=>'admin',
+              'roles'=>'employee',
               'active'=>1,
             ]);
         User::create(
             ['email' => 'four@gmail.com',
               'password'=>bcrypt('admin123'),
-              'roles'=>'admin',
+              'roles'=>'employee',
               'active'=>1,
             ]);
         User::create(
             ['email' => 'five@gmail.com',
               'password'=>bcrypt('admin123'),
-              'roles'=>'admin',
+              'roles'=>'employee',
               'active'=>1,
             ]);
 
@@ -472,6 +472,22 @@ class UserTableSeeder extends Seeder
               'category_id'=>'1',
               'name'=>'taskone',
               'slug'=>'taskone',
+              'notes' => 'dasedasedskjhvjhvghv'
+            ]);
+
+        Task::create(
+            ['project_id' => '1',
+              'category_id'=>'1',
+              'name'=>'haha',
+              'slug'=>'haha',
+              'notes' => 'dasedasedskjhvjhvghv'
+            ]);
+
+        Task::create(
+            ['project_id' => '1',
+              'category_id'=>'1',
+              'name'=>'hihi',
+              'slug'=>'hihi',
               'notes' => 'dasedasedskjhvjhvghv'
             ]);
 

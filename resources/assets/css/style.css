@@ -790,3 +790,11 @@ i.icon-tasklist:before{
 	width: 17%;
 }
 
+.task_name-true{
+	text-decoration: line-through;
+}
+
+.task_name-false{
+	text-decoration: none;
+}
+

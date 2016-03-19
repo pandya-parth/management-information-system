@@ -50,6 +50,7 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::post('change-profile', 'UserController@postAccount');
     Route::get('change-profile', 'UserController@getAccount');
 
+    Route::get('/everything','TasksController@everything');
     Route::post('/logtimes','TasksController@logStore');
     Route::put('/logtimes/{id}','TasksController@logUpdate');
     Route::delete('/logtimes/{id}','TasksController@logDestroy');

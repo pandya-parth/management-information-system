@@ -30,7 +30,7 @@
   </div>
   <ul class="nav navbar-nav">
     <li class="active"><a href="{!! url('/') !!}">Home</a></li>
-    <li><a href="{!! url('') !!}">Everything</a></li>
+    <li><a href="{!! url('everything') !!}">Everything</a></li>
     <li><a href="{!! url('companies') !!}">Company</a></li>
     <li><a href="{!! url('departments') !!}">Department</a></li>
     <li><a href="{!! url('designations') !!}">Designation</a></li>
