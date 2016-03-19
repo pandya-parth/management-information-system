@@ -25,11 +25,11 @@ class TasksController extends Controller
      */
     public function index(Request $request,$id)
     { 
-        $tasks=Project::find($id);
         $projects=Project::all();
         $taskCategories=TaskCategory::all();
         $peoples=People::all();
         $users=People::with('user')->get();
+        $tasks = Task::where('project_id','=',$id)->get();
         return view('tasks/index',compact('tasks','projects','taskCategories','peoples','id','users'));
     }
 

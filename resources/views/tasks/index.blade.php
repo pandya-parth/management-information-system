@@ -53,12 +53,12 @@
                     <div class="checkbox check-success">
                         <input type="checkbox" name="status[]" ng-model="task.status[$index]" id="checkbox">
                         <label for="checkbox">
-                          <span class="taskBubble">hello 2</span>
-                           <span class="task_name">11111</span>
+                          <span class="taskBubble">{% tsk.user.id %}</span>
+                           <span class="task_name">{% tsk.name %}</span>
                         </label>
                       </div>
 
-                      
+
                     </div>
 
 
