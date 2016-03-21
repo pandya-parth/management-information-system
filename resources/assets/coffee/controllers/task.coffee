@@ -22,7 +22,7 @@ angular.module 'mis'
 
 		$scope.Pro_Id = pId	
 
-		$scope.task = (id,completed)->
+		$scope.task_completed = (id,completed)->
 			task.completed(id, completed).success (data)->
 				console.log data
 

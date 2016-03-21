@@ -64,5 +64,7 @@ class Task extends Model implements SluggableInterface
     }
 
     
+
+    
     
 }

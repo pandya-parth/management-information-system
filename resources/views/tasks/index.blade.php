@@ -48,7 +48,7 @@
                     <div class="taskInner">
 
                       <div class="checkbox check-success">
-                          <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task(tsk.id, tsk.completed)">
+                          <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task_completed(tsk.id, tsk.completed)">
                           <label for="completed{%$index%}">
                             <span class="taskBubble">Anyone</span>
                              <span class="task_name-{% tsk[$index].completed %}">{% tsk.name %}</span>
