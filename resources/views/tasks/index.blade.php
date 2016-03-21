@@ -51,9 +51,9 @@
 
 
                     <div class="checkbox check-success">
-                        <input type="checkbox" name="status[]" ng-model="task.status[$index]" id="checkbox-{% tsk.id %}">
-                        <label for="checkbox-{% tsk.id %}">
-                          <span class="taskBubble">hello</span>
+                        <input type="checkbox" name="status[]" ng-model="task.status[$index]" id="checkbox">
+                        <label for="checkbox">
+                          <span class="taskBubble">{% tsk.user.id %}</span>
                            <span class="task_name">{% tsk.name %}</span>
                         </label>
                       </div>
