@@ -209,20 +209,8 @@ class TasksController extends Controller
         return view('tasks/everything',compact('tasks','task_categories'));
     }
     public function exportTask(){
-        // $tasks = Task::all();
-        //         Excel::create('Laravel Excel', function($excel) {
-
-        //             $excel->sheet('Excel sheet', function($sheet) {
-
-        //                 $sheet->setOrientation('landscape');
-
-        //             });
-
-        //         })->export('xls');
-
-                Excel::create('ExcelExport', function ($excel) {
-
-    $excel->sheet('Tasks', function ($sheet) {
+        Excel::create('ExcelExport', function ($excel) {
+        $excel->sheet('Tasks', function ($sheet) {
 
         // first row styling and writing content
         $sheet->mergeCells('A1:W1');

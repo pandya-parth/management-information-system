@@ -16,7 +16,7 @@
               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
             </div>
             <div class="col-xs-4">
-              <form action="{!! action('TasksController@exportTask') !!}" method="POST">
+              <form action="{!! url('/exportTask') !!}" method="POST">
                             <button id="export-button" class="btn button_color">Export</button>
                             </form>
                         </div>
