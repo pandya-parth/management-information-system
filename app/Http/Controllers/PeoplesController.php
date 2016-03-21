@@ -198,6 +198,14 @@ class PeoplesController extends Controller
 
     }
 
+    public function getFullName($id,Request $request)
+    {
+
+        $people = People::where('id',$id)->first();
+        return response()->json($people);
+
+    }
+
     /**
      * Update the specified resource in storage.
      *

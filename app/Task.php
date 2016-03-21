@@ -58,7 +58,7 @@ class Task extends Model implements SluggableInterface
         return $this->belongsTo('App\Project');
     }
 
-    public function user()
+    public function users()
     {
         return $this->belongsToMany('App\User','task_users','task_id','user_id');
     }

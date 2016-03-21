@@ -96,6 +96,7 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
 
     Route::get('people', 'PeoplesController@getPeoples');
     Route::get('people/{id}','PeoplesController@getPeople');
+    Route::get('people-name/{id}','PeoplesController@getFullName');
 
     
 });

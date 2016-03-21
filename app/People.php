@@ -35,6 +35,11 @@ class People extends Model
         }
     }
 
+    public function getNameAttribute()
+    {
+        return preg_replace('/\s+/', ' ',$this->fname.' '.$this->lname);
+    }
+
 	
 	public function user()
     {

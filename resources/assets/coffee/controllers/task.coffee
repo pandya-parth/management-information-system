@@ -22,7 +22,7 @@ angular.module 'mis'
 
 		$scope.Pro_Id = pId	
 
-		$scope.task = (id,completed)->
+		$scope.task_completed = (id,completed)->
 			task.completed(id, completed).success (data)->
 				console.log data
 
@@ -260,3 +260,8 @@ angular.module 'mis'
 				$scope.edit = true
 				$scope.logtime = data
 				angular.element('#addNewAppModal').modal('show')
+
+		$scope.getUserName = (id)->
+			task.getName(id).success (data)->
+				return data.fname
+

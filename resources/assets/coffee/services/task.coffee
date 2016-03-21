@@ -62,4 +62,7 @@ angular.module 'mis'
 						id: id
 						completed: status
 						)
+
+			getName: (id)->
+				$http.get '/api/people-name' + id
 		}

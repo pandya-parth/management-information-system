@@ -607,5 +607,6 @@ class UserTableSeeder extends Seeder
                       'description'=>'rffsdfsdfd',
                       'notes'=>'rffsdfsdfd',
                     ]);
+   
     }
 }

@@ -43,14 +43,16 @@
               </div>
               <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
+
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
-                    
                     <div class="taskInner">
 
                       <div class="checkbox check-success">
-                          <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task(tsk.id, tsk.completed)">
+                          <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task_completed(tsk.id, tsk.completed)">
                           <label for="completed{%$index%}">
-                            <span class="taskBubble">Anyone</span>
+                            <span class="taskBubble" ng-repeat="u in tsk.users">
+                              
+                            </span>
                              <span class="task_name-{% tsk[$index].completed %}">{% tsk.name %}</span>
                           </label>
                         </div>
