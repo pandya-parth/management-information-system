@@ -30,8 +30,8 @@ angular.module 'mis'
 			edit: (id,pId)->
 				$http.get '/api/task/'+id, params: project_id: pId
 
-			editlog: (id)->
-				$http.get '/api/logtime/'+id
+			editlog: (id,tId)->
+				$http.get '/api/logtime/'+id, params: task_id: tId
 
 			update: (formData,id)->
 				$http

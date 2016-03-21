@@ -26,6 +26,9 @@
             <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
             </div>
+            <div ng-cloak class="col-xs-4">
+                                <button ng-cloak id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add Task</button>
+                              </div>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -45,13 +48,13 @@
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
                     
                     <div class="taskInner">
-                      <div class="checkbox check-success">
-                          <input type="checkbox" name="completed" ng-model="tsk[$index].completed" id="completed" ng-click="task(tsk.id, tsk.completed)">
-                          <label for="completed">
-                            <span class="taskBubble">hello 2</span>
-                             <span class="task_name-{% tsk[$index].completed %}">11111</span>
-                          </label>
-                        </div>
+                    <div class="checkbox check-success">
+                        <input type="checkbox" name="status[]" ng-model="tsk[$index].completed" id="checkbox" ng-click="task(tsk.id, tsk.completed)">
+                        <label for="tsk[$index].completed">
+                          <span class="taskBubble">{% tsk.user.id %}</span>
+                           <span class="task_name-{% tsk[$index].completed %}">{% tsk.name %}</span>
+                        </label>
+                      </div>
                     </div>
 
                     <div class="task_detail" style="padding:0 0 0 50px;">
@@ -77,7 +80,6 @@
                     </div>
 
                   </div>
-                  <button ng-click="showModal($event)" type="button" class="btn button_color task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button>
                 </div>
               </div>
             </div>
@@ -118,6 +120,20 @@
                       </div>
                     </div>
                   </div>
+                  <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-group-default form-group-default-select2">
+                                            <label class="">Task Category</label>
+                                            <select class="full-width" data-placeholder="Select Country"  name="category_id" ng-model="task.category_id" data-init-plugin="select2" required>
+                                                <option >-- Select One --</option>
+                                                @foreach($taskCategories as $category)
+                                                <option value="{!! $category->id !!}">{!! $category->name !!}</option>
+                                                @endforeach
+                                            </select>
+                                            <span class="error" ng-show="submitted && project.category_id.$error.required">* Please enter project category</span>
+                                        </div>
+                                    </div>
+                                </div>
                   <div class=" row ">
                     <div class="col-md-12">
                       <div class="form-group form-group-default form-group-default-select2">

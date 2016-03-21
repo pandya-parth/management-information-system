@@ -12,6 +12,7 @@ use App\LogTime;
 use App\User;
 use App\Project;
 use App\TaskCategory;
+use App\TaskUser;
 use App\People;
 use Redirect;
 use Auth;
@@ -25,11 +26,11 @@ class TasksController extends Controller
      */
     public function index(Request $request,$id)
     { 
-        $tasks=Project::find($id);
         $projects=Project::all();
         $taskCategories=TaskCategory::all();
         $peoples=People::all();
         $users=People::with('user')->get();
+        $tasks = Task::where('project_id','=',$id)->get();
         return view('tasks/index',compact('tasks','projects','taskCategories','peoples','id','users'));
     }
 
@@ -80,7 +81,7 @@ class TasksController extends Controller
     {
         $tasks=Task::create(Input::all());
         $tasks->users()->attach($request->get('user_id'));
-        $tasks->status = false;
+        $tasks->completed = false;
         $tasks->save();
         return response()->json(['success'=>true]);
         
@@ -198,5 +199,14 @@ class TasksController extends Controller
         $logtime = Logtime::find($id);
         $logtime->delete();    
         return response()->json(['success'=>true]);
+    }
+
+    public function everything()
+    {
+
+        $tasks = Task::with('user')->get();
+        $task_categories = TaskCategory::all();
+        $task_user = TaskUser::all();
+        return view('tasks/everything',compact('tasks','task_categories'));
     }
 }
