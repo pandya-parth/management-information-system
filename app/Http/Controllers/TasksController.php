@@ -203,9 +203,8 @@ class TasksController extends Controller
     public function everything()
     {
 
-        $tasks = Task::with('user')->get();
+        $tasks = Task::with('users')->get();
         $task_categories = TaskCategory::all();
-        $task_user = TaskUser::all();
         return view('tasks/everything',compact('tasks','task_categories'));
     }
 }

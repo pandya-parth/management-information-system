@@ -30,11 +30,13 @@
                                 <span class="error" ng-show="form.pageSize.$error.pattern" >* Not a valid number !</span>
                             </form>
                         </div>
+                        @if(Auth::user()->roles == "admin")
                         <div class="col-xs-4">
                             <button id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add
                                 Task Category
                             </button>
                         </div>
+                        @endif
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -43,7 +45,9 @@
                         <div class="head list_view border_class">
                             <div class="row">
                                 <div class="datas people_id_pic">Name</div>
+                                @if(Auth::user()->roles == "admin")
                                 <div class="datas people_action pull-right">Action</div>
+                                @endif
                             </div>
                         </div>
                         <div class="data_area list_view " dir-paginate="category in task_categories| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
@@ -53,11 +57,13 @@
                             <div ng-cloak class="datas people_name box_real">
                                 {% category.name ? category.name : '-' %}
                             </div>
+                            @if(Auth::user()->roles == "admin")
                             <div class="datas people_action pull-right">
                                 <a class="btn btn-success btn-sm " ng-click="editCategory(category.id)" ><i class="fa fa-edit"></i></a>
                                 <a href="{!!url('/task-categories/{%category.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                 <a class="btn btn-success btn-sm " ng-click="deleteCategory(category.id)" ><i class="fa fa-trash"></i></a>
                             </div>
+                            @endif
                         </div>
                         <!-- row 1 complete -->
                     </div>

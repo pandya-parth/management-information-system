@@ -20,9 +20,11 @@
                             <div class="col-xs-5" ng-show="projects.length>0">
                                 <input ng-cloak ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search">
                             </div>
-                            <div ng-cloak class="col-xs-4">
-                                <button ng-cloak id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add Project</button>
+                            @if(Auth::user()->roles == "admin")
+                            <div ng-cloak class="col-xs-4">                                
+                                <button ng-cloak id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add Project</button>                                
                             </div>
+                            @endif
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -45,10 +47,12 @@
                                         <div class="task_detail">
                                             <a href="{!!url('/projects/{% project.id %}/tasks')!!}" class="task_name"><h2>{% project.name %}</h2></a>
                                         </div>
+                                        @if(Auth::user()->roles == "admin")
                                         <div class="datas people_action pull-right">
                                             <a class="btn btn-success btn-sm" ng-click="editProject(project.id)" ><i class="fa fa-edit"></i></a>
                                             <a class="btn btn-success btn-sm" ng-click="deleteProject(project.id)" ><i class="fa fa-trash"></i></a>
                                         </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

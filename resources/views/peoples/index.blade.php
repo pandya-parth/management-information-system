@@ -39,9 +39,11 @@
                                         <span class="error" ng-show="form.pageSize.$error.pattern" >* Not a valid number !</span>
                                     </form>
                                 </div>
+                                @if(Auth::user()->roles == "admin")
                                 <div class="col-xs-4">
                                     <button id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add People</button>
                                 </div>
+                                @endif
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -68,7 +70,9 @@
                                     <div class="datas people_designation">Date Of Birth</div>
                                     <div class="datas people_email">Department</div>
                                     <div class="datas people_phone">Phone</div>
+                                    @if(Auth::user()->roles == "admin")
                                     <div class="datas people_action">Action</div>
+                                    @endif
                                 </div>
                             </div>
                             <div ng-cloak class="data_area list_view " dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'-id'" current-page="currentPage">
@@ -90,11 +94,13 @@
                                     <div ng-cloak class="datas people_phone">
                                         {% people.phone %}
                                     </div>
+                                    @if(Auth::user()->roles == "admin")
                                     <div class="datas people_action">
                                         <a class="btn btn-success btn-sm" ng-click="editPeople(people.id)"><i class="fa fa-edit"></i></a>
                                         <a href="{!!url('/people/{%people.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-success btn-sm" ng-click="deletePeople(people.user_id)"><i class="fa fa-trash"></i></a>
                                     </div>
+                                    @endif
                                 </div>
                                 <!-- row 1 complete -->
                             </div>

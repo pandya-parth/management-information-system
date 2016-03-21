@@ -32,9 +32,11 @@
                                     <span class="error" ng-show="form.pageSize.$error.pattern" >* Not a valid number !</span>
                                 </form>
                             </div>
+                            @if(Auth::user()->roles == "admin")
                             <div class="col-xs-4">
                                 <button id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add Company</button>
                             </div>
+                            @endif
                         </div>
                     </div>
                     <div class="clearfix"></div>
@@ -49,7 +51,9 @@
                                 <div class="datas people_designation">Website</div>
                                 <div class="datas people_email">Email</div>
                                 <div class="datas people_phone">Phone</div>
+                                @if(Auth::user()->roles == "admin")
                                 <div class="datas people_action">Action</div>
+                                @endif
                             </div>
                         </div>
                         <div class="data_area list_view " dir-paginate="company in companies| orderBy:'-id' | filter:q | itemsPerPage: pageSize| orderBy:'-id'" current-page="currentPage">
@@ -71,11 +75,13 @@
                                 <div ng-cloak class="datas people_phone">
                                     {% company.phone %}
                                 </div>
+                                @if(Auth::user()->roles == "admin")
                                 <div class="datas people_action">
                                     <a class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
                                     <a href="{!!url('/companies/{%company.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                     <a class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
                                 </div>
+                                @endif
                             </div>
                             <!-- row 1 complete -->
                         </div>
