@@ -422,7 +422,7 @@
                             <div class="form-group form-group-default custom-datepicker input-group col-md-12">
                                 <label>From</label>
                                 <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-init="people_array.experience[$index].from = experience.from" ng-model="people_array.experience[$index].from" datepicker-popup="yyyy-MM-dd" is-open="from[$index]" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close">
-                                <span class="input-group-addon" ng-click="open($event)"><i class="fa fa-calendar"></i></span>
+                                <span class="input-group-addon" ng-click="open($event, $index)"><i class="fa fa-calendar"></i></span>
                             </div>
                         </div>
                         <div class="col-sm-4">
