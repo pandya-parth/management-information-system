@@ -51,7 +51,7 @@
                           <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task_completed(tsk.id, tsk.completed)">
                           <label for="completed{%$index%}">
                             <span class="taskBubble" ng-repeat="u in tsk.users">
-                              
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
                             </span>
                              <span class="task_name-{% tsk[$index].completed %}">{% tsk.name %}</span>
                           </label>
