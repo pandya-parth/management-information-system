@@ -46,13 +46,16 @@
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
                     
                     <div class="taskInner">
-                    <div class="checkbox check-success">
-                        <input type="checkbox" name="status[]" ng-model="tsk[$index].completed" id="checkbox" ng-click="task(tsk.id, tsk.completed)">
-                        <label for="tsk[$index].completed">
-                          <span class="taskBubble">{% tsk.user.id %}</span>
-                           <span class="task_name-{% tsk[$index].completed %}">{% tsk.name %}</span>
-                        </label>
-                      </div>
+
+                      <div class="checkbox check-success">
+                          <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task(tsk.id, tsk.completed)">
+                          <label for="completed{%$index%}">
+                            <span class="taskBubble">Anyone</span>
+                             <span class="task_name-{% tsk[$index].completed %}">{% tsk.name %}</span>
+                          </label>
+                        </div>
+
+
                     </div>
 
                     <div class="task_detail" style="padding:0 0 0 50px;">
