@@ -40,9 +40,8 @@ class TasksController extends Controller
     public function getTasks(Request $request)
     {
         
-        $tasks =  Task::whereProjectId($request->get('project_id'))->get();
-         
-        //$tasks = Task::find_by_project_id($pId)->get();
+        $tasks =  Task::whereProjectId($request->get('project_id'))->with('users')->get();
+        
         return response()->json($tasks); 
     }
 

@@ -260,3 +260,8 @@ angular.module 'mis'
 				$scope.edit = true
 				$scope.logtime = data
 				angular.element('#addNewAppModal').modal('show')
+
+		$scope.getUserName = (id)->
+			task.getName(id).success (data)->
+				return data.fname
+
