@@ -16,6 +16,7 @@ use App\TaskUser;
 use App\People;
 use Redirect;
 use Auth;
+use Excel;
 
 class TasksController extends Controller
 {
@@ -203,9 +204,52 @@ class TasksController extends Controller
     public function everything()
     {
 
-        $tasks = Task::with('user')->get();
+        $tasks = Task::with('users')->get();
         $task_categories = TaskCategory::all();
-        $task_user = TaskUser::all();
         return view('tasks/everything',compact('tasks','task_categories'));
+    }
+    public function exportTask(){
+        Excel::create('ExcelExport', function ($excel) {
+        $excel->sheet('Tasks', function ($sheet) {
+
+        // first row styling and writing content
+        $sheet->mergeCells('A1:W1');
+        $sheet->row(1, function ($row) {
+            $row->setFontFamily('Comic Sans MS');
+            $row->setFontSize(30);
+        });
+
+        $sheet->row(1, array('All Task'));
+
+        // second row styling and writing content
+        $sheet->row(2, function ($row) {
+
+            // call cell manipulation methods
+            $row->setFontFamily('Comic Sans MS');
+            $row->setFontSize(15);
+            $row->setFontWeight('bold');
+
+        });
+
+        $sheet->row(2, array('Something else here'));
+
+        // getting data to display - in my case only one record
+        $tasks = Task::get()->toArray();
+
+        // setting column names for data - you can of course set it manually
+        $sheet->appendRow(array_keys($tasks[0])); // column names
+
+        // getting last row number (the one we already filled and setting it to bold
+        $sheet->row($sheet->getHighestRow(), function ($row) {
+            $row->setFontWeight('bold');
+        });
+
+        // putting tasks data as next rows
+        foreach ($tasks as $task) {
+            $sheet->appendRow($task);
+        }
+    });
+
+})->export('xls');
     }
 }

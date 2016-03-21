@@ -30,9 +30,11 @@
                                 <span class="error" ng-show="form.pageSize.$error.pattern" >* Not a valid number !</span>
                             </form>
                         </div>
+                        @if(Auth::user()->roles == "admin")
                         <div class="col-xs-4">
                             <button id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add Designation</button>
                         </div>
+                        @endif
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -41,7 +43,9 @@
                         <div class="head list_view border_class">
                             <div class="row">
                                 <div class="datas people_id_pic">Name</div>
+                                @if(Auth::user()->roles == "admin")
                                 <div class="datas people_action pull-right">Action</div>
+                                @endif
                             </div>
                         </div>
                         <div class="data_area list_view " dir-paginate="designation in designations| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
@@ -51,10 +55,12 @@
                             <div ng-cloak class="datas people_name box_real">
                                 {% designation.name ? designation.name : '-' %}
                             </div>
+                            @if(Auth::user()->roles == "admin")
                             <div class="datas people_action pull-right">
                                 <a class="btn btn-success btn-sm" ng-click="editDesignation(designation.id)" ><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-success btn-sm" ng-click="deleteDesignation(designation.id)" ><i class="fa fa-trash"></i></a>
                             </div>
+                            @endif
                         </div>
                         <!-- row 1 complete -->
                     </div>

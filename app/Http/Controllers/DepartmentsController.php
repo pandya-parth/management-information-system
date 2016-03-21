@@ -50,7 +50,6 @@ class DepartmentsController extends Controller
      */
     public function store(Request $request)
     {
-
             $input= Input::all();
             $departments=Department::create($input);
             $departments->save();
