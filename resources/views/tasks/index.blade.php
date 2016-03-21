@@ -26,9 +26,7 @@
             <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
             </div>
-            <div ng-cloak class="col-xs-4">
-                                <button ng-cloak id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add Task</button>
-                              </div>
+            
           </div>
           <div class="clearfix"></div>
         </div>
@@ -80,6 +78,7 @@
                     </div>
 
                   </div>
+                  <button ng-click="showModal($event)" type="button" class="btn button_color task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button>
                 </div>
               </div>
             </div>
@@ -120,20 +119,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group form-group-default form-group-default-select2">
-                                            <label class="">Task Category</label>
-                                            <select class="full-width" data-placeholder="Select Country"  name="category_id" ng-model="task.category_id" data-init-plugin="select2" required>
-                                                <option >-- Select One --</option>
-                                                @foreach($taskCategories as $category)
-                                                <option value="{!! $category->id !!}">{!! $category->name !!}</option>
-                                                @endforeach
-                                            </select>
-                                            <span class="error" ng-show="submitted && project.category_id.$error.required">* Please enter project category</span>
-                                        </div>
-                                    </div>
-                                </div>
+                  
                   <div class=" row ">
                     <div class="col-md-12">
                       <div class="form-group form-group-default form-group-default-select2">

@@ -54,24 +54,24 @@
                 @foreach($companies as $company)
                 <!-- BEGIN Categories List  !-->
                 <li class="chat-user categories_p clearfix">
-                  <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                      <span>{!! strtoupper($company->name) !!}</span>
+                <span><a href="{!! url('/companies',$company->id)!!}">{!! strtoupper($company->name) !!}</a></span>
                       <span class="pill">{!! DB::table('projects')
                       ->where('client_id', $company->id)
                       ->groupBy('client_id')
                       ->count()!!}</span>
-                    </p>
-                  </a>
-                  <i class="fa fa-angle-down fs-16 navtogg"></i>  
-                  <ul>
+                      <ul>
                     @foreach($projects as $project)
                     @if($project->client_id == $company->id)
-                    <li><a href="{!! url('/projects',$project->id)!!}">{!! ucwords($project->name) !!}</a></li>
+                    <li>{!! ucwords($project->name) !!}</li>
                     @endif
                     @endforeach
                   </ul>
-                </li>
+                    </li>
+
+
+               
+
+
                 @endforeach
                 <!-- END Categories List  !-->
               </ul>

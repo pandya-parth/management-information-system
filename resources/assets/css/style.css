@@ -523,12 +523,12 @@ form.country .modal-body{
 .menu-pin .sidebar-header-controls{
 	right: 20px;
 }
-.company_sidebar ul li{
+/*.company_sidebar ul li{
 	position: relative;
 }
 .company_sidebar ul li ul{
 	display: none;
-}
+}*/
 i.navtogg{
 	width: 15px;
 	height: 15px;
