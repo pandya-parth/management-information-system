@@ -529,6 +529,7 @@ form.country .modal-body{
 .company_sidebar ul li ul{
 	display: none;
 }*/
+
 i.navtogg{
 	width: 15px;
 	height: 15px;
@@ -808,4 +809,11 @@ i.icon-tasklist:before{
 }
 .modal .modal-footer .btn{
 	position: inherit;
+}
+
+
+/******** 21/03/2016 **********/
+
+.list-view li:hover{
+	background: transparent;
 }
