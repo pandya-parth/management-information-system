@@ -817,3 +817,12 @@ i.icon-tasklist:before{
 .list-view li:hover{
 	background: transparent;
 }
+
+.panel-heading.everything-header{
+	background-color:transparent;
+
+}
+
+.panel-heading.everything-header .panel-title > a{
+	color: #000 !important;
+}

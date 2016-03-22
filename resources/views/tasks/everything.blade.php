@@ -28,7 +28,7 @@
           <div ng-cloak class="panel-group"  role="tablist" aria-multiselectable="true" >
             @foreach($task_categories as $category)
             <div  class="accordion">
-              <div ng-cloak class="panel-heading" role="tab" id="headingOne" >
+              <div ng-cloak class="panel-heading everything-header" role="tab" id="headingOne" >
                 <h4 class="panel-title">
                   <a>
                     {!! $category->name !!}
@@ -37,29 +37,73 @@
               </div>
               <div id="tasklist{!! $category->id !!}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
-                  <div class="topTask" >
-                    @foreach($tasks as $task)
+
+<div ng-cloak class="grid_list_view">
+                            <div ng-cloak class="head list_view border_class">
+                                <div ng-cloak class="row">
+                                    <div class="datas people_name">Project Name</div>
+                                    <div class="datas people_name">Task Name</div>
+                                    <div class="datas people_name">Notes</div>
+                                    <div class="datas people_name">Category Name</div>
+                                    <div class="datas people_name">Start Date</div>
+                                    <div class="datas people_name">Due Date</div>
+                                </div>
+                            </div>
+                          </div>
+                          @foreach($tasks as $task)
                     @if($category->id == $task->category_id)
-                    <div class="taskInner">
-                      <div class="checkbox check-success">
-                        <input type="checkbox" name="status[]" id="checkbox-{!! $task->id !!}">
-                        <label for="checkbox-{!! $task->id !!}">
-                          <span class="taskBubble">{!! $task->id !!}</span>
-                          <span class="task_name">{!! $task->name !!}</span>
-                        </label>
-                      </div>
-                    </div>
-                    
-                    <div class="task_detail" style="padding:0 0 0 50px;">
-                      <a href="{!!url('/projects'),'/',$task->project_id,'/tasks','/',$task->id !!}" class="timer timer_button"  id="view_button1">
-                        <i class="fa fa-eye"></i>
-                      </a>
-                    </div>
-                    
-                    </br>
-                    @endif
+                    <div ng-cloak class="grid_list_view">
+                            
+                            <div class="data_area list_view ">
+                                <!-- row 1 -->
+                                <div ng-cloak class="row border_class">
+                                    <div ng-cloak class="datas people_designation">
+                                        {!! $task->project->name !!}
+                                    </div>
+                                    <div ng-cloak class="datas people_email">
+                                        {!! $task->name !!}
+                                    </div>
+                                    <div ng-cloak class="datas people_phone">
+                                        {!! $task->notes !!}
+                                    </div>
+                                    <div ng-cloak class="datas people_designation">
+                                        {!! $task->category->name !!}
+                                    </div>
+                                    <div ng-cloak class="datas people_email">
+                                        {!! $task->start_date !!}
+                                    </div>
+                                    <div ng-cloak class="datas people_phone">
+                                        {!! $task->due_date !!}
+                                    </div>
+                                </div>
+                                <!-- row 1 complete -->
+                            </div>
+                        </div>
+
+                        @endif
                     @endforeach
-                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
                 </div>
               </div>
             </div>
