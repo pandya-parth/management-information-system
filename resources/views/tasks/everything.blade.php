@@ -12,7 +12,7 @@
             <h4>All Tasks</h4>   
           </div>
           <div class="pull-right">
-            <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
+            <div class="col-xs-6"  >
               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
             </div>
             <div class="col-xs-4">
@@ -52,28 +52,33 @@
                           </div>
                           @foreach($tasks as $task)
                     @if($category->id == $task->category_id)
-                    <div ng-cloak class="grid_list_view">
+                    <div  class="grid_list_view">
                             
                             <div class="data_area list_view ">
                                 <!-- row 1 -->
-                                <div ng-cloak class="row border_class">
-                                    <div ng-cloak class="datas people_designation">
+                                <div  class="row border_class">
+                                    <div  class="datas people_designation">
                                         {!! $task->project->name !!}
                                     </div>
-                                    <div ng-cloak class="datas people_email">
+                                    <div  class="datas people_email">
                                         {!! $task->name !!}
                                     </div>
-                                    <div ng-cloak class="datas people_phone">
+                                    <div  class="datas people_phone">
                                         {!! $task->notes !!}
                                     </div>
-                                    <div ng-cloak class="datas people_designation">
+                                    <div  class="datas people_designation">
                                         {!! $task->category->name !!}
                                     </div>
-                                    <div ng-cloak class="datas people_email">
+                                    <div  class="datas people_email">
                                         {!! $task->start_date !!}
                                     </div>
-                                    <div ng-cloak class="datas people_phone">
+                                    <div  class="datas people_phone">
                                         {!! $task->due_date !!}
+                                    </div>
+                                    <div class="task_detail">
+                                      <a href="{!!url('/projects'),'/',$task->project_id,'/tasks','/',$task->id !!}" class="timer timer_button"  id="view_button1">
+                                        <i class="fa fa-eye"></i>
+                                      </a>
                                     </div>
                                 </div>
                                 <!-- row 1 complete -->

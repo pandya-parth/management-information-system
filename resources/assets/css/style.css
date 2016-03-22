@@ -826,3 +826,6 @@ i.icon-tasklist:before{
 .panel-heading.everything-header .panel-title > a{
 	color: #000 !important;
 }
+/*.panel-heading.everything-header .panel-title > a:hover{
+	background-color: transparent !important;
+}*/
