@@ -429,6 +429,8 @@ class UserTableSeeder extends Seeder
                         'name' => 'projectone',
                         'slug' => 'projectone',
                         'description' => 'fgfgfgg',
+                        'start_date' => '2016-03-22 06:24:50',
+                        'end_date' => '2016-03-22 06:24:50',
                         'notes' => 'gfgfgfg',
                         ]);
 
@@ -437,6 +439,8 @@ class UserTableSeeder extends Seeder
                         'name' => 'projecttwo',
                         'slug' => 'projecttwo',
                         'description' => 'fgfgfg',
+                        'start_date' => '2016-03-22 06:24:50',
+                        'end_date' => '2016-03-22 06:24:50',
                         'notes' => 'fgfgfgfgf',
                         ]);
 
@@ -445,6 +449,8 @@ class UserTableSeeder extends Seeder
                         'name' => 'project3',
                         'slug' => 'project3',
                         'description' => 'fgfgfgf',
+                        'start_date' => '2016-03-22 06:24:50',
+                        'end_date' => '2016-03-22 06:24:50',
                         'notes' => 'gfgfgfgfg',
                         ]);
 
@@ -453,6 +459,8 @@ class UserTableSeeder extends Seeder
                         'name' => 'project4',
                         'slug' => 'project4',
                         'description' => 'fgfgfgfg',
+                        'start_date' => '2016-03-22 06:24:50',
+                        'end_date' => '2016-03-22 06:24:50',
                         'notes' => 'fgfgfg',
                         ]);
 
@@ -461,6 +469,8 @@ class UserTableSeeder extends Seeder
                         'name' => 'project5',
                         'slug' => 'project5',
                         'description' => 'gfgfgfgfgg',
+                        'start_date' => '2016-03-22 06:24:50',
+                        'end_date' => '2016-03-22 06:24:50',
                         'notes' => 'gfgfgfgf',
                         ]);
 
@@ -472,7 +482,9 @@ class UserTableSeeder extends Seeder
               'category_id'=>'1',
               'name'=>'taskone',
               'slug'=>'taskone',
-              'notes' => 'dasedasedskjhvjhvghv'
+              'start_date' => '2016-03-22 06:24:50',
+              'due_date' => '2016-03-22 06:24:50',
+              'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
@@ -480,7 +492,9 @@ class UserTableSeeder extends Seeder
               'category_id'=>'1',
               'name'=>'haha',
               'slug'=>'haha',
-              'notes' => 'dasedasedskjhvjhvghv'
+              'start_date' => '2016-03-22 06:24:50',
+              'due_date' => '2016-03-22 06:24:50',
+              'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
@@ -488,7 +502,9 @@ class UserTableSeeder extends Seeder
               'category_id'=>'1',
               'name'=>'hihi',
               'slug'=>'hihi',
-              'notes' => 'dasedasedskjhvjhvghv'
+              'start_date' => '2016-03-22 06:24:50',
+              'due_date' => '2016-03-22 06:24:50',
+              'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
@@ -496,7 +512,9 @@ class UserTableSeeder extends Seeder
               'category_id'=>'2',
               'name'=>'tasktwo',
               'slug'=>'tasktwo',
-              'notes' => 'dasedasedskjhvjhvghv'
+              'start_date' => '2016-03-22 06:24:50',
+              'due_date' => '2016-03-22 06:24:50',
+              'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
@@ -504,7 +522,9 @@ class UserTableSeeder extends Seeder
               'category_id'=>'3',
               'name'=>'task3',
               'slug'=>'task3',
-              'notes' => 'dasedasedskjhvjhvghv'
+              'start_date' => '2016-03-22 06:24:50',
+              'due_date' => '2016-03-22 06:24:50',
+              'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
@@ -512,7 +532,9 @@ class UserTableSeeder extends Seeder
               'category_id'=>'4',
               'name'=>'task4',
               'slug'=>'task4',
-              'notes' => 'dasedasedskjhvjhvghv'
+              'start_date' => '2016-03-22 06:24:50',
+              'due_date' => '2016-03-22 06:24:50',
+              'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
@@ -520,7 +542,9 @@ class UserTableSeeder extends Seeder
               'category_id'=>'5',
               'name'=>'task5',
               'slug'=>'task5',
-              'notes' => 'dasedasedskjhvjhvghv'
+              'start_date' => '2016-03-22 06:24:50',
+              'due_date' => '2016-03-22 06:24:50',
+              'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
 
@@ -536,30 +560,35 @@ class UserTableSeeder extends Seeder
             ['user_id' => '1',
               'task_id'=>'1',
               'description'=>'klklkl',
+              'date' => '2016-03-22 06:24:50',
             ]);
 
         LogTime::create(
             ['user_id' => '2',
               'task_id'=>'2',
               'description'=>'klklkl',
+              'date' => '2016-03-22 06:24:50',
             ]);
 
         LogTime::create(
             ['user_id' => '3',
               'task_id'=>'3',
               'description'=>'klklkl',
+              'date' => '2016-03-22 06:24:50',
             ]);
 
         LogTime::create(
             ['user_id' => '4',
               'task_id'=>'4',
               'description'=>'klklkl',
+              'date' => '2016-03-22 06:24:50',
             ]);
 
         LogTime::create(
             ['user_id' => '5',
               'task_id'=>'5',
               'description'=>'klklkl',
+              'date' => '2016-03-22 06:24:50',
             ]);
 
 

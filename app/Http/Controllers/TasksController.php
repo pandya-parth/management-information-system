@@ -203,75 +203,36 @@ class TasksController extends Controller
 
     public function everything()
     {
-
         $tasks = Task::with('users')->get();
         $task_categories = TaskCategory::all();
         return view('tasks/everything',compact('tasks','task_categories'));
     }
     public function exportTask(){
-        Excel::create('ExcelExport', function ($excel) {
-        $excel->sheet('Tasks', function ($sheet) {
 
-        // first row styling and writing content
-        $sheet->mergeCells('A1:W1');
-        $sheet->row(1, function ($row) {
-            $row->setFontFamily('Comic Sans MS');
-            $row->setFontSize(30);
-        });
+        Excel::create('tasks', function($excel) {
 
-        $sheet->row(1, array('All Task'));
+            $excel->sheet('Sheet1', function($sheet) {
+  $sheet->row(1, '');
 
-        // second row styling and writing content
-        $sheet->row(2, function ($row) {
+                $employees = Task::all();
 
-            // call cell manipulation methods
-            $row->setFontFamily('Comic Sans MS');
-            $row->setFontSize(15);
-            $row->setFontWeight('bold');
+                $arr =array();
+                foreach($employees as $employee) {
+                    
+                        $data =  array($employee->id, $employee->project->name, $employee->name, $employee->notes, $employee->start_date, $employee->due_date,
+                             $employee->category->name, $employee->created_at, $employee->updated_at);
+                        array_push($arr, $data);
+                    
+                }
 
-        });
+                //set the titles
+                $sheet->fromArray($arr,null,'A1',false,false)->prependRow(array('Task Id', 'Project Name', 'Task Name', 'Notes', 'Start Date', 'Due Date', 'Task Category Name', 'Created At', 'Updated At')
 
-        $sheet->row(2, array('Something else here'));
+                );
 
-        // getting data to display - in my case only one record
-        $tasks = Task::get()->toArray();
+            });
 
-        // setting column names for data - you can of course set it manually
-        $sheet->appendRow(array_keys($tasks[0])); // column names
+            })->export('xls');
 
-        // getting last row number (the one we already filled and setting it to bold
-        $sheet->row($sheet->getHighestRow(), function ($row) {
-            $row->setFontWeight('bold');
-        });
-
-        // putting tasks data as next rows
-        foreach ($tasks as $task) {
-            $sheet->appendRow($task);
         }
-    });
-
-})->export('xls');
-
-// To store on server
-// ->store('xls');
-
-// To export to Excel5 (xls)
-// })->export('xls'); or ->download('xls');
-
-// To export to Excel2007 (xlsx)
-// ->export('xlsx'); or ->download('xlsx');
-
-// To export to CSV
-// ->export('csv'); or ->download('csv');
-
-// To store and export
-// ->store('xls')->export('xls');
-
-//To store at custom path
-//->store('xls', storage_path('excel/exports'));
-
-//To store and return storage info
-// ->store('xls', false, true);
-
-    }
 }
