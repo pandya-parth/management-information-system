@@ -251,5 +251,27 @@ class TasksController extends Controller
     });
 
 })->export('xls');
+
+// To store on server
+// ->store('xls');
+
+// To export to Excel5 (xls)
+// })->export('xls'); or ->download('xls');
+
+// To export to Excel2007 (xlsx)
+// ->export('xlsx'); or ->download('xlsx');
+
+// To export to CSV
+// ->export('csv'); or ->download('csv');
+
+// To store and export
+// ->store('xls')->export('xls');
+
+//To store at custom path
+//->store('xls', storage_path('excel/exports'));
+
+//To store and return storage info
+// ->store('xls', false, true);
+
     }
 }
