@@ -12,9 +12,7 @@
             <h4>All Tasks</h4>   
           </div>
           <div class="pull-right">
-            <div class="col-xs-6"  >
-              <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
-            </div>
+            
             <div class="col-xs-4">
               <form action="{!! url('/exportTask') !!}" method="GET">
                             <button id="export-button" class="btn button_color">Export</button>
