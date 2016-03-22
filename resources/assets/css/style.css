@@ -829,3 +829,12 @@ i.icon-tasklist:before{
 /*.panel-heading.everything-header .panel-title > a:hover{
 	background-color: transparent !important;
 }*/
+
+.everything-column .grid_list_view .datas {
+    float: left;
+    width: 14%;
+}
+.everything-column-inner .border_class .datas {
+    float: left;
+    width: 14%;
+}

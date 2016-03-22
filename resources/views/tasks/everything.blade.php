@@ -33,10 +33,10 @@
                   </a>
                 </h4>
               </div>
-              <div id="tasklist{!! $category->id !!}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
+              <div id="tasklist{!! $category->id !!}" class="panel-collapse collapse in everything-column" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
 
-<div ng-cloak class="grid_list_view">
+<div ng-cloak class="grid_list_view everything-column-inner">
                             <div ng-cloak class="head list_view border_class">
                                 <div ng-cloak class="row">
                                     <div class="datas people_name">Project Name</div>
@@ -45,6 +45,7 @@
                                     <div class="datas people_name">Category Name</div>
                                     <div class="datas people_name">Start Date</div>
                                     <div class="datas people_name">Due Date</div>
+                                    <div class="datas people_name">Action</div>
                                 </div>
                             </div>
                           </div>
