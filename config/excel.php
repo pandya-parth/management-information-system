@@ -31,7 +31,7 @@ return array(
         */
         'settings' => array(
 
-            'memoryCacheSize' => '100MB',
+            'memoryCacheSize' => '32MB',
             'cacheTime'       => 600
 
         ),
@@ -58,15 +58,15 @@ return array(
     ),
 
     'properties' => array(
-        'creator'        => 'Krishaweb',
-        'lastModifiedBy' => 'Krishaweb',
-        'title'          => 'Your Task',
+        'creator'        => 'Maatwebsite',
+        'lastModifiedBy' => 'Maatwebsite',
+        'title'          => 'Spreadsheet',
         'description'    => 'Default spreadsheet export',
         'subject'        => 'Spreadsheet export',
-        'keywords'       => 'krishaweb, excel, export',
+        'keywords'       => 'maatwebsite, excel, export',
         'category'       => 'Excel',
-        'manager'        => 'Krishaweb',
-        'company'        => 'Krishaweb',
+        'manager'        => 'Maatwebsite',
+        'company'        => 'Maatwebsite',
     ),
 
     /*
