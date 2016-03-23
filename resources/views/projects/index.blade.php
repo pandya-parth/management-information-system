@@ -131,7 +131,11 @@
                                             </select>
                                             <span class="error" ng-show="submitted && project.category_id.$error.required">* Please enter project category</span>
                                         </div>
+
                                     </div>
+                                    
+                                     <span><a href="{!! url('/project-categories') !!}">Add New Project Category</a></span>
+                                     
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
