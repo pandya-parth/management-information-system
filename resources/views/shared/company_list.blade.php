@@ -43,9 +43,11 @@
       <li class="m-t-30 ">
         <a href="{!! url('/') !!}" class="detailed">
           <span class="title">Dashboard</span>
+
         </a>
         <span class="icon-thumbnail bg-success dashboard-icon"><i class="icon-dashboard"></i></span>
       </li>
+      
       <li>
         <div class="view company_sidebar">
           <div  class="list-view boreded no-top-border">

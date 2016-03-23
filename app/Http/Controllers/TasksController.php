@@ -17,6 +17,7 @@ use App\People;
 use Redirect;
 use Auth;
 use Excel;
+use DB;
 
 class TasksController extends Controller
 {
@@ -203,19 +204,29 @@ class TasksController extends Controller
 
     public function everything()
     {
-        $tasks = Task::with('users')->oredrBy('created_at','desc')->get();
+        $tasks = Task::with('users')->get();
         $task_categories = TaskCategory::all();
-        return view('tasks/everything',compact('tasks','task_categories'));
+        dd($t = DB::table('tasks')->select(DB::raw('count(*) as total'),'name','notes')->groupBy('created_at','id')->get());
+
+        dd($user_info = DB::table('tasks')
+             ->select('created_at', DB::raw('count(*) as total'))
+             ->groupBy('tasks.created_at')
+             ->lists('total','created_at'));
+
+        dd($t = DB::table('tasks')
+            ->groupBy('tasks.created_at','tasks.id')
+            ->get(['tasks.id', 'tasks.name', 'tasks.notes', DB::raw('count(tasks.id) as tasks')])
+        );
+        
+        return view('tasks/everything',compact('tasks','task_categories','dates'));
     }
     public function exportTask(){
 
         Excel::create('tasks', function($excel) {
 
             $excel->sheet('Sheet1', function($sheet) {
-  $sheet->row(1, '');
-
+            $sheet->row(1, '');
                 $employees = Task::all();
-
                 $arr =array();
                 foreach($employees as $employee) {
                     
@@ -224,14 +235,10 @@ class TasksController extends Controller
                         array_push($arr, $data);
                     
                 }
-
                 //set the titles
                 $sheet->fromArray($arr,null,'A1',false,false)->prependRow(array('Task Id', 'Project Name', 'Task Name', 'Notes', 'Start Date', 'Due Date', 'Task Category Name', 'Created At', 'Updated At')
-
                 );
-
             });
-
             })->export('xls');
 
         }
