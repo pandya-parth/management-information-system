@@ -35,7 +35,6 @@
   </div>
   <!-- END SIDEBAR MENU HEADER-->
   <!-- START SIDEBAR MENU -->
-
   <div class="sidebar-menu">
     <!-- BEGIN SIDEBAR MENU ITEMS-->
     <ul class="menu-items">
@@ -49,39 +48,31 @@
         <div class="view company_sidebar">
           <div  class="list-view boreded no-top-border">
             <div class="list-view-group-container">
-              
-
               <ul>
                 @foreach($projects as $project)
-                    @foreach($project->users as $user)
-                        @if($user->id == Auth::user()->id)
-                            @foreach($companies as $company)
-                              @if($project->client_id == $company->id)
-                                @foreach($industries as $industry)
-                                @if($company->industry_id == $industry->id)
-                                <!-- BEGIN Categories List  !-->
-                                <li class="chat-user categories_p clearfix">
-                                      <span>{!! strtoupper($industry->name) !!}</span>
-                                      <span class="pill">{!! DB::table('companies')
-            ->where('industry_id', $industry->id)
-            ->groupBy('industry_id')
-            ->count()!!}</span>
-                                      <ul>
-                                          
-                                              <li><a href="{!! url('/companies',$company->id)!!}">{!! ucwords($company->name) !!}</a></li>
-                                          
-                                      </ul>
-                                </li>
-                                    @endif
-                                  @endforeach
-                                @endif
-                            @endforeach
+                  @foreach($project->users as $user)
+                    @if($user->id == Auth::user()->id)
+                      @foreach($companies as $company)
+                        @if($project->client_id == $company->id)
+                          @foreach($industries as $industry)
+                            @if($company->industry_id == $industry->id)
+                              <!-- BEGIN Categories List  !-->
+                              <li class="chat-user categories_p clearfix">
+                                <span>{!! strtoupper($industry->name) !!}</span>
+                                <span class="pill">{!! DB::table('companies')->where('industry_id', $industry->id)->groupBy('industry_id')->count()!!}</span>
+                                <ul>
+                                  <li><a href="{!! url('/companies',$company->id)!!}">{!! ucwords($company->name) !!}</a></li>
+                                </ul>
+                              </li>
+                            @endif
+                          @endforeach
                         @endif
-                    @endforeach
+                      @endforeach
+                    @endif
+                  @endforeach
                 @endforeach
                 <!-- END Categories List  !-->
               </ul>
-
             </div>
           </div>
         </div>
@@ -89,7 +80,5 @@
     </ul>
     <div class="clearfix"></div>
   </div>
-
-  
-    <!-- END SIDEBAR MENU -->
-  </nav>
+  <!-- END SIDEBAR MENU -->
+</nav>
