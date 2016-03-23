@@ -312,6 +312,7 @@
                                             </select> 
                                         </div>
                                     </div>
+                                  <span><a href="{!! url('/departments') !!}">Add New Department</a></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -325,6 +326,7 @@
                                         </select>
                                         </div>
                                     </div>
+                                  <span><a href="{!! url('/designations') !!}">Add New Designation</a></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">

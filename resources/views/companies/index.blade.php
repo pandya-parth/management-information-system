@@ -191,6 +191,7 @@
                                     
                                     
                                 </div>
+                                <span><a href="{!! url('/industries') !!}">Add New Industry</a></span>
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">

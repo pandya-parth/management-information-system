@@ -49,32 +49,37 @@
         <div class="view company_sidebar">
           <div  class="list-view boreded no-top-border">
             <div class="list-view-group-container">
-              <ul>
-                @foreach($project_categories as $project_cat)
-                <!-- BEGIN Categories List  !-->
-                <li class="chat-user categories_p clearfix">
-                  <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                      <span>{!! strtoupper($project_cat->name) !!}</span>
-                      <span class="pill">{!! DB::table('projects')
-            ->where('category_id', $project_cat->id)
-            ->groupBy('category_id')
-            ->count()!!}</span>
-                    </p>
-                  </a>
-                  <i class="fa fa-angle-down fs-16 navtogg"></i>  
-                  <ul>
-                    @foreach($projects as $project)
+              
 
-              @if($project->category_id == $project_cat->id)
-                    <li><a href="{!! url('/projects',$project->id)!!}">{!! ucwords($project->name) !!}</a></li>
-                    @endif
+
+
+
+              <ul>
+                @foreach($projects as $project)
+                    @foreach($project->users as $user)
+                        @if($user->id == Auth::user()->id)
+                            @foreach($project_categories as $project_cat)
+                            @if($project->category_id == $project_cat->id)
+                                <!-- BEGIN Categories List  !-->
+                                <li class="chat-user categories_p clearfix">
+                                      <span>{!! strtoupper($project_cat->name) !!}</span>
+                                      <span class="pill">{!! DB::table('projects')->where('category_id', $project_cat->id)->groupBy('category_id')->count()!!}</span>
+                                      <ul>
+                                          
+                                              <li>{!! ucwords($project->name) !!}</li>
+                                          
+                                      </ul>
+                                </li>
+                                @endif
+                            @endforeach
+                        @endif
                     @endforeach
-                  </ul>
-                </li>
                 @endforeach
                 <!-- END Categories List  !-->
               </ul>
+
+
+
             </div>
           </div>
         </div>

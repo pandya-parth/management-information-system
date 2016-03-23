@@ -22,6 +22,7 @@
             <h4>Tasks</h4>   
                     
           </div>
+          <span><a href="{!! url('/task-categories') !!}">Add New Task Category</a></span>
           <div class="pull-right">
             <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>

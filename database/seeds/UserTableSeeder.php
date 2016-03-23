@@ -439,8 +439,8 @@ class UserTableSeeder extends Seeder
                         'name' => 'projecttwo',
                         'slug' => 'projecttwo',
                         'description' => 'fgfgfg',
-                        'start_date' => '2016-03-22 06:24:50',
-                        'end_date' => '2016-03-22 06:24:50',
+                        'start_date' => '2016-03-23 06:24:50',
+                        'end_date' => '2016-03-23 06:24:50',
                         'notes' => 'fgfgfgfgf',
                         ]);
 
@@ -449,8 +449,8 @@ class UserTableSeeder extends Seeder
                         'name' => 'project3',
                         'slug' => 'project3',
                         'description' => 'fgfgfgf',
-                        'start_date' => '2016-03-22 06:24:50',
-                        'end_date' => '2016-03-22 06:24:50',
+                        'start_date' => '2016-03-24 06:24:50',
+                        'end_date' => '2016-03-24 06:24:50',
                         'notes' => 'gfgfgfgfg',
                         ]);
 
@@ -459,8 +459,8 @@ class UserTableSeeder extends Seeder
                         'name' => 'project4',
                         'slug' => 'project4',
                         'description' => 'fgfgfgfg',
-                        'start_date' => '2016-03-22 06:24:50',
-                        'end_date' => '2016-03-22 06:24:50',
+                        'start_date' => '2016-03-25 06:24:50',
+                        'end_date' => '2016-03-25 06:24:50',
                         'notes' => 'fgfgfg',
                         ]);
 
@@ -469,8 +469,8 @@ class UserTableSeeder extends Seeder
                         'name' => 'project5',
                         'slug' => 'project5',
                         'description' => 'gfgfgfgfgg',
-                        'start_date' => '2016-03-22 06:24:50',
-                        'end_date' => '2016-03-22 06:24:50',
+                        'start_date' => '2016-03-26 06:24:50',
+                        'end_date' => '2016-03-26 06:24:50',
                         'notes' => 'gfgfgfgf',
                         ]);
 
@@ -480,8 +480,8 @@ class UserTableSeeder extends Seeder
         Task::create(
             ['project_id' => '1',
               'category_id'=>'1',
-              'name'=>'taskone',
-              'slug'=>'taskone',
+              'name'=>'task1',
+              'slug'=>'task1',
               'start_date' => '2016-03-22 06:24:50',
               'due_date' => '2016-03-22 06:24:50',
               'notes' => 'dasedasedskjhvjhvghv',
@@ -490,60 +490,60 @@ class UserTableSeeder extends Seeder
         Task::create(
             ['project_id' => '1',
               'category_id'=>'1',
-              'name'=>'haha',
-              'slug'=>'haha',
-              'start_date' => '2016-03-22 06:24:50',
-              'due_date' => '2016-03-22 06:24:50',
+              'name'=>'task2',
+              'slug'=>'task2',
+              'start_date' => '2016-03-23 06:24:50',
+              'due_date' => '2016-03-23 06:24:50',
               'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
             ['project_id' => '1',
               'category_id'=>'1',
-              'name'=>'hihi',
-              'slug'=>'hihi',
-              'start_date' => '2016-03-22 06:24:50',
-              'due_date' => '2016-03-22 06:24:50',
+              'name'=>'task3',
+              'slug'=>'task3',
+              'start_date' => '2016-03-24 06:24:50',
+              'due_date' => '2016-03-24 06:24:50',
               'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
             ['project_id' => '2',
               'category_id'=>'2',
-              'name'=>'tasktwo',
-              'slug'=>'tasktwo',
-              'start_date' => '2016-03-22 06:24:50',
-              'due_date' => '2016-03-22 06:24:50',
+              'name'=>'task4',
+              'slug'=>'task4',
+              'start_date' => '2016-03-25 06:24:50',
+              'due_date' => '2016-03-25 06:24:50',
               'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
             ['project_id' => '3',
               'category_id'=>'3',
-              'name'=>'task3',
-              'slug'=>'task3',
-              'start_date' => '2016-03-22 06:24:50',
-              'due_date' => '2016-03-22 06:24:50',
+              'name'=>'task5',
+              'slug'=>'task5',
+              'start_date' => '2016-03-26 06:24:50',
+              'due_date' => '2016-03-26 06:24:50',
               'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
             ['project_id' => '4',
               'category_id'=>'4',
-              'name'=>'task4',
-              'slug'=>'task4',
-              'start_date' => '2016-03-22 06:24:50',
-              'due_date' => '2016-03-22 06:24:50',
+              'name'=>'task6',
+              'slug'=>'task6',
+              'start_date' => '2016-03-27 06:24:50',
+              'due_date' => '2016-03-27 06:24:50',
               'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
         Task::create(
             ['project_id' => '5',
               'category_id'=>'5',
-              'name'=>'task5',
-              'slug'=>'task5',
-              'start_date' => '2016-03-22 06:24:50',
-              'due_date' => '2016-03-22 06:24:50',
+              'name'=>'task7',
+              'slug'=>'task7',
+              'start_date' => '2016-03-28 06:24:50',
+              'due_date' => '2016-03-28 06:24:50',
               'notes' => 'dasedasedskjhvjhvghv',
             ]);
 
@@ -567,28 +567,28 @@ class UserTableSeeder extends Seeder
             ['user_id' => '2',
               'task_id'=>'2',
               'description'=>'klklkl',
-              'date' => '2016-03-22 06:24:50',
+              'date' => '2016-03-23 06:24:50',
             ]);
 
         LogTime::create(
             ['user_id' => '3',
               'task_id'=>'3',
               'description'=>'klklkl',
-              'date' => '2016-03-22 06:24:50',
+              'date' => '2016-03-24 06:24:50',
             ]);
 
         LogTime::create(
             ['user_id' => '4',
               'task_id'=>'4',
               'description'=>'klklkl',
-              'date' => '2016-03-22 06:24:50',
+              'date' => '2016-03-25 06:24:50',
             ]);
 
         LogTime::create(
             ['user_id' => '5',
               'task_id'=>'5',
               'description'=>'klklkl',
-              'date' => '2016-03-22 06:24:50',
+              'date' => '2016-03-26 06:24:50',
             ]);
 
 

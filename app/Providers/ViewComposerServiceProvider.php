@@ -37,6 +37,7 @@ class ViewComposerServiceProvider extends ServiceProvider
 
         view()->composer('shared.industry_list', function($view)
         {
+            $view->with('projects', Project::all());
             $view->with('companies', Company::all());
             $view->with('industries', Industry::all());
         });
