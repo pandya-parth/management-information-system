@@ -204,8 +204,9 @@ class TasksController extends Controller
 
     public function everything()
     {
+        $logtimes = LogTime::all();
         $tasks = Task::with('users')->get();
-        $task_categories = TaskCategory::all();
+        // $task_categories = TaskCategory::all();
         // $tasks = DB::table('tasks')->select(DB::raw('count(*) as total'),'name','notes')->groupBy('created_at','id')->get();
 
         // $tasks = $user_info = DB::table('tasks')
@@ -217,7 +218,7 @@ class TasksController extends Controller
         //     ->groupBy('tasks.created_at','tasks.id')
         //     ->get(['tasks.id', 'tasks.name', 'tasks.notes', DB::raw('count(tasks.id) as tasks')]);
         
-        return view('tasks/everything',compact('tasks','task_categories'));
+        return view('tasks/everything',compact('tasks','logtimes'));
     }
     public function exportTask(){
 
