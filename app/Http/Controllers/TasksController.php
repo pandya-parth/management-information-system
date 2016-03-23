@@ -206,19 +206,18 @@ class TasksController extends Controller
     {
         $tasks = Task::with('users')->get();
         $task_categories = TaskCategory::all();
-        dd($t = DB::table('tasks')->select(DB::raw('count(*) as total'),'name','notes')->groupBy('created_at','id')->get());
+        // $tasks = DB::table('tasks')->select(DB::raw('count(*) as total'),'name','notes')->groupBy('created_at','id')->get();
 
-        dd($user_info = DB::table('tasks')
-             ->select('created_at', DB::raw('count(*) as total'))
-             ->groupBy('tasks.created_at')
-             ->lists('total','created_at'));
+        // $tasks = $user_info = DB::table('tasks')
+        //      ->select('created_at', DB::raw('count(*) as total'))
+        //      ->groupBy('tasks.created_at')
+        //      ->lists('total','created_at');
 
-        dd($t = DB::table('tasks')
-            ->groupBy('tasks.created_at','tasks.id')
-            ->get(['tasks.id', 'tasks.name', 'tasks.notes', DB::raw('count(tasks.id) as tasks')])
-        );
+        // $tasks = DB::table('tasks')
+        //     ->groupBy('tasks.created_at','tasks.id')
+        //     ->get(['tasks.id', 'tasks.name', 'tasks.notes', DB::raw('count(tasks.id) as tasks')]);
         
-        return view('tasks/everything',compact('tasks','task_categories','dates'));
+        return view('tasks/everything',compact('tasks','task_categories'));
     }
     public function exportTask(){
 

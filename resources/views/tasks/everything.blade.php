@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.everything')
 @section('title','Task')
 @section('content')
 <div ng-controller="TasksCtrl">
@@ -24,9 +24,9 @@
         <div ng-cloak class="panel-body" >
           <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
           <div ng-cloak class="panel-group"  role="tablist" aria-multiselectable="true" >
-            @foreach($dates as $date)
+            
             @foreach($task_categories as $category)
-            {!! $date !!}            
+              
             <div  class="accordion">
               <div ng-cloak class="panel-heading everything-header" role="tab" id="headingOne" >
                 <h4 class="panel-title">
@@ -53,7 +53,7 @@
                           </div>
                           
                           @foreach($tasks as $task)
-                          @if($date == $task->created_at)
+                          
                     @if($category->id == $task->category_id)
                     <div  class="grid_list_view">
                             
@@ -89,14 +89,14 @@
                         </div>
 
                         @endif
-                      @endif
+                      
                     @endforeach     
                                  
                 </div>
               </div>
             </div>
             @endforeach
-            @endforeach
+            
           </div>
         </div>
       </div>
