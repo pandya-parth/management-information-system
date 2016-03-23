@@ -62,7 +62,7 @@
                                         {!! $logtime->user->people->name !!}
                                     </div>
                                     <div  class="datas people_email">
-                                        {!! $logtime->task->name !!}--{!! $logtime->description !!}
+                                        <a href="{!!url('/projects'),'/',$logtime->task->project_id,'/tasks','/',$logtime->task->id !!}" >{!! $logtime->task->name !!} </a>--{!! $logtime->description !!}
                                     </div>
                                     <div  class="datas people_designation">
                                         {!! $logtime->task->category->name !!}
@@ -76,12 +76,7 @@
                                     <div  class="datas people_phone">
                                         {!! $logtime->end_time !!}
                                     </div>
-                                    <div class="task_detail">
-                                      <a href="{!!url('/projects'),'/',$logtime->task->project_id,'/tasks','/',$logtime->task->id !!}" class="timer timer_button"  id="view_button1">
-                                        <i class="fa fa-eye"></i>
-                                      </a>
-                                    </div>
-                                </div>
+                                    
                                 </div>
                                 <!-- row 1 complete -->
                             </div>
