@@ -198,7 +198,7 @@ ul.log-indropdown{
 .grid_list_view .data_area.list_view .row .datas{
 	display: table-cell;
 	vertical-align: middle;
-	height: 50px;
+	/*height: 50px;*/
 }
 .grid_list_view .data_area.list_view .row .people_id_pic .pic{
 display: inline-block;
@@ -277,9 +277,9 @@ vertical-align: middle;
 .grid_list_view .head.border_class.box_view{
 	display: none;
 }
-.border_class{
+/*.border_class{
 	border-radius: 70px;
-}
+}*/
 .header_class{
 	background-color: #0DAD9E;
 }
