@@ -16,7 +16,7 @@ angular.module 'mis'
 			$scope.logs = data
 			$scope.loading = false
 
-		task.everythingLog(tId).success (data)->
+		task.everythingLog().success (data)->
 			$scope.logs = data
 			$scope.loading = false
 
