@@ -203,26 +203,19 @@ class TasksController extends Controller
         return response()->json(['success'=>true]);
     }
 
-    public function everything()
+    public function getEverything(Request $request)
     {
-        $logtimes = LogTime::all();
-        
-
-        $days = LogTime::select(DB::raw('DATE(created_at) as datum'))
-    ->distinct()
-    ->orderBy('datum','desc')
-    ->get();
-
-    $selectboxtwo = DB::table('log_times')
-                    ->groupBy('created_at','id')
-                    ->get(['id', 'date', 'description', DB::raw('count(log_times.id) as log_times')]);
-
-    
-    dd($selectboxtwo);
-        
-        
-        return view('tasks/everything',compact('tasks','logtimes'));
+        $logs = LogTime::whereTaskId($request->get('task_id'))->get();
+        return response()->json($logs);
     }
+
+    public function everything(Request $request)
+    {
+        $logs = LogTime::all();
+        return view('tasks.everything',compact('logs'));
+
+    }
+
     public function exportTask(){
 
         Excel::create('tasks', function($excel) {
