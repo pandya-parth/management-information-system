@@ -205,14 +205,13 @@ class TasksController extends Controller
 
     public function getEverything(Request $request)
     {
-        $logs = LogTime::whereTaskId($request->get('task_id'))->get();
+        $logs = LogTime::all();
         return response()->json($logs);
     }
 
     public function everything(Request $request)
     {
-        $logs = LogTime::all();
-        return view('tasks.everything',compact('logs'));
+        return view('tasks.everything');
 
     }
 
@@ -222,17 +221,17 @@ class TasksController extends Controller
 
             $excel->sheet('Sheet1', function($sheet) {
             $sheet->row(1, '');
-                $employees = Task::all();
+                $logs = LogTime::all();
                 $arr =array();
-                foreach($employees as $employee) {
+                foreach($logs as $log) {
                     
-                        $data =  array($employee->id, $employee->project->name, $employee->name, $employee->notes, $employee->start_date, $employee->due_date,
-                             $employee->category->name, $employee->created_at, $employee->updated_at);
+                        $data =  array($log->id, $log->task->project->name, $log->task->name,$log->description, $log->date, $log->start_time, $log->end_time,
+                             $log->task->category->name, $log->created_at, $log->updated_at);
                         array_push($arr, $data);
                     
                 }
                 //set the titles
-                $sheet->fromArray($arr,null,'A1',false,false)->prependRow(array('Task Id', 'Project Name', 'Task Name', 'Notes', 'Start Date', 'Due Date', 'Task Category Name', 'Created At', 'Updated At')
+                $sheet->fromArray($arr,null,'A1',false,false)->prependRow(array('Log Id', 'Project Name', 'Task Name','Description', 'Date', 'Start Time', 'End Time', 'Task Category Name', 'Created At', 'Updated At')
                 );
             });
             })->export('xls');
