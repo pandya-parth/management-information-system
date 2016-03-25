@@ -11,9 +11,14 @@
         <div class="panel-heading">
           <div class="panel-title">
             <h4>All Tasks</h4>   
+            
           </div>
           <div class="pull-right">
             
+            
+                        <div class="col-xs-6" ng-show="logs.length > 0" ng-cloak>
+              <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
+            </div>
             <div class="col-xs-4">
               <form action="{!! url('/exportTask') !!}" method="GET">
                             <button id="export-button" class="btn button_color">Export</button>
@@ -38,11 +43,11 @@
                                 <div class="datas people_action pull-right">Action</div>
                             </div>
                         </div>
-                        <div class="data_area list_view " dir-paginate="log in logs| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
+                        <div class="data_area list_view " dir-paginate="(key, value) in logs| orderBy:'-id' | filter:q | itemsPerPage: pageSize | groupBy: 'created_at'"
                         current-page="currentPage" ng-show="logs.length != 0">
-
+                        <b>{% key %}</b>
                         <!-- row 1 -->
-                        <div ng-cloak class="row border_class">
+                        <div ng-cloak class="row border_class" ng-repeat="log in value">
                             <div ng-cloak class="datas people_name box_real">
                                 {% log.date ? log.date : '-' %}
                             </div>

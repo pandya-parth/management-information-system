@@ -29,8 +29,7 @@ elixir (mix)->
       bowerPath('jquery','dist', 'jquery.min.js')
       'modernizr.custom.js'
       'jquery-ui.min.js'
-      bowerPath('bootstrap','dist','js','bootstrap.min.js')
-      
+      bowerPath('bootstrap','dist','js','bootstrap.min.js')      
       'jquery.unveil.min.js'
       'jquery.bez.min.js'
       'jquery.ioslist.min.js'
@@ -50,6 +49,7 @@ elixir (mix)->
       'plupload.full.min.js'
       bowerPath('angular', 'angular.js')
       bowerPath('angular-bootstrap', 'ui-bootstrap-tpls.js')
+      bowerPath('angular-filter','dist','angular-filter.js')
       bowerPath('underscore', 'underscore.js')
       bowerPath('angular-utils-pagination', 'dirPagination.js')
       bowerPath('angular-prompt', 'dist', 'angular-prompt.js')
