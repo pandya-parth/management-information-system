@@ -18,6 +18,7 @@ use Redirect;
 use Auth;
 use Excel;
 use DB;
+use Carbon\Carbon;
 
 class TasksController extends Controller
 {
@@ -202,24 +203,19 @@ class TasksController extends Controller
         return response()->json(['success'=>true]);
     }
 
-    public function everything()
+    public function getEverything(Request $request)
     {
-        $logtimes = LogTime::all();
-        $tasks = Task::with('users')->get();
-        // $task_categories = TaskCategory::all();
-        // $tasks = DB::table('tasks')->select(DB::raw('count(*) as total'),'name','notes')->groupBy('created_at','id')->get();
-
-        // $tasks = $user_info = DB::table('tasks')
-        //      ->select('created_at', DB::raw('count(*) as total'))
-        //      ->groupBy('tasks.created_at')
-        //      ->lists('total','created_at');
-
-        // $tasks = DB::table('tasks')
-        //     ->groupBy('tasks.created_at','tasks.id')
-        //     ->get(['tasks.id', 'tasks.name', 'tasks.notes', DB::raw('count(tasks.id) as tasks')]);
-        
-        return view('tasks/everything',compact('tasks','logtimes'));
+        $logs = LogTime::whereTaskId($request->get('task_id'))->get();
+        return response()->json($logs);
     }
+
+    public function everything(Request $request)
+    {
+        $logs = LogTime::all();
+        return view('tasks.everything',compact('logs'));
+
+    }
+
     public function exportTask(){
 
         Excel::create('tasks', function($excel) {

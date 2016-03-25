@@ -11,10 +11,8 @@
         <div class="panel-heading">
           <div class="panel-title">
             <h4>Log Time</h4>
-            @foreach($logs as $log)
-            {!! $log->user_id !!}</br>
-            @endforeach
-            </div>
+            
+          </div>
           
           <div class="clearfix"></div>
         </div>

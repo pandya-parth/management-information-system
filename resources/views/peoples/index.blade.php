@@ -68,7 +68,7 @@
                                     <div class="datas people_id_pic">Profile</div>
                                     <div class="datas people_name">Name</div>
                                     <div class="datas people_designation">Date Of Birth</div>
-                                    <div class="datas people_email">Department</div>
+                                    <div class="datas people_email">City</div>
                                     <div class="datas people_phone">Phone</div>
                                     @if(Auth::user()->roles == "admin")
                                     <div class="datas people_action">Action</div>
@@ -89,7 +89,7 @@
                                         {% people.dob %}
                                     </div>
                                     <div ng-cloak class="datas people_email">
-                                        {% people.department %}
+                                        {% people.city %}
                                     </div>
                                     <div ng-cloak class="datas people_phone">
                                         {% people.phone %}

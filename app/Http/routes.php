@@ -93,7 +93,9 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('milestone/{id}','MilestonesController@getMilestone');    
 
     Route::get('logtimes', 'TasksController@getLogtimes');
-    Route::get('logtime/{id}','TasksController@getLogtime');    
+    Route::get('logtime/{id}','TasksController@getLogtime');  
+
+    Route::get('everything', 'TasksController@getEverything');  
 
     Route::get('people', 'PeoplesController@getPeoples');
     Route::get('people/{id}','PeoplesController@getPeople');
