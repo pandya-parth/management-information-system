@@ -838,3 +838,11 @@ i.icon-tasklist:before{
     float: left;
     width: 14%;
 }
+.date_class{
+    color: #656565;
+    font-family: ProximaNova-SemiBold,helvetica,arial,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    border: none;
+    padding: 10px 0 5px;
+}
