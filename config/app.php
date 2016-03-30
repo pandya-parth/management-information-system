@@ -166,7 +166,7 @@ return [
         'Cviebrock\EloquentSluggable\SluggableServiceProvider',
         'Baum\Providers\BaumServiceProvider',
         Intervention\Image\ImageServiceProvider::class,
-        'Maatwebsite\Excel\ExcelServiceProvider',
+        
 
     ],
 
@@ -219,7 +219,7 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
         'Image'     => Intervention\Image\Facades\Image::class,
-        'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
+        
         
     ],
 

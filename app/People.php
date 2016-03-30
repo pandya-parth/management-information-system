@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 use Image;	
 use Event;
+use App\Department;
 
 class People extends Model
 {
@@ -39,6 +40,8 @@ class People extends Model
     {
         return preg_replace('/\s+/', ' ',$this->fname.' '.$this->lname);
     }
+
+   
 
 	
 	public function user()
@@ -83,6 +86,7 @@ class People extends Model
 	{
 		upload_delete($this->photo,'people',array('original','thumb','medium'));
 	}
+
 }
 	Event::listen('eloquent.deleting:People', function($model) {
 		$model->deleteFile();

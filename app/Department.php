@@ -19,5 +19,6 @@ class Department extends Model
         'on_update'  => true,
     ]; 
 
+  
     protected $fillable = ['name'];
 }
