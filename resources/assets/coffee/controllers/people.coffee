@@ -326,3 +326,7 @@ angular.module 'mis'
 			index = $scope.experiences.indexOf(experience); 
 			$scope.experiences.splice(index, 1)
 			$scope.people_array.experience = $scope.experiences 
+
+		
+
+		

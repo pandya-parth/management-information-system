@@ -38,11 +38,12 @@
             </div>
             <div class="data_area list_view " dir-paginate="(key, value) in logs| orderBy:'-id' | filter:q | itemsPerPage: pageSize | groupBy: 'date'"
             current-page="currentPage" ng-show="logs.length != 0">
-            <span class="date_class">{% key %}</span>
+            <span class="date_class">{% key | date:'fullDate' %}</span>
             <!-- row 1 -->
             <div ng-cloak class="row border_class" ng-repeat="log in value">
               <div ng-cloak class="datas people_name box_real">
-                {% log.date | date:'shortDate' %}
+                {% log.date ? log.date : '-' %}-
+                {% getTaskName(log.task_id) %}
               </div>
               <div ng-cloak class="datas people_name box_real">
                 {% log.user_id ? log.user_id : '-' %}

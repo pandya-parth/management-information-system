@@ -32,6 +32,8 @@ class DepartmentsController extends Controller
        return response()->json($departments);
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      *

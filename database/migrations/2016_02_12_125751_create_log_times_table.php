@@ -16,7 +16,7 @@ class CreateLogTimesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->nullable()->unsigned();
             $table->integer('task_id')->nullable()->unsigned();
-            $table->dateTime('date')->nullable();
+            $table->date('date')->nullable();
             $table->time('start_time')->nullable();
             $table->time('end_time')->nullable();
             $table->string('hour')->nullable();

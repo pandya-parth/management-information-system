@@ -38,6 +38,8 @@ class ProjectsController extends Controller
        return response()->json($projects);
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      *

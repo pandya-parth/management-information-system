@@ -32,6 +32,8 @@ class DesignationsController extends Controller
        return response()->json($designations);
     }
 
+    
+
     /**
      * Show the form for creating a new resource.
      *

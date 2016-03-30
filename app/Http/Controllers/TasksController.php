@@ -48,6 +48,14 @@ class TasksController extends Controller
         return response()->json($tasks); 
     }
 
+    public function getTaskName($id,Request $request)
+    {
+
+        $task = Task::where('id',$id)->first();
+        return response()->json($task);
+
+    }
+
     public function getLogtimes(Request $request)
     {
         $logs = LogTime::whereTaskId($request->get('task_id'))->get();

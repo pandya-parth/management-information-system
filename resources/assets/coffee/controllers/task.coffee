@@ -269,3 +269,7 @@ angular.module 'mis'
 			task.getName(id).success (data)->
 				return data.fname
 
+		$scope.getTaskName = (id)->
+			task.getTName(id).success (data)->
+				return data.name
+
