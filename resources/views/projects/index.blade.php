@@ -176,26 +176,40 @@
                             </div>
                             <div id="menu3" class="tab-pane slide-left">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group form-group-default input-group col-md-12">
-                                            <label>Start Date</label>
-                                            <input type="text" name="start_date" class="form-control" placeholder="Pick a date" id="start-date" ng-model='project_array.start_date'>                                       
+                                    
+                                    <div class="col-md-12 ">
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                                          <label>Start Date</label>
+                                            <input type="text" name="start_date" class="form-control" placeholder="Pick a date" id="start-date" ng-model='project_array.start_date' >
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
+                                          </div>
                                         </div>
                                     </div>
+
+
+
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group form-group-default input-group col-md-12">
-                                            <label>End Date</label>
-                                            <input type="text" name="end_date" class="form-control" placeholder="Pick a date" id="end-date" ng-model='project_array.end_date'>                                       
+
+                                    
+
+
+                                    <div class="col-md-12 ">
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                                          <label>End Date</label>
+                                            <input type="text" name="end_date" class="form-control" placeholder="Pick a date" id="start-date" ng-model='project_array.end_date' >
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
+                                          </div>
                                         </div>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>

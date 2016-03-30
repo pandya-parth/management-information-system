@@ -151,15 +151,17 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group form-group-default input-group col-md-12">
-                      <label>Due Date</label>
-                      <input type="text" id="milestone-due-date" name="due_date" class="form-control" placeholder="Pick a due date" id="milestone-due-date" ng-model='milestone.due_date'>
-                      <span class="input-group-addon">
-                        <i class="fa fa-calendar"></i>
-                      </span>
-                    </div>
-                  </div>
+                  <div class="col-md-12 ">
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                                          <label>Due Date</label>
+                                            <input type="text" name="due_date" class="form-control" placeholder="Pick a due date" id="milestone-due-date" ng-model='milestone.due_date' >
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                          </div>
+                                        </div>
+                                    </div>
                 
                   <div class="col-md-6">
                     <div class="form-group form-group-default form-group-default-select2">
