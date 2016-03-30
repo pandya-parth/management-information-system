@@ -30,8 +30,8 @@ class CreateUserProfileTable extends Migration
             $table->string('gender')->nullable();
             $table->string('marital_status')->nullable();
             $table->string('pan_number')->nullable();
-            $table->string('department')->nullable();
-            $table->string('designation')->nullable();
+            $table->integer('department_id')->nullable();
+            $table->integer('designation_id')->nullable();
             $table->string('management_level')->nullable();
             $table->dateTime('join_date')->nullable();
             $table->string('attach')->nullable();
@@ -43,6 +43,7 @@ class CreateUserProfileTable extends Migration
             $table->string('twitter')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
         });
         
     }

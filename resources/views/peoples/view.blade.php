@@ -10,6 +10,7 @@
         <div class="panel-heading">
           <div class="panel-title">
             <h4>{!! $people->fname !!}</h4>
+            {!! $people->department->name !!}
             @foreach($projects as $project)
             <div>Project Name: <a href="{!! url('/projects',$project->id)!!}">{!! $project->name !!}</a></div></br>
             <div>Description: {!! $project->description !!}</div></br>
