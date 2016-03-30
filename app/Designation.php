@@ -19,5 +19,10 @@ class Designation extends Model
         'on_update'  => true,
     ]; 
 
+    public function peoples()
+    {
+        $this->hasMany('App\People');
+    }
+
     protected $fillable = ['name'];
 }

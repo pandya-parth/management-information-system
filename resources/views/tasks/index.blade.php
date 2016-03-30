@@ -152,26 +152,49 @@
                 </div>
                 <div class="tab-pane slide-left" id="menu1">
                   <div class=" row ">
-                    <div class="col-md-12">
-                      <div class="form-group form-group-default input-group col-md-12">
-                        <label>Start Date</label>
-                        <input type="text" name="start_date" class="form-control" placeholder="Pick a start date" id="task-start-date" ng-model='task.start_date'>
-                        <span class="input-group-addon">
-                          <i class="fa fa-calendar"></i>
-                        </span>
-                      </div>
-                    </div>
+
+
+
+
+                    
+
+                                    <div class="col-md-12 ">
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                                          <label>Start Date</label>
+                                            <input type="text" name="start_date" class="form-control" placeholder="Pick a start date" id="task-start-date" ng-model='task.start_date' >
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                          </div>
+                                        </div>
+                                    </div>
+
+
+
+
                   </div>
                   <div class="row">
-                    <div class="col-md-12">
-                      <div class="form-group form-group-default input-group col-md-12">
-                        <label>Due Date</label>
-                        <input type="text" name="due_date" class="form-control" placeholder="Pick a due date" id="task-due-date" ng-model='task.due_date'>
-                        <span class="input-group-addon">
-                          <i class="fa fa-calendar"></i>
-                        </span>
-                      </div>
-                    </div>
+
+
+
+
+                    
+
+                      <div class="col-md-12 ">
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                                          <label>Due Date</label>
+                                            <input type="text" name="due_date" class="form-control" placeholder="Pick a due date" id="task-due-date" ng-model='task.due_date' >
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                          </div>
+                                        </div>
+                                    </div>
+
+
+
                   </div>
                 </div>
                 <div class="tab-pane slide-left" id="menu2">
@@ -230,14 +253,25 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-md-6">
-                      <div class="form-group form-group-default input-group col-md-12">
-                        <input type="text" name="date" class="form-control" placeholder="Pick a date" id="log-date" ng-model='logtime.date'>
-                        <span class="input-group-addon">
-                          <i class="fa fa-calendar"></i>
-                        </span>
-                      </div>
-                    </div>
+
+
+                  
+
+                    <div class="col-md-6 ">
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                                          <label>Date</label>
+                                            <input type="text" name="date" class="form-control" placeholder="Pick a date" id="log-date" ng-model='logtime.date' >
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                          </div>
+                                        </div>
+                                    </div>
+
+
+
+
                   </div>
                   <div class=" row ">
 

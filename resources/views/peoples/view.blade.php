@@ -9,6 +9,7 @@
       <div class="panel panel-transparent">
         <div class="panel-heading">
           <div class="panel-title">
+
             <div class="datas people-logo">
               @if($people->logo == '')
               <div class="pic"><img src="{!! url('img/noPhoto.png') !!}" /><span>{!! $people->name !!}</span></div>
@@ -16,6 +17,14 @@
               uploads/people-thumb/{%people.photo%}
               <div class="pic"><img src="{!! url('uploads/people-thumb/{{$people->photo}}') !!}" /><span>{!! $people->fname !!}{!! $people->lname !!}</span></div>
               @endif                 
+
+            <h4>{!! $people->fname !!}</h4>
+            {!! $people->department->name !!}
+            
+          </div>
+          <div class="pull-right">
+            <div class="col-xs-6" ng-cloak>
+
             </div>
           </div>
           <div class="clearfix"></div>

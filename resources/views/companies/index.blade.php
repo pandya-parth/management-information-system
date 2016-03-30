@@ -20,6 +20,7 @@
                 <div class="panel-heading">
                     <div class="panel-title">
                         Companies
+                        {!! Request::segment(1) !!}
                     </div>
                     <div class="pull-right text-right">
                         <div class="row">

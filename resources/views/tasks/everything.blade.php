@@ -42,7 +42,8 @@
             <!-- row 1 -->
             <div ng-cloak class="row border_class" ng-repeat="log in value">
               <div ng-cloak class="datas people_name box_real">
-                {% log.date ? log.date : '-' %}
+                {% log.date ? log.date : '-' %}---------------------
+                {% log.date | date:'shortDate' %}
               </div>
               <div ng-cloak class="datas people_name box_real">
                 {% log.user_id ? log.user_id : '-' %}
