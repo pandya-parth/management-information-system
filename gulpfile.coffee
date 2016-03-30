@@ -16,8 +16,9 @@ elixir (mix)->
       'pages-icons.css'
       'pages.css'
       'windows.chrome.fix.css'
-      'style.css'
+      'angular-datepicker.css'
       'jquery-clockpicker.min.css'
+      'style.css'
     ], 'public/css/vendor.css'
 
 
@@ -54,6 +55,7 @@ elixir (mix)->
       bowerPath('angular-utils-pagination', 'dirPagination.js')
       bowerPath('angular-prompt', 'dist', 'angular-prompt.js')
       bowerPath('angular-country-select','dist','angular-country-select.js')
+      'angular-datepicker.js'
       'scripts.js'
     ], 'public/js/vendor.js'
 

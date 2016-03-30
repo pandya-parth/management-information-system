@@ -186,12 +186,14 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 ">
-                                        <div class="form-group form-group-default custom-datepicker input-group col-md-12">
-                                            <label>Date Of Birth</label>
-                                            <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" datepicker-popup="yyyy-MM-dd" ng-model='people_array.dob' is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close">
-                                            <span class="input-group-addon" ng-click="open($event)">
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                                          <label>Date Of Birth</label>
+                                            <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob' >
+                                            <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -351,14 +353,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="form-group form-group-default custom-datepicker input-group col-md-12">
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
                                             <label>Joining Date</label>
-                                            <input type="text"  name="join_date" class="form-control" placeholder="Pick a date"
-                                            id="joining-date" ng-model='people_array.join_date' datepicker-popup="yyyy-MM-dd" is-open="opened" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close">
-                                            <span class="input-group-addon" ng-click="open($event)">
+                                            <input type="text"  name="join_date" class="form-control" placeholder="Pick a date" id="joining-date" ng-model='people_array.join_date'>
+                                            <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
                                         </div>
+                                      </div>
                                     </div>
                                 </div>
                 </div>
@@ -427,18 +430,22 @@
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="form-group form-group-default custom-datepicker input-group col-md-12">
+                          <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                            <div class="form-group custom-datepicker form-group-default input-group col-md-12">
                                 <label>From</label>
-                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-init="people_array.experience[$index].from = experience.from" ng-model="people_array.experience[$index].from" datepicker-popup="yyyy-MM-dd" is-open="from[$index]" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close">
-                                <span class="input-group-addon" ng-click="open($event, $index)"><i class="fa fa-calendar"></i></span>
+                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-init="people_array.experience[$index].from = experience.from" ng-model="people_array.experience[$index].from">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
+                          </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="form-group form-group-default custom-datepicker input-group col-md-12">
+                          <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                            <div class="form-group custom-datepicker form-group-default input-group col-md-12">
                                 <label>To</label>
-                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-init="people_array.experience[$index].to = experience.to" ng-model="people_array.experience[$index].to" datepicker-popup="yyyy-MM-dd" is-open="opened1" min="minDate" max="'2015-06-22'" datepicker-options="dateOptions" ng-required="true" close-text="Close">
-                                <span class="input-group-addon" ng-click="open1($event)"><i class="fa fa-calendar"></i></span>
+                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-init="people_array.experience[$index].to = experience.to" ng-model="people_array.experience[$index].to">
+                                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
+                          </div>
                         </div>
                         </div>
                         <div class="row">
