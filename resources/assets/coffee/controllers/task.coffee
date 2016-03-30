@@ -16,11 +16,19 @@ angular.module 'mis'
 			$scope.logs = data
 			$scope.loading = false
 
+		task.everythingLog().success (data)->
+			$scope.logs = data
+			$scope.loading = false
+
 		task.getCat().success (data)->
 			$scope.taskcategories = data
 			$scope.loading = false
 
 		$scope.Pro_Id = pId	
+
+		$scope.task_completed = (id,completed)->
+			task.completed(id, completed).success (data)->
+				console.log data
 
 		$scope.showModal = (event) ->
 			$scope.task.category_id = event.target.id
@@ -256,3 +264,8 @@ angular.module 'mis'
 				$scope.edit = true
 				$scope.logtime = data
 				angular.element('#addNewAppModal').modal('show')
+
+		$scope.getUserName = (id)->
+			task.getName(id).success (data)->
+				return data.fname
+

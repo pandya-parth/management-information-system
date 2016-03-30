@@ -30,10 +30,12 @@
                                 <span class="error" ng-show="form.pageSize.$error.pattern" >* Not a valid number !</span>
                             </form>
                         </div>
+                        @if(Auth::user()->roles == "admin")
                         <div class="col-xs-4">
                             <button id="show-modal" class="btn btn-primary btn-cons"><i class="fa fa-plus"></i> Add People
                             </button>
                         </div>
+                        @endif
                     </div>
                     <div class="clearfix"></div>
                 </div>

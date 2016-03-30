@@ -6,8 +6,8 @@ bowerPath = (parts...)-> ['.','bower_components'].concat(parts).join('/')
 elixir (mix)->
 
     mix.styles [
-      bowerPath('bootstrap','dist','css','bootstrap.min.css')
-      bowerPath('bootstrap','dist','css','bootstrap-theme.min.css')
+      'bootstrap.css'
+      'bootstrap-theme.css'
       'pace-theme-flash.css'
       'font-awesome.css'
       'jquery.scrollbar.css'
@@ -16,9 +16,9 @@ elixir (mix)->
       'pages-icons.css'
       'pages.css'
       'windows.chrome.fix.css'
-      'datepicker3.css'
-      'style.css'
+      'angular-datepicker.css'
       'jquery-clockpicker.min.css'
+      'style.css'
     ], 'public/css/vendor.css'
 
 
@@ -27,10 +27,10 @@ elixir (mix)->
 
     mix.scripts [
       'pace.min.js'
-      bowerPath('jquery', 'jquery.min.js')
+      bowerPath('jquery','dist', 'jquery.min.js')
       'modernizr.custom.js'
       'jquery-ui.min.js'
-      bowerPath('bootstrap','dist','js','bootstrap.min.js')
+      bowerPath('bootstrap','dist','js','bootstrap.min.js')      
       'jquery.unveil.min.js'
       'jquery.bez.min.js'
       'jquery.ioslist.min.js'
@@ -46,17 +46,16 @@ elixir (mix)->
       'lodash.min.js'
       'pages.min.js'
       'datatables.js'
-      'bootstrap-datepicker.js'
       'jquery-clockpicker.min.js'
       'plupload.full.min.js'
-      bowerPath('angular', 'angular.min.js')
-      bowerPath('underscore', 'underscore.js')
+      bowerPath('angular', 'angular.js')
       bowerPath('angular-bootstrap', 'ui-bootstrap-tpls.js')
+      bowerPath('angular-filter','dist','angular-filter.js')
+      bowerPath('underscore', 'underscore.js')
       bowerPath('angular-utils-pagination', 'dirPagination.js')
       bowerPath('angular-prompt', 'dist', 'angular-prompt.js')
       bowerPath('angular-country-select','dist','angular-country-select.js')
-      bowerPath('angular-bootstrap','ui-bootstrap-tpls.js')
-      bowerPath('angular-bootstrap-datepicker','dist','angular-bootstrap-datepicker.js')
+      'angular-datepicker.js'
       'scripts.js'
     ], 'public/js/vendor.js'
 

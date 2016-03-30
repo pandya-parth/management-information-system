@@ -44,7 +44,7 @@ class Task extends Model implements SluggableInterface
         'on_update'  => true,
     ]; 
 
-    protected $fillable = ['name','category_id','project_id','notes','start_date','due_date','priority','status'];
+    protected $fillable = ['name','category_id','project_id','notes','start_date','due_date','priority','completed'];
     
 
     
@@ -62,6 +62,8 @@ class Task extends Model implements SluggableInterface
     {
         return $this->belongsToMany('App\User','task_users','task_id','user_id');
     }
+
+    
 
     
     

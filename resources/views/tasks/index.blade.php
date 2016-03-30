@@ -22,10 +22,12 @@
             <h4>Tasks</h4>   
                     
           </div>
+          <span><a href="{!! url('/task-categories') !!}">Add New Task Category</a></span>
           <div class="pull-right">
             <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
             </div>
+            
           </div>
           <div class="clearfix"></div>
         </div>
@@ -42,16 +44,23 @@
               </div>
               <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
+
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
-                    
                     <div class="taskInner">
+
                       <div class="checkbox check-success">
-                        <input type="checkbox" name="status[]" value="1" id="{% tsk.id %}" class="check-with-label" ng-model="task.status[$index]" >
-                       
-                        <span class="taskBubble">hello 2</span>
-                        <span class="task_name">11111</span>
-                      </div> 
+                          <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task_completed(tsk.id, tsk.completed)">
+                          <label for="completed{%$index%}">
+                            <span class="taskBubble" ng-repeat="u in tsk.users">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+                            </span>
+                             <span class="task_name-{% tsk[$index].completed %}">{% tsk.name %}</span>
+                          </label>
+                        </div>
+
+
                     </div>
+
                     <div class="task_detail" style="padding:0 0 0 50px;">
 
                       <a class="timer timer_button" ng-click="showLogModal($event,tsk.id)" id="timer_button">
@@ -116,6 +125,7 @@
                       </div>
                     </div>
                   </div>
+                  
                   <div class=" row ">
                     <div class="col-md-12">
                       <div class="form-group form-group-default form-group-default-select2">

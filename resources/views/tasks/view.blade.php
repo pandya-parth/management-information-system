@@ -12,7 +12,7 @@
           <div class="panel-title">
             <h4>Log Time</h4>
             
-            </div>
+          </div>
           
           <div class="clearfix"></div>
         </div>
@@ -34,6 +34,7 @@
                         </div>
                         <div class="data_area list_view " dir-paginate="log in logs| orderBy:'-id' | filter:q | itemsPerPage: pageSize"
                         current-page="currentPage" ng-show="logs.length != 0">
+
                         <!-- row 1 -->
                         <div ng-cloak class="row border_class">
                             <div ng-cloak class="datas people_name box_real">
@@ -62,7 +63,7 @@
                 <div ng-cloak class="col-md-12 sm-p-t-15" ng-if="categories.length==0">
                     <div style="text-align:center;">
                         <img src="{!! asset('img/noTasks.png') !!}"  />
-                        <p><h3>No project category found</h3></p>
+                        <p><h3>No found</h3></p>
                     </div>
                 </div>
     

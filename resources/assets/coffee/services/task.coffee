@@ -5,7 +5,8 @@ angular.module 'mis'
 			get:(pId)->
 				$http.get '/api/tasks', params: project_id: pId
 
-			
+			everythingLog:()->
+				$http.get '/api/everything'
 
 			getCat:->
 				$http.get '/api/task-categories'
@@ -30,8 +31,8 @@ angular.module 'mis'
 			edit: (id,pId)->
 				$http.get '/api/task/'+id, params: project_id: pId
 
-			editlog: (id)->
-				$http.get '/api/logtime/'+id
+			editlog: (id,tId)->
+				$http.get '/api/logtime/'+id, params: task_id: tId
 
 			update: (formData,id)->
 				$http
@@ -52,4 +53,17 @@ angular.module 'mis'
 
 			destroylog: (id)->
 				$http.delete('/logtimes/' + id)
+
+			completed: (id, status)->
+				$http
+					method: 'POST'
+					url: '/task-status'
+					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
+					data: $.param(
+						id: id
+						completed: status
+						)
+
+			getName: (id)->
+				$http.get '/api/people-name' + id
 		}

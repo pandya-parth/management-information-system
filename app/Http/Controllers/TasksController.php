@@ -12,9 +12,13 @@ use App\LogTime;
 use App\User;
 use App\Project;
 use App\TaskCategory;
+use App\TaskUser;
 use App\People;
 use Redirect;
 use Auth;
+use Excel;
+use DB;
+use Carbon\Carbon;
 
 class TasksController extends Controller
 {
@@ -25,11 +29,11 @@ class TasksController extends Controller
      */
     public function index(Request $request,$id)
     { 
-        $tasks=Project::find($id);
         $projects=Project::all();
         $taskCategories=TaskCategory::all();
         $peoples=People::all();
         $users=People::with('user')->get();
+        $tasks = Task::where('project_id','=',$id)->get();
         return view('tasks/index',compact('tasks','projects','taskCategories','peoples','id','users'));
     }
 
@@ -39,9 +43,8 @@ class TasksController extends Controller
     public function getTasks(Request $request)
     {
         
-        $tasks =  Task::whereProjectId($request->get('project_id'))->get();
-         
-        //$tasks = Task::find_by_project_id($pId)->get();
+        $tasks =  Task::whereProjectId($request->get('project_id'))->with('users')->get();
+        
         return response()->json($tasks); 
     }
 
@@ -49,6 +52,14 @@ class TasksController extends Controller
     {
         $logs = LogTime::whereTaskId($request->get('task_id'))->get();
         return response()->json($logs);
+    }
+
+    public function postTaskStatus(Request $request)
+    {
+        $task = Task::find(Input::get('id'));
+        $task->completed = Input::get('completed');
+        $task->save();
+        return response()->json(['success'=>true]);
     }
 
     /**
@@ -72,7 +83,7 @@ class TasksController extends Controller
     {
         $tasks=Task::create(Input::all());
         $tasks->users()->attach($request->get('user_id'));
-        $tasks->status = false;
+        $tasks->completed = false;
         $tasks->save();
         return response()->json(['success'=>true]);
         
@@ -191,4 +202,39 @@ class TasksController extends Controller
         $logtime->delete();    
         return response()->json(['success'=>true]);
     }
+
+    public function getEverything(Request $request)
+    {
+        $logs = LogTime::all();
+        return response()->json($logs);
+    }
+
+    public function everything(Request $request)
+    {
+        return view('tasks.everything');
+
+    }
+
+    public function exportTask(){
+
+        Excel::create('tasks', function($excel) {
+
+            $excel->sheet('Sheet1', function($sheet) {
+            $sheet->row(1, '');
+                $logs = LogTime::all();
+                $arr =array();
+                foreach($logs as $log) {
+                    
+                        $data =  array($log->id, $log->task->project->name, $log->task->name,$log->description, $log->date, $log->start_time, $log->end_time,
+                             $log->task->category->name, $log->created_at, $log->updated_at);
+                        array_push($arr, $data);
+                    
+                }
+                //set the titles
+                $sheet->fromArray($arr,null,'A1',false,false)->prependRow(array('Log Id', 'Project Name', 'Task Name','Description', 'Date', 'Start Time', 'End Time', 'Task Category Name', 'Created At', 'Updated At')
+                );
+            });
+            })->export('xls');
+
+        }
 }

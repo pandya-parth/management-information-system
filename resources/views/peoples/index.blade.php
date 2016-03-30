@@ -39,9 +39,11 @@
                                         <span class="error" ng-show="form.pageSize.$error.pattern" >* Not a valid number !</span>
                                     </form>
                                 </div>
+                                @if(Auth::user()->roles == "admin")
                                 <div class="col-xs-4">
                                     <button id="show-modal" class="btn button_color"><i class="fa fa-plus"></i> Add People</button>
                                 </div>
+                                @endif
                             </div>
                         </div>
                         <div class="clearfix"></div>
@@ -66,9 +68,11 @@
                                     <div class="datas people_id_pic">Profile</div>
                                     <div class="datas people_name">Name</div>
                                     <div class="datas people_designation">Date Of Birth</div>
-                                    <div class="datas people_email">Department</div>
+                                    <div class="datas people_email">City</div>
                                     <div class="datas people_phone">Phone</div>
+                                    @if(Auth::user()->roles == "admin")
                                     <div class="datas people_action">Action</div>
+                                    @endif
                                 </div>
                             </div>
                             <div ng-cloak class="data_area list_view " dir-paginate="people in peoples | filter:q | itemsPerPage: pageSize | orderBy:'-id'" current-page="currentPage">
@@ -85,16 +89,18 @@
                                         {% people.dob %}
                                     </div>
                                     <div ng-cloak class="datas people_email">
-                                        {% people.department %}
+                                        {% people.city %}
                                     </div>
                                     <div ng-cloak class="datas people_phone">
                                         {% people.phone %}
                                     </div>
+                                    @if(Auth::user()->roles == "admin")
                                     <div class="datas people_action">
                                         <a class="btn btn-success btn-sm" ng-click="editPeople(people.id)"><i class="fa fa-edit"></i></a>
                                         <a href="{!!url('/people/{%people.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
                                         <a class="btn btn-success btn-sm" ng-click="deletePeople(people.user_id)"><i class="fa fa-trash"></i></a>
                                     </div>
+                                    @endif
                                 </div>
                                 <!-- row 1 complete -->
                             </div>
@@ -180,12 +186,14 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 ">
-                                        <div class="form-group form-group-default input-group col-md-12">
-                                            <label>Date Of Birth</label>
-                                            <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob'>
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                                          <label>Date Of Birth</label>
+                                            <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob' >
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -306,6 +314,7 @@
                                             </select> 
                                         </div>
                                     </div>
+                                  <span><a href="{!! url('/departments') !!}">Add New Department</a></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -319,6 +328,7 @@
                                         </select>
                                         </div>
                                     </div>
+                                  <span><a href="{!! url('/designations') !!}">Add New Designation</a></span>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
@@ -343,14 +353,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <div class="form-group form-group-default input-group col-md-12">
+                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
                                             <label>Joining Date</label>
-                                            <input type="text"  name="join_date" class="form-control" placeholder="Pick a date"
-                                            id="joining-date" ng-model='people_array.join_date'>
+                                            <input type="text"  name="join_date" class="form-control" placeholder="Pick a date" id="joining-date" ng-model='people_array.join_date'>
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
                                             </span>
                                         </div>
+                                      </div>
                                     </div>
                                 </div>
                 </div>
@@ -419,18 +430,22 @@
                             </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="form-group form-group-default input-group col-md-12">
+                          <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                            <div class="form-group custom-datepicker form-group-default input-group col-md-12">
                                 <label>From</label>
-                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-datepicker ng-options="datepickerOptions" ng-init="people_array.experience[$index].from = experience.from" ng-model="people_array.experience[$index].from">
+                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-init="people_array.experience[$index].from = experience.from" ng-model="people_array.experience[$index].from">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
+                          </div>
                         </div>
                         <div class="col-sm-4">
-                            <div class="form-group form-group-default input-group col-md-12">
+                          <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                            <div class="form-group custom-datepicker form-group-default input-group col-md-12">
                                 <label>To</label>
-                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-datepicker ng-options="datepickerOptions" ng-init="people_array.experience[$index].to = experience.to" ng-model="people_array.experience[$index].to">
+                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-init="people_array.experience[$index].to = experience.to" ng-model="people_array.experience[$index].to">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
+                          </div>
                         </div>
                         </div>
                         <div class="row">

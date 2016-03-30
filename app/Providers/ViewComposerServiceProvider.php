@@ -26,7 +26,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         {
             $view->with('companies', Company::all());
             $view->with('current_user', Auth::user());
-            $view->with('projects', Project::all());
+            $view->with('projects', Project::with('users')->get());
         });
 
         view()->composer('shared.project_list', function($view)
@@ -37,6 +37,7 @@ class ViewComposerServiceProvider extends ServiceProvider
 
         view()->composer('shared.industry_list', function($view)
         {
+            $view->with('projects', Project::all());
             $view->with('companies', Company::all());
             $view->with('industries', Industry::all());
         });

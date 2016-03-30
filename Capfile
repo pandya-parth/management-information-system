@@ -34,7 +34,7 @@ namespace :composer do
 end
 after 'deploy:setup', 'composer:setup'
 after 'deploy:setup', 'composer:install'
-after 'deploy:update_code', 'composer:install'
+# after 'deploy:update_code', 'composer:install'
 
 # def remote_file_exists?(path)
 #   results = []

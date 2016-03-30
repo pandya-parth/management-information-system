@@ -21,8 +21,8 @@ class CreateTasksTable extends Migration
             $table->date('start_date')->nullable();
             $table->date('due_date')->nullable();
             $table->text('notes')->nullable();
-            $table->boolean('status')->nullable();
             $table->string('priority')->nullable();
+            $table->boolean('completed')->default(false)->nullable();
             $table->timestamps();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('task_categories')->onDelete('cascade');

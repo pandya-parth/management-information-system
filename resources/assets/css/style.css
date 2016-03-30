@@ -198,7 +198,7 @@ ul.log-indropdown{
 .grid_list_view .data_area.list_view .row .datas{
 	display: table-cell;
 	vertical-align: middle;
-	height: 50px;
+	/*height: 50px;*/
 }
 .grid_list_view .data_area.list_view .row .people_id_pic .pic{
 display: inline-block;
@@ -277,9 +277,9 @@ vertical-align: middle;
 .grid_list_view .head.border_class.box_view{
 	display: none;
 }
-.border_class{
+/*.border_class{
 	border-radius: 70px;
-}
+}*/
 .header_class{
 	background-color: #0DAD9E;
 }
@@ -523,12 +523,13 @@ form.country .modal-body{
 .menu-pin .sidebar-header-controls{
 	right: 20px;
 }
-.company_sidebar ul li{
+/*.company_sidebar ul li{
 	position: relative;
 }
 .company_sidebar ul li ul{
 	display: none;
-}
+}*/
+
 i.navtogg{
 	width: 15px;
 	height: 15px;
@@ -790,3 +791,58 @@ i.icon-tasklist:before{
 	width: 17%;
 }
 
+.task_name-true{
+	text-decoration: line-through;
+}
+
+.task_name-false{
+	text-decoration: none;
+}
+
+.form-group-default.custom-datepicker{
+	overflow: inherit;
+}
+
+.modal .nav-tabs ~ .tab-content{
+	overflow: inherit;
+	z-index: 2000;
+}
+.modal .modal-footer .btn{
+	position: inherit;
+}
+
+
+/******** 21/03/2016 **********/
+
+.list-view li:hover{
+	background: transparent;
+}
+
+.panel-heading.everything-header{
+	background-color:transparent;
+
+}
+
+.panel-heading.everything-header .panel-title > a{
+	color: #000 !important;
+}
+/*.panel-heading.everything-header .panel-title > a:hover{
+	background-color: transparent !important;
+}*/
+
+.everything-column .grid_list_view .datas {
+    float: left;
+    width: 14%;
+}
+.everything-column-inner .border_class .datas {
+    float: left;
+    width: 14%;
+}
+.date_class{
+    color: #656565;
+    font-family: ProximaNova-SemiBold,helvetica,arial,sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    border: none;
+    padding: 10px 0 5px;
+}

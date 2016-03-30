@@ -35,7 +35,6 @@
   </div>
   <!-- END SIDEBAR MENU HEADER-->
   <!-- START SIDEBAR MENU -->
-
   <div class="sidebar-menu">
     <!-- BEGIN SIDEBAR MENU ITEMS-->
     <ul class="menu-items">
@@ -50,29 +49,27 @@
           <div  class="list-view boreded no-top-border">
             <div class="list-view-group-container">
               <ul>
-                @foreach($industries as $industry)
-                <!-- BEGIN Categories List  !-->
-                <li class="chat-user categories_p clearfix">
-                  <a data-view-animation="push-parrallax" data-navigate="view" class="" href="#">
-                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
-                      <span>{!! strtoupper($industry->name) !!}</span>
-                      <span class="pill">{!! DB::table('companies')
-            ->where('industry_id', $industry->id)
-            ->groupBy('industry_id')
-            ->count()!!}</span>
-                    </p>
-                  </a>
-                  <i class="fa fa-angle-down fs-16 navtogg"></i>  
-                  <ul>
-                    @foreach($companies as $company)
-
-              @if($company->industry_id == $industry->id)
-                    <li><a href="{!! url('/companies',$company->id)!!}" >{!! $company->name !!}</a></li>
+                @foreach($projects as $project)
+                  @foreach($project->users as $user)
+                    @if($user->id == Auth::user()->id)
+                      @foreach($companies as $company)
+                        @if($project->client_id == $company->id)
+                          @foreach($industries as $industry)
+                            @if($company->industry_id == $industry->id)
+                              <!-- BEGIN Categories List  !-->
+                              <li class="chat-user categories_p clearfix">
+                                <span>{!! strtoupper($industry->name) !!}</span>
+                                <span class="pill">{!! DB::table('companies')->where('industry_id', $industry->id)->groupBy('industry_id')->count()!!}</span>
+                                <ul>
+                                  <li><a href="{!! url('/companies',$company->id)!!}">{!! ucwords($company->name) !!}</a></li>
+                                </ul>
+                              </li>
+                            @endif
+                          @endforeach
+                        @endif
+                      @endforeach
                     @endif
-
-              @endforeach
-                  </ul>
-                </li>
+                  @endforeach
                 @endforeach
                 <!-- END Categories List  !-->
               </ul>
@@ -83,7 +80,5 @@
     </ul>
     <div class="clearfix"></div>
   </div>
-
-  
-    <!-- END SIDEBAR MENU -->
-  </nav>
+  <!-- END SIDEBAR MENU -->
+</nav>

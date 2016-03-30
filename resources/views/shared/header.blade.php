@@ -30,20 +30,12 @@
   </div>
   <ul class="nav navbar-nav">
     <li class="active"><a href="{!! url('/') !!}">Home</a></li>
+    <li><a href="{!! url('everything') !!}">Everything</a></li>
     <li><a href="{!! url('companies') !!}">Company</a></li>
-    <li><a href="{!! url('departments') !!}">Department</a></li>
-    <li><a href="{!! url('designations') !!}">Designation</a></li>
-    <li><a href="{!! url('industries') !!}">Industry</a></li>
     <li><a href="{!! url('people') !!}">People</a></li>
     <li><a href="{!! url('projects') !!}">Project</a></li>
-    <li><a href="{!! url('/project-categories') !!}">PC</a></li>
-    <li><a href="{!! url('/task-categories') !!}">TC</a></li>
   </ul>
-   <div class=" pull-right">
-          <div class="header-inner">
-            <a href="#" class="btn-link icon-set menu-hambuger-plus m-l-20 sm-no-margin hidden-sm hidden-xs" data-toggle="quickview" data-toggle-element="#quickview"></a>
-          </div>
-        </div>
+   
   <div class=" pull-right">
     <!-- START User Info-->
     <div class="visible-lg visible-md m-t-10">
@@ -75,7 +67,7 @@
           </li>
           <li><a href="{!! url('/change-password')!!}"><i class="fa-key"></i> Change Password</a>
           </li>
-          <li><a href="{!! url('api/people', Auth::user()->people->id) !!}"><i class="pg-settings_small"></i> Change Profile</a>
+          <li><a href="{!! url('change-profile') !!}{!! url('api/people', Auth::user()->people->id) !!}"><i class="pg-settings_small"></i> Change Profile</a>
           </li>
           <li><a href="#"><i class="pg-signals"></i> Help</a>
           </li>
@@ -92,4 +84,3 @@
   </div>
 </div>
 
-@include('shared.right_sidebar')
