@@ -19,7 +19,7 @@
               @endif                 
 
             <h4>{!! $people->fname !!}</h4>
-            {!! $people->department->name !!}
+           
             
           </div>
           <div class="pull-right">
@@ -124,13 +124,13 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>Designation: </label>
-                   <div class="view_input">{!! $people->gender !!}</div>
+                   <div class="view_input">{!! $people->designation->name !!}</div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>Marital status: </label>
-                   <div class="view_input">{!! $people->designation !!}</div>
+                   <div class="view_input">{!! $people->marital_status !!}</div>
                 </div>
             </div>
           </div>
