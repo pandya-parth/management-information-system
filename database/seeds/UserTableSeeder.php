@@ -572,35 +572,45 @@ class UserTableSeeder extends Seeder
             ['user_id' => '1',
               'task_id'=>'1',
               'description'=>'DoneThemeIntegration',
-              'date' => '2016-03-22 06:24:50',
+              'date' => '2016-03-22',
+              'start_time' => '12:05:04',
+              'end_time' => "23:05:04",
             ]);
 
         LogTime::create(
             ['user_id' => '2',
               'task_id'=>'2',
               'description'=>'AdminPanel',
-              'date' => '2016-03-23 06:24:50',
+              'date' => '2016-03-23',
+              'start_time' => '12:05:04',
+              'end_time' => "23:05:04",
             ]);
 
         LogTime::create(
             ['user_id' => '3',
               'task_id'=>'3',
               'description'=>'WebServices',
-              'date' => '2016-03-24 06:24:50',
+              'date' => '2016-03-23',
+              'start_time' => '12:05:04',
+              'end_time' => "23:05:04",
             ]);
 
         LogTime::create(
             ['user_id' => '4',
               'task_id'=>'4',
               'description'=>'Translation',
-              'date' => '2016-03-25 06:24:50',
+              'date' => '2016-03-25',
+              'start_time' => '12:05:04',
+              'end_time' => "23:05:04",
             ]);
 
         LogTime::create(
             ['user_id' => '5',
               'task_id'=>'5',
               'description'=>'Testing',
-              'date' => '2016-03-26 06:24:50',
+              'date' => '2016-03-26',
+              'start_time' => '12:05:04',
+              'end_time' => "23:05:04",
             ]);
 
 

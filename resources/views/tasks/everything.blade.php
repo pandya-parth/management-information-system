@@ -28,7 +28,7 @@
           <div ng-cloak class="grid_list_view" ng-show="logs.length>0">
             <div class="head list_view border_class">
               <div class="row">
-                <div class="datas people_name">Date</div>
+                <div class="datas people_name">Task Name</div>
                 <div class="datas people_name">Who</div>
                 <div class="datas people_name">Description</div>
                 <div class="datas people_name">start Time</div>
@@ -42,8 +42,8 @@
             <!-- row 1 -->
             <div ng-cloak class="row border_class" ng-repeat="log in value">
               <div ng-cloak class="datas people_name box_real">
-                {% log.date ? log.date : '-' %}-
-                {% getTaskName(log.task_id) %}
+                {% log.task_id ? log.task_id : '-' %}
+                
               </div>
               <div ng-cloak class="datas people_name box_real">
                 {% log.user_id ? log.user_id : '-' %}
