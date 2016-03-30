@@ -3,41 +3,6 @@ angular.module 'mis'
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.edit = false
-		
-		$scope.today = ->
-			$scope.people_array = 
-				dob: new Date()
-
-		$scope.today()
-		$scope.showWeeks = true
-		$scope.toggleWeeks = ->
-    	$scope.showWeeks = !$scope.showWeeks;
-
-		$scope.clear = ->
-			$scope.people_array = 
-				dob: null
-
-		$scope.toggleMin = ->
-  		_ref = undefined
-  		$scope.minDate = if (_ref = $scope.minDate) != null then _ref else 'null': new Date
-
-		$scope.toggleMin()
-
-		$scope.open = ($event) ->
-		  $event.preventDefault()
-		  $event.stopPropagation()
-		  $scope.opened = true
-		  $scope.opened1 = false
-
-		$scope.open1 = ($event) ->
-		  $event.preventDefault()
-		  $event.stopPropagation()
-		  $scope.opened = false
-		  $scope.opened1 = true
-
-		$scope.dateOptions =
-		  'year-format': "'yy'"
-		  'starting-day': 1
 
 		currentUrl = $window.location.href
 		pId = currentUrl.split('/')[4]||"Undefined"
