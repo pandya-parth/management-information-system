@@ -10,6 +10,12 @@
         // $('#birth-date,#joining-date,#start-date,#end-date,#task-start-date,#task-due-date,#milestone-due-date,#log-date').datepicker({
         //     autoclose: true
         // });
+
+        // bootstrap - timepicker
+
+        $('#timepicker1,#timepicker2').timepicker();
+
+        
         $('pgn-warpper').css('display:none');
         $(".list-view-wrapper").scrollbar();
         $('[data-pages="search"]').search({

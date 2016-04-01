@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title',"$company->name")
 @section('content')
-<div ng-controller="ProjectCtrl">
+<div ng-controller="companyCtrl">
   <div class="content">
     <!-- START CONTAINER FLUID -->
     <div class="container-fluid container-fixed-lg">

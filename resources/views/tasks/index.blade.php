@@ -3,14 +3,13 @@
 @section('content')
 <div ng-controller="TasksCtrl">
   <div class="content">
-    
     <!-- START CONTAINER FLUID -->
     <div class="container-fluid container-fixed-lg">
       <!-- START PANEL -->
       <div class="inner">
         <!-- START BREADCRUMB -->
         <ul class="nav navbar-nav">
-           <li><a href="{!!url('/projects/{% Pro_Id %}/tasks')!!}">Task</a></li>
+          <li><a href="{!!url('/projects/{% Pro_Id %}/tasks')!!}">Task</a></li>
           <li><a href="{!! url('/projects/{% Pro_Id %}/milestones') !!}">Milestone</a></li>
           <li><a href="{!! url('/project/{% Pro_Id %}/people') !!}">People</a></li>
         </ul>
@@ -20,14 +19,12 @@
         <div class="panel-heading">
           <div class="panel-title">
             <h4>Tasks</h4>   
-                    
           </div>
           <span><a href="{!! url('/task-categories') !!}">Add New Task Category</a></span>
           <div class="pull-right">
             <div class="col-xs-6" ng-show="tasks.length > 0" ng-cloak>
               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
             </div>
-            
           </div>
           <div class="clearfix"></div>
         </div>
@@ -44,25 +41,19 @@
               </div>
               <div id="tasklist{% task_cat.id %}" class="panel-collapse collapse in" role="tabpanel"  aria-labelledby="headingOne" aria-expanded="false">
                 <div class="panel-body">
-
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
                     <div class="taskInner">
-
                       <div class="checkbox check-success">
-                          <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task_completed(tsk.id, tsk.completed)">
-                          <label for="completed{%$index%}">
-                            <span class="taskBubble" ng-repeat="u in tsk.users">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
-                            </span>
-                             <span class="task_name-{% tsk[$index].completed %}">{% tsk.name %}</span>
-                          </label>
-                        </div>
+                        <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task_completed(tsk.id, tsk.completed)">
+                        <label for="completed{%$index%}">
+                          <span class="taskBubble" ng-repeat="u in tsk.users">
 
-
+                          </span>
+                          <span class="task_name-{% tsk[$index].completed %}">{% tsk.name %}</span>
+                        </label>
+                      </div>
                     </div>
-
                     <div class="task_detail" style="padding:0 0 0 50px;">
-
                       <a class="timer timer_button" ng-click="showLogModal($event,tsk.id)" id="timer_button">
                         <i class="glyphicon glyphicon-time"></i>
                       </a>
@@ -82,7 +73,6 @@
                         <i class="fa fa-trash"></i>
                       </a>
                     </div>
-
                   </div>
                   <button ng-click="showModal($event)" type="button" class="btn button_color task_category"  id="{% task_cat.id %}" > <i class="fa fa-plus"></i> Add Task </button>
                 </div>
@@ -125,7 +115,6 @@
                       </div>
                     </div>
                   </div>
-                  
                   <div class=" row ">
                     <div class="col-md-12">
                       <div class="form-group form-group-default form-group-default-select2">
@@ -152,49 +141,30 @@
                 </div>
                 <div class="tab-pane slide-left" id="menu1">
                   <div class=" row ">
-
-
-
-
-                    
-
-                                    <div class="col-md-12 ">
-                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
-                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
-                                          <label>Start Date</label>
-                                            <input type="text" name="start_date" class="form-control" placeholder="Pick a start date" id="task-start-date" ng-model='task.start_date' >
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                          </div>
-                                        </div>
-                                    </div>
-
-
-
-
+                    <div class="col-md-12 ">
+                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                          <label>Start Date</label>
+                          <input type="text" name="start_date" class="form-control" placeholder="Pick a start date" id="task-start-date" ng-model='task.start_date' >
+                          <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class="row">
-
-
-
-
-                    
-
-                      <div class="col-md-12 ">
-                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
-                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
-                                          <label>Due Date</label>
-                                            <input type="text" name="due_date" class="form-control" placeholder="Pick a due date" id="task-due-date" ng-model='task.due_date' >
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                          </div>
-                                        </div>
-                                    </div>
-
-
-
+                    <div class="col-md-12 ">
+                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                          <label>Due Date</label>
+                          <input type="text" name="due_date" class="form-control" placeholder="Pick a due date" id="task-due-date" ng-model='task.due_date' >
+                          <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="tab-pane slide-left" id="menu2">
@@ -233,7 +203,6 @@
           <button type="button" class="close" ng-click="logCancel()" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
           </button>
           <h4 class="p-b-5"><h4>Log time on this task</h4></h4>
-
         </div>
         <form name="Logtime" class='p-t-15' role='form' novalidate>
           <div class="modal-body">
@@ -253,75 +222,33 @@
                         </select>
                       </div>
                     </div>
-
-
-                  
-
                     <div class="col-md-6 ">
-                                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
-                                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
-                                          <label>Date</label>
-                                            <input type="text" name="date" class="form-control" placeholder="Pick a date" id="log-date" ng-model='logtime.date' >
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                          </div>
-                                        </div>
-                                    </div>
-
-
-
-
+                      <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
+                        <div class="form-group custom-datepicker form-group-default input-group col-md-12">
+                          <label>Date</label>
+                          <input type="text" name="date" class="form-control" placeholder="Pick a date" id="log-date" ng-model='logtime.date' >
+                          <span class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <div class=" row ">
+                    <div class="col-md-6">
 
-
-
-                    <div class="timepicker">
-                      <span class="timepicker-title label label-primary">Clock In</span>
-                      <timepicker ng-model="logtime.start_time" hour-step="1" minute-step="1" show-meridian="true">
-                      </timepicker> 
-                    </div>
-                    <div class="timepicker">
-                      <span class="timepicker-title label label-primary">Clock Out</span>
-                      <timepicker ng-model="logtime.end_time" hour-step="1" minute-step="1" show-meridian="true">
-                      </timepicker>
-                    </div>
-
-
-
-
-
-
-
-                    <div class="col-md-4">
-                      <div class="form-group  input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
-                        <input type="text" class="form-control" id="from_time" name="start_time" ng-model="logtime.start_time" placeholder="Start Time" required>
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-time"></span>
-                        </span>
-                      </div>
-                      <span class="error" ng-show="submitted && Logtime.start_time.$error.required">* Please enter start time</span>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group  input-group clockpicker" data-placement="left" data-align="top" data-autoclose="true">
-                        <input type="text" class="form-control" id="to_time" name="end_time" ng-model="logtime.end_time" placeholder="End Time" required>
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-time"></span>
-                        </span>
-                      </div>
-                      <span class="error" ng-show="submitted && Logtime.end_time.$error.required">* Please enter end time</span>
-                    </div>
-                    <div class="col-md-2">
-                      <div class="form-group form-group-default">
-                        <input id="hour" type="text" name="hour" class="form-control"  ng-model='logtime.hour' placeholder="Hour">
+                      <div class="input-group bootstrap-timepicker timepicker">
+                        <input id="timepicker1" type="text" name="start_time" class="form-control input-small" ng-model="logtime.start_time" placeholder="hh:mm:AM">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                       </div>
                     </div>
-                    <div class="col-md-2">
-                      <div class="form-group form-group-default">
-                        <input id="minute" type="text" name="minute" class="form-control"  ng-model='logtime.minute' placeholder="Minute">
+                    <div class="col-md-6">
+                      <div class="input-group bootstrap-timepicker timepicker">
+                        <input id="timepicker2" type="text" name="end_time" class="form-control input-small" ng-model="logtime.end_time" placeholder="hh:mm:AM">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                       </div>
                     </div>
+                  <div class="clearfix"></div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
