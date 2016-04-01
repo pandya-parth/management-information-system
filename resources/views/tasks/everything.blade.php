@@ -42,8 +42,7 @@
             <!-- row 1 -->
             <div ng-cloak class="row border_class" ng-repeat="log in value">
               <div ng-cloak class="datas people_name box_real">
-                {% log.task_id ? log.task_id : '-' %}
-                
+                {% log.task_id ? log.task_id : '-' %}                
               </div>
               <div ng-cloak class="datas people_name box_real">
                 {% log.user_id ? log.user_id : '-' %}
