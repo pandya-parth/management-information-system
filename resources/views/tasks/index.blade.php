@@ -215,10 +215,11 @@
                     <div class="col-md-6">
                       <div class="form-group form-group-default form-group-default-select2">
                         <label>Who</label>
-                        <select class="form-control input-group form-group form-group-default" id="user_ids"  name="user_id" ng-model="logtime.user_id" >
+                        <select class="form-control input-group form-group form-group-default" id="user_ids"  name="user_id" ng-model="logtime.user_id" required>
                           @foreach($users as $user)
                           <option value="{!! $user->user_id !!}">{!! $user->fname !!}</option>
                           @endforeach
+                          <span class="error" ng-show="submitted && Logtime.user_id.$error.required">* Please select User</span>
                         </select>
                       </div>
                     </div>
@@ -230,6 +231,7 @@
                           <span class="input-group-addon">
                             <i class="fa fa-calendar"></i>
                           </span>
+                          <span class="error" ng-show="submitted && Logtime.date.$error.required">* Please select User</span>
                         </div>
                       </div>
                     </div>

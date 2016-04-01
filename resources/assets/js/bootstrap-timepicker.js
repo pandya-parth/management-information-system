@@ -1135,7 +1135,7 @@
   };
 
   $.fn.timepicker.defaults = {
-    defaultTime: 'current',
+    //defaultTime: 'current',
     disableFocus: false,
     disableMousewheel: false,
     isOpen: false,

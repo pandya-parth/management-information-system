@@ -213,8 +213,10 @@ class TasksController extends Controller
 
     public function getEverything(Request $request)
     {
-        $logs = LogTime::all();
+        $logs = LogTime::with('task')->get();
+        // $logusers = LogTime::with('user')->get();
         return response()->json($logs);
+
     }
 
     public function everything(Request $request)

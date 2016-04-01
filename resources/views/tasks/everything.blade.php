@@ -11,6 +11,7 @@
           <div class="panel-title">
             <h4>All Tasks</h4>
           </div>
+
           <div class="pull-right">
             <div class="col-xs-6" ng-show="logs.length > 0" ng-cloak>
               <input ng-model="q" type="text" id="search-table" class="form-control pull-right" placeholder="Search" ng-cloak>
@@ -42,7 +43,7 @@
             <!-- row 1 -->
             <div ng-cloak class="row border_class" ng-repeat="log in value">
               <div ng-cloak class="datas people_name box_real">
-                {% log.task_id ? log.task_id : '-' %}                
+                {% log.task.name %}                
               </div>
               <div ng-cloak class="datas people_name box_real">
                 {% log.user_id ? log.user_id : '-' %}
