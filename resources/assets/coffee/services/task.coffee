@@ -66,4 +66,7 @@ angular.module 'mis'
 
 			getName: (id)->
 				$http.get '/api/people-name' + id
+
+			getTName: (id)->
+				$http.get '/api/task-name' + id
 		}

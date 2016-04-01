@@ -15,11 +15,16 @@
               <div class="pic"><img src="{!! url('img/noPhoto.png') !!}" /><span>{!! $people->name !!}</span></div>
               @else
               uploads/people-thumb/{%people.photo%}
-              <div class="pic"><img src="{!! url('uploads/people-thumb/{{$people->photo}}') !!}" /><span>{!! $people->fname !!}{!! $people->lname !!}</span></div>
-              @endif                 
 
+<<<<<<< HEAD
            
            
+=======
+              <div class="pic"><img src="{!! url('uploads/people-thumb/{{$people->photo}}') !!}" /><span><h4>{!! $people->fname !!}{!! $people->lname !!}</h4></span></div>
+              @endif           
+            </div>
+
+>>>>>>> 63b1c7aa0ae6c0078d6eec7ed85c1e9be39efed7
             
           </div>
           <div class="pull-right">
@@ -195,10 +200,16 @@
             </div>
           </div>
 
+<<<<<<< HEAD
            
           
         </div>
+=======
+          
+          <div class="clearfix"></div>
+>>>>>>> 63b1c7aa0ae6c0078d6eec7ed85c1e9be39efed7
         </div>
+        
       </div>
       <!-- END PANEL -->
       <!-- END CONTAINER FLUID -->

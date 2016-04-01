@@ -48,4 +48,8 @@ angular.module 'mis'
 
 			destroyExperience: (id)->
 				$http.delete('/experience/' + id)
+
+			
+
+			
 		}
