@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title',"$people->name")
+@section('title','People')
 @section('content')
 <div ng-controller="PeopleCtrl">
   <div class="content">
@@ -9,28 +9,20 @@
       <div class="panel panel-transparent">
         <div class="panel-heading">
           <div class="panel-title">
+
             <div class="datas company-logo">
-              @if($people->photo == '')
-              <div class="pic"><img src="{!! url('img/noIndustry.png') !!}" /><span>{!! $people->name !!}</span></div>
+              @if($people->logo == '')
+              <div class="pic"><img src="{!! url('img/noPhoto.png') !!}" /><span>{!! $people->fname !!}</span></div>
               @else
-  <div class="pic"><img src="{!! url('uploads/people-thumb/{{$people->photo}}') !!}" /><span><h4>{!! $people->fname !!}{!! $people->lname !!}</h4></span></div>
-              @endif           
+              <div class="pic"><img src="{!! url('uploads/people-thumb',$people->photo) !!}" /><span>{!! $people->name !!}{!! $people->lname !!}</span></div>
+             @endif           
             </div>
 
-
-            </div>
           </div>
           <div class="clearfix"></div>
         </div>
-
         <div ng-cloak class="panel-body" id="company_form">
-          <div class="row clerfix">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div class="input-group">
-                  <label>Website: </label>
-                   <div class="view_input">{!! $people->mobile !!}</div>
 
-        <div ng-cloak class="panel-body" id="people_form">
           <div class="row clerfix">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
@@ -50,7 +42,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label><b>Address:</b> </label>
-                   <div class="view_input">{!! $people->adrs1 !!}<br/>{!! $people->adrs2 !!}</div>
+                   <div class="view_input">{!! $people->adrs1 !!}    {!! $people->adrs2 !!}</div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -177,12 +169,9 @@
                 <div class="input-group">
                   <label><b>Skype: </b></label>
                    <div class="view_input">{!! $people->skype !!}</div>
-
                 </div>
             </div>
-            
           </div>
-
 
           <div class="row clerfix">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -199,13 +188,25 @@
             </div>
           </div>
 
-          
-        </div>
+           <div class="row clerfix">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="input-group">
+                  <label><b>Projects: </b></label>
+                  @foreach($projects as $project)
+                   <div class="view_input">{!! $project->name !!}</div>
+                   @endforeach
+                </div>
+            </div>
+          </div>
 
-          <div class="clearfix"></div>
+
+
 
         </div>
+        
       </div>
+      <!-- END PANEL -->
+      <!-- END CONTAINER FLUID -->
     </div>
   </div>
 </div>
