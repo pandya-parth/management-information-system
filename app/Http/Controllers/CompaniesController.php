@@ -79,7 +79,7 @@ class CompaniesController extends Controller
     public function show($id)
     {
         $company = Company::find($id);
-        $projects = Project::where('client_id','=',$company->id)->get();
+        $projects = Project::where('client_id','=',$company->id)->first();
         return view('companies.view',compact('company','projects'));
     }
 

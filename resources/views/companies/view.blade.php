@@ -30,7 +30,7 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>Email: </label>
-                   <div class="view_input">{!! $company->website !!}</div>
+                   <div class="view_input">{!! $company->email !!}</div>
                 </div>
             </div>
           </div>
@@ -39,13 +39,13 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>Phone: </label>
-                   <div class="view_input">{!! $company->website !!}</div>
+                   <div class="view_input">{!! $company->phone !!}</div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>Fax: </label>
-                   <div class="view_input">{!! $company->website !!}</div>
+                   <div class="view_input">{!! $company->fax !!}</div>
                 </div>
             </div>
           </div>
@@ -54,13 +54,13 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>Address: </label>
-                   <div class="view_input">{!! $company->website !!}</div>
+                   <div class="view_input">{!! $company->adrs1 !!}</div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>City: </label>
-                   <div class="view_input">{!! $company->website !!}</div>
+                   <div class="view_input">{!! $company->city !!}</div>
                 </div>
             </div>
           </div>
@@ -69,13 +69,13 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>State: </label>
-                   <div class="view_input">{!! $company->website !!}</div>
+                   <div class="view_input">{!! $company->state !!}</div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>Country: </label>
-                   <div class="view_input">{!! $company->website !!}</div>
+                   <div class="view_input">{!! $company->country !!}</div>
                 </div>
             </div>
           </div>
@@ -84,13 +84,15 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>Zipcode: </label>
-                   <div class="view_input">{!! $company->website !!}</div>
+                   <div class="view_input">{!! $company->zipcode !!}</div>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="input-group">
                   <label>Projects: </label>
-                   <div class="view_input">{!! $company->website !!}</div>
+                  @foreach($projects as $project)
+                   <div class="view_input">{!! $project->name !!}</div>
+                   @endforeach
                 </div>
             </div>
           </div>
