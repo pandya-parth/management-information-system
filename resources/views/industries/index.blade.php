@@ -39,7 +39,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="panel-body">
-                    <div ng-cloak class="grid_list_view" ng-show="industries.length>0">
+                    <div ng-cloak class="grid_list_view" ng-show="(industries | filter:q).length">
                         <div class="head list_view border_class">
                             <div class="row">
                                 <div class="datas people_id_pic">Name</div>

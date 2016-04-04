@@ -82,7 +82,6 @@
             $('#addNewAppModal').modal('show');
         });
 
-    $('.clockpicker').clockpicker();
     
     $('.panel-collapse label').on('click', function(e){
         e.stopPropagation();

@@ -19,7 +19,6 @@ elixir (mix)->
       'pages.css'
       'windows.chrome.fix.css'
       'angular-datepicker.css'
-      'jquery-clockpicker.min.css'
       'style.css'
     ], 'public/css/vendor.css'
 
@@ -49,7 +48,6 @@ elixir (mix)->
       'lodash.min.js'
       'pages.min.js'
       'datatables.js'
-      'jquery-clockpicker.min.js'
       'plupload.full.min.js'
       bowerPath('angular', 'angular.js')
       bowerPath('angular-bootstrap', 'ui-bootstrap-tpls.js')

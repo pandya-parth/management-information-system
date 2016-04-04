@@ -35,7 +35,8 @@
     "angular-prompt": "latest",
     "underscore": "1.8.3 - 2",
     "angular-country-select": "latest",
-    "angular-filter": "latest"
+    "angular-filter": "latest",
+    "bootstrap-timepicker": "latest"
   },
   "version": "3.3.6",
   "_release": "3.3.6",

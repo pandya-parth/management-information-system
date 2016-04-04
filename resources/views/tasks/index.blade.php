@@ -44,7 +44,7 @@
                   <div class="topTask" ng-repeat="tsk in tasks| orderBy:'-id'|filter:q" ng-if="tsk.category_id == task_cat.id "  ng-show="tasks.length != 0">
                     <div class="taskInner">
                       <div class="checkbox check-success">
-                        <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task_completed(tsk.id, tsk.completed)">
+                        <input type="checkbox" name="completed{%$index%}" ng-model="tsk[$index].completed" id="completed{%$index%}" ng-click="task_completed(tsk.id, tsk[$index].completed)">
                         <label for="completed{%$index%}">
                           <span class="taskBubble" ng-repeat="u in tsk.users">
 
@@ -236,6 +236,7 @@
                       </div>
                     </div>
                   </div>
+      
                   <div class=" row ">
                     <div class="col-md-6">
 
@@ -252,6 +253,10 @@
                     </div>
                   <div class="clearfix"></div>
                   </div>
+
+
+
+
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group form-group-default">

@@ -12,103 +12,95 @@
                     'single'=>'single',
                     'other'=>'other');
                     ?>
-                    <form name='form' action="url('change-profile')" class='p-t-15' role='form' method="PATCH">
+                    
+                        {!! Former::open()->method('post')->action( url('change-profile'))->class('p-t-15')->role('form')->token() !!}
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>First Name</label>
-                                    <input id="fname" type="text" name="fname" class="form-control" placeholder="first name" ng-model='project_category.name' >
+                                    
+                                    {!!  Former::label('First Name')!!}
+                    {!!  Former::text('fname')->placeholder('first name')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>Last Name</label>
-                                    <input id="lname" type="text" name="lname" class="form-control" placeholder="last name" ng-model='project_category.name' >
+                                    {!!  Former::label('Last Name')!!}
+                    {!!  Former::text('lname')->placeholder('last name')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group form-group-default">
-                                    <label>Email</label>
-                                    <input type="text" name="email" class="form-control" placeholder="Email" ng-model='people_array.email' required ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'>
+                                    {!!  Former::label('Email')!!}
+                    {!!  Former::text('email')->placeholder('email')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>Phone</label>
-                                    <input id="phone" type="text" name="phone" class="form-control" placeholder="phone" ng-model='project_category.name' >
+                                    {!!  Former::label('Phone')!!}
+                    {!!  Former::text('phone')->placeholder('phone')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>Mobile</label>
-                                    <input id="mobile" type="text" name="mobile" class="form-control" placeholder="mobile" ng-model='project_category.name' >
+                                    {!!  Former::label('Mobile')!!}
+                    {!!  Former::text('mobile')->placeholder('mobile')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>Street 1</label>
-                                    <input id="adrs1" type="text" name="adrs1" class="form-control" placeholder="street 1" ng-model='project_category.name' >
+                                    {!!  Former::label('Street 1')!!}
+                    {!!  Former::text('adrs1')->placeholder('adrs1')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>Street 2</label>
-                                    <input id="adrs2" type="text" name="adrs2" class="form-control" placeholder="street 2" ng-model='project_category.name' >
+                                    {!!  Former::label('Street 2')!!}
+                    {!!  Former::text('adrs2')->placeholder('adrs2')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>City</label>
-                                    <input id="city" type="text" name="city" class="form-control" placeholder="city" ng-model='project_category.name' >
+                                    {!!  Former::label('City')!!}
+                    {!!  Former::text('city')->placeholder('city')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>State</label>
-                                    <input id="state" type="text" name="state" class="form-control" placeholder="state" ng-model='project_category.name' >
+                                    {!!  Former::label('State')!!}
+                    {!!  Former::text('state')->placeholder('state')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6">
+                            {{-- <div class="col-sm-6">
                                 <div class="form-group form-group-default">
                                     <label>Country</label>
                                     <input country-select data-ng-model="people_array.country">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>Zipcode</label>
-                                    <input id="appName" name="zipcode" type="text" class="form-control"
-                                    placeholder="Zipcode" ng-model='people_array.zipcode' ng-pattern="/^(0|[1-9][0-9]*)$/">
+                                    {!!  Former::label('Zipcode')!!}
+                    {!!  Former::text('zipcode')->placeholder('zipcode')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
-                                    <label>Date Of Birth</label>
-                                    <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob'>
+                                    {!!  Former::label('Date Of Birth')!!}
+                    {!!  Former::text('dob')->placeholder('dob')->id(false)->label(false)->class('form-control') !!}
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group form-group-default">
-                                    <label>Marital Status</label>
-                                    <select class="full-width" data-placeholder="Select Country" data-init-plugin="select2">
-                                        @foreach($marital_statuses as $marital_status)
-                                        <option value="{!! $marital_status !!}">{!! $marital_status !!}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
@@ -123,105 +115,58 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group form-group-default">
-                                    <label>Department</label>
-                                    <select class="full-width" data-placeholder="Select Department"
-                                    data-init-plugin="select2" ng-model='people_array.department'>
-                                    @foreach($departments as $department)
-                                    <option value="{!! $department->name !!}">{!! $department->name !!}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group form-group-default">
-                                <label>Designation/Job Title</label>
-                                <select class="full-width" data-placeholder="select Designation"
-                                data-init-plugin="select2" ng-model='people_array.designation'>
-                                @foreach($designations as $designation)
-                                <option value="{!! $designation->name !!}">{!! $designation->name !!}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                </div>
+                      
                 <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group form-group-default">
-                            <label>Management Level</label>
-                            <select class="full-width" data-placeholder="select Designation"
-                            data-init-plugin="select2" ng-model='people_array.management_level'>
-                            <option value="M1">M1</option>
-                            <option value="M2">M2</option>
-                            <option value="M3">M3</option>
-                            <option value="M4">M4</option>
-                            <option value="M5">M5</option>
-                            <option value="M6">M6</option>
-                            <option value="M7">M7</option>
-                            <option value="M8">M8</option>
-                            <option value="M9">M9</option>
-                            <option value="M10">M10</option>
-                            <option value="M11">M11</option>
-                        </select>
-                    </div>
-                </div>
+                    
                 <div class="col-sm-6">
                     <div class="form-group form-group-default">
-                        <label>Joining Date</label>
-                        <input type="text"  name="join_date" class="form-control" placeholder="Pick a date"
-                        id="joining-date" ng-model='people_array.join_date'>
-                        <span class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </span>
+                        
+
+                        {!!  Former::label('Joining Date')!!}
+                    {!!  Former::text('join_date')->placeholder('join_date')->id(false)->label(false)->class('form-control') !!}
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-group-default">
-                        <label>Google</label>
-                        <input type="text" name="google" class="form-control" placeholder="Google" ng-model='people_array.google' >
-                    </div>
+                        {!!  Former::label('Google')!!}
+                    {!!  Former::text('google')->placeholder('google')->id(false)->label(false)->class('form-control') !!}                </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-group-default">
-                        <label>Facebook</label>
-                        <input type="text" name="facebook" class="form-control" placeholder="Facebook" ng-model='people_array.facebook' >
+                        {!!  Former::label('Facebook')!!}
+                    {!!  Former::text('facebook')->placeholder('facebook')->id(false)->label(false)->class('form-control') !!}
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-group-default">
-                        <label>Web Site</label>
-                        <input type="text" name="website" class="form-control" placeholder="Web Site" ng-model='people_array.website' >
-                    </div>
+                        {!!  Former::label('Website')!!}
+                    {!!  Former::text('website')->placeholder('website')->id(false)->label(false)->class('form-control') !!}                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-group-default">
-                        <label>Linkedin</label>
-                        <input type="text" name="linkedin" class="form-control" placeholder="Linkedin" ng-model='people_array.linkedin' >
+                        {!!  Former::label('Linked In')!!}
+                    {!!  Former::text('linkedin')->placeholder('linkedin')->id(false)->label(false)->class('form-control') !!}
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-group-default">
-                        <label>Skype</label>
-                        <input type="text" name="skype" class="form-control" placeholder="Skype" ng-model='people_array.skype' >
-                    </div>
+                        {!!  Former::label('Skype')!!}
+                    {!!  Former::text('skype')->placeholder('skype')->id(false)->label(false)->class('form-control') !!}               </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-group-default">
-                        <label>Twitter</label>
-                        <input type="text" name="twitter" class="form-control" placeholder="Twitterl" ng-model='people_array.twitter' >
-                    </div>
+                        {!!  Former::label('Twitter')!!}
+                    {!!  Former::text('twitter')->placeholder('twitter')->id(false)->label(false)->class('form-control') !!}                    </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-cons m-t-10" form="form1" value="Submit">Submit</button>
-        </form>
+            {!!Former::submit('Update')->class('btn btn-primary btn-cons m-t-10')!!}
+            {!! Former::close() !!}
     </div>
 </div>
 </div>

@@ -30,10 +30,15 @@
   </div>
   <ul class="nav navbar-nav">
     <li class="active"><a href="{!! url('/') !!}">Home</a></li>
-    <li><a href="{!! url('everything') !!}">Everything</a></li>
     <li><a href="{!! url('companies') !!}">Company</a></li>
+    <li><a href="{!! url('departments') !!}">Departments</a></li>
+    <li><a href="{!! url('designations') !!}">Designations</a></li>
+    <li><a href="{!! url('everything') !!}">Everything</a></li>
+    <li><a href="{!! url('industries') !!}">Industries</a></li>
     <li><a href="{!! url('people') !!}">People</a></li>
     <li><a href="{!! url('projects') !!}">Project</a></li>
+    <li><a href="{!! url('project-categories') !!}">Project Cat.</a></li>   
+    <li><a href="{!! url('task-categories') !!}">Task Cat.</a></li>
   </ul>
    
   <div class=" pull-right">
@@ -67,7 +72,7 @@
           </li>
           <li><a href="{!! url('/change-password')!!}"><i class="fa-key"></i> Change Password</a>
           </li>
-          <li><a href="{!! url('change-profile') !!}{!! url('api/people', Auth::user()->people->id) !!}"><i class="pg-settings_small"></i> Change Profile</a>
+          <li><a href="{!! url('change-profile') !!}"><i class="pg-settings_small"></i> Change Profile</a>
           </li>
           <li><a href="#"><i class="pg-signals"></i> Help</a>
           </li>

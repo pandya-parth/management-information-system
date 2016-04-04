@@ -256,7 +256,6 @@ angular.module 'mis'
 		$scope.removeEducationClone = (education)->
 			index = $scope.educations.indexOf(education); 
 			$scope.educations.splice(index, 1)
-			$scope.people_array.education = $scope.educations
 
 		$scope.removeEducation = (education)->
 			$scope.options =
@@ -313,7 +312,7 @@ angular.module 'mis'
 				PEOPLE.destroyExperience(experience.id).success (data)->
 					index = $scope.experiences.indexOf(experience);
 					$scope.experiences.splice(index, 1)
-					$scope.people_array.experience = $scope.educations
+					$scope.people_array.experience = $scope.experiences
 					angular.element('body').pgNotification(
 						style: 'flip'
 						message: 'Experience deleted successfully.'
@@ -325,7 +324,7 @@ angular.module 'mis'
 		$scope.removeExperienceClone = (experience)->
 			index = $scope.experiences.indexOf(experience); 
 			$scope.experiences.splice(index, 1)
-			$scope.people_array.experience = $scope.experiences 
+			 
 
 		
 

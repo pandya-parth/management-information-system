@@ -51,7 +51,7 @@
                     <div class="panel-body">
                         <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
                         <!-- hitesh -->
-                        <div class="grid_action">
+                        <div class="grid_action" ng-show="(peoples | filter:q).length">
                             <div class="row">
                                 <div class="col-lg-12 text-right">
                                     <div ng-cloak class="btn-toolbar" ng-show="peoples.length>0">
@@ -62,7 +62,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div ng-cloak class="grid_list_view">
+                        <div ng-cloak class="grid_list_view" ng-show="(peoples | filter:q).length">
                             <div ng-cloak class="head list_view border_class" ng-show="peoples.length>0">
                                 <div ng-cloak class="row">
                                     <div class="datas people_id_pic">Profile</div>

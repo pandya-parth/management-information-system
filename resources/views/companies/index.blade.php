@@ -44,7 +44,7 @@
                 </div>
                 <div class="panel-body">
                     <p class="text-center" ng-show="loading"><img src="{!! asset('img/demo/progress.svg') !!}" /></p>
-                    <div ng-cloak class="grid_list_view" ng-show="companies.length>0">
+                    <div ng-cloak class="grid_list_view" ng-show="(companies | filter:q).length">
                         <div class="head list_view border_class">
                             <div class="row">
                                 <div class="datas people_id_pic">Logo</div>
@@ -192,7 +192,7 @@
                                     
                                     
                                 </div>
-                                <span><a href="{!! url('/industries') !!}">Add New Industry</a></span>
+                                {{-- <span><a href="{!! url('/industries') !!}">Add New Industry</a></span> --}}
                             </div>
                             <div class="row">
                                 <div class="col-sm-12">

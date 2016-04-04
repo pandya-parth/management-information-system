@@ -195,7 +195,6 @@ class PeoplesController extends Controller
         $educations = UserEducation::where('user_id','=',$people->user_id)->get();
         $experiences = UserExperience::where('user_id','=',$people->user_id)->get();
         return response()->json(array($people,$people->user->email,$educations,$experiences));
-
     }
 
     public function getFullName($id,Request $request)
