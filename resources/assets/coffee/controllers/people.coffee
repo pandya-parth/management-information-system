@@ -78,6 +78,9 @@ angular.module 'mis'
 		
 		$scope.selected_users = []
 
+		PEOPLE.getProjectPeople(pId).success (data)->
+			$scope.selected_users = data
+
 		$scope.toggleSelection = (user)->
 			idx = $scope.selected_users.indexOf(user);
 			if idx > -1

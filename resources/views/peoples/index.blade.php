@@ -483,7 +483,8 @@
                         <div class="col-md-12">
                             <div class="form-group form-group-default">
                                 <label>Google</label>
-                                <input type="text" name="google" class="form-control" placeholder="Google" ng-model='people_array.google' >
+                                <input type="url" name="google" class="form-control" placeholder="Google" ng-model='people_array.google' >
+                                <span class="error" ng-show="submitted && people.google.$error.url">Not valid url!</span>
                             </div>
                         </div>
                     </div>
@@ -491,7 +492,8 @@
                         <div class="col-md-12">
                             <div class="form-group form-group-default">
                                 <label>Facebook</label>
-                                <input type="text" name="facebook" class="form-control" placeholder="Facebook" ng-model='people_array.facebook' >
+                                <input type="url" name="facebook" class="form-control" placeholder="Facebook" ng-model='people_array.facebook' >
+                                <span class="error" ng-show="submitted && people.facebook.$error.url">Not valid url!</span>
                             </div>
                         </div>
                     </div>
@@ -499,7 +501,8 @@
                         <div class="col-md-12">
                             <div class="form-group form-group-default">
                                 <label>Web Site</label>
-                                <input type="text" name="website" class="form-control" placeholder="Web Site" ng-model='people_array.website' >
+                                <input type="url" name="website" class="form-control" placeholder="Web Site" ng-model='people_array.website' >
+                                <span class="error" ng-show="submitted && people.website.$error.url">Not valid url!</span>
                             </div>
                         </div>
                     </div>
@@ -507,7 +510,8 @@
                         <div class="col-md-12">
                             <div class="form-group form-group-default">
                                 <label>Linkedin</label>
-                                <input type="text" name="linkedin" class="form-control" placeholder="Linkedin" ng-model='people_array.linkedin' >
+                                <input type="url" name="linkedin" class="form-control" placeholder="Linkedin" ng-model='people_array.linkedin' >
+                                <span class="error" ng-show="submitted && people.linkedin.$error.url">Not valid url!</span>
                             </div>
                         </div>
                     </div>
@@ -523,7 +527,8 @@
                         <div class="col-md-12">
                             <div class="form-group form-group-default">
                                 <label>Twitter</label>
-                                <input type="text" name="twitter" class="form-control" placeholder="Twitterl" ng-model='people_array.twitter' >
+                                <input type="url" name="twitter" class="form-control" placeholder="Twitterl" ng-model='people_array.twitter' >
+                                <span class="error" ng-show="submitted && people.twitter.$error.url">Not valid url!</span>
                             </div>
                         </div>
                     </div>

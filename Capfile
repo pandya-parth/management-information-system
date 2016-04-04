@@ -1,6 +1,6 @@
 require 'recap/recipes/static'
 
-set :repository, 'git@bitbucket.org:krishaweb/management-information-system.git'
+set :repository, 'git@bitbucket.org:krishaweb/mis.git'
 set :user, 'ubuntu'
 
 server '54.200.79.82', :app

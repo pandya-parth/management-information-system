@@ -101,5 +101,6 @@ Route::group(['middleware' => ['web','auth'],  'prefix' => 'api'], function () {
     Route::get('people/{id}','PeoplesController@getPeople');
     Route::get('people-name/{id}','PeoplesController@getFullName');
     Route::get('task-name/{id}','TasksController@getTaskName');
+    Route::get('project-people/{id}','PeoplesController@getPeopleofProject');
 
 });

@@ -30,14 +30,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group form-group-default">
-                                    {!!  Former::label('Email')!!}
-                    {!!  Former::text('email')->placeholder('email')->id(false)->label(false)->class('form-control') !!}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
                                     {!!  Former::label('Phone')!!}
@@ -51,82 +43,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group form-group-default">
-                                    {!!  Former::label('Street 1')!!}
-                    {!!  Former::text('adrs1')->placeholder('adrs1')->id(false)->label(false)->class('form-control') !!}
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group form-group-default">
-                                    {!!  Former::label('Street 2')!!}
-                    {!!  Former::text('adrs2')->placeholder('adrs2')->id(false)->label(false)->class('form-control') !!}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group form-group-default">
-                                    {!!  Former::label('City')!!}
-                    {!!  Former::text('city')->placeholder('city')->id(false)->label(false)->class('form-control') !!}
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group form-group-default">
-                                    {!!  Former::label('State')!!}
-                    {!!  Former::text('state')->placeholder('state')->id(false)->label(false)->class('form-control') !!}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            {{-- <div class="col-sm-6">
-                                <div class="form-group form-group-default">
-                                    <label>Country</label>
-                                    <input country-select data-ng-model="people_array.country">
-                                </div>
-                            </div> --}}
-                            <div class="col-sm-6">
-                                <div class="form-group form-group-default">
-                                    {!!  Former::label('Zipcode')!!}
-                    {!!  Former::text('zipcode')->placeholder('zipcode')->id(false)->label(false)->class('form-control') !!}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group form-group-default">
-                                    {!!  Former::label('Date Of Birth')!!}
-                    {!!  Former::text('dob')->placeholder('dob')->id(false)->label(false)->class('form-control') !!}
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group form-group-default">
-                                    <label>Gender </label>
-                                    <div class="radio radio-success" ng-init="people_array.gender='male'">
-                                        <input type="radio" ng-model="people_array  .gender" name='gender' id="male" ng-value="'male'">
-                                        <label for="male">Male</label>
-                                        <input type="radio" ng-model='people_array.gender' name='gender' id="female" ng-value="'female'">
-                                        <label for="female">Female</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                      
-                <div class="row">
-                    
-                <div class="col-sm-6">
-                    <div class="form-group form-group-default">
                         
-
-                        {!!  Former::label('Joining Date')!!}
-                    {!!  Former::text('join_date')->placeholder('join_date')->id(false)->label(false)->class('form-control') !!}
-                    </div>
-                </div>
-            </div>
+                        
+                       
+                        
+                        
+                      
+                
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group form-group-default">

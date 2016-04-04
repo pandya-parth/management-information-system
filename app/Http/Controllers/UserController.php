@@ -43,19 +43,16 @@ class UserController extends Controller
 
     public function getAccount()
     {
-        $departments = Department::all();
-        $designations = Designation::all();
         $user = People::find(Auth::user()->people->id);
-        return view('auth/change-profile',compact('departments','designations'));
+        Former::populate($user);
+        return view('auth/change-profile',compact('user'));
     }
 
     public function postAccount()
     {
         $user = People::find(Auth::user()->people->id);
-        $user->fname = Input::get('fname');
-        $user->email = Input::get('email');
-        $user->save();
-        return view('auth/change-profile');
+        $user->update(Input::all());
+        return redirect('/');
 
     }
 }

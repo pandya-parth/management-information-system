@@ -324,6 +324,14 @@ class PeoplesController extends Controller
         return response()->json(['success'=>true]);
     }
 
+    public function getPeopleofProject(Request $request,$id)
+    {
+        $project = Project::find($id);
+        $users = $project->users->pluck('id');
+        dd($users);
+        
+    }
+
     public function updateProjectPeople(Request $request,$id)
     {
        //

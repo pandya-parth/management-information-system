@@ -12,6 +12,9 @@ angular.module 'mis'
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 					data: $.param(formData)
 
+			getProjectPeople: (id)->
+				$http.get '/api/project-people/'+id
+
 			addPeopleToProject: (users,project_id)->
 				$http
 					method: 'POST'
