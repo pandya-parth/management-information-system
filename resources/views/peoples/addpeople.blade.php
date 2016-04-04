@@ -104,7 +104,7 @@
                             <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-repeat="people in peoples|filter:query">
                                 <div class="btn btn-primary" ng-click="toggleSelection(people.id)">
                                        <div class="checkbox check-success">
-                                        <input type="checkbox" name="selectedPeoples[]" value="{% people.id %}" id="{%$index%}" ng-checked="selected_users.indexOf(people) > -1">
+                                        <input type="checkbox" name="selectedPeoples[]" value="{% people.id %}" id="{%$index%}" ng-checked="selected_users.indexOf(people.id) > -1">
                                         <label for="{%$index%}" class="label-for-check"></label>
                                       </div>
 

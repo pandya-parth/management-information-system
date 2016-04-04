@@ -328,7 +328,7 @@ class PeoplesController extends Controller
     {
         $project = Project::find($id);
         $users = $project->users->pluck('id');
-        dd($users);
+        return response()->json($users);
         
     }
 
