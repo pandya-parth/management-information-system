@@ -79,8 +79,8 @@
         <!-- END CONTAINER FLUID -->
     </div>
     <!-- MODAL STICK UP  -->
-    <div class="modal fade stick-up " id="addNewAppModal" tabindex="-1" role="dialog"
-    aria-labelledby="addNewAppModal" aria-hidden="true">
+    <div class="modal fade stick-up " id="addPeopleToProjectModal" tabindex="-1" role="dialog"
+    aria-labelledby="addPeopleToProjectModal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header clearfix ">
@@ -102,12 +102,10 @@
                             
 
                             <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-repeat="people in peoples|filter:query">
-                                <div class="btn btn-primary">
-                                   
-
+                                <div class="btn btn-primary" ng-click="toggleSelection(people.id)">
                                        <div class="checkbox check-success">
-                                        <input type="checkbox" name="status[]" value="1" id="6" class="check-with-label ng-valid ng-dirty ng-valid-parse ng-touched" ng-model="task.status[$index]">
-                                        <label for="6" class="label-for-check task_name ng-binding"></label>
+                                        <input type="checkbox" name="selectedPeoples[]" value="{% people.id %}" id="{%$index%}">
+                                        <label for="{%$index%}" class="label-for-check"></label>
                                       </div>
 
                                     <div class="datas people_id_pic">
@@ -129,8 +127,8 @@
                 </div>
             <!-- /.modal-content -->
             <div class="modal-footer">
-                <button  type="button" class="btn btn-primary  btn-cons" ng-click="submitPeople(addPeople)">Add</button>
-                <button type="button" class="btn btn-cons" id="close" ng-click='clearAll(addPeople)'>Close</button>
+                <button  type="button" class="btn btn-primary  btn-cons" ng-click="addPeopleToProject()">Add</button>
+                <button type="button" class="btn btn-cons" id="close">Close</button>
             </div>
         </form>
     </div>

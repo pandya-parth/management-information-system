@@ -5,9 +5,6 @@ angular.module 'mis'
 			get: ->
 				$http.get '/api/people'
 
-			getPeople: (formData) ->
-				$http.get '/project/' + formData.id + '/people'
-
 			save: (formData)->
 				$http
 					method: 'POST'
@@ -15,12 +12,15 @@ angular.module 'mis'
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 					data: $.param(formData)
 
-			addPeople: (formData,pId)->
+			addPeopleToProject: (users,project_id)->
 				$http
 					method: 'POST'
-					url: '/project/' + pId + '/people', params: project_id: pId
+					url: '/add-people-to-project'
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
-					data: $.param(formData)
+					data: $.param(
+						users: users
+						project_id: project_id
+						)
 
 
 			edit: (id)->
@@ -30,13 +30,6 @@ angular.module 'mis'
 				$http
 					method: 'PUT'
 					url: '/people/'+formData.id
-					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
-					data: $.param(formData)
-
-			updatePeople: (formData,id)->
-				$http
-					method: 'PUT'
-					url: '/project/'+ formData.id + '/people/' + formData.id
 					headers: { 'Content-Type' : 'application/x-www-form-urlencoded' }
 					data: $.param(formData)
 

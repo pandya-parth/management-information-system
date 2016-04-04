@@ -60,6 +60,7 @@
 
         $('#show-modal').click(function() {
             $('#addNewAppModal').modal('show');
+            $('#addPeopleToProjectModal').modal('show');
         });
 
         $('#timer_button').click(function() {

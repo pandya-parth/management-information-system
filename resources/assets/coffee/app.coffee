@@ -1,5 +1,5 @@
 angular.module 'mis', [
-		'angularUtils.directives.dirPagination', 'ui.bootstrap', 'cgPrompt', 'angular-country-select','angular.filter','720kb.datepicker'
+		'angularUtils.directives.dirPagination', 'ui.bootstrap', 'cgPrompt', 'angular-country-select','720kb.datepicker', 'angular.filter'
 	]
 
 	.config (paginationTemplateProvider)->

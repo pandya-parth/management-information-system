@@ -42,7 +42,7 @@ Route::group(['middleware' => ['web','auth']], function () {
     Route::resource('/people','PeoplesController');    
 
     Route::get('project/{id}/people','PeoplesController@getProjectPeople');
-    Route::post('project/{id}/people','PeoplesController@postProjectPeople');
+    Route::post('add-people-to-project','PeoplesController@postProjectPeople');
 
     Route::post('task-status','TasksController@postTaskStatus');   
         

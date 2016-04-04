@@ -75,6 +75,25 @@ angular.module 'mis'
 		PEOPLE.get(pId).success (data)->
 			$scope.peoples = data
 			$scope.loading = false
+		
+		$scope.selected_users = []
+
+		$scope.toggleSelection = (user)->
+			idx = $scope.selected_users.indexOf(user);
+			if idx > -1
+				$scope.selected_users.splice(idx, 1)
+			else
+				$scope.selected_users.push(user)
+
+		$scope.addPeopleToProject = ()->
+			PEOPLE.addPeopleToProject($scope.selected_users, $scope.Pro_Id).success (data)->
+				angular.element('#addPeopleToProjectModal').modal('hide')
+				angular.element('body').pgNotification(
+					style: 'flip'
+					message: 'People added successfully.'
+					position: 'top-right'
+					timeout: 2000
+					type: 'success').show()
 
 		$scope.cancelAll = ->
 			angular.element('#addNewAppModal').modal('hide')
@@ -183,50 +202,6 @@ angular.module 'mis'
 
 						PEOPLE.get(pId).success (getData)->
 							$scope.peoples = getData
-							$scope.loading = false
-					), 500
-
-
-		$scope.submitPeople = (form)->
-			$scope.loading = true
-			$scope.submitted = true
-			if form.$invalid
-				$scope.loading = false
-				return
-			else
-				$scope.loading = true
-
-			if $scope.edit == false
-				PEOPLE.addPeople($scope.project_people).success (data)->
-					$scope.submitted = false
-					$scope.project_people = {}
-					angular.element('#addNewAppModal').modal('hide')
-					angular.element('body').pgNotification(
-						style: 'flip'
-						message: 'Record saved successfully.'
-						position: 'top-right'
-						timeout: 2000
-						type: 'success').show()
-
-				PEOPLE.getProjectPeople(pId).success (getData)->
-					$scope.project_peoples = getData
-					$scope.loading = false
-			else
-				PEOPLE.updatePeople($scope.project_people).success (data)->
-					$scope.submitted = false
-					$scope.edit = false
-					$scope.project_people = {}
-					angular.element('#addNewAppModal').modal('hide')
-					$timeout (->
-						angular.element('body').pgNotification(
-							style: 'flip'
-							message: 'Record updated successfully.'
-							position: 'top-right'
-							timeout: 2000
-							type: 'success').show()
-
-						PEOPLE.getProjectPeople(pId).success (getData)->
-							$scope.project_peoples = getData
 							$scope.loading = false
 					), 500			
 

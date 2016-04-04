@@ -17,7 +17,7 @@ angular.module 'mis'
 			$scope.loading = false
 
 		task.everythingLog().success (data)->
-			$scope.logs = data[0]
+			$scope.logs = data
 			$scope.loading = false
 
 		task.getCat().success (data)->
