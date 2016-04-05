@@ -87,10 +87,14 @@ angular.module 'mis'
 				$scope.selected_users.splice(idx, 1)
 			else
 				$scope.selected_users.push(user)
+			console.log $scope.selected_users
 
 		$scope.addPeopleToProject = ()->
+			console.log $scope.selected_users
 			PEOPLE.addPeopleToProject($scope.selected_users, $scope.Pro_Id).success (data)->
 				angular.element('#addPeopleToProjectModal').modal('hide')
+				PEOPLE.getProjectPeople(pId).success (res)->
+					$scope.selected_users = res
 				angular.element('body').pgNotification(
 					style: 'flip'
 					message: 'People added successfully.'

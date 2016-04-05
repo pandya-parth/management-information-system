@@ -102,25 +102,13 @@
                             
 
                             <li class="col-lg-2 col-md-2 col-sm-2 col-xs-12" ng-repeat="people in peoples|filter:query">
-                                <div class="btn btn-primary" ng-click="toggleSelection(people.id)">
-                                       <div class="checkbox check-success">
-                                        <input type="checkbox" name="selectedPeoples[]" value="{% people.id %}" id="{%$index%}" ng-checked="selected_users.indexOf(people.id) > -1">
-                                        <label for="{%$index%}" class="label-for-check"></label>
-                                      </div>
-
-                                    <div class="datas people_id_pic">
-                                        <div ng-cloak class="pic" ng-if="people.photo==''"><img ng-src={!! asset("img/noPhoto.png") !!} /></div>
-                                        <div ng-cloak class="pic" ng-if="people.photo!=''"><img ng-src={!! asset("uploads/people-thumb/{%people.photo%}") !!} /></div>
-                                    </div> 
-                                    <div ng-cloak class="datas people_name box_real">
-                                        {% people.fname %} {% people.lname %}
-                                    </div>
-                                    <div ng-cloak class="datas people_designation">
-                                        {% people.department %}
-                                    </div>
+                                
+                                    <input type="checkbox" name="selectedPeoples[]" value="people_{% people.id %}" id="{%people.id%}" ng-checked="selected_users.indexOf(people.id) > -1" ng-click="toggleSelection(people.id)">
+                                    {% people.fname %} {% people.lname %}   
 
 
-                                </div>
+
+                                
                             </li>
                         </ul>
                     </div>
