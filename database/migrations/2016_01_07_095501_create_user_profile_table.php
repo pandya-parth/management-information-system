@@ -26,14 +26,14 @@ class CreateUserProfileTable extends Migration
             $table->string('state')->nullable();
             $table->string('country')->nullable();
             $table->string('zipcode')->nullable();
-            $table->dateTime('dob')->nullable();
+            $table->date('dob')->nullable();
             $table->string('gender')->nullable();
             $table->string('marital_status')->nullable();
             $table->string('pan_number')->nullable();
             $table->integer('department_id')->nullable();
             $table->integer('designation_id')->nullable();
             $table->string('management_level')->nullable();
-            $table->dateTime('join_date')->nullable();
+            $table->date('join_date')->nullable();
             $table->string('attach')->nullable();
             $table->string('google')->nullable();
             $table->string('facebook')->nullable();

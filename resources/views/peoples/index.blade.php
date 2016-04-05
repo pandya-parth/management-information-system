@@ -307,9 +307,9 @@
                                         <div class="form-group form-group-default form-group-default-select2">
                                             <label>Department</label>
                                             <select class="full-width" data-placeholder="Select Department"
-                                            data-init-plugin="select2" ng-model='people_array.department'>
+                                            data-init-plugin="select2" ng-model='people_array.department_id'>
                                             @foreach($departments as $department)
-                                            <option value="{!! $department->name !!}">{!! $department->name !!}</option>
+                                            <option value="{!! $department->id !!}">{!! $department->name !!}</option>
                                             @endforeach
                                             </select> 
                                         </div>
@@ -321,9 +321,9 @@
                                         <div class="form-group form-group-default form-group-default-select2">
                                             <label>Designation/Job Title</label>
                                             <select class="full-width" data-placeholder="select Designation"
-                                            data-init-plugin="select2" ng-model='people_array.designation'>
+                                            data-init-plugin="select2" ng-model='people_array.designation_id'>
                                             @foreach($designations as $designation)
-                                            <option value="{!! $designation->name !!}">{!! $designation->name !!}</option>
+                                            <option value="{!! $designation->id !!}">{!! $designation->name !!}</option>
                                             @endforeach
                                         </select>
                                         </div>

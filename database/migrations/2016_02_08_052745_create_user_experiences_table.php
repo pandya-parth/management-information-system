@@ -16,8 +16,8 @@ class CreateUserExperiencesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('company_name')->nullable();
-            $table->dateTime('from')->nullable();
-            $table->dateTime('to')->nullable();
+            $table->date('from')->nullable();
+            $table->date('to')->nullable();
             $table->string('salary')->nullable();
             $table->string('reason')->nullable();
             $table->timestamps();

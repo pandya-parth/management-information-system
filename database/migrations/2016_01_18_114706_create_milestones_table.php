@@ -18,7 +18,7 @@ class CreateMilestonesTable extends Migration
             $table->string('name')->nullable();
             $table->string('description')->nullable();
             $table->string('notes')->nullable();
-            $table->dateTime('due_date')->nullable();
+            $table->date('due_date')->nullable();
             $table->boolean('reminder')->nullable();
             $table->boolean('completed')->default(false)->nullable();
             $table->timestamps();
