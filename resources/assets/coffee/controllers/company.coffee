@@ -24,7 +24,7 @@ angular.module 'mis'
 									   angular.element('.' + file.id).hide()
 									   return
 								)
-						), 5000
+						), 1000
 						uploader.start()
 					UploadProgress: (up, file)->
 						$scope.company.logo = file.name
