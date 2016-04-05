@@ -80,6 +80,7 @@
                   <a data-view-animation="push-parrallax" data-navigate="view" class="">
                     <p class="p-l-10 col-xs-height col-middle col-xs-12">
                       <span class="sidebar-people">PEOPLE</span>
+
                     </p>
                   </a>
                 </li>
@@ -87,22 +88,33 @@
                 @endforeach
                 @endforeach
                 <!-- END Categories List  !-->
+
               </ul>
                 <div class="people-img-list">
-                  <ol>
-                      <li class="clearfix">
-                        <span>Kajal Kanzaria</span>
-                        <div class="pic"><img src={!! asset("img/noIndustry.png") !!} /></div>
-                      </li>
-                      <li class="clearfix">
-                        <span>Baldev Parmar</span>
-                        <div class="pic"><img src={!! asset("img/noIndustry.png") !!} /></div>
-                      </li>
-                      <li class="clearfix">
-                        <span>Nirav Panchal</span>
-                        <div class="pic"><img src={!! asset("img/noIndustry.png") !!} /></div>
-                      </li>
-                  </ol>
+
+                  {!! $project_users !!}
+
+                  <ul>
+                @foreach($project_users as $user)
+                @foreach($projects as $project)
+                @if($project->id == $user->project_id)
+                <!-- BEGIN Categories List  !-->
+                <li >
+                  
+                    <p class="p-l-10 col-xs-height col-middle col-xs-12">
+                      <span>{!! strtoupper($user->name) !!}</span></br>
+                    </p>
+                  
+                </li>
+                
+                @endif
+                @endforeach
+                @endforeach
+                <!-- END Categories List  !-->
+
+              </ul>
+
+
                 </div>              
             </div>
           </div>

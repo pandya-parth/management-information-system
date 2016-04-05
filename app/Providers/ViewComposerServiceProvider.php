@@ -11,6 +11,7 @@ use App\TaskCategory;
 use App\ProjectCategory;
 use App\Industry;
 use App\Milestone;
+use App\ProjectUser;
 use Carbon\Carbon;
 
 class ViewComposerServiceProvider extends ServiceProvider
@@ -46,6 +47,7 @@ class ViewComposerServiceProvider extends ServiceProvider
         {
             $view->with('projects', Project::all());
             $view->with('project_categories', ProjectCategory::all());
+            $view->with('project_users', ProjectUser::all());
         });
 
         view()->composer('shared.milestones', function($view)
