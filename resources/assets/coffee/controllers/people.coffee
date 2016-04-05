@@ -78,8 +78,9 @@ angular.module 'mis'
 		
 		$scope.selected_users = []
 
-		PEOPLE.getProjectPeople(pId).success (data)->
-			$scope.selected_users = data
+		if pId != "Undefined"
+			PEOPLE.getProjectPeople(pId).success (data)->
+				$scope.selected_users = data
 
 		$scope.toggleSelection = (user)->
 			idx = $scope.selected_users.indexOf(user);
@@ -87,10 +88,8 @@ angular.module 'mis'
 				$scope.selected_users.splice(idx, 1)
 			else
 				$scope.selected_users.push(user)
-			console.log $scope.selected_users
 
 		$scope.addPeopleToProject = ()->
-			console.log $scope.selected_users
 			PEOPLE.addPeopleToProject($scope.selected_users, $scope.Pro_Id).success (data)->
 				angular.element('#addPeopleToProjectModal').modal('hide')
 				PEOPLE.getProjectPeople(pId).success (res)->
@@ -271,7 +270,7 @@ angular.module 'mis'
 						type: 'success').show()
 			)
 
-		$scope.removeExperience = (experience)->
+		$scope.removeExperience = (id)->
 			$scope.options =
 				title: 'Remove Experience'
 				message:'Are you sure you want to delete this experience detail?'
@@ -291,8 +290,8 @@ angular.module 'mis'
 				]
 
 			prompt($scope.options).then( ->					
-				PEOPLE.destroyExperience(experience.id).success (data)->
-					index = $scope.experiences.indexOf(experience);
+				PEOPLE.destroyExperience(id).success (data)->
+					index = $scope.experiences.indexOf(id);
 					$scope.experiences.splice(index, 1)
 					$scope.people_array.experience = $scope.experiences
 					angular.element('body').pgNotification(
