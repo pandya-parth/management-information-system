@@ -170,8 +170,7 @@
                                                 </div>  
                                             </div>  
                                         </div>
-                                        <input type="hidden" name='logo' id="logo"
-                                        ng-modal='company.logo'>
+                                        <input type="hidden" name='logo' id="logo" ng-modal='company.logo'>
                                     </div>
                                 </div>
                             </div>
