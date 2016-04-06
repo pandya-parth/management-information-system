@@ -91,8 +91,8 @@ class PeoplesController extends Controller
             $user_profile->state = Input::get('state');
             $user_profile->country = Input::get('country');
             $user_profile->pan_number = Input::get('pan_number');
-            $user_profile->department = Input::get('department');
-            $user_profile->designation = Input::get('designation');
+            $user_profile->department_id = Input::get('department_id');
+            $user_profile->designation_id = Input::get('designation_id');
             $user_profile->management_level = Input::get('management_level');
             $user_profile->join_date = Input::get('join_date');
             $user_profile->google = Input::get('google');
