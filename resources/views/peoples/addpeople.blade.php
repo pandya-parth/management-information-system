@@ -50,7 +50,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="people in peoples| orderBy:'-id' | filter:q "  ng-show="peoples.length != 0" >
+                        <tr ng-repeat="people in peoples| orderBy:'-id' | filter:q "  ng-show="peoples.length != 0 && selected_users.indexOf(people.id) > -1" >
+                            
                                 <td class="v-align-middle">
                                     <p  ng-cloak>{% people.id %}</p>
                                 </td>
