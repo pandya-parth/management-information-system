@@ -51,6 +51,35 @@
           <div  class="list-view boreded no-top-border">
             <div class="list-view-group-container">
               <ul>
+                @if(Auth::user()->roles == 'admin')
+                @foreach($projects as $project)
+
+
+
+
+                @foreach($companies as $company)
+                        @if($project->client_id == $company->id)
+                          <!-- BEGIN Categories List  !-->
+                          <li class="chat-user categories_p clearfix">
+                            <span><a href="{!! url('/companies',$company->id)!!}">{!! strtoupper($company->name) !!}</a></span>
+                            <span class="pill">{!! DB::table('projects')->where('client_id', $company->id)->groupBy('client_id')->count()!!}</span>
+
+
+
+                <ul>
+                  <li>{!! ucwords($project->name) !!}</li>
+                </ul>
+                @endif
+                @endforeach
+
+
+
+
+
+
+
+                @endforeach
+                @else
                 @foreach($projects as $project)
                   @foreach($project->users as $user)
                     @if($user->id == Auth::user()->id)
@@ -70,6 +99,7 @@
                   @endforeach
                 @endforeach
                 <!-- END Categories List  !-->
+                @endif
               </ul>
             </div>
           </div>

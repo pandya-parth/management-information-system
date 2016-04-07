@@ -49,7 +49,7 @@
         <div class="view company_sidebar">
           <div  class="list-view boreded no-top-border">
             <div class="list-view-group-container">
-              
+          
 
 
 
@@ -76,6 +76,7 @@
                     @endforeach
                 @endforeach
                 <!-- END Categories List  !-->
+                
               </ul>
 
 
