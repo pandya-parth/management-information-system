@@ -65,8 +65,8 @@
                       <div class="checkbox check-success">
                         <input type="checkbox" name="billable" ng-model="logtime.billable" id="k">
                         <label for="k">
-                          <strong>Test 1</strong>
-                          <div class="user_name">Baldev P</div>
+                          <strong>{% milestone.name %}</strong>
+                          <div class="user_name">{% milestone.user_id %}</div>
                         </label>
                       </div>
                       <div class="milestone-tools">

@@ -53,18 +53,22 @@ angular.module 'mis'
 				PostInit: ->
 					angular.element('#filelist').innerHTML = ''
 				FilesAdded: (up, files)->
-					angular.forEach(files, (file)->
-						angular.element('#preview').html('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <img src=tmp/' + file.name + ' class="img-thumbnail img-responsive img-circle" style="width:100px;height:100px;"> (' + plupload.formatSize(file.size) + ') <b></b><a href="javascript:;" id="' + file.id + '" class="removeFile" ng-click="shownoimage()" >Remove</a></div></div>')
-						angular.element('a#' + file.id).on 'click', ->
-							up.removeFile file
-							angular.element('.' + file.id).hide()
-							return
-					)
 					uploader.start()
 				UploadProgress: (up, file)->
-					$scope.people_array.photo = file.name
+					$scope.people_array.photo = file.name				
+
+				UploadComplete: (up, file)->
+					$timeout (->
+						angular.forEach(files, (file)->
+							angular.element('#preview').html('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <img src=tmp/' + file.name + ' class="img-thumbnail img-responsive img-circle" style="width:100px;height:100px;"> (' + plupload.formatSize(file.size) + ') <b></b><a href="javascript:;" id="' + file.id + '" class="removeFile" ng-click="shownoimage()" >Remove</a></div></div>')
+							angular.element('a#' + file.id).on 'click', ->
+								up.removeFile file
+								angular.element('.' + file.id).hide()
+								return
+							)
+					), 1000
 				Error: (up, err)->
-					alert "Error #" + err.code + ": " + err.message
+					alert "Error #" + err.code + ": " + err.message					
 		)
 		uploader.init()
 
@@ -109,6 +113,8 @@ angular.module 'mis'
 				$scope.people_array = {}
 			), 1000
 			return
+
+		
 
 		$scope.clearAll = (form)->
 			$scope.options =

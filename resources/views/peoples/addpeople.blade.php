@@ -46,23 +46,20 @@
                             <tr role='row'>
                                 <th class="sorting">#Id</th>
                                 <th class="sorting">Project Id</th>
-                                <th>Action</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="people in peoples| orderBy:'-id' | filter:q "  ng-show="peoples.length != 0" >
+
+                            <tr ng-repeat="people in peoples| orderBy:'-id' | filter:q "  ng-show="peoples.length != 0 && selected_users.indexOf(people.id) > -1" >
+
                                 <td class="v-align-middle">
                                     <p  ng-cloak>{% people.id %}</p>
                                 </td>
                                 <td class="v-align-middle">
-                                    <p ng-cloak>{% people.project_id %}</p>
+                                    <p ng-cloak>{% people.name %}</p>
                                 </td>
-                                <td class="v-align-middle">
-                                    <p>
-                                        <a  ng-click="editAddPeople(people.id)">Edit</a>
-                                        <a  ng-click="deleteAddPeople(people.id)">Delete</a>
-                                    </p>
-                                </td>
+                                
                             </tr>
                         </tbody>
                     </table>
@@ -116,7 +113,7 @@
             <!-- /.modal-content -->
             <div class="modal-footer">
                 <button  type="button" class="btn btn-primary  btn-cons" ng-click="addPeopleToProject()">Add</button>
-                <button type="button" class="btn btn-cons" id="close">Close</button>
+                <button type="button" class="btn btn-cons" id="close" ng-click="clearPeople(addPeople)">Close</button>
             </div>
         </form>
     </div>

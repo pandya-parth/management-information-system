@@ -79,7 +79,7 @@
                                 @if(Auth::user()->roles == "admin")
                                 <div class="datas people_action">
                                     <a class="btn btn-success btn-sm" ng-click="editCompany(company.id)" ><i class="fa fa-edit"></i></a>
-                                    <a href="{!!url('/companies/{%company.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a>
+                                    <!-- <a href="{!!url('/companies/{%company.id%}')!!}" class="btn btn-success btn-sm"><i class="fa fa-eye"></i></a> -->
                                     <a class="btn btn-success btn-sm" ng-click="deleteCompany(company.id)" ><i class="fa fa-trash"></i></a>
                                 </div>
                                 @endif
