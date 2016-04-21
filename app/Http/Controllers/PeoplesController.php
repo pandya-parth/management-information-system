@@ -60,105 +60,107 @@ class PeoplesController extends Controller
      */
 
     public function store(Request $request)
-    {
-
+    {       
+            $data = Input::get('user_detail');
             $pass=str_random(8);
             $user = new User;
-            $user->email = Input::get('email');
+            $user->email = $data['email'];
             $user->password = Hash::make($pass);
+            $user->role = 'employee';
             $user->active = true;
             $user->save();
 
             
-            Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)], function($message) {
-                            $message->to(Input::get('email'));
-                            $message->subject('Thank You');
-            });
+            // Mail::send('auth.emails.user_activation', ['user_info'=>array($user->email,$pass)], function($message) {
+            //                 $message->to(Input::get('email'));
+            //                 $message->subject('Thank You');
+            // });
 
             $user_profile = new People;
             $user_profile->user_id = $user->id;
-            $user_profile->fname = Input::get('fname');
-            $user_profile->lname = Input::get('lname');
-            $user_profile->mobile = Input::get('mobile');
-            $user_profile->phone = Input::get('phone');
-            $user_profile->dob = Input::get('dob');
-            $user_profile->photo = Input::get('photo');
-            $user_profile->marital_status = Input::get('marital_status');
-            $user_profile->gender = Input::get('gender');
-            $user_profile->adrs1 = Input::get('adrs1');
-            $user_profile->adrs2 = Input::get('adrs2');
-            $user_profile->city = Input::get('city');
-            $user_profile->state = Input::get('state');
-            $user_profile->country = Input::get('country');
-            $user_profile->pan_number = Input::get('pan_number');
-            $user_profile->department_id = Input::get('department_id');
-            $user_profile->designation_id = Input::get('designation_id');
-            $user_profile->management_level = Input::get('management_level');
-            $user_profile->join_date = Input::get('join_date');
-            $user_profile->google = Input::get('google');
-            $user_profile->facebook = Input::get('facebook');
-            $user_profile->skype = Input::get('skype');
-            $user_profile->linkedin = Input::get('linkedin');
-            $user_profile->twitter = Input::get('twitter');
-            $user_profile->website = Input::get('website');
-            $user_profile->save(Input::except(['user','email','education','experience']));
+            $user_profile->fname = $data['fname'] ? $data['fname'] : NULL;
+            $user_profile->lname = $data['lname'] ? $data['lname'] : NULL;
+            $user_profile->mobile = $data['mobile'] ? $data['mobile'] : NULL;
+            $user_profile->phone = $data['phone'] ? $data['phone'] : NULL;
+            $user_profile->dob = isset($data['dob']) ? $data['dob'] : NULL;
+            $user_profile->photo = isset($data['photo']) ? $data['photo'] : NULL;
+            $user_profile->marital_status = '';
+            $user_profile->gender = isset($data['gender']) ? $data['gender'] : NULL;
+            $user_profile->adrs1 = isset($data['adrs1']) ? $data['adrs1'] : NULL;
+            $user_profile->adrs2 = isset($data['adrs2']) ? $data['adrs2'] : NULL;
+            $user_profile->city = isset($data['city']) ? $data['city'] : NULL;
+            $user_profile->state = isset($data['state']) ? $data['state'] : NULL;
+            $user_profile->zipcode = isset($data['zipcode']) ? $data['zipcode'] : NULL;
+            $user_profile->country = isset($data['country']) ? $data['country'] : NULL;
+            $user_profile->pan_number = isset($data['pan_number']) ? $data['pan_number'] : NULL;
+            $user_profile->department_id = isset($data['department_id']) ? $data['department_id'] : NULL;
+            $user_profile->designation_id = isset($data['designation_id']) ? $data['designation_id'] : NULL;
+            $user_profile->management_level = isset($data['management_level']) ? $data['management_level'] : NULL;
+            $user_profile->join_date = isset($data['join_date']) ? $data['join_date'] : NULL;
+            $user_profile->google = isset($data['google']) ? $data['google'] : NULL;
+            $user_profile->facebook = isset($data['facebook']) ? $data['facebook'] : NULL;
+            $user_profile->skype = isset($data['skype']) ? $data['skype'] : NULL;
+            $user_profile->linkedin = isset($data['linkedin']) ? $data['linkedin'] : NULL;
+            $user_profile->twitter = isset($data['twitter']) ? $data['twitter'] : NULL;
+            $user_profile->website = isset($data['website']) ? $data['website'] : NULL;
+            $user_profile->save(Input::except(['user','email','educations','experiences']));
             
-            $educations = Input::get('education');
+            $educations = Input::get('educations');
             if (is_array($educations) || is_object($educations))
-{
+                {
                  foreach($educations as $e)
-                 {
-                    if($e['id']=='')
                     {
-                        $education = new UserEducation();
-                        $education->user_id = $user->id;
-                        $education->qualification = $e['qualification'];
-                        $education->college = $e['college'];
-                        $education->university = $e['university'];
-                        $education->passing_year = $e['passing_year'];
-                        $education->percentage = $e['percentage'];
-                        $education->save();
+                        if($e['id']=='')
+                        {
+                            $education = new UserEducation();
+                            $education->user_id = $user->id;
+                            $education->qualification = $e['qualification'];
+                            $education->college = $e['college'];
+                            $education->university = $e['university'];
+                            $education->passing_year = $e['passing_year'];
+                            $education->percentage = $e['percentage'];
+                            $education->save();
+                        }
+                        else
+                        {  
+                            $education = UserEducation::find($e['id']);
+                            $education->qualification = $e['qualification'];
+                            $education->college = $e['college'];
+                            $education->university = $e['university'];
+                            $education->passing_year = $e['passing_year'];
+                            $education->percentage = $e['percentage'];
+                            $education->save();
+                        }
                     }
-                    else
-                    {  
-                        $education = UserEducation::find($e['id']);
-                        $education->qualification = $e['qualification'];
-                        $education->college = $e['college'];
-                        $education->university = $e['university'];
-                        $education->passing_year = $e['passing_year'];
-                        $education->percentage = $e['percentage'];
-                        $education->save();
-                    }
-                 }
-}
-            $experiences=Input::get('experience');
+                }
+            $experiences=Input::get('experiences');
             if (is_array($experiences) || is_object($experiences))
-{
+                {
                  foreach($experiences as $e)
-                 {
-                    if($e['id']=='')
                     {
-                        $experience = new UserExperience();
-                        $experience->user_id=$user->id;
-                        $experience->company_name = $e['company_name'];
-                        $experience->from = $e['from'];
-                        $experience->to = $e['to'];
-                        $experience->salary = $e['salary'];
-                        $experience->reason = $e['reason'];
-                        $experience->save();
+                        if($e['id']=='')
+                        {
+                            $experience = new UserExperience();
+                            $experience->user_id=$user->id;
+                            $experience->company_name = $e['company_name'];
+                            $experience->from = $e['from'];
+                            $experience->to = $e['to'];
+                            $experience->salary = $e['salary'];
+                            $experience->reason = $e['reason'];
+                            $experience->save();
+                        }
+                        else
+                        {
+                            $experience=UserExperience::find($e['id']);
+                            $experience->company_name = $e['company_name'];
+                            $experience->from = $e['from'];
+                            $experience->to = $e['to'];
+                            $experience->salary = $e['salary'];
+                            $experience->reason = $e['reason'];
+                            $experience->save();
+                        }
                     }
-                    else
-                    {
-                        $experience=UserExperience::find($e['id']);
-                        $experience->company_name = $e['company_name'];
-                        $experience->from = $e['from'];
-                        $experience->to = $e['to'];
-                        $experience->salary = $e['salary'];
-                        $experience->reason = $e['reason'];
-                        $experience->save();
-                    }
-                 }
-            }
+                }
             return response()->json(['success'=>true]);
     }
 
@@ -215,9 +217,35 @@ class PeoplesController extends Controller
 
     public function update(Request $request, $id)
     {
+         $data = Input::get('user_detail');
          $people = People::findOrFail($id);
-         $people->update(Input::except(['user','email','education','experience']));
-         $educations = Input::get('education');
+         $people->fname = $data['fname'] ? $data['fname'] : NULL;
+         $people->lname = $data['lname'] ? $data['lname'] : NULL;
+         $people->mobile = $data['mobile'] ? $data['mobile'] : NULL;
+         $people->phone = $data['phone'] ? $data['phone'] : NULL;
+         $people->dob = isset($data['dob']) ? $data['dob'] : NULL;
+         $people->photo = isset($data['photo']) ? $data['photo'] : NULL;
+         $people->marital_status = '';
+         $people->gender = isset($data['gender']) ? $data['gender'] : NULL;
+         $people->adrs1 = isset($data['adrs1']) ? $data['adrs1'] : NULL;
+         $people->adrs2 = isset($data['adrs2']) ? $data['adrs2'] : NULL;
+         $people->city = isset($data['city']) ? $data['city'] : NULL;
+         $people->state = isset($data['state']) ? $data['state'] : NULL;
+         $people->zipcode = isset($data['zipcode']) && !empty($data['zipcode']) ? $data['zipcode'] : NULL;
+         $people->country = isset($data['country']) ? $data['country'] : NULL;
+         $people->pan_number = isset($data['pan_number']) ? $data['pan_number'] : NULL;
+         $people->department_id = isset($data['department_id']) && !empty($data['department_id']) ? $data['department_id'] : NULL;
+         $people->designation_id = isset($data['designation_id']) && !empty($data['designation_id']) ? $data['designation_id'] : NULL;
+         $people->management_level = isset($data['management_level']) && !empty($data['management_level']) ? $data['management_level'] : NULL;
+         $people->join_date = isset($data['join_date']) ? $data['join_date'] : NULL;
+         $people->google = isset($data['google']) ? $data['google'] : NULL;
+         $people->facebook = isset($data['facebook']) ? $data['facebook'] : NULL;
+         $people->skype = isset($data['skype']) ? $data['skype'] : NULL;
+         $people->linkedin = isset($data['linkedin']) ? $data['linkedin'] : NULL;
+         $people->twitter = isset($data['twitter']) ? $data['twitter'] : NULL;
+         $people->website = isset($data['website']) ? $data['website'] : NULL;
+         $people->save();
+         $educations = Input::get('educations');
          if (is_array($educations) || is_object($educations))
             {
                  foreach($educations as $e)
@@ -245,7 +273,7 @@ class PeoplesController extends Controller
                     }
                  }
             }
-         $experiences=Input::get('experience');
+         $experiences=Input::get('experiences');
          if (is_array($experiences) || is_object($experiences))
             {
                 foreach($experiences as $e)

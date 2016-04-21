@@ -7,39 +7,16 @@ angular.module 'mis'
 		currentUrl = $window.location.href
 		pId = currentUrl.split('/')[4]||"Undefined"
 		$scope.Pro_Id = pId
-		$scope.educations = [
-			qualification: ''
-			collage: ''
-			university: ''
-			passing_year: ''
-			percentage: ''
-		]
-		$scope.experiences = [
-			company_name: ''
-			from: ''
-			to: ''
-			salary: ''
-			reason: ''
-		]
+		angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
+		$scope.educations = [{}]
+		$scope.experiences = [{}]
 
 		$scope.newItem = ($event) ->
-			$scope.educations.push(
-				qualification: ''
-				collage: ''
-				university: ''
-				passing_year: ''
-				percentage: ''
-			)
+			$scope.educations.push({})
 			$event.preventDefault()
 
 		$scope.nextItem = ($event) ->
-			$scope.experiences.push(
-				company_name: ''
-				from: ''
-				to: ''
-				salary: ''
-				reason: ''
-			)
+			$scope.experiences.push({})
 			$event.preventDefault()
 
 		uploader = new (plupload.Uploader)(
@@ -57,7 +34,7 @@ angular.module 'mis'
 				UploadProgress: (up, file)->
 					$scope.people_array.photo = file.name				
 
-				UploadComplete: (up, file)->
+				UploadComplete: (up, files)->
 					$timeout (->
 						angular.forEach(files, (file)->
 							angular.element('#preview').html('<div id="fileadded" class="'+file.id+'"><div id="' + file.id + '"> <img src=tmp/' + file.name + ' class="img-thumbnail img-responsive img-circle" style="width:100px;height:100px;"> (' + plupload.formatSize(file.size) + ') <b></b><a href="javascript:;" id="' + file.id + '" class="removeFile" ng-click="shownoimage()" >Remove</a></div></div>')
@@ -111,6 +88,9 @@ angular.module 'mis'
 				$scope.submitted = false
 				$scope.edit = false
 				$scope.people_array = {}
+				$scope.people_array.email = ''
+				$scope.educations = {}
+				$scope.experiences
 			), 1000
 			return
 
@@ -140,7 +120,10 @@ angular.module 'mis'
 					angular.element('#addNewAppModal').modal('hide')
 					$scope.submitted = false
 					$scope.edit = false
-					$scope.people_array = {}	
+					$scope.people_array = {}
+					$scope.people_array.email = ''
+					$scope.educations = {}
+					$scope.experiences	
 					myEl = angular.element(document.querySelector('#fileadded'))
 					myEl.remove()
 					angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
@@ -181,7 +164,7 @@ angular.module 'mis'
 				$scope.loading = true
 
 			if $scope.edit == false
-				PEOPLE.save($scope.people_array).success (data)->
+				PEOPLE.save($scope.people_array, $scope.educations, $scope.experiences).success (data)->
 					$scope.submitted = false
 					$scope.people_array = {}
 					myEl = angular.element(document.querySelector('#fileadded'))
@@ -199,7 +182,7 @@ angular.module 'mis'
 						$scope.peoples = getData
 						$scope.loading = false
 			else
-				PEOPLE.update($scope.people_array).success (data)->
+				PEOPLE.update($scope.people_array, $scope.educations, $scope.experiences).success (data)->
 					$scope.submitted = false
 					$scope.edit = false
 					$scope.people_array = {}
@@ -233,6 +216,10 @@ angular.module 'mis'
 
 		$scope.editPeople = (id)->
 			PEOPLE.edit(id).success (data)->
+				if data[0].photo == undefined || data[0].photo == null || data[0].photo == ''
+					angular.element('#preview').html("<img src='img/noPhoto.png' style='height:100px;width:100px;'>")
+				else
+					angular.element('#preview').html('<div id="fileadded" class="'+data[0].id+'"><div id="' + data[0].id + '"> <img src=/uploads/people/' + data[0].photo + ' class="img-thumbnail img-responsive img-circle" style="width:100px;height:100px;"></div></div>')
 				$scope.edit = true
 				$scope.people_array = data[0]
 				$scope.people_array.email = data[1]
@@ -241,7 +228,7 @@ angular.module 'mis'
 				angular.element('#addNewAppModal').modal('show')
 
 		$scope.removeEducationClone = (education)->
-			index = $scope.educations.indexOf(education); 
+			index = $scope.educations.indexOf(education)
 			$scope.educations.splice(index, 1)
 
 		$scope.removeEducation = (education)->
@@ -267,7 +254,6 @@ angular.module 'mis'
 				PEOPLE.destroyEducation(education.id).success (data)->
 					index = $scope.educations.indexOf(education); 
 					$scope.educations.splice(index, 1)
-					$scope.people_array.education = $scope.educations
 					angular.element('body').pgNotification(
 						style: 'flip'
 						message: 'Education deleted successfully.'
@@ -299,7 +285,6 @@ angular.module 'mis'
 				PEOPLE.destroyExperience(id).success (data)->
 					index = $scope.experiences.indexOf(id);
 					$scope.experiences.splice(index, 1)
-					$scope.people_array.experience = $scope.experiences
 					angular.element('body').pgNotification(
 						style: 'flip'
 						message: 'Experience deleted successfully.'

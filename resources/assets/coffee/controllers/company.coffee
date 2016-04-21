@@ -156,6 +156,10 @@ angular.module 'mis'
 
 		$scope.editCompany = (id)->
 			company.edit(id).success (data)->
+				if data.logo == undefined || data.logo == null || data.logo == ''
+					angular.element('#preview').html("<img src='img/noPhoto.png' style='height:100px;width:100px;'>")
+				else
+					angular.element('#preview').html('<div id="fileadded" class="'+data.id+'"><div id="' + data.id + '"> <img src=/uploads/company/' + data.logo + ' class="img-thumbnail img-responsive img-circle" style="width:100px;height:100px;"></div></div>')
 				$scope.edit = true
 				$scope.company = data
 				angular.element('#addNewAppModal').modal('show')

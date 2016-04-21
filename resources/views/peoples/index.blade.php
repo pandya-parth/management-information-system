@@ -124,7 +124,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header clearfix ">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="clearAll()"><i class="pg-close fs-14"></i>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancelAll()"><i class="pg-close fs-14"></i>
                     </button>
                     <h4 class="p-b-5"><h4 ng-bind="edit==false ? 'Add New People' : 'Edit People'"></h4></h4>
                 </div>
@@ -159,7 +159,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group form-group-default">
                                             <label>Email</label>
-                                            <input type="text" name="email" class="form-control" placeholder="Email" ng-model='people_array.email' required ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'>
+                                            <input type="text" name="email" ng-model='people_array.email' class="form-control" placeholder="Email" required ng-pattern='/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/'>
                                             <span class="error" ng-show="submitted && people.email.$error.required">* Please enter Email </span>
                                             <span class="error" ng-show="submitted && people.email.$error.pattern">* Please enter valid email</span>
                                         </div>
@@ -372,15 +372,15 @@
                                 <div class="form-group form-group-default">
 
                                     <label>Qualification</label>
-                                    <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-init="people_array.education[$index].qualification = education.qualification" ng-model="people_array.education[$index].qualification" >
-                                    <input type="hidden" name="id" class="form-control"  ng-init="people_array.education[$index].id = education.id" >
+                                    <input type="text" name="qualification" class="form-control" placeholder="Qualification" ng-init="educations[$index].qualification = education.qualification" ng-model="educations[$index].qualification" >
+                                    <input type="hidden" name="id" class="form-control"  ng-init="educations[$index].id = education.id" ng-model="educations[$index].id">
                                     
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group form-group-default">
                                     <label>College</label>
-                                    <input type="text" name="college" class="form-control" placeholder="College" ng-init="people_array.education[$index].college = education.college" ng-model="people_array.education[$index].college" >
+                                    <input type="text" name="college" class="form-control" placeholder="College" ng-init="educations[$index].college = education.college" ng-model="educations[$index].college" >
                                 </div>
                             </div>
                         </div>
@@ -388,24 +388,24 @@
                             <div class="col-sm-3">
                                 <div class="form-group form-group-default">
                                     <label>University</label>
-                                    <input type="text" name="university" class="form-control" placeholder="University" ng-init="people_array.education[$index].university = education.university" ng-model="people_array.education[$index].university" >
+                                    <input type="text" name="university" class="form-control" placeholder="University" ng-init="educations[$index].university = education.university" ng-model="educations[$index].university" >
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group form-group-default">
                                     <label>Passing Year</label>
-                                    <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-init="people_array.education[$index].passing_year = education.passing_year" ng-model="people_array.education[$index].passing_year" >
+                                    <input type="text" name="passing_year" class="form-control" placeholder="Passing Year" ng-init="educations[$index].passing_year = education.passing_year" ng-model="educations[$index].passing_year" >
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group form-group-default">
                                     <label>Percentage / Grade</label>
-                                    <input type="text" name="percentage" class="form-control" placeholder="Percentage / Grade" ng-init="people_array.education[$index].percentage = education.percentage" ng-model="people_array.education[$index].percentage" >
+                                    <input type="text" name="percentage" class="form-control" placeholder="Percentage / Grade" ng-init="educations[$index].percentage = education.percentage" ng-model="educations[$index].percentage" >
                                 </div>
                             </div>
                             <div class="col-sm-3">
                                 <div class="form-group">
-                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && !education.id" ng-click="removeEducationClone(education);">REMOVE</a>
+                                    <a class="btn btn-danger" tooltip="Delete" ng-if="!$first && !education.id" ng-click="removeEducationClone(education)">REMOVE</a>
                                     <a class="btn btn-danger" tooltip="Delete" ng-if="education.id" ng-click="removeEducation(education);">REMOVE</a>
                                 </div>
                             </div>
@@ -425,15 +425,15 @@
                             <div class="col-sm-4">
                             <div class="form-group form-group-default">
                                 <label>Company Name</label>
-                                <input type="text" name="company_name" class="form-control" placeholder="Company Name" ng-init="people_array.experience[$index].company_name = experience.company_name" ng-model="people_array.experience[$index].company_name">
-                                <input type="hidden" name="id" ng-init="people_array.experience[$index].id = experience.id" ng-model="people_array.experience[$index].id">
+                                <input type="text" name="company_name" class="form-control" placeholder="Company Name" ng-init="experiences[$index].company_name = experience.company_name" ng-model="experiences[$index].company_name">
+                                <input type="hidden" name="id" ng-init="experiences[$index].id = experience.id" ng-model="experiences[$index].id">
                             </div>
                         </div>
                         <div class="col-sm-4">
                           <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
                             <div class="form-group custom-datepicker form-group-default input-group col-md-12">
                                 <label>From</label>
-                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-init="people_array.experience[$index].from = experience.from" ng-model="people_array.experience[$index].from">
+                                <input type="text" name="form" class="form-control" placeholder="Pick a date" id="people_from" ng-init="experiences[$index].from = experience.from" ng-model="experiences[$index].from">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                           </div>
@@ -442,7 +442,7 @@
                           <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
                             <div class="form-group custom-datepicker form-group-default input-group col-md-12">
                                 <label>To</label>
-                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-init="people_array.experience[$index].to = experience.to" ng-model="people_array.experience[$index].to">
+                                <input type="text" name="to" class="form-control" placeholder="Pick a date" id="people_to" ng-init="experiences[$index].to = experience.to" ng-model="experiences[$index].to">
                                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                             </div>
                           </div>
@@ -452,13 +452,13 @@
                             <div class="col-sm-4">
                             <div class="form-group form-group-default">
                                 <label>Salary</label>
-                                <input type="text" name="salary" class="form-control" placeholder="Salary" ng-init="people_array.experience[$index].salary = experience.salary" ng-model="people_array.experience[$index].salary" >
+                                <input type="text" name="salary" class="form-control" placeholder="Salary" ng-init="experiences[$index].salary = experience.salary" ng-model="experiences[$index].salary" >
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group form-group-default">
                                 <label>Reason </label>
-                                <input type="text" name="reason" class="form-control" placeholder="Reason for leaving previous job" ng-init="people_array.experience[$index].reason = experience.reason" ng-model="people_array.experience[$index].reason" >
+                                <input type="text" name="reason" class="form-control" placeholder="Reason for leaving previous job" ng-init="experiences[$index].reason = experience.reason" ng-model="experiences[$index].reason" >
                             </div>
                         </div>
                             <div class="col-sm-3">
@@ -537,7 +537,7 @@
         </div>
         <div class="modal-footer">
             <button id="add-app" type="button" class="btn btn-primary  btn-cons" ng-click="submit(people)" ng-bind="edit==false ? 'Add' : 'Edit'"></button>
-            <button type="button" class="btn btn-cons" id="close"  ng-click="cancelPeople(people)">
+            <button type="button" class="btn btn-cons" id="close"  ng-click="clearAll(people)">
                 Close
             </button>
         </div>
