@@ -1,5 +1,6 @@
 angular.module 'mis'
 	.controller 'companyCtrl', ($scope, company, $timeout,prompt)->
+		$scope.company = {}
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.edit = false
@@ -126,6 +127,7 @@ angular.module 'mis'
 					$scope.submitted = false
 					$scope.edit = false
 					$scope.company = {}
+					angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")
 					angular.element('#addNewAppModal').modal('hide')
 					$timeout (->
 						angular.element('body').pgNotification(

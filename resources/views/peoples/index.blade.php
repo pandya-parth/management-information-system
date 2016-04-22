@@ -188,14 +188,14 @@
                                     <div class="col-md-4 ">
                                       <div class="datepicker" date-format="yyyy-MM-dd" selector="form-control">
                                         <div class="form-group custom-datepicker form-group-default input-group col-md-12">
-                                          <label>Date Of Birth</label>
-                                            <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model='people_array.dob' >
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                          </div>
+                                            <label>Date of Birth</label>
+                                            <input type="text" name="dob" class="form-control" placeholder="Pick a date" id="birth-date" ng-model="people_array.dob">
+                                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
                                         </div>
                                     </div>
+                                    </div>
+
+
                                     <div class="col-md-4">
                                         <label>Gender </label>
                                         <div class="radio radio-success" ng-init="people_array.gender='male'">
