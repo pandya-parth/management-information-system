@@ -4,6 +4,7 @@ angular.module 'mis'
 		$scope.loading = true
 		$scope.currentPage = 1
 		$scope.edit = false
+		$scope.formError = 0
 
 		uploader = new (plupload.Uploader)(
 				runtimes : 'html5,flash,silverlight,html4'
@@ -98,6 +99,12 @@ angular.module 'mis'
 		$scope.submit = (form)->
 			$scope.loading = true
 			$scope.submitted = true
+			errors = form.$error
+			angular.forEach errors, (val)->
+				if angular.isArray(val)
+					$scope.formError += val.length
+				return
+
 			if form.$invalid
 				$scope.loading = false
 				return
@@ -107,6 +114,7 @@ angular.module 'mis'
 			if $scope.edit == false
 				company.save($scope.company).success (data)->
 					$scope.submitted = false
+					$scope.formError = 0
 					$scope.company = {}
 					myEl = angular.element(document.querySelector('#fileadded'))
 					myEl.remove()
@@ -125,6 +133,7 @@ angular.module 'mis'
 			else
 				company.update($scope.company).success (data)->
 					$scope.submitted = false
+					$scope.formError = 0
 					$scope.edit = false
 					$scope.company = {}
 					angular.element('#preview').html("<img src='img/noPhoto.png'  style='height:100px;width:100px;'>")

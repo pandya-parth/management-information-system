@@ -113,6 +113,7 @@
                 </button>
                 <h4 class="p-b-5" ng-bind="edit==false ? 'Add New Company' : 'Edit Company'">
                 </div>
+                <div class="alert alert-danger" ng-show="formError > 0"><span><center>Please provide required information.</center></span></div>
                 <form name="Companies" class='p-t-15 country' role='form' novalidate>
                     <div class="modal-body">
                         <ul class="nav nav-tabs nav-tabs-fillup">
