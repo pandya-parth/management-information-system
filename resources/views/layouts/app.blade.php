@@ -27,7 +27,7 @@
     }
     </script>
 </head>
-<body ng-controller="BodyCtrl" class="fixed-header" id="app-layout">
+<body ng-controller="BodyCtrl" class="fixed-header" id="app-layout" oncontextmenu="return false">
 
 
 
